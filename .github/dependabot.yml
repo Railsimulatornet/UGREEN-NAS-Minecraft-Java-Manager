@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '08:00'
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: Python-Abhängigkeiten aktualisieren
+    groups:
+      python:
+        patterns: ['*']
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '08:00'
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: Basisimages aktualisieren
+    groups:
+      basisimages:
+        patterns: ['*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '08:00'
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: Workflow-Abhängigkeiten aktualisieren
+    groups:
+      workflows:
+        patterns: ['*']

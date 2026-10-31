@@ -1,0 +1,14 @@
+MCJ Manager / Minecraft Java · UGREEN NAS
+© 2026 Roman Glos
+
+Projektkennzeichnung / Project attribution: Roman Glos.
+Drittanbieter-Komponenten, Mods, Shader, Bibliotheken und Marken behalten ihre
+jeweiligen Lizenzen und Urheberhinweise. Diese Projektkennzeichnung ersetzt sie nicht.
+Third-party components, mods, shaders, libraries and trademarks retain their
+respective licenses and copyright notices. This project attribution does not replace them.
+
+Eigenständiges Projekt; keine offizielle Software von UGREEN, Mojang oder Microsoft.
+Independent project; not official software from UGREEN, Mojang or Microsoft.
+
+Lizenztexte und Hinweise mitgelieferter Client-Anpassungen: MCJ-LICENSES.
+License texts and notices for bundled client modifications: MCJ-LICENSES.

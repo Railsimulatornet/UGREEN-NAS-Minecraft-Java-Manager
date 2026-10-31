@@ -1,0 +1,11 @@
+{
+  "root": "/volume1/docker/minecraftjava",
+  "backup_root": "/volume1/Backups/MinecraftJava",
+  "origin": "https://minecraft.example.de",
+  "username": "Admin",
+  "email": "admin@example.de",
+  "accept_eula": false,
+  "trusted_proxies": "",
+  "local_networks": "",
+  "game_bind_address": "127.0.0.1"
+}

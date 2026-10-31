@@ -1,0 +1,23 @@
+name: Docker-Image-Inventar
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    if: github.repository == 'Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Tags und Digests ausschließlich lesen
+        env:
+          REGISTRY_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          REGISTRY_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: python3 .github/scripts/registry_inventory.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: registry-inventory
+          path: /tmp/registry-inventory.json
+          retention-days: 14
+          if-no-files-found: error

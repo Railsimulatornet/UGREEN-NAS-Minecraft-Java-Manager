@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.romanglos.mcj.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "GuardInteractionMixin",
+    "GuardLoginMixin",
+    "GuardPlayerListMixin",
+    "GuardPacketMixin",
+    "GuardPayloadMixin",
+    "GuardInventoryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "schema": "mcj-bounded-guard-acceptance/v1",
+  "id": "guard-1.0.5-neoforge-fixed-scope-20261031",
+  "date": "2026-10-31",
+  "baseline_program_revision": "ed81569bb47743f9b14bdc5b82d52fb8bc99c254",
+  "baseline_image_config_id": "sha256:0daf2c2246dc242bf45c732024cf957bc37663cbf26ffa8753dbded622c1d705",
+  "decision": "accepted_for_exact_configurations_and_mod_inventory",
+  "configurations": [
+    {
+      "minecraft": "26.3",
+      "loader": "NEOFORGE",
+      "loader_version": "26.3.0.99",
+      "java": 25,
+      "guard_version": "1.0.5",
+      "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+      "guard_filename": "mcj-guard-neoforge-1.0.5.jar",
+      "default_role": "visitor",
+      "gamemode": "spectator",
+      "operator": false,
+      "mods": [
+        {
+          "filename": "cameramonitoring-neoforge-26.3-1.5.3.jar",
+          "sha256": "46a5cbc036d696032a514996f7f29564442f3ab2bf9dbdc2523f3139550d35a8"
+        },
+        {
+          "filename": "carryon-neoforge-26.3-2.12.0-mcj.1.jar",
+          "sha256": "0b03470f4d923aa8a5919cb0f4dcd2744d1239cfc91a7611f744ef5e87b79bea"
+        },
+        {
+          "filename": "create-adapted-26.3-1.31-public-external-assets.jar",
+          "sha256": "4e8684618edeedae5dbfbe5ec8ba05d57c8c251cb34beb69160f53cbd97b4099"
+        },
+        {
+          "filename": "createaddition-26.3-1.7.0-adapted-0.17.jar",
+          "sha256": "83b5257c4538b9db482e3d07a2fc9e96c9469d464455ffb3d552ff9c04a52e34"
+        },
+        {
+          "filename": "dynamiclights-26.3.3NF.jar",
+          "sha256": "fdb378c9bf1c86296b70a1a92116dd68571420a203898fc029b545ccb718a6cc"
+        },
+        {
+          "filename": "elytratrims-neoforge-4.9.1+26.3.jar",
+          "sha256": "250ce37331bf759ed0151e79849973af9e56759d63971499d230b82c5e1dd90d"
+        },
+        {
+          "filename": "immersive_aircraft-neoforge-1.4.12+26.3-unofficial.jar",
+          "sha256": "899fd828decd09dea2d8abf8e05dbbc4580cbc275f6d78330cf089860e82d6fa"
+        },
+        {
+          "filename": "jei-26.3-neoforge-31.14.0.72.jar",
+          "sha256": "e57c6136045fc6442a1925fb3bc3cc504dee86d660dc909aed6d9112140c37a7"
+        },
+        {
+          "filename": "mcj-create-transfer-fix-1.0.0-neoforge-26.3.jar",
+          "sha256": "0af61ea98a9ea8ca8f35dd18e08d82b6e7e7e127579859db19049057e9448540"
+        },
+        {
+          "filename": "mcj-guard-neoforge-1.0.5.jar",
+          "sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c"
+        },
+        {
+          "filename": "sophisticatedbackpacks-26.3-3.26.15.2225.jar",
+          "sha256": "7c7f3092aaf327b6fc42fffdd8961659c7b1bf84bb491fc05f42dd2f29d47ab3"
+        },
+        {
+          "filename": "sophisticatedcore-26.3-1.5.19.2429.jar",
+          "sha256": "fef91b62ad086d1a1c0782a4a4546ba1481ab6894e3e9eaefee10bbf8a44fe34"
+        },
+        {
+          "filename": "voicechat-neoforge-2.6.26+26.3.jar",
+          "sha256": "f54fc7b6fdb99f86a0da8e7f39d4f11efdbb5980b92a7cd85cffaedf61f3404d"
+        },
+        {
+          "filename": "xaerominimap-neoforge-26.3-26.6.2.jar",
+          "sha256": "6d6d41941df8aec26381cd628742aa15e823b18775e4c56683314597b68ff873"
+        }
+      ],
+      "client_cases": [
+        {
+          "id": "backpack-263",
+          "result": "passed",
+          "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Positiv-Nachher.json",
+              "sha256": "3cd99e33681cd1223381fddb1cbca5e473efa2cd15373d0ca8def4350429d0d0"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Entzug-Menu-Offen.json",
+              "sha256": "effb39e5d10e63b8f5d653f046f08bffd5ef7e16efc9af24fa1e22841b1e9487"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Besucher-Nach-Transfer-Versuch.json",
+              "sha256": "cbc005adee3739aa233318429c0add924eebc757095fc2415535c902a6c59dd1"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Besucher-Nach-Neuverbinden.json",
+              "sha256": "dced16c18c52268cb4c40b41cc1d22e1ee73f93a72fc980c4bc0d030db20e484"
+            },
+            {
+              "file": "Abnahme-20261031-Backpack-Speicher-Nach-Besucherversuch.json",
+              "sha256": "ac12e0b9e43e2720a0a60f6196d16bec79ad27d9275efa0bf7a93a320e8b592e"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Einlagern-Positiv-Zugang.json",
+              "sha256": "01f8f635b877016d4247d6ffcc47b576562346ab2278e8b92dea6c53cef362c9"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Einlagern-Entzug-Menu-Offen.json",
+              "sha256": "ad365a9142efe04af0848113ec27b8c14be38f3c6f42621c2fdbb8b22935f9dd"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Backpack-Einlagern-Besucher-Nachher.json",
+              "sha256": "32e7ef10c3e868a7ca8ec712af942841fb1c7c39ba6acbb15006d51dacd7903b"
+            },
+            {
+              "file": "Abnahme-20261031-Backpack-Speicher-Nach-Einlagerversuch.json",
+              "sha256": "8a92d5fd4ff2c327c50e438ed83cad492802fdb5c5a106b06ec7c3113c383178"
+            }
+          ],
+          "game_image_config_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "java_build": "Temurin 25.0.4.1+1"
+        },
+        {
+          "id": "create-gearbox",
+          "result": "passed",
+          "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Create-Getriebe-Positiv.json",
+              "sha256": "5c2f6e6d48e3c1297f70e3135d5c9b118813b355ff5819ac0069d2fd832222a7"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Create-Getriebe-Rechteentzug.json",
+              "sha256": "cbc2ce490f38a63d1c5355e312acb46b08652116d75f2f51ee7c2919fdd0226b"
+            },
+            {
+              "file": "Abnahme-20261031-Create-Getriebe-Besucher.json",
+              "sha256": "5c2f6e6d48e3c1297f70e3135d5c9b118813b355ff5819ac0069d2fd832222a7"
+            }
+          ],
+          "game_image_config_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "java_build": "Temurin 25.0.4.1+1"
+        },
+        {
+          "id": "camera-station",
+          "result": "passed",
+          "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Camera-Spielerplatzierung-Vorbereitung.json",
+              "sha256": "fa27afaf2995ab38900f75c436a4b9688f62ba730c7390f93976639cf99303ff"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Camera-Spielerplatzierung-Nachher.json",
+              "sha256": "70b44b3ba9617b5676332147d36efcbd212c038e7fb0698d5b54dc583cb7b8d6"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Camera-Station-Rechteentzug.json",
+              "sha256": "83dc00d75a29ae85b2161c4d0cdc3b471f1ffb6c0b1bba697f24326bae7e2f4d"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Camera-Station-Besucher-Nachher.json",
+              "sha256": "fa80900b20c477c35e754227f21852a07c44346231cddefba5af7ad44778682a"
+            }
+          ],
+          "game_image_config_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "java_build": "Temurin 25.0.4.1+1"
+        },
+        {
+          "id": "aircraft-mount",
+          "result": "passed",
+          "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Aircraft-Positiv-Fahrzeugbezug.json",
+              "sha256": "c59de2b012c3366862ae8001325b3ecca1d7563bb5d5e013d341db2b6450f5e7"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Aircraft-Rechteentzug.json",
+              "sha256": "6d2b51501ee68676b700761b8f0b84b967cfc51e3afe01d8325567d7f458d4df"
+            },
+            {
+              "file": "Abnahme-20261031-Aircraft-Besucher-Fahrzeugbezug.json",
+              "sha256": "133aea664f6b89b32bba1e73acbaf2eba11464f6845560ad048f4e451f3e19f5"
+            },
+            {
+              "file": "Abnahme-20261031-Testflugzeug-Fixture-Entfernt.json",
+              "sha256": "36f63ef2fa6398e55539dbdffbbb87390451f5f3cc4e33b87e055802a8439f5f"
+            }
+          ],
+          "game_image_config_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "java_build": "Temurin 25.0.4.1+1"
+        },
+        {
+          "id": "carry-on",
+          "result": "passed",
+          "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Carry-On-Stabiler-Positivzustand.json",
+              "sha256": "87b97505ae3de3bf7ea7de8295b4cbb4f9163d07db0c4d1174c0365f6a0aa3df"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-Carry-On-Stabiler-Entzug.json",
+              "sha256": "f2db279b2855680a3cc02f30ba4a7315fe611e7816b2d0d1cecc1e839dc10dbe"
+            },
+            {
+              "file": "Abnahme-20261031-Carry-On-Besucher-Ablegeversuch.json",
+              "sha256": "19848bd6a3827c3c635cf7db8406ba05ab35c41b67bc218cc4ee64e31d031fdf"
+            },
+            {
+              "file": "Abnahme-20261031-Carry-On-Ablage-Positiv.json",
+              "sha256": "fbbcc12f2da38777129fc3bb474444a3df3e1cba1e7bea5e3374c59fe69ec42c"
+            }
+          ],
+          "game_image_config_id": "sha256:63c87d2e2b9a95f3bc56091a0caf7e1f1eba9fc47fd503219e36cfd768e64d61",
+          "java_build": "Temurin 25.0.5+8"
+        },
+        {
+          "id": "guard-start-26.3",
+          "result": "passed",
+          "guard_sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Guard-Fehlt-Abgewiesener-Start.json",
+              "sha256": "146588c7b9a890fb45849de6b690c877d1b9e61eabcbfd1db832bdc3ae5ac243"
+            },
+            {
+              "file": "Abnahme-20261031-Guard-Fehlt-Echter-Client.png",
+              "sha256": "7e183c750b678f54c5fbfdaf506b0e00a54c4cfb10689cf4b98e3d164341fd07"
+            },
+            {
+              "file": "Abnahme-20261031-Guard-Beschaedigt-Abgewiesener-Start.json",
+              "sha256": "4c31484528ba4f7faa8411e67a63f800a63f565bed37ef9a6b503c172aef8e37"
+            },
+            {
+              "file": "Abnahme-20261031-Guard-Beschaedigt-Echter-Client.png",
+              "sha256": "795e2669cc4a546725a4c2607f9a18a5d556ccc36bd4853aeddcf322deee9dac"
+            },
+            {
+              "file": "Abnahme-20261031-Guard-Startfehler-Datei-restore.json",
+              "sha256": "a2a39518c04ee652580b6caef2faeb188ac0589304f3586de39565eac37e6f5e"
+            },
+            {
+              "file": "Abnahme-20261031-Guard-Original-Start-und-Client-Wiederbeitritt.json",
+              "sha256": "5170c7157062fbb77d760145e5b2d05e3db5f80ee17bb57268c122b2cec7a43b"
+            }
+          ],
+          "game_image_config_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "java_build": "Temurin 25.0.4.1+1"
+        }
+      ],
+      "reused_standard_and_pvp_record": {
+        "file": "Abnahme-20261029-PvP-Beide-Versionen-Abgeschlossen.json",
+        "sha256": "b1d84950e14d261d99e600719a3f3010297b99795a01ca5f180253f1388f4f45"
+      },
+      "decision": "passed_for_fixed_scope"
+    },
+    {
+      "minecraft": "1.21.1",
+      "loader": "NEOFORGE",
+      "loader_version": "21.1.265",
+      "java": 21,
+      "guard_version": "1.0.5",
+      "guard_sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f",
+      "guard_filename": "mcj-guard-neoforge-1.21.1-1.0.5.jar",
+      "default_role": "visitor",
+      "gamemode": "spectator",
+      "operator": false,
+      "mods": [
+        {
+          "filename": "sophisticatedbackpacks-1.21.1-3.25.52.1813.jar",
+          "sha256": "62dcd51b8b378b15a2539c6880463f1f344924b3d6bac73db78f34e663a5cffd"
+        },
+        {
+          "filename": "sophisticatedcore-1.21.1-1.4.45.1938.jar",
+          "sha256": "ecebded8408a1ac822313e58489a9c5e52e665bedf6c2bb6cd360f232de9fccc"
+        },
+        {
+          "filename": "mcj-guard-neoforge-1.21.1-1.0.5.jar",
+          "sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f"
+        }
+      ],
+      "client_cases": [
+        {
+          "id": "backpack-1211",
+          "result": "passed",
+          "guard_sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-Modprobe-1211-Positiv-Abgelegter-Stapel.json",
+              "sha256": "762ac85ff45a05465ae50a031d88ee897ae30d96d39f8e758fde43c59222bd92"
+            },
+            {
+              "file": "Abnahme-20261031-Backpack-Speicher-1211-Positiv-Abgelegter-Stapel.json",
+              "sha256": "6ff45f23704f615c3301360879d645924c4535d751a4cd8b385ba17c95fb56ff"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-1211-Bestaetigtes-Offenes-Menu-Entzug.json",
+              "sha256": "c3095104fc8ce6c0eddc3238b9c79348e89dc18b5fefa7aeaee9727b90dd1854"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-1211-Bestaetigtes-Menu-Besucher-Beide-Transfers.json",
+              "sha256": "e166e1d80c6f4c2d95dcd97c73d8e7e20468118a952c871f1e3c1bf2e19c9979"
+            },
+            {
+              "file": "Abnahme-20261031-Backpack-Speicher-1211-Besucher-Beide-Transfers.json",
+              "sha256": "fe88c9d210457cf6effef4a15a8e89ba45e5fd440624939d32caf750cdb3e8e7"
+            },
+            {
+              "file": "Abnahme-20261031-Modprobe-1211-Bestaetigtes-Menu-Nach-Besucher-Reconnect.json",
+              "sha256": "50e75099e0d1d1ba2526c65e87961840c05bfd815c81462028e849b997841e97"
+            },
+            {
+              "file": "Abnahme-20261031-Backpack-Speicher-1211-Bestaetigtes-Menu-Nach-Reconnect.json",
+              "sha256": "3483f9c052a3b5a38210e56e46e566aa43866bd8811f302aeef39f8fcd29448b"
+            }
+          ],
+          "game_image_config_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "java_build": "Temurin 21.0.13+9"
+        },
+        {
+          "id": "guard-start-1.21.1",
+          "result": "passed",
+          "guard_sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f",
+          "proofs": [
+            {
+              "file": "Abnahme-20261031-1211-Guard-Fehlt-Start.json",
+              "sha256": "e95b2907129d09513964ab1faaede1b92d76a682d9cfba5c88112e593be6f6fc"
+            },
+            {
+              "file": "Abnahme-20261031-1211-Guard-Fehlt-Echter-Client.png",
+              "sha256": "c1ff7785e1880c4ef011c27cd5c9b9570740c2e65f0b26cbe8cf10e81a8218f2"
+            },
+            {
+              "file": "Abnahme-20261031-1211-Guard-Beschaedigt-Start.json",
+              "sha256": "d97079795d4bd28cab0db9e882dfdf6867365ce1225ad50d6ba57d831d046e94"
+            },
+            {
+              "file": "Abnahme-20261031-1211-Guard-Beschaedigt-Echter-Client.png",
+              "sha256": "85cc304155d33bac7931a2e91dbd03240a08e3ab852d871f61d1c4717565372d"
+            },
+            {
+              "file": "Abnahme-20261031-1211-Guard-Startfehler-Datei-restore.json",
+              "sha256": "cc6e94a24e51ed38bd18ce00042d2e58cec86084b5b5002cdb117d2aa40dfae0"
+            },
+            {
+              "file": "Abnahme-20261031-1211-Guard-Original-Startstatus.json",
+              "sha256": "fa649208e0cb07cc2bb19e5cf6fc6ff8d45bc1db899944d1c92ade9c2170ab98"
+            },
+            {
+              "file": "Abnahme-20261031-1211-Guard-Original-Echter-Wiederbeitritt.png",
+              "sha256": "1110bc689092b289688e88f0e27b2b7bba57063cf4eeb0e73adbd4c01fa71ec7"
+            }
+          ],
+          "game_image_config_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "java_build": "Temurin 21.0.13+9"
+        }
+      ],
+      "reused_standard_and_pvp_record": {
+        "file": "Abnahme-20261029-PvP-Beide-Versionen-Abgeschlossen.json",
+        "sha256": "b1d84950e14d261d99e600719a3f3010297b99795a01ca5f180253f1388f4f45"
+      },
+      "decision": "passed_for_fixed_scope"
+    }
+  ],
+  "path_decision": [
+    "Default visitors are held in spectator mode without operator privileges; vanilla/PvP positive and negative pairs cover that invariant.",
+    "GuardInventoryMixin cancels container click and button packets before handlers, including already-open menus; persisted Backpack transfers tested in both adapters.",
+    "GuardPayloadMixin cancels non-brand play-phase custom payloads for visitors before mod handlers. Configuration-phase negotiation remains unaffected.",
+    "Create wrench, owned camera opening, aircraft mounting and Carry On controls cover the additional interaction families in this fixed inventory.",
+    "Both manager-refused missing/corrupt Guard starts have actual native-client refusal, exact original restoration and rejoin evidence.",
+    "Results apply only to the listed artifacts, configurations and interaction cases; no broader mod or menu coverage is claimed."
+  ],
+  "excluded": [
+    "Other Minecraft/modloader combinations",
+    "New or changed mod files",
+    "Arbitrarily modified visitor grants or operator rights",
+    "Malicious NAS operator or filesystem replacement",
+    "A guarantee that third-party mods have no independent vulnerabilities"
+  ],
+  "original_test_records_unchanged": true,
+  "guard_jars_changed": false,
+  "production_changed": false,
+  "source_record": {
+    "file": "Abnahme-20261031-Clienttests-Kuratierter-Nachweis.json",
+    "sha256": "c57c4773558ffa62be7bd4aad9b5d24c22eadbed7a2921cf5b192039959b7ca0"
+  },
+  "evidence_availability": "Original evidence files are retained separately. This package records their identifiers and checksums, not their complete contents."
+}

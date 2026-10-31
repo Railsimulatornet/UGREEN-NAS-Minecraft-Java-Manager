@@ -1,0 +1,25 @@
+# In UGOS Docker → Projekt → Erstellen importieren.
+# NAS_IP und NAS_ORDNER in den Projekteinstellungen anpassen (siehe README).
+name: mcj_einrichtung
+services:
+  einrichtung:
+    image: railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.0
+    container_name: mcj_einrichtung
+    labels:
+      mcj.purpose: browser-first-installation
+    user: "0:0"
+    init: true
+    command: [python, /opt/mcj/tools/browser_setup.py]
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [CHOWN, DAC_OVERRIDE, FOWNER, SETUID, SETGID]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp:rw,nosuid,noexec,size=128m"]
+    pids_limit: 128
+    mem_limit: 512m
+    restart: "no"
+    ports: ["${NAS_IP:?Private IPv4-Adresse des NAS eintragen}:8090:8090/tcp"]
+    volumes:
+      - "${NAS_ORDNER:?Vorhandenen Docker-Ordner eintragen}:${NAS_ORDNER}"
+      - /var/run/docker.sock:/var/run/docker.sock
+    logging: {driver: json-file, options: {max-size: 2m, max-file: "2"}}

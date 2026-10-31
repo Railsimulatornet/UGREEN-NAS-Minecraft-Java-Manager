@@ -1,0 +1,26 @@
+plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
+version='1.0.5'
+group='de.romanglos.mcj'
+base { archivesName='mcj-guard-neoforge' }
+java { toolchain.languageVersion=JavaLanguageVersion.of(25); withSourcesJar() }
+neoForge { version='26.3.0.97' }
+tasks.withType(JavaCompile).configureEach { options.release=25; options.encoding='UTF-8' }
+processResources {
+    inputs.property('modVersion',project.version)
+    filesMatching('META-INF/neoforge.mods.toml') { expand 'version':project.version }
+}
+jar { manifest { attributes('Implementation-Version':project.version) } }
+tasks.register('networkAccessCheck',JavaExec) {
+    dependsOn testClasses
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.compileClasspath
+    mainClass='de.romanglos.mcj.NetworkAccessCheck'
+}
+check.dependsOn networkAccessCheck
+// Policy checks use the executable fixture above, not a JUnit test engine.
+test { failOnNoDiscoveredTests=false }
+
+processResources {
+    inputs.property('guardBuildVersion',project.version)
+    filesMatching('mcj-guard-version.properties') { expand 'version':project.version }
+}
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps=false; reproducibleFileOrder=true }

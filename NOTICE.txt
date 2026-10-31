@@ -1,0 +1,42 @@
+MCJ Manager / Minecraft Java · UGREEN NAS
+© 2026 Roman Glos
+
+Projektkennzeichnung / Project attribution: Roman Glos.
+Drittanbieter-Komponenten, Mods, Shader, Bibliotheken und Marken behalten ihre
+jeweiligen Lizenzen und Urheberhinweise. Diese Projektkennzeichnung ersetzt sie nicht.
+Third-party components, mods, shaders, libraries and trademarks retain their
+respective licenses and copyright notices. This project attribution does not replace them.
+
+Eigenständiges Projekt; keine offizielle Software von UGREEN, Mojang oder Microsoft.
+Independent project; not official software from UGREEN, Mojang or Microsoft.
+
+Eigene NeoForge-Guards / Own NeoForge Guards: MIT.
+See artifacts/MCJ-GUARD-LIZENZHINWEIS.md and artifacts/LICENSE-MCJ-GUARDS.txt.
+The unchanged 1.0.5 JARs retain an older descriptive copyright label;
+the explicit accompanying MIT grant applies to MCJ-owned code only.
+
+Lizenztexte und Hinweise mitgelieferter Client-Anpassungen:
+mcj/client_pack_resources/ (im erzeugten Clientpaket: MCJ-LICENSES).
+License texts and notices for bundled client modifications:
+mcj/client_pack_resources/ (in generated client packs: MCJ-LICENSES).
+
+Pixelify Sans: Copyright 2021 The Pixelify Sans Project Authors.
+SIL Open Font License 1.1: mcj/static/assets/licenses/PixelifySans-OFL.txt.
+Source: https://github.com/google/fonts/tree/main/ofl/pixelifysans
+Docker Compose v5.6.1-mcj.2: Apache-2.0, Docker Compose authors.
+Source: https://github.com/docker/compose/tree/6cbc19a3fd59e305fb814dca4d854a4fb67d2941
+The local build updates golang.org/x/net to v0.62.0 with its resolved dependencies.
+The compiled package list is included at /opt/mcj/licenses/docker-compose-packages.txt.
+Resolved modules are listed at /opt/mcj/licenses/docker-compose-modules.txt.
+License, copying, notice and copyright files from the downloaded module sources
+are included at /opt/mcj/licenses/docker-compose-dependencies/.
+Its complete license is included in the image at /opt/mcj/licenses/docker-compose-LICENSE.
+
+Docker CLI from docker:29.9.2-cli: Apache-2.0, Docker, Inc. and contributors.
+Source: https://github.com/docker/cli/tree/v29.9.2
+Its unchanged LICENSE and NOTICE are included at licenses/docker-cli/ in the
+source tree and /opt/mcj/licenses/docker-cli/ in the image.
+
+Python qrcode 8.2: BSD-3-Clause, Lincoln Loop and contributors.
+Source: https://github.com/lincolnloop/python-qrcode
+QR codes are generated locally; no enrollment secret is sent to an external QR service.

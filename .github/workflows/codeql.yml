@@ -1,0 +1,92 @@
+name: CodeQL
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scope:
+    runs-on: ubuntu-latest
+    outputs:
+      targeted: ${{ steps.scope.outputs.targeted }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - id: scope
+        env:
+          MCJ_FULL_VALIDATION: ${{ github.event_name == 'workflow_dispatch' }}
+        run: python3 .github/scripts/validation_scope.py
+  analyze:
+    needs: scope
+    # Personal private repositories require the applicable GitHub Code Security entitlement.
+    # Set ENABLE_PRIVATE_CODEQL=true only after that entitlement is available.
+    if: needs.scope.outputs.targeted != 'true' && (github.event.repository.private == false || vars.ENABLE_PRIVATE_CODEQL == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [python, javascript-typescript]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: github/codeql-action/init@793b778da9c9275a0f276522b27cb5fc14bba279 # v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+      - uses: github/codeql-action/analyze@793b778da9c9275a0f276522b27cb5fc14bba279 # v4
+        with:
+          category: /language:${{ matrix.language }}
+  private-static-checks:
+    needs: scope
+    # Local analysis on the GitHub runner; no Semgrep account or code upload.
+    # This is an explicit alternative, not a claim that CodeQL ran.
+    if: needs.scope.outputs.targeted != 'true' && github.event.repository.private == true && vars.ENABLE_PRIVATE_CODEQL != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install isolated static-analysis tools
+        # Semgrep's pinned MCP dependency imports a Pydantic internal API.
+        # Keep the analyzer environment compatible; application locks are unchanged.
+        run: |
+          python -m pip install bandit==1.8.6 semgrep==1.142.0 pydantic==2.11.9 pydantic-settings==2.10.1
+          python -m pip check
+      - name: Analyze without external code submission
+        env:
+          SEMGREP_SEND_METRICS: 'off'
+          SEMGREP_ENABLE_VERSION_CHECK: '0'
+        run: |
+          mkdir static-checks
+          git rev-parse HEAD > static-checks/revision.txt
+          python -m pip freeze > static-checks/tool-versions.txt
+          curl --fail --silent --show-error --location --proto '=https' \
+            https://semgrep.dev/c/p/security-audit -o static-checks/security-audit.yml
+          sha256sum static-checks/security-audit.yml > static-checks/rules.sha256
+          set +e
+          bandit -r mcj tools -f json -o static-checks/bandit.json
+          bandit_status=$?
+          semgrep scan --config static-checks/security-audit.yml --metrics off \
+            --disable-version-check --json --output static-checks/semgrep.json \
+            mcj tools guard-neoforge guard-neoforge-1211
+          semgrep_status=$?
+          set -e
+          printf '{"bandit_exit":%s,"semgrep_exit":%s}\n' "$bandit_status" "$semgrep_status" > static-checks/exits.json
+          # Bandit 1 means candidates were reported. Preserve them for review.
+          # A successful job is tool completion, never vulnerability clearance.
+          test "$bandit_status" -le 1
+          test "$semgrep_status" -eq 0
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: always()
+        with:
+          name: private-static-checks
+          path: static-checks/
+          retention-days: 14

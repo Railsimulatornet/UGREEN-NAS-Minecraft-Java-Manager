@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.gradle/
+build/
+.env
+*.sqlite3*
+*.credential.xml
+*.dpapi
+test-results.xml
+manager/state/
+manager/secrets/
+world/
+backups/

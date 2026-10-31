@@ -1,0 +1,8 @@
+Carry On by Tschipp and contributors. LGPL-3.0-or-later.
+Upstream https://github.com/Tschipp/CarryOn
+Pinned upstream commit 168f3fb28fd7ff48d342483142469c3023c54ec0
+Local modification 2.12.0-mcj.1: FML 12 config type COMMON to LOCAL; original explicit config filename retained.
+Complete corresponding patched source: CarryOn-2.12.0-mcj.1-source.zip
+Build: Java 25, Gradle 9.8.2, gradle :NeoForge:jar
+The source ZIP contains the build files, Gradle wrapper and original notices.
+No Minecraft, NeoForge, Create assets or other proprietary dependencies are redistributed with these sources.

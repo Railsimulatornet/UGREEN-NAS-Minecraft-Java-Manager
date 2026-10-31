@@ -1,0 +1,125 @@
+name: ugreen_minecraft_java
+services:
+  manager:
+    image: ${MCJ_MANAGER_IMAGE:-mcj-manager:1.0.0}
+    pull_policy: never
+    build:
+      context: /volume1/docker/minecraftjava/manager/source
+      args:
+        BASE_IMAGE: python:3.12-slim-trixie@sha256:6b25cbe6577518889d553cdd5a5da97d259348d8f6e45b527dd731caaba27a07
+    container_name: mcj_manager
+    user: "1009:10"
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp:rw,nosuid,noexec,size=256m"]
+    pids_limit: 128
+    mem_limit: 1g
+    cpus: 1
+    restart: unless-stopped
+    environment:
+      APP_ORIGIN: http://localhost:18090
+      MCJ_TRUSTED_PROXIES: ""
+      MCJ_LOCAL_NETWORKS: ""
+      PROJECT_ROOT: /project
+      MCJ_LAYOUT: services-v1
+      RPC_SECRET: /run/secrets/rpc
+      CONTROLLER_URL: http://controller:9091
+      BOOTSTRAP_FILE: /project/manager/state/.initial-accounts.fernet
+    ports: ["127.0.0.1:8090:8090/tcp"]
+    volumes:
+      - /volume1/docker/minecraftjava/manager/state:/project/manager/state
+      - /volume1/docker/minecraftjava/manager/staging:/project/manager/staging
+      - /volume1/docker/minecraftjava/mcj_minecraft/mods:/project/mcj_minecraft/mods
+      - /volume1/docker/minecraftjava/manager/secrets/encryption:/run/secrets/encryption:ro
+      - /volume1/docker/minecraftjava/manager/secrets/rpc:/run/secrets/rpc:ro
+      - /volume1/docker/minecraftjava-backups:/backups:ro
+    networks: [control, manager_egress]
+    depends_on:
+      controller: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8090/healthz',headers={'Host':'localhost:18090'}),timeout=5).read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  controller:
+    image: ${MCJ_MANAGER_IMAGE:-mcj-manager:1.0.0}
+    pull_policy: never
+    container_name: mcj_controller
+    user: "1009:10"
+    group_add: ["121"]
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp:rw,nosuid,noexec,size=64m"]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1
+    restart: unless-stopped
+    command: [uvicorn, mcj.controller:app, --host, 0.0.0.0, --port, "9091", --no-access-log, --no-proxy-headers]
+    environment:
+      PROJECT_NAME: ugreen_minecraft_java
+      HOST_PROJECT_ROOT: /volume1/docker/minecraftjava
+      GAME_BIND_ADDRESS: "127.0.0.1"
+      PROJECT_ROOT: /project
+      MCJ_LAYOUT: services-v1
+      BACKUP_ROOT: /backups
+      RPC_SECRET: /run/secrets/rpc
+      RCON_SECRET: /run/secrets/rcon
+    volumes:
+      - /volume1/docker/minecraftjava:/project
+      - /volume1/docker/minecraftjava:/volume1/docker/minecraftjava
+      - /volume1/docker/minecraftjava/manager/secrets/rpc:/run/secrets/rpc:ro
+      - /volume1/docker/minecraftjava/manager/secrets/rcon:/run/secrets/rcon:ro
+      - /volume1/docker/minecraftjava-backups:/backups
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks: [control, minecraft]
+    healthcheck:
+      test: [CMD, python, -c, "import pathlib,urllib.request; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:9091/healthz',headers={'Authorization':'Bearer '+pathlib.Path('/run/secrets/rpc').read_text().strip()}),timeout=5).read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  minecraft:
+    image: ${MCJ_GAME_IMAGE:-itzg/minecraft-server:java25}
+    container_name: mcj_minecraft
+    user: "1009:10"
+    entrypoint: [/bin/bash, /mcj/start.sh]
+    init: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 512
+    mem_limit: ${MCJ_GAME_MEMORY_MB:-8192}m
+    cpus: 4
+    restart: unless-stopped
+    stop_grace_period: 2m
+    environment:
+      EULA: "TRUE"
+      UID: "1009"
+      GID: "10"
+      ENABLE_RCON: "true"
+      DEBUG: "false"
+    ports: ["127.0.0.1:25565:25565/tcp"]
+    volumes:
+      - /volume1/docker/minecraftjava/mcj_minecraft/data:/data
+      - /volume1/docker/minecraftjava/mcj_controller/control/runtime:/mcj:ro
+      - /volume1/docker/minecraftjava/mcj_controller/control/roles:/mcj-control/roles:ro
+      - /volume1/docker/minecraftjava/mcj_controller/control/reports:/mcj-control/reports
+      - /volume1/docker/minecraftjava/manager/secrets/rcon:/run/secrets/rcon:ro
+    networks: [minecraft]
+    healthcheck:
+      test: [CMD, mc-health]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5m
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+networks:
+  control: {internal: true}
+  minecraft: {}
+  manager_egress: {}

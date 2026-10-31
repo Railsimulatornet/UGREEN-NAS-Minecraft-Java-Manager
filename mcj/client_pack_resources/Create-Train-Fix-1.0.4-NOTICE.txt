@@ -1,0 +1,11 @@
+MCJ Create Train Client Position Compatibility 1.0.4
+Own companion code: MIT, see LICENSE.
+
+The community Fabric bugfix package motivated this investigation. This NeoForge
+candidate instead addresses a verified API difference: InterpolationHandler.NO_OP
+returns false, causing Entity.moveOrInterpolateTo to apply vanilla positions.
+Create also maintains independent CarriageSyncData interpolation. Only ordinary
+entity position-sync branches are selected differently for a seated local
+passenger on an initialized, non-derailed Create carriage. Entity position codecs
+and Create data remain processed; teleport/vehicle packets and entity authority
+methods are unchanged. No third-party classes or reference binary are bundled.

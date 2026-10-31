@@ -1,0 +1,6 @@
+{
+  "manifests": [
+    "guard.json",
+    "guard-neoforge-1211.json"
+  ]
+}

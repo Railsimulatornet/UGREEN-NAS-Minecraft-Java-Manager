@@ -1,0 +1,25 @@
+# In UGOS das bisherige Projekt mcj_einrichtung bearbeiten und diese Vorlage importieren.
+# Den bisherigen Projekt-Speicherpfad beibehalten: niemals den Minecraft-Datenordner wählen.
+# Das offizielle Image :stable vorher in UGOS herunterladen; es wird erst nach erfolgreicher CI-Prüfung veröffentlicht.
+name: mcj_einrichtung
+services:
+  einrichtung:
+    image: railsimulatornet/ugreen-nas-minecraft-java-manager:stable
+    pull_policy: never
+    container_name: mcj_einrichtung
+    labels:
+      mcj.purpose: application-update
+    user: "0:0"
+    init: true
+    command: [python, /opt/mcj/tools/app_update.py]
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp:rw,nosuid,noexec,size=64m"]
+    pids_limit: 64
+    mem_limit: 256m
+    restart: "no"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    logging: {driver: json-file, options: {max-size: 2m, max-file: "2"}}

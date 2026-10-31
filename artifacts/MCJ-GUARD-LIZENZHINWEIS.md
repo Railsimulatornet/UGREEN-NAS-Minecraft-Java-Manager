@@ -1,0 +1,9 @@
+# Lizenz der eigenen MCJ-Schutzkomponenten / MCJ Guard licence
+
+Der eigene MCJ-Quellcode in `guard-neoforge` und `guard-neoforge-1211` sowie die daraus gebauten eigenen Klassen in den beiden hier enthaltenen Guard-JARs stehen unter der MIT-Lizenz des Projekts. Der vollständige Lizenztext mit Copyright steht in [LICENSE-MCJ-GUARDS.txt](LICENSE-MCJ-GUARDS.txt). Dieser zusätzliche, ausdrückliche MIT-Lizenzhinweis gilt für genau die beiden Dateien mit den in `guard.json` und `guard-neoforge-1211.json` genannten SHA-256-Werten.
+
+Die unveränderten JARs 1.0.5 enthalten im beschreibenden Feld `license` noch den früheren Text „Copyright Roman Glos 2026. All rights reserved.“. Für den eigenen MCJ-Code wird die Erlaubnis ausdrücklich durch die beiliegende MIT-Lizenz erteilt; der alte Metadatentext schränkt diese Erlaubnis nicht ein. Die ausführbaren Dateien werden für diese Klarstellung nicht verändert. Manifest, dieser Hinweis und MIT-Text sind zusammen mit dem JAR aufzubewahren.
+
+Das ist keine Umlizenzierung fremder Komponenten. Minecraft, NeoForge, verwendete APIs, Fonts, Bilder, Mods und Shader behalten ihre eigenen Bedingungen. Der alte Ordner `guard` enthält zusätzlich übernommene Forge-Lizenzunterlagen; diese bleiben für ihren jeweiligen fremden Inhalt erhalten und ersetzen nicht die MIT-Zuordnung der eigenen Klassen.
+
+The project's own source in `guard-neoforge` and `guard-neoforge-1211`, and its own compiled classes in the two bundled Guard JARs, are provided under the project MIT licence. Keep [the full copyright and MIT text](LICENSE-MCJ-GUARDS.txt), this notice and the manifest with each JAR. The unchanged 1.0.5 JARs retain an old descriptive “All rights reserved” metadata label; the accompanying explicit MIT permission applies to the project's own code. No executable content is changed by this clarification. Third-party software and assets retain their respective licences.

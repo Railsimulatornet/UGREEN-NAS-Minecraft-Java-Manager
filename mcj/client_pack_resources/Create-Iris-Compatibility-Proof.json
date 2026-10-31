@@ -1,0 +1,14 @@
+{
+  "original_sha256": "4e8684618edeedae5dbfbe5ec8ba05d57c8c251cb34beb69160f53cbd97b4099",
+  "patched_sha256": "9008cd82a9233fdb0ddadb33cd5fb11c9fc26b9ea102ad245319a9aa1b2964c8",
+  "changed_classes": [
+    "com/simibubi/create/compat/IrisPipelineCompat$Mappings.class"
+  ],
+  "original_notices_retained": [
+    "Create: Adapted_LICENSE.md",
+    "META-INF/licenses/",
+    "META-INF/licenses/NeoForge-LGPL-2.1.txt",
+    "META-INF/licenses/NeoForge-compat-NOTICE.txt"
+  ],
+  "dedicated_server_changed": false
+}
