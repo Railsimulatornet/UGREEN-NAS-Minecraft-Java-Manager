@@ -22,7 +22,7 @@ pydantic_core==2.50.1
 PyOTP==2.10.0
 python-multipart==0.0.32
 requests==2.34.2
-starlette==1.9.0
+starlette==1.10.0
 typing-inspection==0.4.4
 typing_extensions==4.16.0
 urllib3==2.8.0
