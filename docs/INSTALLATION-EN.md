@@ -4,7 +4,7 @@
 
 This guide takes you through a new installation using **UGOS Docker → Project**. You do not need SSH or a terminal. The screenshots show UGOS on a DXP4800 Pro with the German interface and the manager setup using neutral example accounts.
 
-**Updated 31 October 2026 · Manager 1.0.0.**
+**Updated 1 November 2026 · Manager 1.0.1.**
 
 ### Have these ready
 

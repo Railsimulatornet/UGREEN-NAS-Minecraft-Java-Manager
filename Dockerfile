@@ -14,7 +14,7 @@ RUN tar -xzf /compose-source.tar.gz --strip-components=1 -C /src \
     && mkdir -p /out/docker-compose-licenses \
     && find /go/pkg/mod -type f \( -iname 'license*' -o -iname 'copying*' -o -iname 'notice*' -o -iname 'copyright*' \) -exec cp --parents '{}' /out/docker-compose-licenses/ \;
 FROM ${BASE_IMAGE}
-ARG APP_VERSION=1.0.0
+ARG APP_VERSION=1.0.1
 ARG BUILD_REVISION=unknown
 ARG BUILD_CREATED=unknown
 LABEL org.opencontainers.image.title="MCJ Manager" \

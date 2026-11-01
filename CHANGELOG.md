@@ -1,5 +1,15 @@
 # Versionshinweise / Release notes
 
+## 1.0.1 - Korrektur der Weltdatenprüfung / World file validation fix
+
+### Deutsch
+
+Beim Öffnen einer Welt werden besondere Dateitypen jetzt sofort abgewiesen. So kann eine manipulierte `level.dat` die Weltverwaltung nicht dauerhaft blockieren. Normale Weltdaten und bestehende Sicherungen bleiben unverändert.
+
+### English
+
+Special file types are now rejected immediately when opening a world. This prevents a tampered `level.dat` from leaving world management stuck indefinitely. Normal world data and existing backups remain unchanged.
+
 ## 1.0.0 - Erste Veröffentlichung / Initial release
 
 ### Deutsch

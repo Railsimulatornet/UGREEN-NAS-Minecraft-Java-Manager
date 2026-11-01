@@ -1,5 +1,6 @@
 import io,json,re,sys,time,zipfile
 from pathlib import Path
+from mcj import __version__
 from cryptography.fernet import Fernet
 import pyotp
 import pytest
@@ -71,7 +72,7 @@ def test_health_reports_configured_release_state_without_account_information(env
     assert client.get('/healthz').json()['state']=='internal_validation'
     app.state.store.set('release',{'status':'public_preview','public_web':True,'public_game':False})
     value=client.get('/healthz').json()
-    assert value=={'version':'1.0.0','state':'public_preview'}
+    assert value=={'version':__version__,'state':'public_preview'}
 
 
 def test_german_mail_survives_smtp_encoding(environment,monkeypatch):

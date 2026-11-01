@@ -21,7 +21,9 @@ MAX_FILES=100000
 def validate_level(path,*,metadata=False,storage='level'):
     """Parse bounded Java NBT without trusting a gzip header as a valid world."""
     try:
-        fd=os.open(path,os.O_RDONLY|getattr(os,'O_NOFOLLOW',0))
+        # Reject FIFOs through fstat instead of waiting for a writer while the
+        # controller holds its maintenance locks. Regular files are unaffected.
+        fd=os.open(path,os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_NONBLOCK',0))
         with os.fdopen(fd,'rb') as source:
             if not stat.S_ISREG(os.fstat(source.fileno()).st_mode):raise ValueError('world_level_dat_invalid')
             with gzip.GzipFile(fileobj=source,mode='rb') as level:raw=level.read(16*1024*1024+1)

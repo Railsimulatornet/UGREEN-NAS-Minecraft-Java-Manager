@@ -1,6 +1,7 @@
 import importlib.util,json,os,stat,sys
 from pathlib import Path
 import pytest
+from mcj import __version__
 from mcj.first_login import consume_file
 from test_security import environment,login,post
 
@@ -27,8 +28,8 @@ def test_gui_setup_only_accepts_explicit_parent_binds_and_no_network():
 
 
 def test_prebuilt_image_must_match_running_container_and_verified_version():
-    identifier='sha256:'+'a'*64;reference='railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.0'
-    image={'Id':identifier,'Config':{'Labels':{'org.opencontainers.image.version':'1.0.0','org.opencontainers.image.revision':'b'*64}},'RepoDigests':[]}
+    identifier='sha256:'+'a'*64;reference='railsimulatornet/ugreen-nas-minecraft-java-manager:'+__version__
+    image={'Id':identifier,'Config':{'Labels':{'org.opencontainers.image.version':__version__,'org.opencontainers.image.revision':'b'*64}},'RepoDigests':[]}
     assert gui.image_identity(reference,{'Image':identifier},image)==identifier
     digest=reference.rsplit(':',1)[0]+'@sha256:'+'c'*64
     assert gui.image_identity(reference,{'Image':identifier},dict(image,RepoDigests=[digest]))==digest

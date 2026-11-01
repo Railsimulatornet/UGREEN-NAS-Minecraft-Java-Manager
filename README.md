@@ -7,7 +7,7 @@ Server management for Minecraft Java on UGREEN NAS. Manage your server, players,
 
 ![Serverübersicht mit Beispieldaten / Overview with sample data](docs/images/uebersicht.png)
 
-**Version 1.0.0**
+**Version 1.0.1**
 
 ## Deutsch
 

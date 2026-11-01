@@ -4,7 +4,7 @@
 
 Diese Anleitung führt dich durch eine neue Installation mit **UGOS Docker → Projekt**. Du brauchst dafür keine SSH-Verbindung und keine Konsole. Die Bilder zeigen UGOS auf einem DXP4800 Pro und die Einrichtung im Manager mit neutralen Beispielkonten.
 
-**Stand: 31. Oktober 2026 · Manager 1.0.0.**
+**Stand: 1. November 2026 · Manager 1.0.1.**
 
 ### Was du bereithältst
 
