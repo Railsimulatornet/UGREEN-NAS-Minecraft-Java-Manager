@@ -64,7 +64,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
           cache: pip
@@ -170,7 +170,7 @@ jobs:
           docker load --input /tmp/mcj-image.tar
           docker run --rm --network none --read-only --cap-drop ALL --entrypoint python mcj-candidate:ci -c "import sys,runpy,os;sys.path=['/opt/mcj/tools']+[p for p in sys.path if p not in ['', '/opt/mcj']];os.chdir('/');runpy.run_path('/opt/mcj/tools/browser_setup.py',run_name='probe');runpy.run_path('/opt/mcj/tools/bootstrap_worker.py',run_name='probe')"
       - name: Vollständigen Image-Schwachstellenbericht erstellen
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
         with:
           image-ref: mcj-candidate:ci
           format: json
@@ -193,7 +193,7 @@ jobs:
           --baseline docs/security/image-baseline-1.0.0.json
           --output /tmp/image-review.json
       - name: Behebbare hohe und kritische Image-Funde sperren
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # 0.35.0
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # 0.36.0
         with:
           image-ref: mcj-candidate:ci
           format: table
