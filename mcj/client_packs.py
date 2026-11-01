@@ -130,7 +130,7 @@ def modrinth_record(record,active):
         response=client.get('/version_file/'+record['hashes']['sha1'],params={'algorithm':'sha1'})
         if response.status_code==404:return None
         response.raise_for_status();version=response.json()
-        if active['version'] not in version['game_versions'] or active['loader'].lower() not in version['loaders']:raise ValueError('client_pack_provider_mismatch')
+        if active['version'] not in version['game_versions'] or mods.provider_loader(active) not in version['loaders']:raise ValueError('client_pack_provider_mismatch')
         file=next((x for x in version['files'] if x['hashes'].get('sha512')==record['hashes']['sha512'] and x['hashes'].get('sha1')==record['hashes']['sha1'] and x['size']==record['size']),None)
         if not file:raise ValueError('client_pack_provider_hash_mismatch')
         response=client.get('/project/'+version['project_id']);response.raise_for_status();project=response.json()
@@ -153,7 +153,7 @@ def curseforge_record(st,record,active,explicit_side=None):
         evidence='https://www.curseforge.com/projects/'+str(project)+'/files/'+str(file_id)
     with sources.CurseForge(st) as provider:file=provider.get('/mods/'+str(project)+'/files/'+str(file_id))
     sha=next((x['value'].lower() for x in file.get('hashes',[]) if x['algo']==1),'')
-    if file.get('modId')!=project or file.get('id')!=file_id or not file.get('isAvailable') or active['version'] not in file.get('gameVersions',[]) or active['loader'].lower() not in [x.lower() for x in file.get('gameVersions',[])] or file['fileLength']!=record['size'] or sha!=record['hashes']['sha1']:
+    if file.get('modId')!=project or file.get('id')!=file_id or not file.get('isAvailable') or active['version'] not in file.get('gameVersions',[]) or mods.provider_loader(active) not in [x.lower() for x in file.get('gameVersions',[])] or file['fileLength']!=record['size'] or sha!=record['hashes']['sha1']:
         raise ValueError('client_pack_provider_mismatch')
     if project not in CF_BOTH and not explicit_side:
         environments={x.lower() for x in file.get('gameVersions',[]) if isinstance(x,str)}
@@ -179,13 +179,18 @@ def classify(st,record,active):
     return {'client':'unknown','reason':'client_pack_public_source_required' if explicit else 'client_requirements_unknown'}
 
 def dependency_check(records,active):
-    identifiers={'minecraft':active['version'],'java':str(active['java']),('fabricloader' if active['loader']=='FABRIC' else active['loader'].lower()):active['loader_version']}
+    from .loader_catalogs import mod_format
+    expected_loader=mod_format(active)
+    identifiers={'minecraft':active['version'],'java':str(active['java']),('fabricloader' if active['loader']=='FABRIC' else expected_loader.lower()):active['loader_version']}
+    proof=active.get('loader_components') or {}
+    if active['loader']=='FABRIC' and proof.get('loader_version')==active['loader_version'] and HEX64.fullmatch(proof.get('sha256','')):
+        identifiers.update({key:value for key,value in proof.get('components',{}).items() if key!='fabricloader'})
     components=[];issues=[]
     def collect(meta):
         components.append(meta)
         for child in meta.get('embedded',[]):collect(child)
     for record in records:
-        if record['metadata']['loader']!=active['loader']:issues.append({'mod':record['filename'],'reason':'loader_mismatch'})
+        if record['metadata']['loader']!=expected_loader:issues.append({'mod':record['filename'],'reason':'loader_mismatch'})
         collect(record['metadata'])
     for meta in components:
         for item in meta['mods']:
@@ -249,7 +254,8 @@ def build(st,rpc,actor):
     from . import client_train_fix
     client_train_fix.bundle(graphics,active,selected,report,bundled)
     extras=client_graphics.pack_records(graphics)
-    issues=dependency_check(selected+extras,active)
+    from .versions import runtime_components
+    issues=dependency_check(selected+extras,runtime_components(st,active))
     issues.extend({'mod':item['filename'],'reason':item['reason']} for item in report if item.get('reason') in ('client_pack_public_source_required','client_pack_provider_side_conflict'))
     if graphics:
         for item in graphics['files']:

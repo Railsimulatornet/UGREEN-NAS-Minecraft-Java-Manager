@@ -1,6 +1,13 @@
 {
   "manifests": [
     "guard.json",
-    "guard-neoforge-1211.json"
+    "guard-neoforge-1211.json",
+    "guard-fabric-1201.json",
+    "guard-forge-1201.json",
+    "guard-neoforge-1201.json",
+    "guard-fabric-1211.json",
+    "guard-forge-1211.json",
+    "guard-fabric-263.json",
+    "guard-forge-263.json"
   ]
 }

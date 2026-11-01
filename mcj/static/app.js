@@ -591,7 +591,7 @@ async function runtimeSettings(draft=null,wizard=false){
   try{await api('/versions/check',{});data=await api('/versions');}catch{}
  }
  const current=data.current;const catalog=data.catalog;
- const supported=(data.compatibility?.variants||[]).filter(x=>x.runtime_test==='passed'&&x.loader_versions.length);
+ const supported=(data.compatibility?.variants||[]).filter(x=>x.selectable===true&&x.loader_versions.length);
  const section=node('section',{class:'setting-section'},node('h3',{text:t('runtimeSettings')}),paragraph('runtimeIntro'));
  section.append(node('div',{class:'info-box',text:current.version+' · Java '+(current.java||25)+' · '+current.loader+' '+current.loader_version}));
  const refreshButton=button('findStableVersions',async()=>{await api('/versions/check',{});const replacement=await runtimeSettings({version:minecraft.value,java:Number(java.value),loader:loader.value,loader_version:loader.value==='NEOFORGE'?loaderVersion.value:manualVersion.value,properties:{'level-name':versionWorld.value}},wizard);decorateSettingsPanel(replacement,'runtimeSettings','server');replacement.hidden=section.hidden;section.replaceWith(replacement);});

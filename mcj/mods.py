@@ -14,6 +14,11 @@ from .version_ranges import matches,Version
 from .maven_ranges import matches as maven_matches
 from .http_identity import AGENT
 
+
+def provider_loader(server):
+    from .loader_catalogs import mod_format
+    return mod_format(server).lower()
+
 MAX_JAR=64*1024*1024
 CLIENT_ONLY={'oculus','embeddium','essential','entity_model_features','entity_texture_features','continuity','replaymod','sound_physics_remastered'}
 
@@ -76,7 +81,7 @@ def inspect_jar(raw,_depth=0,_budget=None,preferred_loader=None):
                 if not isinstance(bundled,list) or len(bundled)>256:raise ValueError('jar_nesting_limit')
                 for nested in bundled:
                     filename=nested['path']
-                    if not isinstance(filename,str) or not filename.startswith('META-INF/jarjar/') or not filename.endswith('.jar') or filename not in names or names[filename].file_size>MAX_JAR:
+                    if not isinstance(filename,str) or not filename.startswith(('META-INF/jarjar/','META-INF/jars/')) or not filename.endswith('.jar') or filename not in names or names[filename].file_size>MAX_JAR:
                         raise ValueError('jar_nested_file_invalid')
                     content=archive.read(filename)
                     try:child=inspect_jar(content,_depth+1,_budget)
@@ -168,8 +173,10 @@ def scan_drop_folder(st,root):
 
 
 def dependency_report(records,server):
+    from .loader_catalogs import mod_format
+    expected_loader=mod_format(server)
     identifiers={'minecraft':server['version'],'java':str(server.get('java',25)),
-                 'fabricloader' if server['loader']=='FABRIC' else server['loader'].lower():server.get('loader_version','unknown')}
+                 'fabricloader' if server['loader']=='FABRIC' else expected_loader.lower():server.get('loader_version','unknown')}
     builtins=server.get('loader_components') or {}
     if server['loader']=='FABRIC' and builtins.get('loader_version')==server.get('loader_version') and re.fullmatch('[0-9a-f]{64}',builtins.get('sha256','')):
         identifiers.update({key:value for key,value in builtins.get('components',{}).items() if key!='fabricloader'})
@@ -181,7 +188,7 @@ def dependency_report(records,server):
     for record in records:
         meta=json.loads(record['metadata']) if isinstance(record['metadata'],str) else record['metadata']
         if meta.get('client_installer'):issues.append({'id':record['id'],'issue':'client_installer_not_server_mod'})
-        if meta['loader']!=server['loader']:issues.append({'id':record['id'],'issue':'loader_mismatch'})
+        if meta['loader']!=expected_loader:issues.append({'id':record['id'],'issue':'loader_mismatch'})
         if meta['client_only_hint']:issues.append({'id':record['id'],'issue':'client_only_hint'})
         collect(meta,record['id'])
     selected=components
@@ -321,7 +328,7 @@ def check_modrinth(st):
                 if response.status_code==404:result={'status':'unknown_source','version':None}
                 else:
                     response.raise_for_status();installed=response.json();project=installed['project_id']
-                    response=client.get('/project/'+project+'/version',params={'loaders':json.dumps([server['loader'].lower()]),'game_versions':json.dumps([server['version']])})
+                    response=client.get('/project/'+project+'/version',params={'loaders':json.dumps([provider_loader(server)]),'game_versions':json.dumps([server['version']])})
                     response.raise_for_status()
                     versions=[x for x in response.json() if x['version_type']=='release']
                     versions.sort(key=lambda x:x['date_published'],reverse=True)
@@ -413,7 +420,7 @@ def stage_modrinth_update(st,root,identifier):
     with httpx.Client(base_url='https://api.modrinth.com/v2',timeout=30,follow_redirects=False,
                       headers={'User-Agent':AGENT}) as client:
         response=client.get('/version/'+version_id);response.raise_for_status();version=response.json()
-        if version['project_id']!=available.get('project_id') or version['version_type']!='release' or server['version'] not in version['game_versions'] or server['loader'].lower() not in version['loaders']:
+        if version['project_id']!=available.get('project_id') or version['version_type']!='release' or server['version'] not in version['game_versions'] or provider_loader(server) not in version['loaders']:
             raise ValueError('candidate_mod_dependencies_failed')
         files=[x for x in version['files'] if x.get('primary') and x['filename'].lower().endswith('.jar')]
         if len(files)!=1:raise ValueError('mod_primary_file_unverified')

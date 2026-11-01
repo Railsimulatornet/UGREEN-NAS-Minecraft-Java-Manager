@@ -194,7 +194,9 @@ def candidate(c,backup,configuration,image,records=None,restore=False,include_pe
             loader=data/'libraries/net/fabricmc/fabric-loader'/version/('fabric-loader-'+version+'.jar')
             if loader.is_symlink() or not loader.is_file() or hashlib.sha256(loader.read_bytes()).hexdigest()!=proof['sha256']:
                 raise ValueError('loader_runtime_hash_mismatch')
-        if runtime['loader']=='NEOFORGE':
+        if runtime['loader']=='FORGE' or versions.loader_catalogs.legacy_neoforge(runtime):
+            versions.loader_catalogs.verify_runtime(data,runtime)
+        elif runtime['loader']=='NEOFORGE':
             proof=runtime.get('loader_components') or {};version=runtime['loader_version']
             loader=data/'libraries/net/neoforged/neoforge'/version/('neoforge-'+version+'-universal.jar')
             if proof.get('loader')!='NEOFORGE' or proof.get('loader_version')!=version or loader.is_symlink() or not loader.is_file() or hashlib.sha256(loader.read_bytes()).hexdigest()!=proof.get('sha256'):

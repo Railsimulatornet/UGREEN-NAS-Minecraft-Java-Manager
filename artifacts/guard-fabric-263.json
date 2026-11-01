@@ -1,0 +1,66 @@
+{
+  "filename": "mcj-guard-fabric-26.3-1.0.6.jar",
+  "sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4",
+  "version": "1.0.6",
+  "minecraft": "26.3",
+  "loader": "FABRIC",
+  "java": 25,
+  "path": "releases/guards/fabric-26.3/mcj-guard-fabric-26.3-1.0.6.jar",
+  "runtime_test": "not_tested",
+  "visitor_verified": false,
+  "visitor_client_test": "not_verified_for_this_artifact",
+  "metadata": {
+    "loader": "FABRIC",
+    "mods": [
+      {
+        "id": "mcj_guard",
+        "name": "MCJ Manager Visitor Guard",
+        "version": "1.0.6"
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "fabricloader",
+        "range": ">=0.20.1",
+        "mandatory": true
+      },
+      {
+        "id": "minecraft",
+        "range": "26.3",
+        "mandatory": true
+      },
+      {
+        "id": "java",
+        "range": ">=25",
+        "mandatory": true
+      }
+    ],
+    "environment": "server",
+    "provides": [],
+    "breaks": [],
+    "embedded": [],
+    "client_only_hint": false,
+    "compatibility": "unverified",
+    "sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4",
+    "sha512": "1587deeda5bf528c7c063455dc9989d5edffad66ca5816a7ac62f69c2a82b7a30b60cb433a8425b2d2e819958d9cc51319b85c8c14b435c509a7092f2a0c39fe"
+  },
+  "dependencies": [],
+  "capabilities": [
+    "mcj_roles_v1",
+    "mcj_network_v1"
+  ],
+  "protocol_version": 1,
+  "tested_loaders": [],
+  "candidate_loaders": [
+    "0.20.1"
+  ],
+  "minecraft_data_version": 5023,
+  "license": "MIT",
+  "license_notice": "LICENSE-MCJ-GUARDS.txt; Copyright (c) 2026 Roman Glos",
+  "build": {
+    "source_sha256": "2df056809dd1515095726e015e5173a1bc779a1473843f4e38d82fe19ca09b52",
+    "java_class_major": [
+      69
+    ]
+  }
+}

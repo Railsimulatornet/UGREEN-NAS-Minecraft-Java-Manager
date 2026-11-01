@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[66,)"
+license="MIT"
+[[mods]]
+modId="mcj_guard"
+version="${version}"
+displayName="MCJ Manager Visitor Guard"
+displayTest="IGNORE_ALL_VERSION"
+description="Server-side visitor protection and manager integration."
+[[dependencies.mcj_guard]]
+modId="forge"
+mandatory=true
+versionRange="[66.1.0,67)"
+ordering="NONE"
+side="SERVER"
+[[dependencies.mcj_guard]]
+modId="minecraft"
+mandatory=true
+versionRange="[26.3]"
+ordering="NONE"
+side="SERVER"

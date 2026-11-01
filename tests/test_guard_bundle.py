@@ -43,7 +43,7 @@ def test_untrusted_bundle_never_replaces_the_registry(tmp_path,monkeypatch,probl
     if problem=='manifest_traversal':(directory/'catalog.json').write_text('{"manifests":["../outside.json"]}')
     elif problem=='artifact_changed':(directory/records[0]['filename']).write_bytes(b'changed')
     else:
-        if problem=='unsupported':records[0]['minecraft']='1.20.1'
+        if problem=='unsupported':records[0]['minecraft']='1.19.4'
         elif problem=='wrong_java':records[0]['java']=21
         elif problem=='duplicate':records[1].update(minecraft='26.3',java=25)
         for i,version in enumerate(['26.3','1.21.1']):(directory/('guard-'+version+'.json')).write_text(json.dumps(records[i]))
@@ -65,8 +65,13 @@ def test_shipped_acceptance_is_bound_to_the_exact_unchanged_artifacts():
     record_path=directory/'guard-acceptance-20261031.json';raw=record_path.read_bytes();record=json.loads(raw)
     assert record['decision']=='accepted_for_exact_configurations_and_mod_inventory' and not record['guard_jars_changed']
     catalogue=guard_bundle.read(directory)
-    assert len(catalogue['artifacts'])==len(record['configurations'])==2
+    accepted=[entry for entry in catalogue['artifacts'] if entry.get('visitor_verified')]
+    assert len(accepted)==len(record['configurations'])==2
     for entry in catalogue['artifacts']:
+        if entry not in accepted:
+            assert entry['runtime_test']=='not_tested' and not entry['tested_loaders']
+            assert entry['visitor_client_test']=='not_verified_for_this_artifact'
+            continue
         scope=next(x for x in record['configurations'] if x['minecraft']==entry['minecraft'])
         assert entry['visitor_verified'] is True and entry['visitor_client_test']=='passed'
         assert entry['acceptance']['sha256']==hashlib.sha256(raw).hexdigest()

@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 import httpx
 from .mods import dependency_report
 from .server_settings import normalize
-from . import mods
+from . import mods,loader_catalogs
 from .http_identity import AGENT
 
 MANIFEST='https://piston-meta.mojang.com/mc/game/version_manifest_v2.json'
@@ -26,6 +26,7 @@ class CatalogTreeBuilder(ET.TreeBuilder):
 
 
 def neoforge_versions(client,minecraft):
+    if minecraft=='1.20.1':return loader_catalogs.available(client,'NEOFORGE',minecraft)
     raw=bytearray()
     with client.stream('GET',NEOFORGE+'maven-metadata.xml') as response:
         response.raise_for_status()
@@ -50,7 +51,8 @@ def neoforge_catalog(store,minecraft):
     saved=store.get('neoforge_catalogs') or {};cached=saved.get(minecraft)
     if cached and time.time()-cached['checked']<900:return cached
     with httpx.Client(timeout=20,follow_redirects=False) as client:available=neoforge_versions(client,minecraft)
-    value={'minecraft':minecraft,'versions':available,'checked':time.time(),'source':NEOFORGE+'maven-metadata.xml'}
+    source=loader_catalogs.identity('NEOFORGE',minecraft) if minecraft=='1.20.1' else NEOFORGE+'maven-metadata.xml'
+    value={'minecraft':minecraft,'versions':available,'checked':time.time(),'source':source}
     saved[minecraft]=value;store.set('neoforge_catalogs',saved)
     return value
 
@@ -118,7 +120,12 @@ def runtime_components(store,configuration):
         record=(store.get('loader_components') or {}).get(result.get('loader_version'))
         if record:result['loader_components']=record
     elif result.get('loader')=='NEOFORGE':
-        record=(store.get('loader_components') or {}).get('NEOFORGE:'+str(result.get('loader_version')))
+        key=('NEOFORGE:1.20.1:' if loader_catalogs.legacy_neoforge(result) else 'NEOFORGE:')+str(result.get('loader_version'))
+        record=(store.get('loader_components') or {}).get(key)
+        if record:result['loader_components']=record
+    elif result.get('loader')=='FORGE':
+        key=loader_catalogs.identity('FORGE',result['version'],result['loader_version'])['key']
+        record=(store.get('loader_components') or {}).get(key)
         if record:result['loader_components']=record
     return result
 
@@ -126,7 +133,10 @@ def ensure_runtime_components(store,configuration):
     # A fresh NeoForge installation has not necessarily opened version planning.
     # Acquire the same official proof before maintenance; never trust a runtime
     # file merely because its version string matches.
-    if configuration.get('loader')=='NEOFORGE':ensure_neoforge_components(store,configuration['loader_version'])
+    if configuration.get('loader')=='FORGE' or loader_catalogs.legacy_neoforge(configuration):
+        loader_catalogs.ensure_components(store,configuration['loader'],configuration['version'],configuration['loader_version'])
+    elif configuration.get('loader')=='NEOFORGE':ensure_neoforge_components(store,configuration['loader_version'])
+    elif configuration.get('loader')=='FABRIC':ensure_loader_components(store,configuration['loader_version'])
     return runtime_components(store,configuration)
 
 def read_json(client,url,sha1=None):
@@ -166,6 +176,7 @@ def check(store,configuration,records=None):
         details=read_json(client,metadata_url(release['url']),release['sha1'])
         loaders=read_json(client,FABRIC+version) if loader=='FABRIC' else []
         neo_loaders=neoforge_versions(client,version) if loader=='NEOFORGE' else []
+        forge_loaders=loader_catalogs.available(client,'FORGE',version) if loader=='FORGE' else []
     if details['id']!=version or details['type']!='release':raise ValueError('explicit_stable_version_required')
     required_java=details.get('javaVersion',{}).get('majorVersion')
     issues=[]
@@ -174,18 +185,21 @@ def check(store,configuration,records=None):
         issues.append({'issue':'version_change_requires_separate_world'})
     if not isinstance(required_java,int):issues.append({'issue':'required_java_unverified'})
     elif java<required_java:issues.append({'issue':'java_too_old','required':required_java,'selected':java})
-    stable_loaders=neo_loaders if loader=='NEOFORGE' else [x['loader']['version'] for x in loaders if x.get('loader',{}).get('stable')]
+    trusted=store.get('guard_catalog') or {'artifacts':[]}
+    guard=next((x for x in trusted['artifacts'] if x['minecraft']==version and x['loader']==loader),None)
+    stable_loaders=neo_loaders if loader=='NEOFORGE' else forge_loaders if loader=='FORGE' else [x['loader']['version'] for x in loaders if x.get('loader',{}).get('stable')]
     loader_version=configuration.get('loader_version')
-    if not loader_version and stable_loaders:loader_version=stable_loaders[0]
+    if not loader_version and stable_loaders:
+        verified=[x for x in (guard or {}).get('tested_loaders',[]) if x in stable_loaders]
+        loader_version=verified[0] if verified else stable_loaders[0]
     selected={**configuration,'loader_version':loader_version,'java':java}
     if loader=='FABRIC' and loader_version in stable_loaders:
         selected['loader_components']=ensure_loader_components(store,loader_version)
+    elif (loader=='FORGE' or loader_catalogs.legacy_neoforge(selected)) and loader_version in stable_loaders:
+        selected['loader_components']=loader_catalogs.ensure_components(store,loader,version,loader_version)
     elif loader=='NEOFORGE' and loader_version in stable_loaders:
         selected['loader_components']=ensure_neoforge_components(store,loader_version)
-    if loader not in {'FABRIC','NEOFORGE'}:issues.append({'issue':'loader_adapter_not_validated','loader':loader})
-    elif loader_version not in stable_loaders:issues.append({'issue':'stable_loader_unverified'})
-    trusted=store.get('guard_catalog') or {'artifacts':[]}
-    guard=next((x for x in trusted['artifacts'] if x['minecraft']==version and x['loader']==loader),None)
+    if loader_version not in stable_loaders:issues.append({'issue':'stable_loader_unverified'})
     if not guard:issues.append({'issue':'visitor_guard_adapter_missing'})
     elif 'tested_loaders' in guard and (guard.get('runtime_test')!='passed' or loader_version not in guard['tested_loaders'] or java!=guard.get('java',25)):
         issues.append({'issue':'guard_runtime_combination_not_tested'})

@@ -7,6 +7,7 @@ import time
 from urllib.parse import urlparse,urljoin
 import httpx
 from . import mods
+from .loader_catalogs import mod_format
 from .http_identity import AGENT
 
 LOADERS={'FORGE':1,'FABRIC':4,'NEOFORGE':6}
@@ -72,7 +73,7 @@ class CurseForge:
         if source.get('file_id'):file=self.get('/mods/'+str(project['id'])+'/files/'+str(source['file_id']))
         else:
             params={'gameVersion':server['version'],'pageSize':50}
-            if source['kind']=='mod':params['modLoaderType']=LOADERS[server['loader']]
+            if source['kind']=='mod':params['modLoaderType']=LOADERS[mod_format(server)]
             files=self.get('/mods/'+str(project['id'])+'/files',params)
             allowed=[1,2] if source.get('allow_prerelease') else [1]
             files=[x for x in files if x.get('releaseType') in allowed and x.get('isAvailable') and not x.get('isEarlyAccessContent')]
@@ -82,7 +83,7 @@ class CurseForge:
         if file['modId']!=project['id'] or file.get('releaseType') not in ([1,2] if source.get('allow_prerelease') else [1]) or not file.get('isAvailable') or file.get('isEarlyAccessContent'):
             raise ValueError('mod_source_file_unverified')
         if server['version'] not in file.get('gameVersions',[]):raise ValueError('mod_source_game_mismatch')
-        if source['kind']=='mod' and server['loader'].lower() not in [x.lower() for x in file.get('gameVersions',[])]:raise ValueError('mod_source_loader_mismatch')
+        if source['kind']=='mod' and mod_format(server).lower() not in [x.lower() for x in file.get('gameVersions',[])]:raise ValueError('mod_source_loader_mismatch')
         return file
 
 def inspect_source(store,source):
@@ -104,9 +105,9 @@ def inspect_source(store,source):
             if source.get('file_id'):
                 response=client.get('/version/'+source['file_id']);response.raise_for_status();versions=[response.json()]
             else:
-                response=client.get('/project/'+project['id']+'/version',params={'loaders':json.dumps([server['loader'].lower()]),'game_versions':json.dumps([server['version']])})
+                response=client.get('/project/'+project['id']+'/version',params={'loaders':json.dumps([mod_format(server).lower()]),'game_versions':json.dumps([server['version']])})
                 response.raise_for_status();versions=response.json()
-            versions=[x for x in versions if x['project_id']==project['id'] and x['version_type']=='release' and server['version'] in x['game_versions'] and server['loader'].lower() in x['loaders']]
+            versions=[x for x in versions if x['project_id']==project['id'] and x['version_type']=='release' and server['version'] in x['game_versions'] and mod_format(server).lower() in x['loaders']]
             versions.sort(key=lambda x:x['date_published'],reverse=True)
             if not versions:raise ValueError('no_stable_compatible_version')
             version=versions[0]
@@ -232,7 +233,7 @@ def prepare_curseforge(store,root,provider,roots,pack_project=None):
     for record in known:
         if record['enabled']:known_versions.update(component_versions(json.loads(record['metadata'])))
     known_versions.update({'minecraft':server['version'],'java':str(server.get('java',25)),
-        'fabricloader' if server['loader']=='FABRIC' else server['loader'].lower():server.get('loader_version','unknown')})
+        'fabricloader' if server['loader']=='FABRIC' else mod_format(server).lower():server.get('loader_version','unknown')})
     known_versions.update(((store.get('loader_components') or {}).get(server.get('loader_version')) or {}).get('components',{}))
     def supplied(metadata,available,parent):
         from .version_ranges import matches as fabric_matches

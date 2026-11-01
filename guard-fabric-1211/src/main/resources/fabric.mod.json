@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "mcj_guard",
+  "version": "${version}",
+  "name": "MCJ Manager Visitor Guard",
+  "description": "Server-side visitor protection and manager integration. Copyright Roman Glos 2026.",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      "de.romanglos.mcj.Guard"
+    ]
+  },
+  "mixins": [
+    "mcj_guard.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "1.21.1",
+    "java": ">=21"
+  },
+  "license": "MIT",
+  "authors": [
+    "Roman Glos"
+  ]
+}

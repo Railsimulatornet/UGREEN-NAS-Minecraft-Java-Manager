@@ -8,7 +8,8 @@ from .project_paths import project_path
 from .store import Store
 
 DIRECTORY=Path(__file__).resolve().parents[1]/'artifacts'
-JAVA={('26.3','NEOFORGE'):25,('1.21.1','NEOFORGE'):21}
+JAVA={(minecraft,loader):java for minecraft,java in [('1.20.1',17),('1.21.1',21),('26.3',25)]
+      for loader in ['FABRIC','FORGE','NEOFORGE']}
 
 
 def read(directory=None):
@@ -16,7 +17,7 @@ def read(directory=None):
     index=directory/'catalog.json'
     if index.is_symlink():raise RuntimeError('unsafe_guard_artifact')
     names=json.loads(index.read_text())['manifests'] if index.exists() else ['guard.json']
-    if not isinstance(names,list) or not 1<=len(names)<=2 or len(set(names))!=len(names):raise RuntimeError('unsafe_guard_artifact')
+    if not isinstance(names,list) or not 1<=len(names)<=len(JAVA) or len(set(names))!=len(names):raise RuntimeError('unsafe_guard_artifact')
     entries=[];identities=set()
     for name in names:
         if not isinstance(name,str) or not re.fullmatch(r'[a-zA-Z0-9_.-]+\.json',name):raise RuntimeError('unsafe_guard_artifact')
@@ -30,7 +31,7 @@ def read(directory=None):
         if artifact.is_symlink() or artifact.stat().st_size>64*1024**2:raise RuntimeError('unsafe_guard_artifact')
         raw=artifact.read_bytes()
         if hashlib.sha256(raw).hexdigest()!=checksum:raise RuntimeError('guard_artifact_integrity_failed')
-        entry={**entry,'java':JAVA[identity],'path':'releases/guards/neoforge-'+entry['minecraft']+'/'+filename}
+        entry={**entry,'java':JAVA[identity],'path':'releases/guards/'+entry['loader'].lower()+'-'+entry['minecraft']+'/'+filename}
         entries.append(entry);identities.add(identity)
     return {'artifacts':entries}
 

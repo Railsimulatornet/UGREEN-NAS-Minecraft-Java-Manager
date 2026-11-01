@@ -3,6 +3,7 @@ from .project_paths import project_path
 import contextlib,hashlib,json,os,re,secrets,shutil,zipfile
 from pathlib import Path,PurePosixPath
 from . import mods,properties,server_settings
+from .loader_catalogs import mod_format
 
 MAX_ARCHIVE=512*1024*1024
 CONFIG_ROOTS={'config','defaultconfigs','kubejs','scripts','datapacks','resources'}
@@ -98,7 +99,7 @@ def stage_zip(store,root,path,source,provider,project,file):
                 if not name.startswith('mods/') or not name.endswith('.jar'):continue
                 if len(PurePosixPath(name).parts)!=2 or entry.file_size>mods.MAX_JAR:raise ValueError('pack_mod_file_invalid')
                 item=mods.prepare_jar(store,root,archive.read(entry),PurePosixPath(name).name)
-                if item['metadata']['loader']!=server['loader']:raise ValueError('mod_source_loader_mismatch')
+                if item['metadata']['loader']!=mod_format(server):raise ValueError('mod_source_loader_mismatch')
                 prepared.append({**item,'source':'pack','origin':{'provider':'curseforge_pack','project_id':project['id'],'file_id':file['id'],
                     'pack_project':project['id'],'source_id':source['id'],'url':source['url']}})
             configurations,settings,skipped=cache_configuration(store,root,archive,checked,prefix)

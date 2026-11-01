@@ -113,6 +113,30 @@ jobs:
             folder: guard-neoforge
             manifest: guard.json
             image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
+          - adapter: fabric-1201
+            folder: guard-fabric-1201
+            manifest: guard-fabric-1201.json
+            image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
+          - adapter: fabric-1211
+            folder: guard-fabric-1211
+            manifest: guard-fabric-1211.json
+            image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
+          - adapter: fabric-263
+            folder: guard-fabric-263
+            manifest: guard-fabric-263.json
+            image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
+          - adapter: forge-1201
+            folder: guard-forge-1201
+            manifest: guard-forge-1201.json
+            image: gradle@sha256:ce50078d456e497bc86b76d386503e84aa45416d85069ad66bc072bf07566b25
+          - adapter: forge-1211
+            folder: guard-forge-1211
+            manifest: guard-forge-1211.json
+            image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
+          - adapter: forge-263
+            folder: guard-forge-263
+            manifest: guard-forge-263.json
+            image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
           - adapter: neoforge-1211
             folder: guard-neoforge-1211
             manifest: guard-neoforge-1211.json

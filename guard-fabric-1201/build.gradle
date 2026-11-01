@@ -1,0 +1,25 @@
+plugins { id 'net.fabricmc.fabric-loom-remap' version '1.19.3' }
+version='1.0.6'
+group='de.romanglos.mcj'
+base { archivesName='mcj-guard-fabric-1.20.1' }
+dependencies {
+    minecraft 'com.mojang:minecraft:1.20.1'
+    mappings loom.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.20.1'
+}
+tasks.withType(JavaCompile).configureEach { options.release=17; options.encoding='UTF-8' }
+java { sourceCompatibility=JavaVersion.toVersion(17); targetCompatibility=JavaVersion.toVersion(17); withSourcesJar() }
+processResources {
+    filesMatching('fabric.mod.json') { expand 'version':project.version }
+    filesMatching('mcj-guard-version.properties') { expand 'version':project.version }
+}
+jar { manifest { attributes('Implementation-Version':project.version) } }
+
+tasks.register('networkAccessCheck',JavaExec) {
+    dependsOn testClasses
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.compileClasspath
+    mainClass='de.romanglos.mcj.NetworkAccessCheck'
+}
+check.dependsOn networkAccessCheck
+test { failOnNoDiscoveredTests=false }
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps=false; reproducibleFileOrder=true }

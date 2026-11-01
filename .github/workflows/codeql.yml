@@ -76,7 +76,7 @@ jobs:
           bandit_status=$?
           semgrep scan --config static-checks/security-audit.yml --metrics off \
             --disable-version-check --json --output static-checks/semgrep.json \
-            mcj tools guard-neoforge guard-neoforge-1211
+            mcj tools guard-neoforge guard-neoforge-1211 guard-fabric-1201 guard-fabric-1211 guard-fabric-263 guard-forge-1201 guard-forge-1211 guard-forge-263
           semgrep_status=$?
           set -e
           printf '{"bandit_exit":%s,"semgrep_exit":%s}\n' "$bandit_status" "$semgrep_status" > static-checks/exits.json

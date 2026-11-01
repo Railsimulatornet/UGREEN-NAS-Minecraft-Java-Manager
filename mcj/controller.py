@@ -171,6 +171,8 @@ def rcon(command):
         if kind!=2:
             identifier,kind,_=receive(connection)
         if identifier!=11 or kind!=2:raise RuntimeError('RCON authentication response invalid')
+        # A synchronous world flush can outlast a normal RCON status query.
+        if command=='save-all flush':connection.settimeout(120)
         send(12,2,command)
         identifier,kind,text=receive(connection)
         if identifier!=12:raise RuntimeError('RCON command response invalid')

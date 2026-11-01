@@ -1,0 +1,76 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+version = '1.0.6'
+group = 'de.romanglos.mcj'
+base { archivesName = 'mcj-guard-forge-1.20.1' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+minecraft { mappings channel: 'official', version: '1.20.1' }
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+}
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.28'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+tasks.register('makeMixinMap') {
+    dependsOn 'createMcpToSrg'
+    doLast {
+        def ownerLeft = ''
+        def ownerRight = ''
+        def output = []
+        file("${layout.buildDirectory.get().asFile}/createMcpToSrg/output.tsrg").eachLine { line ->
+            if (line.startsWith('tsrg2') || line.trim().isEmpty()) return
+            def parts = line.trim().split(/\s+/)
+            if (!line.startsWith('\t')) {
+                ownerLeft = parts[0]; ownerRight = parts[1]
+                output.add("CL: ${ownerLeft} ${ownerRight}")
+            } else if (!line.startsWith('\t\t')) {
+                if (parts.length == 2) output.add("FD: ${ownerLeft}/${parts[0]} ${ownerRight}/${parts[1]}")
+                else if (parts.length >= 3 && parts[1].startsWith('('))
+                    output.add("MD: ${ownerLeft}/${parts[0]} ${parts[1]} ${ownerRight}/${parts[2]} ${parts[1]}")
+            }
+        }
+        file("${layout.buildDirectory.get().asFile}/mixin-processor.srg").text = output.join('\n')+'\n'
+    }
+}
+tasks.named('compileJava').configure {
+    dependsOn 'makeMixinMap'
+    options.encoding = 'UTF-8'
+    options.compilerArgs += [
+        "-AreobfSrgFile=${layout.buildDirectory.get().asFile}/mixin-processor.srg",
+        "-AoutRefMapFile=${layout.buildDirectory.get().asFile}/generated/mixin/mcj_guard.refmap.json",
+        "-AoutSrgFile=${layout.buildDirectory.get().asFile}/generated/mixin/mcj_guard-shadow.srg"
+    ]
+    doFirst { file("${layout.buildDirectory.get().asFile}/generated/mixin").mkdirs() }
+}
+tasks.named('processResources').configure {
+    dependsOn 'compileJava'
+    from("${layout.buildDirectory.get().asFile}/generated/mixin")
+}
+tasks.named('jar').configure {
+    manifest { attributes('MixinConfigs': 'mcj_guard.mixins.json', 'Implementation-Version': project.version) }
+    finalizedBy 'reobfJar'
+}
+// Shadow members belong to the mixin class and need the AP's extra mappings.
+tasks.matching { it.name=='reobfJar' }.configureEach {
+    extraMappings.from("${layout.buildDirectory.get().asFile}/generated/mixin/mcj_guard-shadow.srg")
+}
+
+processResources {
+    filesMatching('META-INF/mods.toml') { expand 'version':project.version }
+    inputs.property('guardBuildVersion',project.version)
+    filesMatching('mcj-guard-version.properties') { expand 'version':project.version }
+}
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps=false; reproducibleFileOrder=true }
+
+tasks.register('networkAccessCheck',JavaExec) {
+    dependsOn testClasses
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.compileClasspath
+    mainClass='de.romanglos.mcj.NetworkAccessCheck'
+}
+check.dependsOn networkAccessCheck
+
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps=false; reproducibleFileOrder=true }

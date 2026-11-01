@@ -1,0 +1,37 @@
+plugins { id 'java-library'; id 'net.minecraftforge.gradle' version '7.0.29' }
+version='1.0.6'
+group='de.romanglos.mcj'
+base { archivesName='mcj-guard-forge-26.3' }
+java { toolchain.languageVersion=JavaLanguageVersion.of(25); withSourcesJar() }
+minecraft {
+}
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+}
+dependencies {
+    implementation minecraft.dependency('net.minecraftforge:forge:26.3-66.1.0')
+    annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
+}
+// The bundled Forge Mixin recognises JAVA_21; Minecraft itself still needs Java 25.
+tasks.withType(JavaCompile).configureEach { options.release=21; options.encoding='UTF-8' }
+// Resolve the actual Minecraft 26.3 libraries using the Java 25 build toolchain.
+configurations.matching { it.name in ['compileClasspath','runtimeClasspath','testCompileClasspath','testRuntimeClasspath'] }.configureEach {
+    attributes.attribute(org.gradle.api.attributes.java.TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE,25)
+}
+processResources {
+    filesMatching('META-INF/mods.toml') { expand 'version':project.version }
+    filesMatching('mcj-guard-version.properties') { expand 'version':project.version }
+}
+jar { manifest { attributes('MixinConfigs':'mcj_guard.mixins.json','Implementation-Version':project.version) } }
+
+tasks.register('networkAccessCheck',JavaExec) {
+    dependsOn testClasses
+    classpath=sourceSets.test.runtimeClasspath + sourceSets.main.compileClasspath
+    mainClass='de.romanglos.mcj.NetworkAccessCheck'
+}
+check.dependsOn networkAccessCheck
+test { failOnNoDiscoveredTests=false }
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps=false; reproducibleFileOrder=true }
