@@ -1,0 +1,22 @@
+{
+  "artifact": "mcj-create-train-fix-1.0.4-neoforge-26.3.jar",
+  "sha256": "5fc908d9edcf62d45cbe44486715711b17426deb51908aba053f0fb4b8ec3e55",
+  "previous_sha256": "bbee136fdea190e5cb1a31c3ed6f93616c1ea12210a6ec4572f4a6e047a0c304",
+  "only_changed_entry": "LICENSE",
+  "executable_content_unchanged": true,
+  "entries_unchanged": {
+    "META-INF/MANIFEST.MF": "b022240d6f834d7aaffb9b48e0a6a3601c54845ea20e13420c37a1629c099c0f",
+    "META-INF/neoforge.mods.toml": "d056f810e14a524aa7f2824a9251c45a14adff0dc486b32f3d8445db1125ddae",
+    "META-INF/sources/ClientTrainPositionMixin.java": "2a08256334f704571a50e466a4773f432fd6c7e92ac931683350869a94ec5949",
+    "META-INF/sources/CreateCompatibility.java": "a1208e478e910e01106cf432b5f7b9e73e941f588107d34da7bb3bdde7b46f6c",
+    "META-INF/sources/CreateTrainFix.java": "d65a6513bc598f92a45640752eac9d73ae5153824a16b4a700ec689a3030352e",
+    "META-INF/sources/TrainPositionSync.java": "eaa52cc4889cc05db952a548d764335899fa9841ad583e2c48b0ae54f341be83",
+    "NOTICE": "09f87cdb6576e13375f688bcfa1ea44ad6a1f5640f3d7a5be1f20fab93441a5b",
+    "de/romanglos/mcj/createtrains/CreateCompatibility.class": "f4950335b62fb28efb6cc0c60636dbcd88c6d855af3c92d2944a6b7f74748f4c",
+    "de/romanglos/mcj/createtrains/CreateTrainFix.class": "31babe0dbec43f2daabe7f6f99f973996d369d21cecab3901675a7923c4ebcf3",
+    "de/romanglos/mcj/createtrains/TrainPositionSync.class": "2b133481b01093fb2cd9cf8e0d2a4bd8e58d52db5d4b5c615d0b7eaee5560819",
+    "de/romanglos/mcj/createtrains/mixin/ClientTrainPositionMixin.class": "538e5c8120ddaca3725766c49250374565042f0dcb3b7413af3de93f179eea02",
+    "mcj-create-trains.mixins.json": "759d0df5b8e23394652675265c2e5c477645300bde74b8c3387bad7dc851496e"
+  },
+  "existing_private_packages_replaced": false
+}

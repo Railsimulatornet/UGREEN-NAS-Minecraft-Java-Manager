@@ -1,5 +1,6 @@
 """Read release metadata without importing application dependencies."""
 import ast
+from datetime import datetime, timezone
 import os
 from pathlib import Path
 import re
@@ -44,6 +45,7 @@ def main():
         with Path(output).open('a', encoding='utf-8') as stream:
             stream.write('version=' + app_version + '\n')
             stream.write('tags=' + ','.join(image_tags) + '\n')
+            stream.write('created=' + datetime.now(timezone.utc).isoformat() + '\n')
     print('Projektversion: ' + app_version)
     print('Vorgesehene Image-Tags: ' + ', '.join(image_tags))
 

@@ -1,0 +1,8 @@
+*.java whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+NOTICE whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+LICENSE whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Keep the accepted build inputs byte-identical across platforms.
+*.java -text
+NOTICE -text
+LICENSE -text

@@ -1,0 +1,12 @@
+{
+  "version": "1.0.5",
+  "sha256": "9838dacd19718317b982c8ebad7e8ed67435b82e3eccb74ef4cdf70095977565",
+  "accepted_at": "2026-11-01",
+  "client_only": true,
+  "driver_and_observer_movement_confirmed_with_actual_clients": true,
+  "published_jar_identical_to_accepted_artifact": true,
+  "independent_matching_builds": 2,
+  "compiled_contract_checks_passed": 40,
+  "server_or_guard_changes": false,
+  "scope": "Minecraft 26.3, NeoForge 26.3.0.99, Java 25, checksum-pinned Create Adapted 1.31"
+}

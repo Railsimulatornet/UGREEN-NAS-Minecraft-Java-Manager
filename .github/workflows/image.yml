@@ -153,6 +153,8 @@ jobs:
       - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4
       - name: Build once
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        env:
+          DOCKER_BUILD_RECORD_UPLOAD: 'false'
         with:
           context: .
           platforms: linux/amd64
@@ -160,6 +162,7 @@ jobs:
           build-args: |
             APP_VERSION=${{ steps.release.outputs.version }}
             BUILD_REVISION=${{ github.sha }}
+            BUILD_CREATED=${{ steps.release.outputs.created }}
           outputs: type=docker,dest=/tmp/mcj-image.tar
           provenance: false
       - name: Verify packaged entry points
@@ -183,6 +186,12 @@ jobs:
           path: /tmp/trivy-vollstaendig.json
           if-no-files-found: warn
           retention-days: 14
+      - name: Neue erhebliche Image-Befunde vor der Übertragung sperren
+        run: >-
+          python3 .github/scripts/image_vulnerability_review.py
+          --report /tmp/trivy-vollstaendig.json
+          --baseline docs/security/image-baseline-1.0.0.json
+          --output /tmp/image-review.json
       - name: Behebbare hohe und kritische Image-Funde sperren
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # 0.35.0
         with:
@@ -248,15 +257,16 @@ jobs:
       - name: Publish exact tested image
         env:
           RELEASE_TAGS: ${{ steps.release.outputs.tags }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          image=railsimulatornet/ugreen-nas-minecraft-java-manager
-          IFS=',' read -ra tags <<< "$RELEASE_TAGS"
-          for tag in "${tags[@]}"; do
-            docker tag mcj-candidate:ci "$image:$tag"
-            docker push "$image:$tag"
-          done
+          EXPECTED_REVISION: ${{ github.sha }}
+          EXPECTED_VERSION: ${{ steps.release.outputs.version }}
+          REGISTRY_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          REGISTRY_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: python3 .github/scripts/publish_tested_image.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: release-image
+          path: /tmp/release-image.json
+          retention-days: 90
   anonymous-pull:
     if: github.event_name == 'workflow_dispatch' && inputs.anonymous_installation == true && github.repository == 'Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager'
     runs-on: ubuntu-latest

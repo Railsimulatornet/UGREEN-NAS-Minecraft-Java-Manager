@@ -73,6 +73,8 @@ Dependabot prüft Python-Pakete, Docker-Basisimages und GitHub-Actions wöchentl
 
 Für Sicherheitsmeldungen gilt der [vertrauliche Meldeweg](../.github/SECURITY.md). Schütze `main` nach Möglichkeit durch erfolgreiche Prüfungen und Pull Requests, und sperre Force-Pushes sowie das Löschen des Zweigs. Bei einem einzelnen Projektbetreuer ist keine zusätzliche fremde Freigabe erforderlich.
 
+Der veröffentlichte Image-Digest wird außerdem wöchentlich geprüft. Bericht, bekannte Paketbefunde und der Meldeweg für neue erhebliche Ergebnisse sind unter [Image-Prüfung](security/IMAGE-SECURITY.md) beschrieben. Die Prüfung verändert keine NAS-Installation.
+
 ## English
 
 This page is for developers and maintainers. For normal NAS installation, use the [installation guide](INSTALLATION-EN.md); for later manager updates, use [the update guide](AKTUALISIEREN.md#english).
@@ -106,3 +108,5 @@ The manager image supports `linux/amd64`, not ARM. Minecraft uses a separate `it
 Project-owned code uses [MIT](../LICENSE); third-party components retain [their own licences](LIZENZEN.md#english).
 
 Dependabot checks Python packages, Docker base images and GitHub Actions weekly, grouping proposals within each ecosystem and limiting each to one open version-update PR. Updates are not merged automatically. Review release notes, compatibility and test results before merging. A merged proposal neither publishes an image nor updates a NAS. Use the [confidential reporting channel](../.github/SECURITY.md#english) for security issues. Where available, protect `main` with passing checks and pull requests, block force pushes and deletion, and avoid requiring a second reviewer for a single-maintainer project.
+
+The published image digest also receives a weekly scan. See [Image security](security/IMAGE-SECURITY.md#english) for reports, known package findings and notification of new significant results. The scan changes no NAS installation.

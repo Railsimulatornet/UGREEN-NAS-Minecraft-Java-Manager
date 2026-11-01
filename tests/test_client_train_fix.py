@@ -54,7 +54,7 @@ def test_client_archive_contains_only_accepted_companion_and_preserves_server_sn
     with zipfile.ZipFile(path)as archive:
         raw=archive.read('overrides/mods/'+train.FILENAME)
         assert hashlib.sha256(raw).hexdigest()==train.SHA256
-        assert 'overrides/MCJ-LICENSES/Create-Train-Fix-1.0.4-LICENSE.txt' in archive.namelist()
+        assert 'overrides/MCJ-LICENSES/Create-Train-Fix-1.0.5-LICENSE.txt' in archive.namelist()
         manifest=json.loads(archive.read('overrides/MCJ-CLIENT-PACK.json'))
         item=next(x for x in manifest['mods'] if x['filename']==train.FILENAME)
         assert item['client']=='required' and item['license']=='MIT'

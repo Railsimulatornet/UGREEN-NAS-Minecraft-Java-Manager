@@ -333,6 +333,8 @@ For scheduled jobs, review the date, time and displayed time zone. Finishing the
 
 After first-time setup, use this procedure for a later manager version. Manage Minecraft versions, mods and worlds separately in their respective sections.
 
+**Before updating, the manager, controller and Minecraft must all be running and shown as healthy.** Even an intentionally stopped Minecraft server currently prevents the update; start it first. If a service fails to start or become healthy, check its container logs in UGOS. Do not run first-time setup over existing data.
+
 1. Wait until running maintenance jobs finish.
 2. Download the approved official **stable** image in **UGOS → Docker → Image**. If you were supplied an image file, import that file into UGOS instead.
 3. Open the existing setup project, normally **mcj_einrichtung**, keeping its original storage directory.

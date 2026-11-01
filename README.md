@@ -37,6 +37,8 @@ Für die normale Installation brauchst du weder SSH noch eine Konsole.
 
 **Bereits installiert?** Verwende die [Aktualisierungsanleitung](docs/AKTUALISIEREN.md). Starte keine Erstinstallation über vorhandenen Daten und importiere den Minecraft-Datenordner nicht als neues UGOS-Projekt.
 
+Vor einem Manager-Update müssen Manager, Steuerungsdienst und Minecraft laufen und als gesund angezeigt werden. Starte auch einen absichtlich gestoppten Minecraft-Server zuerst. Bei Startfehlern prüfst du die Containerprotokolle; eine Neuinstallation über bestehenden Daten ist keine Lösung.
+
 ### Die ersten Schritte
 
 - **Übersicht:** Zustand und Spieler sehen. Webadministrator und Minecraft-Operator sind getrennte Rechte; Mitspieler brauchen kein Webkonto.
@@ -78,6 +80,8 @@ The normal installation does not require SSH or a terminal.
 Use **DE / EN** to change language. The progress bar shows completed installation stages; a long download may remain at the same percentage for a while.
 
 **Already installed?** Follow the [update guide](docs/AKTUALISIEREN.md#english). Do not run first-time setup over existing data or import the Minecraft data directory as a new UGOS project.
+
+Before a manager update, the manager, controller and Minecraft must all be running and shown as healthy. Start even an intentionally stopped Minecraft server first. For startup failures, check the container logs; running first-time setup over existing data is not a solution.
 
 ### First steps
 

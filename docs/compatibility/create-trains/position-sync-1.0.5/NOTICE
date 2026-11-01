@@ -1,0 +1,10 @@
+MCJ Create Train Client Position Compatibility 1.0.5
+Own companion code: MIT, see LICENSE. Copyright 2026 Roman Glos.
+
+Preserves Create's own carriage interpolation during ordinary full and delta
+entity-position packets for initialized non-derailed client carriages, whether
+the local player rides that carriage or observes it from outside. Initial
+placement and exceptional full syncs over 64 blocks keep vanilla recovery.
+Entity position codecs and Create carriage data remain processed. Explicit
+teleport/vehicle handlers, entity authority methods and outgoing packets are
+unchanged. No third-party classes or reference binary are bundled.

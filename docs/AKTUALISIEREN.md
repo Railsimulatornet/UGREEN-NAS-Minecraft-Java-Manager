@@ -4,6 +4,8 @@ Diese Anleitung beschreibt, wie du nach der Erstinstallation eine spätere Manag
 
 Die Aktualisierung läuft über das bestehende UGOS-Einrichtungsprojekt. Der Minecraft-Datenordner wird dafür **nicht** als neues Projekt importiert. UGOS kann beim Übernehmen eines Projekt-Speicherpfads die Dateirechte dieses Ordners ändern.
 
+**Voraussetzung:** Manager, Steuerungsdienst und Minecraft müssen vor dem Update laufen und als **gesund** angezeigt werden. Auch ein absichtlich gestoppter Minecraft-Server verhindert derzeit die Aktualisierung. Starte ihn deshalb zuerst. Falls ein Dienst nicht startet oder nicht gesund wird, prüfe seine Containerprotokolle in UGOS. Eine Neuinstallation über den bestehenden Daten behebt diesen Fehler nicht und darf dafür nicht gestartet werden.
+
 1. Warte, bis laufende Wartungsaufträge abgeschlossen sind. Die Aktualisierung bricht bei laufender Wartung ab; du kannst sie danach erneut starten.
 2. Lade in **UGOS → Docker → Image** das offizielle Image `railsimulatornet/ugreen-nas-minecraft-java-manager:stable` herunter. Der Kanal enthält ausschließlich erfolgreich geprüfte Veröffentlichungen. Wenn dir eine Image-Datei bereitgestellt wurde, importiere stattdessen diese in UGOS.
 3. Öffne unter **Docker → Projekt** das bisherige Einrichtungsprojekt, gewöhnlich `mcj_einrichtung`. Behalte dessen bisherigen Speicherpfad bei.
@@ -27,6 +29,8 @@ Neue Erstinstallation: [README.md](../README.md#deutsch). Erweiterte Wiederherst
 Use this procedure to install a later manager version after first-time setup. Manage Minecraft versions and mods separately in the manager.
 
 Use the existing UGOS setup project to update. Keep its storage directory. Importing the Minecraft data directory as a new UGOS project can change private file permissions.
+
+**Required before updating:** The manager, controller and Minecraft must all be running and shown as **healthy**. Even an intentionally stopped Minecraft server currently prevents the update. Start it first. If a service fails to start or become healthy, check its container logs in UGOS. Running first-time setup over existing data does not resolve this error and must not be used for this purpose.
 
 1. Wait until running maintenance jobs have finished.
 2. In **UGOS → Docker → Image**, download `railsimulatornet/ugreen-nas-minecraft-java-manager:stable`. If you were supplied an image file, import it into UGOS instead.

@@ -16,9 +16,11 @@ RUN tar -xzf /compose-source.tar.gz --strip-components=1 -C /src \
 FROM ${BASE_IMAGE}
 ARG APP_VERSION=1.0.0
 ARG BUILD_REVISION=unknown
+ARG BUILD_CREATED=unknown
 LABEL org.opencontainers.image.title="MCJ Manager" \
       org.opencontainers.image.version="${APP_VERSION}" \
       org.opencontainers.image.revision="${BUILD_REVISION}" \
+      org.opencontainers.image.created="${BUILD_CREATED}" \
       org.opencontainers.image.authors="Roman Glos" \
       org.opencontainers.image.description="Minecraft Java server management for UGREEN NAS. Independent project." \
       org.opencontainers.image.source="https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager" \

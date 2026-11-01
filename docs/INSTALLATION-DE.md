@@ -333,6 +333,8 @@ Bei geplanten Aufträgen kontrollierst du Datum, Uhrzeit und angezeigte Zeitzone
 
 Nach der Erstinstallation verwendest du diesen Weg für eine spätere Manager-Version. Minecraft-Versionen, Mods und Welten verwaltest du getrennt in ihren Bereichen.
 
+**Vor dem Update:** Manager, Steuerungsdienst und Minecraft müssen laufen und als gesund angezeigt werden. Auch ein absichtlich gestoppter Minecraft-Server blockiert das Update; starte ihn zuerst. Bei Startfehlern prüfst du die Containerprotokolle in UGOS.
+
 1. Warte, bis laufende Wartungsaufträge abgeschlossen sind.
 2. Lade das freigegebene offizielle **stable**-Image in **UGOS → Docker → Image**. Wenn dir eine Image-Datei bereitgestellt wurde, importiere stattdessen diese in UGOS.
 3. Öffne das bestehende Einrichtungsprojekt, gewöhnlich **mcj_einrichtung**. Behalte dessen bisherigen Speicherordner bei.
