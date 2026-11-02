@@ -60,3 +60,29 @@ Das sind einzelne Wartungsnachweise. Die neun Gesamtprofile bleiben bis zum Absc
 The server-side sequence above passed through the normal manager queue, including offline candidate checks and restoration of the original runtime, mod hashes and world marker. It does not claim separate restores of every intermediate backup. Four unsafe configuration attempts were also rejected without starting Minecraft or changing the active state. These results cover individual maintenance gates; all nine overall profiles still require the remaining client and permission checks.
 
 Die Datei [server-maintenance.json](../artifacts/compatibility/server-maintenance.json) enthält die genauen Loader-, Guard- und Image-Identitäten. Die [maschinenlesbare Matrix](../artifacts/compatibility/release-matrix.json) ordnet die bestandenen Teilschritte den Profilen zu.
+
+## Zugeordnete Teilergebnisse / Recorded component results
+
+Die folgende Übersicht nennt bereits belegte Teilschritte. „Offen“ bedeutet, dass die Zuordnung für den aktuellen Stand noch nicht abgeschlossen ist. Es bedeutet nicht, dass jeder frühere Test wiederholt werden muss. Alle neun Gesamtprofile bleiben offen.
+
+| Minecraft / Loader | Installation | Serverstart / Startup | Paketimport / Pack import | Rücksicherung / Restore | Versionswechsel / Version change |
+|---|---|---|---|---|---|
+| 1.20.1 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Offen / Pending |
+| 1.20.1 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
+| 1.20.1 / NEOFORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Bestanden / Passed |
+| 1.21.1 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Bestanden / Passed |
+| 1.21.1 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Offen / Pending |
+| 1.21.1 / NEOFORGE | Offen / Pending | Bestanden / Passed | Offen / Pending | Offen / Pending | Offen / Pending |
+| 26.3 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Offen / Pending |
+| 26.3 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Bestanden / Passed |
+| 26.3 / NEOFORGE | Offen / Pending | Bestanden / Passed | Offen / Pending | Offen / Pending | Offen / Pending |
+
+Bei sieben Profilen passen Minecraft, Java, Loader-Datei und Image weiterhin zur früheren sauberen Installation. Dazu sind die Installation und der erfolgreiche Start des aktuellen Guards über den normalen Managerablauf belegt. Diese Nachweise werden gemeinsam übernommen; eine weitere Neuinstallation wurde dafür nicht durchgeführt. Für die beiden übrigen NeoForge-Profile ist der Start mit dem aktuellen Guard belegt. Die Zuordnung der übrigen Installationsnachweise bleibt dort offen.
+
+Sieben exportierte Clientpakete wurden bereits tatsächlich in Prism importiert. Minecraft-, Loader- und Mod-Prüfsummen sind zugeordnet. Der Paketimport bestätigt noch keine Verbindung zum Server und keine funktionierenden Mod-Aktionen. Diese Prüfungen sowie Besucherrechte und Rechteentzug bleiben getrennt offen.
+
+Frühere Sicherungs- und Wiederherstellungsläufe mit älteren Guard-Dateien bleiben als Nachweise erhalten. Sie werden nicht als vollständige Abnahme der neuen Schutzdateien ausgegeben. Die beiden gesonderten NeoForge-Startproben wurden nach erfolgreichem Start per Signal beendet (Prozess-Rückgabewert 143); daraus wird kein erfolgreicher normaler Manager-Stopp abgeleitet.
+
+The table records component evidence, not full profile acceptance. Seven unchanged clean Java/loader installations are combined with verified installation and startup of the current guard through the normal manager. The other two NeoForge profiles have current-guard startup evidence; their remaining installation records still need to be matched. Seven actual Prism imports are verified by their Minecraft, loader and mod identities. Server connections, mod actions, visitor restrictions and role revocation remain separate checks. Historical backups retain their earlier guard identities. The two separate NeoForge startup probes ended with signal exit 143 and do not prove a normal manager shutdown.
+
+Die genauen Identitäten, Prüfsummen und Grenzen stehen in [component-evidence.json](../artifacts/compatibility/component-evidence.json). / Exact identities, hashes and scope limits are recorded in [component-evidence.json](../artifacts/compatibility/component-evidence.json).

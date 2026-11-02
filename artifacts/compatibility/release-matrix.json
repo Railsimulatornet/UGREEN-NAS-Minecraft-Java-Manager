@@ -51,12 +51,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-1.20.1",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-1.20.1",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -75,8 +93,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-1.20.1",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -141,12 +168,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-1.20.1",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-1.20.1",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -165,8 +210,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-1.20.1",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "BESTANDEN",
@@ -237,12 +291,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "neoforge-1.20.1",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "neoforge-1.20.1",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -261,8 +333,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "neoforge-1.20.1",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -328,12 +409,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-1.21.1",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-1.21.1",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -352,8 +451,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-1.21.1",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -418,12 +526,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-1.21.1",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-1.21.1",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -442,8 +568,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-1.21.1",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -506,8 +641,17 @@
           "evidence": []
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "neoforge-1.21.1",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -638,12 +782,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-26.3",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-26.3",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -662,8 +824,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "fabric-26.3",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -722,12 +893,30 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-26.3",
+              "section": "reused_installations",
+              "scope": "Unchanged clean Java/loader installation plus verified installation/startup of the current guard; no repeated clean installation."
+            }
+          ],
+          "reused": true
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-26.3",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -746,8 +935,17 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "forge-26.3",
+              "section": "client_pack_imports",
+              "scope": "Actual exported archive and Prism import identities; launch and server connection remain separate."
+            }
+          ],
+          "reused": true
         },
         "backup_restore": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -816,8 +1014,17 @@
           "evidence": []
         },
         "server_java_loader": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/component-evidence.json",
+              "sha256": "d3fa4da733f9e88e976eed14d1ff0f7169ed0afa325a65130b8ddd4d93d92a1b",
+              "entry": "neoforge-26.3",
+              "section": "current_server_startup",
+              "scope": "Exact Java/loader/image and current guard startup; no client or visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",

@@ -1,0 +1,501 @@
+{
+  "schema": "mcj-component-evidence/v1",
+  "date": "2026-11-02",
+  "reviewed_commit": "679f89c53bb903b63e9f3aa301689edbaca39276",
+  "publication_allowed": false,
+  "overall_profile_acceptance": false,
+  "current_server_startup": [
+    {
+      "id": "fabric-1.20.1",
+      "minecraft": "1.20.1",
+      "loader": "FABRIC",
+      "loader_version": "0.20.1",
+      "java": 17,
+      "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "image_reference": "itzg/minecraft-server:java17@sha256:a08cd9ced3e1c3f46a318af1fa393de21698afbf8746681f115dc923ba847ba5",
+      "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+      "loader_library_sha256": "d0c5a082e07410aaff9de7ab196aa6b4236002870f9ba3ad5c1260fcce5110ad",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "69fcde1f7ce8f9dc8161d052a45cfe623b17916ce1604828e1f7fd138fe3e2eb",
+      "raw_receipt_sha256": "b0a876bf171f34daa3c02306ce00245f25f99e39e3fe65236d8bc50071321ac7",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"17.0.15\" 2025-04-15",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "apply_mods",
+          "result_sha256": "bacacb9e555e2ea47989af57a1e35e423a992fb57ba008bd95fa1252389851a0",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "forge-1.20.1",
+      "minecraft": "1.20.1",
+      "loader": "FORGE",
+      "loader_version": "47.4.28",
+      "java": 17,
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "image_reference": "itzg/minecraft-server:java17@sha256:a08cd9ced3e1c3f46a318af1fa393de21698afbf8746681f115dc923ba847ba5",
+      "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+      "loader_library_sha256": "9a6e4341cb5fc92ac6efdea4a9bc7e83cdec75c0f996f9af376c58af7ea7bf97",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "505cabfd5a239511f77fdd4e42b9053eabe8cb8bc35a18caa7c6827988c0ecf2",
+      "raw_receipt_sha256": "94fca6f9345d619ccb7462dcbceee783657eefc4b24065d7ef09f76e26d941fe",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"17.0.15\" 2025-04-15",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "restore",
+          "result_sha256": "4bf45cc20f89089136f2b4e151249dd4fad6d72071e2bb9d61bb6d036848545e",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        },
+        {
+          "kind": "apply_mods",
+          "result_sha256": "fa53041627164fb54bee02aca5c9f563772b3e3c9537f1430fbd90b083dd621b",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "minecraft": "1.20.1",
+      "loader": "NEOFORGE",
+      "loader_version": "47.1.106",
+      "java": 17,
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "image_reference": "itzg/minecraft-server:java17@sha256:a08cd9ced3e1c3f46a318af1fa393de21698afbf8746681f115dc923ba847ba5",
+      "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+      "loader_library_sha256": "af67e430f39dc742713c94975166fac29c1a49f5ba7c31095a77289931399dc1",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "088f1fcdfb2cb368dabc5b4adb7fc25d6a0a21855029c80ec280c32afa6d64b3",
+      "raw_receipt_sha256": "1a757717bee9d568d3c9f46603e0f9f71e5db9b5a4947d513db8a10070f1fc37",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"17.0.15\" 2025-04-15",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "apply_mods",
+          "result_sha256": "74b2abff7d6459bd405c5017950318698529f22a1e6939110b2778fcc2d874f5",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "fabric-1.21.1",
+      "minecraft": "1.21.1",
+      "loader": "FABRIC",
+      "loader_version": "0.20.1",
+      "java": 21,
+      "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "image_reference": "itzg/minecraft-server:java21@sha256:f6d0b91029e73afd765ae8b0689cdac754067f3e36cb2d60608366f82d650008",
+      "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+      "loader_library_sha256": "d0c5a082e07410aaff9de7ab196aa6b4236002870f9ba3ad5c1260fcce5110ad",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "3ab9d70905be8b33a02d09ecb1ba8de02c5cd3d5e40c379affa12175d6a9e6f5",
+      "raw_receipt_sha256": "b98fabcfb7e0cf6ffcee132900b4bac2462d9fad77c46c56a7738b29c1594f6b",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"21.0.13\" 2026-10-20 LTS",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "apply_mods",
+          "result_sha256": "2c40d7463e3244930cd4aca1c6af1faf1ef2b168b2fcb9627797df344e6a8d34",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "forge-1.21.1",
+      "minecraft": "1.21.1",
+      "loader": "FORGE",
+      "loader_version": "52.1.20",
+      "java": 21,
+      "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "image_reference": "itzg/minecraft-server:java21@sha256:f6d0b91029e73afd765ae8b0689cdac754067f3e36cb2d60608366f82d650008",
+      "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+      "loader_library_sha256": "aab8963864486381c1db99e2508e57baca3914c17b9ded66d264d9c5289e864c",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "aa3352f3a78d21d51bf8e297e93ab2f8713f6027419e618496c39e54c81e36b7",
+      "raw_receipt_sha256": "5276a7916996d0f4174fa5fe1f2888e9b0ff75db0dcc0e5457b8eef9ca118289",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"21.0.13\" 2026-10-20 LTS",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "apply_mods",
+          "result_sha256": "a2703d4a86a091046d041115583726244a04806c4f1f285efa614a5dfec17b5d",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "neoforge-1.21.1",
+      "minecraft": "1.21.1",
+      "loader": "NEOFORGE",
+      "loader_version": "21.1.265",
+      "java": 21,
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "image_reference": "itzg/minecraft-server:java21@sha256:f6d0b91029e73afd765ae8b0689cdac754067f3e36cb2d60608366f82d650008",
+      "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+      "loader_library_sha256": "c12cf1a6cb0aa7792b13174b06088a4f54d8bcc92f6a32fcb03310b456936847",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "cdd370cd62f78635a46af790fa9946ebdc25065e27ecfbde5fca5096467f29a5",
+      "raw_receipt_sha256": "a16b6fe462a9c665d81577a62ab06f204103808f2b6f1fae92f79dccbb270600",
+      "process_exit_code": 143,
+      "native_client_acceptance": false
+    },
+    {
+      "id": "fabric-26.3",
+      "minecraft": "26.3",
+      "loader": "FABRIC",
+      "loader_version": "0.20.1",
+      "java": 25,
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "image_reference": "itzg/minecraft-server:java25@sha256:6fd6f9bb6998b7cd06948ec6ab03fabfdf98ba3f2ec030c44069bec9a6bdf09d",
+      "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+      "loader_library_sha256": "d0c5a082e07410aaff9de7ab196aa6b4236002870f9ba3ad5c1260fcce5110ad",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "a6698514aaa42d95e9b26f9e30b48dd76ca23fceba48d97ef9e84329d58a1737",
+      "raw_receipt_sha256": "db9f34b42a2e7afecbb5baa484ecd3f55ee51f681c46bc8eb011246bc9db9c96",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"25.0.4.1\" 2026-08-18 LTS",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "restore",
+          "result_sha256": "8b9b1a1d5ef1700a446f2fe984ff0a36ddde10b3e2dcd922061c4fed4279c358",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        },
+        {
+          "kind": "apply_mods",
+          "result_sha256": "736f82bdcb8078ac56cc5b9da75b37fdda5b1ae63b7b8f2fd32e4e22278515cc",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "forge-26.3",
+      "minecraft": "26.3",
+      "loader": "FORGE",
+      "loader_version": "66.1.0",
+      "java": 25,
+      "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "image_reference": "itzg/minecraft-server:java25@sha256:6fd6f9bb6998b7cd06948ec6ab03fabfdf98ba3f2ec030c44069bec9a6bdf09d",
+      "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+      "loader_library_sha256": "2abc4ad803685b46427dd6b78b52fad8c9b797a9c572f21aa631fcadc061130c",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "5f6b80bae542558990fcde03063962cc74ccc9c4834aab54888c6a7bbfa4552c",
+      "raw_receipt_sha256": "449266f32b1cc25ac365d9168349bad170a00b0207f248543e72ae84f937a5df",
+      "process_exit_code": 0,
+      "native_client_acceptance": false,
+      "actual_java": "openjdk version \"25.0.4.1\" 2026-08-18 LTS",
+      "normal_manager_current_guard_installation": [
+        {
+          "kind": "apply_mods",
+          "result_sha256": "88e2e2f0ba11c3c2b29a6614bb0d45762f1ac42b7af7c953f5fd0e7842789dd3",
+          "network": "none",
+          "published_ports": [],
+          "guard_version": "1.0.7"
+        }
+      ]
+    },
+    {
+      "id": "neoforge-26.3",
+      "minecraft": "26.3",
+      "loader": "NEOFORGE",
+      "loader_version": "26.3.0.99",
+      "java": 25,
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "image_reference": "itzg/minecraft-server:java25@sha256:6fd6f9bb6998b7cd06948ec6ab03fabfdf98ba3f2ec030c44069bec9a6bdf09d",
+      "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+      "loader_library_sha256": "1c41dc00c92e87cd874788ee51720e3217e238423b853ac13b8242cf1973a13e",
+      "server_ready": true,
+      "online_mode": true,
+      "log_sha256": "0ca314b600c5128fc5285ea76c53c6c6d0dd388e57596b2a34898a834d2ad38e",
+      "raw_receipt_sha256": "a848a46ea08b5233f598602ac0bb87ae5c7f0796c392d4e506e7c94baefa6cd3",
+      "process_exit_code": 143,
+      "native_client_acceptance": false
+    }
+  ],
+  "client_pack_imports": [
+    {
+      "id": "fabric-1.20.1",
+      "pack_sha256": "c8c9c2807ed35c3fc667f476080b76f2a36ffb677c2a53f027252a7572ec2fe3",
+      "minecraft": "1.20.1",
+      "loader": "FABRIC",
+      "loader_version": "0.20.1",
+      "java_required": 17,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/Jade-1.20-Fabric-11.13.3.jar": "5a2830f6e5edabbb632c33eed5b9cabf45495ccb937c976a3656efe74a183375",
+        "mods/fabric-api-0.92.12+1.20.1.jar": "4197ff4fbdac13cffccd267c1bc59e9fbabb2b5683a9d5f8023f4b5ea16a1c1e"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    },
+    {
+      "id": "fabric-1.21.1",
+      "pack_sha256": "d9bf867d475c2ec433af85461296dba580808c3aa4f7ac3152025c349b970178",
+      "minecraft": "1.21.1",
+      "loader": "FABRIC",
+      "loader_version": "0.20.1",
+      "java_required": 21,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/Jade-1.21.1-Fabric-15.10.6.jar": "fb834cc77804a6f509690c54b4af56305ce7a7f3171f8616310710f0af1f673a",
+        "mods/fabric-api-0.116.17+1.21.1.jar": "79ac44b40780acbd884b34c50be1e39af682847e5f5cb3b1fddeeaa768dce800"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    },
+    {
+      "id": "forge-1.20.1",
+      "pack_sha256": "df4becd693ba633523d72e0d89eaf551122ac5668c390edbe9e66c261913e67a",
+      "minecraft": "1.20.1",
+      "loader": "FORGE",
+      "loader_version": "47.4.28",
+      "java_required": 17,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    },
+    {
+      "id": "forge-1.21.1",
+      "pack_sha256": "52d53c155cadfc5db9560aed47a1c6154d7d91781dcc25fdc1e092e0efc6bc91",
+      "minecraft": "1.21.1",
+      "loader": "FORGE",
+      "loader_version": "52.1.20",
+      "java_required": 21,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/carryon-forge-1.21.1-2.2.6.13.jar": "c113a91aa791f088022f85f1e5122e7c0f4eec8721d53520c599a39ee5a99984"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    },
+    {
+      "id": "forge-26.3",
+      "pack_sha256": "1a27836f001079dfd7241751be2e1b8c3bac4128832dbd4bad7b2c5632a2edce",
+      "minecraft": "26.3",
+      "loader": "FORGE",
+      "loader_version": "66.1.0",
+      "java_required": 25,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/carryon-forge-26.3-2.12.0.jar": "a3f8ec652390031dbfa1cec817a4763789b0532f17af47a33398b165192900fb"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "pack_sha256": "48fcaae566e868341498e7886d89f871f0b32946da7157a9075227efa4163ec5",
+      "minecraft": "1.20.1",
+      "loader": "NEOFORGE",
+      "loader_version": "47.1.106",
+      "java_required": 17,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    },
+    {
+      "id": "fabric-26.3",
+      "pack_sha256": "8e4e6745aac5b4b8a0fc56ccf31fd87b4c012fbd673eece7758f3694c2c83a59",
+      "minecraft": "26.3",
+      "loader": "FABRIC",
+      "loader_version": "0.20.1",
+      "java_required": 25,
+      "real_prism_import": "BESTANDEN",
+      "imported_mods": {
+        "mods/Jade-mc26.3-Fabric-26.3.5.jar": "4899d6c60afa2af859b3a7e0824d0ef6b404f26458f831e3d877faa36be9af1c",
+        "mods/fabric-api-0.165.0+26.3.jar": "18442e2ad466d6ef41c37dbb4cb68495e6ca6658b1f1ee9be76143d155ef2c88"
+      },
+      "server_guard_and_probe_excluded": true,
+      "client_connection_verified": false,
+      "raw_import_receipt_sha256": "580494fe23faff61519adc78f21b14233509a1e72f7bf199ec7155a89e2a9ad5"
+    }
+  ],
+  "reused_installations": [
+    {
+      "id": "fabric-1.20.1",
+      "clean_install_receipt_sha256": "03062edf31ad75f119a0c3b6b32895d4b353d04150aa23e824d5a70a884416c3",
+      "clean_install_log_sha256": "dda0e4d677a279a155fd02bf2a1a538d5e43f1d0bf87f596cd0328bbfbb8d7c4",
+      "previous_guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b",
+      "current_guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "fabric-1.20.1",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    },
+    {
+      "id": "forge-1.20.1",
+      "clean_install_receipt_sha256": "1a5e26a43fc76d4298c4b41b09e45aefe62202117e27249acd1be4096eda6c60",
+      "clean_install_log_sha256": "6d245e52f3d95d2953a471a974d9861375aa2b7a8b5b10a3b7d75e303ddf615b",
+      "previous_guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
+      "current_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "forge-1.20.1",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "clean_install_receipt_sha256": "343158e79a5862ce73d26331d6de8081ac9f3be979eec2deb4e0fd8328937f1e",
+      "clean_install_log_sha256": "09b42d3d2ca23540fae9a8590c895d3f83eaf2b6b781f01c7b1a0354c6a45a89",
+      "previous_guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
+      "current_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "neoforge-1.20.1",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    },
+    {
+      "id": "fabric-1.21.1",
+      "clean_install_receipt_sha256": "538f70ac0013243508dd44cc8bf91c032e943cfee4aecdac262b1e6bda49049f",
+      "clean_install_log_sha256": "23e134bafb913127c6e3465d539aaa632d765fade97e4ef4020ec29b5a6297ad",
+      "previous_guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61",
+      "current_guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "fabric-1.21.1",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    },
+    {
+      "id": "forge-1.21.1",
+      "clean_install_receipt_sha256": "e49962bf02f805c3057530ee791e1f09732a8e9f5e1dc01dde96320c8ff4908b",
+      "clean_install_log_sha256": "248b143b2386d81ba3cb9180550feb2a74e5952236092059ac75daf04ec9d324",
+      "previous_guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9",
+      "current_guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "forge-1.21.1",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    },
+    {
+      "id": "fabric-26.3",
+      "clean_install_receipt_sha256": "d0907695ec37b38f9f597bc182129bf2d62c60adfce9d608ab50ca48ad071d3a",
+      "clean_install_log_sha256": "5d4c9f3b91b9d7971fd83ec00af851e8e5d75818ca36108dbee1330915cd4f71",
+      "previous_guard_sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4",
+      "current_guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "fabric-26.3",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    },
+    {
+      "id": "forge-26.3",
+      "clean_install_receipt_sha256": "d792d92131e67d687fee37a31e31a0142c72a7b7862ea5805e8ff7af23c94378",
+      "clean_install_log_sha256": "ada233fde8e14b77889b4585059063b35dd505b7d6aa14fcba5bad85a9a42f72",
+      "previous_guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e",
+      "current_guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "same_minecraft_loader_java_image_and_loader_library": true,
+      "current_guard_startup_record": "forge-26.3",
+      "normal_manager_current_guard_installation_verified": true,
+      "new_clean_installation_claimed": false
+    }
+  ],
+  "prior_backup_roundtrips": [
+    {
+      "id": "fabric-1.20.1",
+      "previous_guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b",
+      "current_guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "original_status": "BESTANDEN",
+      "current_guard_acceptance_claimed": false,
+      "world_marker_restored": true,
+      "backup_archive_sha256": "98fc412e990bde5240cdd6d05d77e877bc8771776a9c794a44f98a0a292c4f1d"
+    },
+    {
+      "id": "fabric-1.21.1",
+      "previous_guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61",
+      "current_guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "original_status": "BESTANDEN",
+      "current_guard_acceptance_claimed": false,
+      "world_marker_restored": true,
+      "backup_archive_sha256": "02a7cc33c3e8d2d16a2ace0fc169ff9f5c6c769080c13ea62c48ed8afb1a6565"
+    },
+    {
+      "id": "forge-1.20.1",
+      "previous_guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
+      "current_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "original_status": "BESTANDEN",
+      "current_guard_acceptance_claimed": false,
+      "world_marker_restored": true,
+      "backup_archive_sha256": "0e856bdb9f5c4499ad4cf39022247304ef84a56239268cb50c7e474d566f2d12"
+    },
+    {
+      "id": "forge-1.21.1",
+      "previous_guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9",
+      "current_guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "original_status": "BESTANDEN",
+      "current_guard_acceptance_claimed": false,
+      "world_marker_restored": true,
+      "backup_archive_sha256": "95da815d27defa54d7104bbef81b3b301e853f2eaa4dbe2a52e5a373e57dd8dc"
+    },
+    {
+      "id": "forge-26.3",
+      "previous_guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e",
+      "current_guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "original_status": "BESTANDEN",
+      "current_guard_acceptance_claimed": false,
+      "world_marker_restored": true,
+      "backup_archive_sha256": "2007d8866eea0a44f09eb9f36c9f52b798dcbcd169e7103b574831cc0c348b02"
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "previous_guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
+      "current_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "original_status": "FEHLGESCHLAGEN",
+      "current_guard_acceptance_claimed": false,
+      "corrected_restore_status": "BESTANDEN",
+      "world_marker_restored": true,
+      "correction_receipt_sha256": "8c10611848b2302d98df01d33bc23edf285eecbdfc1d23c7a52b4d40b8c71ce8"
+    }
+  ],
+  "limits": [
+    "Each status applies only to its named component gate. All nine complete profiles remain unapproved.",
+    "Current guard startup proves server loading, not visitor enforcement, role revocation or client/mod interaction.",
+    "The seven installation records combine the unchanged clean Java/loader installation with a separate successful startup and normal manager installation of the current guard. They do not claim nine new clean installations.",
+    "Prism import proves the exported package was installed with the recorded Minecraft/loader/mod identities. Launch and actual server connection remain separate gates.",
+    "Historical backups with earlier guard hashes are retained as component evidence and do not grant acceptance to the current guard.",
+    "The two current NeoForge startup probes ended with Java signal exit 143. Their successful starts are recorded; a normal manager shutdown is not inferred from those probes.",
+    "No fresh CodeQL result or public release approval is implied."
+  ]
+}
