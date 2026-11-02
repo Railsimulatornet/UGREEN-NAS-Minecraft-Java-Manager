@@ -6,6 +6,8 @@ Diese Anleitung führt dich durch eine neue Installation mit **UGOS Docker → P
 
 **Stand: 2. November 2026 · Manager 1.0.1.**
 
+Das Release-ZIP enthält die Installationsunterlagen und UGOS-Vorlagen, kein Docker-Image. UGOS lädt das Manager-Image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1** separat von [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
+
 ### Was du bereithältst
 
 - UGREEN NAS mit Intel- oder AMD-Prozessor, UGOS und installierter Docker-App. Die Anwendung ist für linux/amd64 gebaut.
@@ -261,7 +263,7 @@ Im Spiel: **Mehrspieler → Server hinzufügen**. Trage die NAS-IP und den Spiel
 3. Wähle **Client-Paket erstellen / aktualisieren** und warte auf den Abschluss.
 4. Lade das aktuelle **.mrpack** herunter oder erstelle einen Download-Link für deine Mitspieler.
 
-Ein Dateiname wie **1.0.0-client.2** bedeutet: erstellt mit Manager 1.0.0, Paketnummer 2. Minecraft-, Java- und Loader-Version stehen separat darunter. Ältere Pakete behalten ihren ursprünglichen Namen. Nach Serveränderungen kann ein neues Paket nötig sein.
+Ein Dateiname wie **1.0.1-client.2** bedeutet: erstellt mit Manager 1.0.1, Paketnummer 2. Minecraft-, Java- und Loader-Version stehen separat darunter. Ältere Pakete behalten ihren ursprünglichen Namen. Nach Serveränderungen kann ein neues Paket nötig sein.
 
 Ein Spieler-Link gibt Zugriff auf das zugehörige Paket. Prüfe Gültigkeit und Widerruf in der Paketansicht. Ein abgelaufener oder widerrufener Link muss neu erstellt werden.
 

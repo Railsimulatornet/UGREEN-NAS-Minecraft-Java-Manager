@@ -6,9 +6,9 @@
   "loader": "FORGE",
   "java": 21,
   "path": "releases/guards/forge-1.21.1/mcj-guard-forge-1.21.1-1.0.7.jar",
-  "runtime_test": "not_tested",
-  "visitor_verified": false,
-  "visitor_client_test": "not_verified_for_this_artifact",
+  "runtime_test": "passed",
+  "visitor_verified": true,
+  "visitor_client_test": "passed",
   "metadata": {
     "loader": "FORGE",
     "mods": [
@@ -48,7 +48,9 @@
     "mcj_network_v1"
   ],
   "protocol_version": 1,
-  "tested_loaders": [],
+  "tested_loaders": [
+    "52.1.20"
+  ],
   "candidate_loaders": [
     "52.1.20"
   ],
@@ -60,5 +62,9 @@
     "java_class_major": [
       65
     ]
+  },
+  "acceptance": {
+    "scope": "artifacts/guard-acceptance-20261102.json",
+    "sha256": "3f3b8f525f4650765f678e9eb96a93fff590f7303a941264940399227f419718"
   }
 }

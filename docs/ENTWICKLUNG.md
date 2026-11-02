@@ -15,9 +15,11 @@ Diese Seite richtet sich an Entwickler und Projektbetreuer. Für die normale NAS
 | `mcj/client_pack_resources/` | Client-Anpassungen, passende Quellen und Fremdlizenzen. |
 | `tools/` | Einrichtung, Manager-Update und Zugangswiederherstellung. Diese Werkzeuge können NAS-Dienste und Daten verändern. |
 | `deploy/` | UGOS-Vorlagen für Erstinstallation und Manager-Updates. |
-| `artifacts/` | Die beiden ausgelieferten NeoForge-Guards mit Prüfsummen, Lizenzen und genau begrenzten Kompatibilitätsnachweisen. |
+| `artifacts/` | Die acht ausgelieferten MCJ-Schutzdateien für neun Fabric-/Forge-/NeoForge-Kombinationen mit Prüfsummen, Lizenzen und genau begrenzten Kompatibilitätsnachweisen. |
 | `licenses/` | Originale Lizenz- und Hinweistexte zusätzlich mitgelieferter Werkzeuge. |
-| `guard-neoforge/` | Guard-Quellcode für Minecraft 26.3. |
+| `guard-fabric-1201/`, `guard-fabric-1211/`, `guard-fabric-263/` | Fabric-Guards für die drei unterstützten Minecraft-Versionen. |
+| `guard-forge-1201/`, `guard-forge-1211/`, `guard-forge-263/` | Forge-Guards; die 1.20.1-Datei wird auch mit NeoForge 47.1.106 verwendet. |
+| `guard-neoforge/` | NeoForge-Guard für Minecraft 26.3. |
 | `guard-neoforge-1211/` | Guard-Quellcode für Minecraft 1.21.1. |
 | `tests/` | Automatische Prüfungen und gesonderte Abnahmeskripte. |
 | `docs/` | Anleitungen, PDF-Handbücher, Bilder, Kompatibilität und Lizenzinformationen. |
@@ -46,7 +48,7 @@ Die Guard-Builds verwenden die in `.github/workflows/image.yml` festgelegten Umg
 
 ### Versionsnummern und Docker-Images
 
-Die Manager-Version steht in `mcj/__init__.py`. Der Image-Bau liest sie dort aus. Halte README, Changelog, `Dockerfile`, die Versionsanzeige und die Installationsvorlage im Einklang. `tests/test_release_metadata.py` prüft diese Angaben. Ein Git-Tag `v1.0.1` darf nur auf Code mit der Manager-Version `1.0.1` zeigen. Minecraft, Java, NeoForge und Guard besitzen eigene Versionsnummern.
+Die Manager-Version steht in `mcj/__init__.py`. Der Image-Bau liest sie dort aus. Halte README, Changelog, `Dockerfile`, die Versionsanzeige und die Installationsvorlage im Einklang. `tests/test_release_metadata.py` prüft diese Angaben. Ein Git-Tag `v1.0.1` darf nur auf Code mit der Manager-Version `1.0.1` zeigen. Minecraft, Java, Modloader und Guard besitzen eigene Versionsnummern.
 
 | Image-Tag | Bedeutung |
 | --- | --- |
@@ -81,7 +83,7 @@ This page is for developers and maintainers. For normal NAS installation, use th
 
 ### Source layout and tests
 
-`mcj/` contains the application and controller; `mcj/static/` contains the interface and translations. `tools/` contains setup, update and recovery tools that can change NAS services and data. `deploy/` contains the UGOS templates. `artifacts/` contains the two shipped NeoForge Guards, checksums, licences and scoped compatibility records. Their sources are in `guard-neoforge/` for Minecraft 26.3 and `guard-neoforge-1211/` for Minecraft 1.21.1. `tests/` contains automated tests and separate acceptance scripts, `docs/` contains guides and manuals, and `.github/` contains the workflows. Client modifications, corresponding sources and licences are in `mcj/client_pack_resources/`.
+`mcj/` contains the application and controller; `mcj/static/` contains the interface and translations. `tools/` contains setup, update and recovery tools that can change NAS services and data. `deploy/` contains the UGOS templates. `artifacts/` contains eight MCJ protection JARs for the nine supported Fabric/Forge/NeoForge combinations, with checksums, licences and scoped compatibility records. Fabric and Forge sources are in their respective `guard-fabric-*` and `guard-forge-*` folders. NeoForge sources are in `guard-neoforge/` for Minecraft 26.3 and `guard-neoforge-1211/` for Minecraft 1.21.1; NeoForge 1.20.1 uses the Forge 1.20.1 protection JAR. `tests/` contains automated tests and separate acceptance scripts, `docs/` contains guides and manuals, and `.github/` contains the workflows. Client modifications, corresponding sources and licences are in `mcj/client_pack_resources/`.
 
 `licenses/` contains original licence and notice files for additional bundled tools.
 
@@ -93,7 +95,7 @@ The initial repository commit receives full automated validation. Use the releva
 
 ### Versions and image publication
 
-The manager version is defined in `mcj/__init__.py`; the image workflow reads it there. Keep the README, changelog, Dockerfile default, interface version and installation template aligned. `tests/test_release_metadata.py` checks them. A Git tag such as `v1.0.1` must match manager version `1.0.1`. Minecraft, Java, NeoForge and Guard have separate versions.
+The manager version is defined in `mcj/__init__.py`; the image workflow reads it there. Keep the README, changelog, Dockerfile default, interface version and installation template aligned. `tests/test_release_metadata.py` checks them. A Git tag such as `v1.0.1` must match manager version `1.0.1`. Minecraft, Java, mod loaders and Guard have separate versions.
 
 Version tags such as `1.0.0` record a release and must not be replaced with different contents after public release. Fixes receive a new version. `stable` follows the latest approved release, `edge` is an optional development build, and `sha-<full commit>` identifies a source revision. Record the commit, image ID, registry digest and checks for every release. Version and `stable` tags must refer to the same approved contents. Where available, configure immutable Docker Hub rules for version and commit tags, leaving `stable` and `edge` movable.
 

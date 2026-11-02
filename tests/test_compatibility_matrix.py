@@ -27,3 +27,21 @@ def test_packaged_adapters_keep_their_own_java_channel():
     assert {(x['minecraft'],x['loader']) for x in view['variants'] if x['selectable']}==accepted
     assert all(x['runtime_test']=='passed' and x['visitor_client_test']=='passed' for x in view['variants'] if x['selectable'])
     assert all(not x['loader_versions'] for x in view['variants'] if not x['selectable'])
+
+
+def test_release_scope_is_actually_selectable_with_exact_tested_loader_versions():
+    import hashlib,json
+    from pathlib import Path
+    from mcj.guard_bundle import read
+    root=Path(__file__).resolve().parents[1]
+    evidence=json.loads((root/'artifacts/compatibility/release-matrix.json').read_text())
+    expected={(x['minecraft'],x['loader'],x['java'],x['loader_version'],x['guard']['sha256'])
+              for x in evidence['entries'] if x['status']=='BESTANDEN'}
+    view=matrix(SimpleNamespace(get=lambda key:read()))
+    actual={(x['minecraft'],x['loader'],x['java'],version,x['guard_sha256'])
+            for x in view['variants'] if x['selectable'] for version in x['loader_versions']}
+    assert len(expected)==9 and actual==expected
+    for entry in read()['artifacts']:
+        acceptance=entry['acceptance'];record=root/acceptance['scope']
+        assert hashlib.sha256(record.read_bytes()).hexdigest()==acceptance['sha256']
+    assert {'VANILLA','PAPER','SPIGOT','QUILT','BEDROCK'}<=set(view['unsupported'])

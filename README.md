@@ -23,6 +23,8 @@ Für die normale Installation brauchst du weder SSH noch eine Konsole.
 
 ### Installation über UGOS Docker
 
+Das Release-ZIP enthält die Installationsunterlagen und UGOS-Vorlagen, kein Docker-Image. UGOS lädt das Manager-Image `railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1` separat von [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
+
 **Schritt für Schritt mit Bildern:** [PDF auf Deutsch](docs/Installation-DE.pdf) · [Textanleitung](docs/INSTALLATION-DE.md).
 
 1. Lade [ugos-einrichtung.yaml](deploy/ugos-einrichtung.yaml) herunter.
@@ -44,7 +46,7 @@ Vor einem Manager-Update müssen Manager, Steuerungsdienst und Minecraft laufen 
 - **Übersicht:** Zustand und Spieler sehen. Webadministrator und Minecraft-Operator sind getrennte Rechte; Mitspieler brauchen kein Webkonto.
 - **Erster Beitritt:** Bei aktiver Namensliste gibst du das erste Minecraft-Konto unter **Übersicht → Serverkonsole** mit `whitelist add DeinSpielername` frei. Nach dem Beitritt kannst du es unter **Spieler → Aktionen → Gruppe** als **Spieler** zum Mitspielen freigeben. Die Anleitung erklärt Namensliste und Spielerrolle getrennt.
 - **Mods:** Mods suchen oder hochladen. **Updates prüfen** sucht nach neuen Versionen. Änderungen werden gesammelt und zum gewählten Zeitpunkt mit Sicherung und Servertest übernommen. Für CurseForge hinterlegst du einen API-Schlüssel unter **Einstellungen → Mod-Anbieter**.
-- **Client-Modpack:** Ein passendes `.mrpack` für deine Spieler erstellen. `1.0.0-client.2` bezeichnet Manager-Version und Paketnummer; Minecraft-, Java- und Loader-Version stehen separat dabei. Bei unklaren Anforderungen die Angaben des Mod-Autors prüfen und unter **Welche Mods brauchen die Spieler?** zuordnen.
+- **Client-Modpack:** Ein passendes `.mrpack` für deine Spieler erstellen. `1.0.1-client.2` bezeichnet Manager-Version und Paketnummer; Minecraft-, Java- und Loader-Version stehen separat dabei. Bei unklaren Anforderungen die Angaben des Mod-Autors prüfen und unter **Welche Mods brauchen die Spieler?** zuordnen.
 - **Backups:** Sicherung erstellen, Archiv prüfen und Wiederherstellung isoliert testen. Intervall und Aufbewahrung stehen unter **Einstellungen → Zeitpläne**. Das Intervall legt die Fälligkeit fest: Der Auftrag wartet auf fünf Minuten ohne Spieler und hält einen laufenden Server für die Sicherung an und startet ihn danach wieder. Die Dauer hängt von Datenmenge und NAS ab. Während durchgehend gespielt wird, kann die Sicherung später erfolgen.
 - **Welten:** Unter **Einstellungen → Welten** siehst du den tatsächlich verwendeten Seed jeder gespeicherten Welt.
 - **Discord / E-Mail:** Für E-Mail-Codes ist der Mailversand nach der ersten Codebestätigung bereits eingerichtet. Bei Nutzung einer Authenticator-App kannst du ihn später für Benachrichtigungen und Passwortwiederherstellung einrichten. Discord ist optional. Änderungen speichern und danach testen. Eine gültige, bestätigte Anmeldung benötigt für gewöhnliche berechtigte Änderungen keine weitere 2FA-Abfrage.
@@ -67,6 +69,8 @@ The normal installation does not require SSH or a terminal.
 
 ### Install through UGOS Docker
 
+The release ZIP contains the installation documents and UGOS templates, not a Docker image. UGOS downloads the manager image `railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1` separately from [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
+
 **Step by step with screenshots:** [English PDF](docs/Installation-EN.pdf) · [Text guide](docs/INSTALLATION-EN.md).
 
 1. Download [ugos-einrichtung.yaml](deploy/ugos-einrichtung.yaml).
@@ -88,7 +92,7 @@ Before a manager update, the manager, controller and Minecraft must all be runni
 - **Overview:** Check status and players. Web administrator and Minecraft operator are separate permissions; players do not need a web account.
 - **First join:** With the name list enabled, approve the first Minecraft account under **Overview → Server console** using `whitelist add YourPlayerName`. After it joins, choose **Player** under **Players → Actions → Group** to allow playing. The guide explains the name list and player role separately.
 - **Mods:** Search for or upload mods. **Check updates** looks for newer versions. Changes are collected and applied at your chosen time after a backup and server test. Add your CurseForge API key under **Settings → Mod providers** to enable CurseForge search.
-- **Client modpack:** Create a matching `.mrpack` for your players. `1.0.0-client.2` identifies the manager version and package sequence; Minecraft, Java and loader versions are listed separately. For unclear requirements, check the author's information and use **Which mods do players need?**
+- **Client modpack:** Create a matching `.mrpack` for your players. `1.0.1-client.2` identifies the manager version and package sequence; Minecraft, Java and loader versions are listed separately. For unclear requirements, check the author's information and use **Which mods do players need?**
 - **Backups:** Create a backup, check its archive and test a restore in isolation. Change interval and retention under **Settings → Schedules**. The interval sets when a backup becomes due: the job waits for five minutes without players, then stops a running server for the backup and starts it again afterwards. The duration depends on the amount of data and the NAS. During continuous play, a backup may happen later.
 - **Worlds:** **Settings → Worlds** shows the actual seed used by each saved world.
 - **Discord / Email:** If you confirmed an email code during first sign-in, outgoing email is already set up. With an authenticator app, you can add it later for notifications and password recovery. Discord is optional. Save changes, then test. A valid authenticated session does not require another 2FA challenge for ordinary authorised changes.

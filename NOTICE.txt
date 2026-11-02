@@ -10,10 +10,14 @@ respective licenses and copyright notices. This project attribution does not rep
 Eigenständiges Projekt; keine offizielle Software von UGREEN, Mojang oder Microsoft.
 Independent project; not official software from UGREEN, Mojang or Microsoft.
 
-Eigene NeoForge-Guards / Own NeoForge Guards: MIT.
-See artifacts/MCJ-GUARD-LIZENZHINWEIS.md and artifacts/LICENSE-MCJ-GUARDS.txt.
-The unchanged 1.0.5 JARs retain an older descriptive copyright label;
-the explicit accompanying MIT grant applies to MCJ-owned code only.
+Eigene MCJ-Schutzkomponenten für Fabric, Forge und NeoForge: MIT.
+Own MCJ protection components for Fabric, Forge and NeoForge: MIT.
+Copyright (c) 2026 Roman Glos.
+Siehe / See artifacts/MCJ-GUARD-LIZENZHINWEIS.md and artifacts/LICENSE-MCJ-GUARDS.txt.
+Einzelne JAR-Metadaten enthalten eine ältere beschreibende Lizenzangabe.
+Die ausdrückliche beiliegende MIT-Lizenz gilt ausschließlich für eigenen MCJ-Code.
+Some JAR metadata retains an older descriptive licence label.
+The explicit accompanying MIT grant applies to MCJ-owned code only.
 
 Lizenztexte und Hinweise mitgelieferter Client-Anpassungen:
 mcj/client_pack_resources/ (im erzeugten Clientpaket: MCJ-LICENSES).
