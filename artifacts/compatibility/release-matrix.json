@@ -42,7 +42,7 @@
       "loader_version": "0.20.1",
       "java": 17,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-fabric-1.20.1-1.0.7.jar",
@@ -77,20 +77,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -753,8 +785,16 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-preparation-20261102.json",
+              "sha256": "b37179556bcd568ab491cfd9608e133ddf3a206b5f7be56ffbbeefe49add2270",
+              "entry": "neoforge-1.21.1",
+              "section": "installation",
+              "scope": "Clean server directory, current pinned Java image, exact loader/guard/mod hashes; separate normal manager mod installation verified. No native client acceptance."
+            }
+          ]
         },
         "server_java_loader": {
           "status": "BESTANDEN",
@@ -920,7 +960,7 @@
       "loader_version": "0.20.1",
       "java": 25,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-fabric-26.3-1.0.7.jar",
@@ -955,20 +995,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-26.3",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-26.3",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-26.3",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "entry": "fabric-26.3",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -1210,8 +1282,16 @@
       },
       "gates": {
         "installation": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-preparation-20261102.json",
+              "sha256": "b37179556bcd568ab491cfd9608e133ddf3a206b5f7be56ffbbeefe49add2270",
+              "entry": "neoforge-26.3",
+              "section": "installation",
+              "scope": "Clean server directory, current pinned Java image, exact loader/guard/mod hashes; separate normal manager mod installation verified. No native client acceptance."
+            }
+          ]
         },
         "server_java_loader": {
           "status": "BESTANDEN",

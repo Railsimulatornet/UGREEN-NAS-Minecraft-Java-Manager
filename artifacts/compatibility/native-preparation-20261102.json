@@ -1,0 +1,113 @@
+{
+  "schema": "mcj-native-preparation-evidence/v1",
+  "date": "2026-11-02",
+  "program_commit": "679f89c53bb903b63e9f3aa301689edbaca39276",
+  "publication_allowed": false,
+  "profiles": [
+    {
+      "id": "neoforge-1.21.1",
+      "runtime": {
+        "version": "1.21.1",
+        "loader": "NEOFORGE",
+        "loader_version": "21.1.265",
+        "java": 21
+      },
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "installation": {
+        "status": "BESTANDEN",
+        "clean_data_directory": true,
+        "cached_libraries_copied": false,
+        "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+        "image_reference": "itzg/minecraft-server:java21-mcj-24255cde38c1",
+        "actual_java": "openjdk version \"21.0.13\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)",
+        "loader_library_sha256": "c12cf1a6cb0aa7792b13174b06088a4f54d8bcc92f6a32fcb03310b456936847",
+        "guard_version": "1.0.7",
+        "online_mode": true,
+        "server_ready": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+          "mcj-guard-neoforge-1.21.1-1.0.7.jar": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c"
+        },
+        "log_sha256": "ad77fa7a9fb843d0da3db401fa53730e807394cf02f2e12b0ffd8e6619183c8b",
+        "private_receipt_sha256": "f2968030de3f9e9ca306add2bc191a2cbdf2332c0978a5c798e601dbe338db57"
+      },
+      "manager_mod_installation": {
+        "status": "BESTANDEN",
+        "isolated_check_passed": true,
+        "normal_apply_passed": true,
+        "clean_exit_code": 0,
+        "server_log_sha256": "47b151d359ab99c39ec78ee894b7182f535c03e6ec70261f05af00e8517102e4",
+        "private_receipt_sha256": "abac90b4f790ce11c1ecb11a94e0aa60d0a89bd95d4bfc59fae8d04e74b11073"
+      },
+      "client_pack_export": {
+        "status": "BESTANDEN",
+        "authenticated_download": true,
+        "pack_sha256": "e3c16b1a9b0c586b50bc07e5533cb5eb406722c5329a9779e4bc33e1e8f18f59",
+        "minecraft": "1.21.1",
+        "loader_version": "21.1.265",
+        "client_mod_sha256": {
+          "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810"
+        },
+        "server_guard_and_probe_excluded": true,
+        "native_import": "NOCH NICHT GEPRÜFT",
+        "native_connection": "NOCH NICHT GEPRÜFT"
+      }
+    },
+    {
+      "id": "neoforge-26.3",
+      "runtime": {
+        "version": "26.3",
+        "loader": "NEOFORGE",
+        "loader_version": "26.3.0.99",
+        "java": 25
+      },
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "installation": {
+        "status": "BESTANDEN",
+        "clean_data_directory": true,
+        "cached_libraries_copied": false,
+        "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+        "image_reference": "itzg/minecraft-server:java25-mcj-f1d1b3390795",
+        "actual_java": "openjdk version \"25.0.4.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS, mixed mode, sharing)",
+        "loader_library_sha256": "1c41dc00c92e87cd874788ee51720e3217e238423b853ac13b8242cf1973a13e",
+        "guard_version": "1.0.7",
+        "online_mode": true,
+        "server_ready": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "Jade-mc26.3-NeoForge-26.3.5.jar": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712",
+          "mcj-guard-neoforge-1.0.7.jar": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868"
+        },
+        "log_sha256": "ec2437a966b0722e239d268209657fb9c05f1c81e0b3b123833cb19bf15f088b",
+        "private_receipt_sha256": "c1d292865651d3d3b86940d52e04b39fc78e418df13eaa147ffd2e63380f9d7e"
+      },
+      "manager_mod_installation": {
+        "status": "BESTANDEN",
+        "isolated_check_passed": true,
+        "normal_apply_passed": true,
+        "clean_exit_code": 0,
+        "server_log_sha256": "19d41af47e295f670ca85c4598cc18437aef60947f428e19b1bcbe4d3ab0fe18",
+        "private_receipt_sha256": "bb3e6175fad010ad85604aae61410cc7926cadb6c30b0e12f3dcb82786979baa"
+      },
+      "client_pack_export": {
+        "status": "BESTANDEN",
+        "authenticated_download": true,
+        "pack_sha256": "18645ceb1b9f171a587dc307ca4e0a40ba908dc969139caa6e280ef60680f4e6",
+        "minecraft": "26.3",
+        "loader_version": "26.3.0.99",
+        "client_mod_sha256": {
+          "Jade-mc26.3-NeoForge-26.3.5.jar": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712"
+        },
+        "server_guard_and_probe_excluded": true,
+        "native_import": "NOCH NICHT GEPRÜFT",
+        "native_connection": "NOCH NICHT GEPRÜFT"
+      }
+    }
+  ],
+  "limits": [
+    "The two records prove clean server installation, normal manager mod installation, client-pack export and authenticated download only.",
+    "They do not prove a native launcher import, native client connection, in-game mod interaction or visitor/role acceptance.",
+    "Earlier Minecraft, backup and role tests were not repeated by these clean-install checks."
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "mcj-native-client-evidence/v1",
+  "date": "2026-11-02",
+  "program_commit": "679f89c53bb903b63e9f3aa301689edbaca39276",
+  "publication_allowed": false,
+  "profiles": [
+    {
+      "profile": "fabric-1.20.1",
+      "runtime": {
+        "version": "1.20.1",
+        "java": 17,
+        "loader": "FABRIC",
+        "loader_version": "0.20.1"
+      },
+      "java_version": "openjdk version \"17.0.15\" 2025-04-15 LTS\nOpenJDK Runtime Environment Microsoft-11369865 (build 17.0.15+6-LTS)\nOpenJDK 64-Bit Server VM Microsoft-11369865 (build 17.0.15+6-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "fe527f67a4bd441a201c75a9b1763880981241482bf030411e8d8f4dfeaafff6",
+        "minecraft/MCJ-CLIENT-PACK.json": "d2cf693dbc60ec48cdbdd6024eff788a92dbe2ef39fa2fcd0f29aef8243b5d45",
+        "minecraft/logs/latest.log": "423e3b24a95ee71423584078bec56b3e2744b6cf117da2498cd2a205d736d7de"
+      },
+      "client_mod_sha256": {
+        "fabric-api-0.92.12+1.20.1.jar": "4197ff4fbdac13cffccd267c1bc59e9fbabb2b5683a9d5f8023f4b5ea16a1c1e",
+        "Jade-1.20-Fabric-11.13.3.jar": "5a2830f6e5edabbb632c33eed5b9cabf45495ccb937c976a3656efe74a183375"
+      },
+      "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "server_log_sha256": "7f36b69053c94fb2ebcc931e62ef7cb0de3fb5581c780d92ae86942e9b5ad820",
+      "probe_sha256": "ebdec6229b9dc45487730df4ba7a3cd5e1ec3d1a394aa9d8d85eedc3899dbaaa",
+      "probe_cases": 17,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Jade identified the targeted Stone block, displayed the harvest-tool indicator for the granted player and updated after native keyboard mining; Fabric API and Jade match the imported pack hashes.",
+      "window_receipt_sha256": "9a86dd8ec76be97384602b4b7289e31d493966e0d97003efe54de49aba8f1e66",
+      "private_receipt_sha256": "881ba47f0a87b925f8169a0c41b7367bc92c87d061b56ee595b259078489e766",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "aa102691111664942168a5aae3379b2ef4830460b45480fd05c7ad53655b11a7",
+        "f09d2fb8f2bf63a3758d34f1111c4d4e93aead1ab284d33259d17edfc218ae54",
+        "31711ae2587a9152db0e1e4e9f9044f8cbc13fd59f65b5ab0e6cc57a644dc8b8"
+      ],
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "fabric-api-0.92.12+1.20.1.jar": "4197ff4fbdac13cffccd267c1bc59e9fbabb2b5683a9d5f8023f4b5ea16a1c1e",
+          "Jade-1.20-Fabric-11.13.3.jar": "5a2830f6e5edabbb632c33eed5b9cabf45495ccb937c976a3656efe74a183375",
+          "mcj-guard-fabric-1.20.1-1.0.7-ced1a72e78d5.jar": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7"
+        },
+        "server_log_sha256": "a0613602ce792f14d13a9ebe84e21d68bfeee654f29e1a635644a4346979006d",
+        "private_receipt_sha256": "ec69abbf063fdc53d6e56a1bf24095b5de3b97d086ebc75ca98b886f2ceafb86"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "fabric-26.3",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "FABRIC",
+        "loader_version": "0.20.1"
+      },
+      "java_version": "openjdk version \"25.0.1\" 2025-10-21 LTS\nOpenJDK Runtime Environment Microsoft-12574223 (build 25.0.1+8-LTS)\nOpenJDK 64-Bit Server VM Microsoft-12574223 (build 25.0.1+8-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "70d5164d35714de8f269afadc68a071f99e08a0f2a2b7cbfb0314b94e967e2ea",
+        "minecraft/MCJ-CLIENT-PACK.json": "2bfb21f492a1e3bc020447eefcf0e9d5dc9175f2ee16a246751e96155cda1a1e",
+        "minecraft/logs/latest.log": "a6098e69357faaca7a01e3bf349b64ea557931720a595b9036c3e50d76b4c066"
+      },
+      "client_mod_sha256": {
+        "fabric-api-0.165.0+26.3.jar": "18442e2ad466d6ef41c37dbb4cb68495e6ca6658b1f1ee9be76143d155ef2c88",
+        "Jade-mc26.3-Fabric-26.3.5.jar": "4899d6c60afa2af859b3a7e0824d0ef6b404f26458f831e3d877faa36be9af1c"
+      },
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "server_log_sha256": "1218031c7eb1eedae6faf15965c9af63de4de4a4be86f2d0716256f8c44b8a5a",
+      "probe_sha256": "4fb29599983e48ffaeaf75072261899efa5d60be8ff382cda1f3255ab5cb7c78",
+      "probe_cases": 15,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Jade block HUD displays Stone and updates after native block destruction; Fabric API and Jade versions match the exported pack.",
+      "window_receipt_sha256": "5b057c62f4a282d6e4bf03f0d3d4dd58db92c7529e532e2fd7b63389797899ae",
+      "private_receipt_sha256": "436668f96d6fd4c8ac5dfe7b4edb8090ced4b513505712bfba0bcab0d9898e83",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "d67473cb6af8473af9a0d5d621641a64c9c67f3f2452d3c55aebf29a6844a596",
+        "47ecc83cd8b9c6292e7917246d18cf0ee98659f055053c366b474a0c9da08f93",
+        "072d5c1add95b7ab263dc2de4b1afd5f152ee430ee5d7d17beb6f5c1b3d7eef8"
+      ],
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "fabric-api-0.165.0+26.3.jar": "18442e2ad466d6ef41c37dbb4cb68495e6ca6658b1f1ee9be76143d155ef2c88",
+          "Jade-mc26.3-Fabric-26.3.5.jar": "4899d6c60afa2af859b3a7e0824d0ef6b404f26458f831e3d877faa36be9af1c",
+          "mcj-guard-fabric-26.3-1.0.7-59b6b1d74193.jar": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559"
+        },
+        "server_log_sha256": "a4e5d9fef48f875c801e3017fb63f6c39d31e910d166ebc4728904d337bc4feb",
+        "private_receipt_sha256": "435263fd6c3959ffd05e6ea3ac4ad41cf8ffc929ac14d65c8e4d5b243299cf4f"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    }
+  ],
+  "scope": [
+    "Native rendering clients launched from actual Prism imports, with online authentication.",
+    "Native block interaction tested as visitor, granted player and revoked visitor.",
+    "Separate server-handler probes exercise packet boundaries on that connected player; these are not claimed as native network packets.",
+    "Client/server logs, screenshots and individual private probe receipts are retained outside the repository."
+  ]
+}
