@@ -21,14 +21,19 @@ def test_legacy_offline_start_keeps_the_guard_and_property_checks(legacy):
     prefix=b'#!/bin/bash\nset -euo pipefail\n(cd /data/mods && sha256sum --check /mcj/guard.sha256)\n'
     script=start_script(data,config,prefix+b'exec /start\n')
     assert script.startswith(prefix)
-    assert script.endswith(b'export TYPE=CUSTOM\nexport CUSTOM_SERVER=/data/run.sh\nexport FAMILY=FORGE\nexec /start\n')
+    assert script.endswith(b'export STOP_DURATION=0\nexport TYPE=CUSTOM\nexport CUSTOM_SERVER=/data/run.sh\nexport FAMILY=FORGE\nexec /start\n')
     assert config['loader']=='NEOFORGE'
 
 
 @pytest.mark.parametrize('loader,version',[('FABRIC','1.20.1'),('FORGE','1.20.1'),('NEOFORGE','1.21.1'),('NEOFORGE','26.3')])
-def test_other_installed_runtimes_keep_the_exact_existing_script(tmp_path,loader,version):
+def test_other_installed_runtimes_disable_an_old_internal_stop_deadline(tmp_path,loader,version):
     script=b'#!/bin/bash\r\nexec /start\r\n'
-    assert start_script(tmp_path,{'loader':loader,'version':version},script)==script
+    assert start_script(tmp_path,{'loader':loader,'version':version},script)==b'#!/bin/bash\nexport STOP_DURATION=0\nexec /start\n'
+
+
+def test_current_startup_template_is_unchanged_for_modern_loaders(tmp_path):
+    script=b'#!/bin/bash\r\nexport STOP_DURATION=0\r\nexec /start\r\n'
+    assert start_script(tmp_path,{'loader':'FABRIC','version':'1.21.1'},script)==script
 
 
 def test_legacy_offline_start_rejects_changed_loader_bytes(legacy):

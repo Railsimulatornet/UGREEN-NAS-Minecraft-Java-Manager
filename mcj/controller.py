@@ -28,6 +28,7 @@ from .infrastructure import compose_identity,validate_game_configuration,stop_co
 from . import maintenance, properties as java_properties, role_permissions
 from . import client_packs, storage_preflight,game_access
 from .telemetry import normalized_cpu,DockerSamples
+from . import server_shutdown
 
 ROOT=Path(os.environ.get('PROJECT_ROOT','/project'))
 BACKUPS=Path(os.environ.get('BACKUP_ROOT','/backups'))
@@ -43,6 +44,7 @@ status_samples=DockerSamples()
 def packaged_guard_candidates():
     from .guard_bundle import install_registry
     install_registry(ROOT)
+    if server_shutdown.journal(ROOT).exists():server_shutdown.recover(ROOT,target())
 
 @app.get('/healthz')
 def health():return {'ok':True,'scope':'private_controller'}
@@ -232,7 +234,7 @@ def graceful_stop(container):
     # Minecraft saves all worlds during its normal shutdown. A separate flush
     # still runs inside a server tick and can trip the watchdog on slow disks.
     # stop_container waits for shutdown and accepts only a clean exit.
-    stop_container(container)
+    if not server_shutdown.stop_legacy(ROOT,container,rcon):stop_container(container)
 
 @contextmanager
 def exclusive():

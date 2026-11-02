@@ -18,7 +18,7 @@ def shutdown(monkeypatch,events,*,disconnect=False,count=0,status='running',fail
         assert value is container
         if failure:raise failure
         events.append('shutdown_saved_worlds');container.status='exited'
-    scope={'__name__':'mcj.controller','__package__':'mcj','rcon':rcon,'player_count':lambda:count,'stop_container':stop,'time':SimpleNamespace(sleep=lambda seconds:events.append(('wait',seconds)))}
+    scope={'__name__':'mcj.controller','__package__':'mcj','ROOT':Path('/fixture'),'server_shutdown':SimpleNamespace(stop_legacy=lambda *args:False),'rcon':rcon,'player_count':lambda:count,'stop_container':stop,'time':SimpleNamespace(sleep=lambda seconds:events.append(('wait',seconds)))}
     exec(compile(ast.Module(body=[function],type_ignores=[]),'<controller shutdown>','exec'),scope)
     return lambda:scope['graceful_stop'](container),container
 

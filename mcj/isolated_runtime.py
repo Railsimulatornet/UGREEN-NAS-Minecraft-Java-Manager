@@ -3,6 +3,11 @@ from . import loader_catalogs
 
 
 def start_script(data,configuration,script):
+    normalized=script.replace(b'\r\n',b'\n')
+    if b'export STOP_DURATION=0' not in normalized.splitlines():
+        if not normalized.endswith(b'exec /start\n'):
+            raise ValueError('isolated_runtime_start_script_invalid')
+        script=normalized[:-len(b'exec /start\n')]+b'export STOP_DURATION=0\nexec /start\n'
     if not loader_catalogs.legacy_neoforge(configuration):
         return script
     loader_catalogs.verify_runtime(data,configuration)
