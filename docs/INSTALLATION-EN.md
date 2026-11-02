@@ -4,9 +4,9 @@
 
 This guide takes you through a new installation using **UGOS Docker → Project**. You do not need SSH or a terminal. The screenshots show UGOS on a DXP4800 Pro with the German interface and the manager setup using neutral example accounts.
 
-**Updated 2 November 2026 · Manager 1.0.1.**
+**Updated 2 November 2026 · Manager 1.0.0.**
 
-The release ZIP contains the installation documents and UGOS templates, not a Docker image. UGOS downloads the manager image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1** separately from [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
+The release ZIP contains the installation documents and UGOS templates, not a Docker image. UGOS downloads the manager image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.0** separately from [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
 
 ### Have these ready
 
@@ -263,7 +263,7 @@ In Minecraft, choose **Multiplayer → Add Server**. Enter the NAS IP and game p
 3. Choose **Create / update client pack** and wait for completion.
 4. Download the current **.mrpack**, or create a download link for your players.
 
-A file name such as **1.0.1-client.2** means that manager 1.0.1 created pack number 2. Minecraft, Java and loader versions appear separately. Older packs keep their original names. A changed server may require a new pack.
+A file name such as **1.0.0-client.2** means that manager 1.0.0 created pack number 2. Minecraft, Java and loader versions appear separately. Older packs keep their original names. A changed server may require a new pack.
 
 A player link provides access to its pack. Review expiry and revocation in the pack view. Create a new link if the old one has expired or been revoked.
 

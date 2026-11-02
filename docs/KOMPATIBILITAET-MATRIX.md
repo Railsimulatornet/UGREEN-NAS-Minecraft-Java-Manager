@@ -1,4 +1,4 @@
-# Kompatibilität / Compatibility — MCJ Manager 1.0.1
+# Kompatibilität / Compatibility — MCJ Manager 1.0.0
 
 ## Unterstützte Kombinationen / Supported combinations
 

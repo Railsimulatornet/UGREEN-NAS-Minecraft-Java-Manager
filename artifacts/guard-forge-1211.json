@@ -65,6 +65,6 @@
   },
   "acceptance": {
     "scope": "artifacts/guard-acceptance-20261102.json",
-    "sha256": "3f3b8f525f4650765f678e9eb96a93fff590f7303a941264940399227f419718"
+    "sha256": "ddb9563d69b61ac2b5966b518635929fb815f39f772ffbbdd95e5f7d3dd5904f"
   }
 }

@@ -48,11 +48,11 @@ Die Guard-Builds verwenden die in `.github/workflows/image.yml` festgelegten Umg
 
 ### Versionsnummern und Docker-Images
 
-Die Manager-Version steht in `mcj/__init__.py`. Der Image-Bau liest sie dort aus. Halte README, Changelog, `Dockerfile`, die Versionsanzeige und die Installationsvorlage im Einklang. `tests/test_release_metadata.py` prüft diese Angaben. Ein Git-Tag `v1.0.1` darf nur auf Code mit der Manager-Version `1.0.1` zeigen. Minecraft, Java, Modloader und Guard besitzen eigene Versionsnummern.
+Die Manager-Version steht in `mcj/__init__.py`. Der Image-Bau liest sie dort aus. Halte README, Changelog, `Dockerfile`, die Versionsanzeige und die Installationsvorlage im Einklang. `tests/test_release_metadata.py` prüft diese Angaben. Ein Git-Tag `v1.0.0` darf nur auf Code mit der Manager-Version `1.0.0` zeigen. Minecraft, Java, Modloader und Guard besitzen eigene Versionsnummern.
 
 | Image-Tag | Bedeutung |
 | --- | --- |
-| `1.0.0`, später zum Beispiel `1.0.1` | Festgehaltene Veröffentlichung. Nach öffentlicher Freigabe nicht durch anderen Inhalt ersetzen. Eine Korrektur erhält eine neue Versionsnummer. |
+| `1.0.0`, später zum Beispiel `1.1.0` | Festgehaltene Veröffentlichung. Nach öffentlicher Freigabe nicht durch anderen Inhalt ersetzen. Eine Korrektur erhält eine neue Versionsnummer. |
 | `stable` | Zuletzt freigegebene Version für den UGOS-Updateweg. |
 | `edge` | Optionaler Entwicklungsstand von `main`, kein Ersatz für `stable`. |
 | `sha-<vollständiger Commit>` | Zuordnung zu einem bestimmten Quellstand. |
@@ -95,7 +95,7 @@ The initial repository commit receives full automated validation. Use the releva
 
 ### Versions and image publication
 
-The manager version is defined in `mcj/__init__.py`; the image workflow reads it there. Keep the README, changelog, Dockerfile default, interface version and installation template aligned. `tests/test_release_metadata.py` checks them. A Git tag such as `v1.0.1` must match manager version `1.0.1`. Minecraft, Java, mod loaders and Guard have separate versions.
+The manager version is defined in `mcj/__init__.py`; the image workflow reads it there. Keep the README, changelog, Dockerfile default, interface version and installation template aligned. `tests/test_release_metadata.py` checks them. A Git tag such as `v1.0.0` must match manager version `1.0.0`. Minecraft, Java, mod loaders and Guard have separate versions.
 
 Version tags such as `1.0.0` record a release and must not be replaced with different contents after public release. Fixes receive a new version. `stable` follows the latest approved release, `edge` is an optional development build, and `sha-<full commit>` identifies a source revision. Record the commit, image ID, registry digest and checks for every release. Version and `stable` tags must refer to the same approved contents. Where available, configure immutable Docker Hub rules for version and commit tags, leaving `stable` and `edge` movable.
 

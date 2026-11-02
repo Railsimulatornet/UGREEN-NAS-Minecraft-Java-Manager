@@ -381,7 +381,7 @@
   "evidence": {
     "matrix": {
       "record": "artifacts/compatibility/release-matrix.json",
-      "sha256": "6ffd598e3487ea63cff27c62a63d5a4659f0d47e1f5e99a89a020f652a7cda54"
+      "sha256": "f9551becb433aad17717a5b06484448837241a51a4d1cfa37a253f93096d2652"
     },
     "native": {
       "record": "artifacts/compatibility/native-client-evidence-20261102.json",

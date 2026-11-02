@@ -1,6 +1,8 @@
 {
-  "reviewed_at": "2026-10-31",
-  "scope": "Existing image package findings; reassess for new callers or changed package versions",
+  "reviewed_at": "2026-11-02",
+  "scope": "Reviewed shipped calls and package versions for 1.0.0; affected packages remain reported. Reassess new callers, package changes and available fixes.",
+  "source_scan_sha256": "a04eb1506f4dc29d8742cc2203d9da4b64c4f4af5c80409e2725605f7c70ceda",
+  "reviewed_program_commit": "f7d30f52d4a9037f62b61fb9e78d3c7414cb4b78",
   "findings": [
     {
       "type": "debian",
@@ -196,6 +198,15 @@
       "id": "CVE-2026-78410",
       "package": "libsmartcols1",
       "version": "2.41.5-0+deb13u1",
+      "severity": "HIGH",
+      "fixed": "",
+      "status": "affected"
+    },
+    {
+      "type": "debian",
+      "id": "CVE-2026-119373",
+      "package": "libsqlite3-0",
+      "version": "3.46.1-7+deb13u2",
       "severity": "HIGH",
       "fixed": "",
       "status": "affected"

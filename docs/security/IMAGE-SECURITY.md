@@ -2,7 +2,7 @@
 
 ## Deutsch
 
-Das Manager-Image ist nicht schwachstellenfrei. Der bewertete Paketstand vom 31.10.2026 enthält **44 HIGH-Paketzeilen zu acht CVEs**; der damalige Scannerbericht nennt dafür keine verfügbare Paketkorrektur. Mehrere Zeilen können dieselbe Ursache betreffen. Die [Paketzuordnung](image-baseline-1.0.0.json) bleibt vollständig erhalten und unterdrückt keine Scannerergebnisse.
+Das Manager-Image ist nicht schwachstellenfrei. Der bewertete Paketstand vom 2. November 2026 enthält **45 HIGH-Paketzeilen zu neun CVEs**; der damalige Scannerbericht nennt dafür keine verfügbare Paketkorrektur. Mehrere Zeilen können dieselbe Ursache betreffen. Die [Paketzuordnung](image-baseline-1.0.0.json) bleibt vollständig erhalten und unterdrückt keine Scannerergebnisse.
 
 | Befund | Bewertung der ausgelieferten Aufrufe |
 | --- | --- |
@@ -21,9 +21,9 @@ Nach einer späteren Veröffentlichung muss der Verantwortliche die Variable bew
 
 Primärquellen zu den Paketmeldungen: [Debian util-linux](https://security-tracker.debian.org/tracker/source-package/util-linux), [ACL](https://security-tracker.debian.org/tracker/CVE-2026-54369), [ncurses](https://security-tracker.debian.org/tracker/CVE-2025-69720), [systemd](https://security-tracker.debian.org/tracker/CVE-2026-16742), [Perl](https://security-tracker.debian.org/tracker/CVE-2026-9538).
 
-### Ergänzung für 1.0.1 vom 2. November 2026
+### SQLite-Befund vom 2. November 2026
 
-Der neue vollständige Image-Scan enthält **45 HIGH-Paketzeilen zu neun CVEs**, keine CRITICAL-Zeile und laut Scanner weiterhin keine verfügbare Korrektur für diese HIGH-Pakete. Die [Zuordnung für 1.0.1](image-baseline-1.0.1.json) ergänzt den unverändert erhaltenen Stand von 1.0.0 um `CVE-2026-119373` in `libsqlite3-0` 3.46.1-7+deb13u2.
+Der neue vollständige Image-Scan enthält **45 HIGH-Paketzeilen zu neun CVEs**, keine CRITICAL-Zeile und laut Scanner weiterhin keine verfügbare Korrektur für diese HIGH-Pakete. Die [Paketzuordnung](image-baseline-1.0.0.json) enthält auch `CVE-2026-119373` in `libsqlite3-0` 3.46.1-7+deb13u2.
 
 Dieser SQLite-Befund betrifft eine FTS5-Tabelle mit `detail=none`, negativen Zeilenkennungen und einer Präfix-`MATCH`-Abfrage. MCJ legt ausschließlich seine fest beschriebenen normalen Tabellen an. Die ausgelieferten Programm- und Wartungspfade enthalten weder FTS5-Tabellen noch solche Abfragen und bieten keinen SQL-Eingabepunkt oder Upload einer Manager-Datenbank an. Nutzereingaben werden als Werte gebunden; dynamische Tabellen- und Spaltennamen stammen aus festen Listen. Spielwelt- und Modimporte ersetzen die Manager-Datenbank nicht. Die Voraussetzungen des Befunds sind über diese Eingänge deshalb nicht erreichbar. Das Paket selbst bleibt betroffen und wird nicht als repariert bezeichnet. Änderungen an der Datenbank durch den NAS-Eigentümer oder beliebigen ausführbaren Mod-Code sind eine eigene Berechtigungsgrenze.
 
@@ -31,7 +31,7 @@ Diese zusätzliche statische Bewertung gilt für die ausgelieferten Aufrufe. Sie
 
 ## English
 
-The manager image is not vulnerability-free. The package baseline reviewed on 31 October 2026 contains **44 HIGH package findings covering eight CVEs**, with no available package fix listed in that scan. Multiple rows can describe one cause. The complete [package mapping](image-baseline-1.0.0.json) is retained; it suppresses no scan results.
+The manager image is not vulnerability-free. The package baseline reviewed on 2 November 2026 contains **45 HIGH package findings covering nine CVEs**, with no available package fix listed in that scan. Multiple rows can describe one cause. The complete [package mapping](image-baseline-1.0.0.json) is retained; it suppresses no scan results.
 
 The shipped MCJ paths do not invoke the affected libmount/X-mount functions, `nsenter --join-cgroup`, libacl pathname functions, GNU tar ACL restoration or `infocmp`. The packages remain present and are not claimed to be fixed. The specifically reported `systemd-homed` component and Perl `Archive::Tar` module are absent. This assessment applies to the shipped calls and package versions, not to the NAS operating system. New callers, deployments, findings or available fixes require reassessment. The controller's Docker socket provides substantial host authority; a non-root container user does not isolate that boundary.
 
@@ -39,9 +39,9 @@ The **Veröffentlichtes Image prüfen** workflow scans the fixed registry digest
 
 For a later release, the maintainer must deliberately update the variable to the approved digest and check the first run. A configured workflow is not a successful scan. Reports describe their recorded point in time. The Debian links above are the primary package references.
 
-### 1.0.1 assessment, 2 November 2026
+### SQLite assessment, 2 November 2026
 
-The new full scan contains **45 HIGH package rows covering nine CVEs**, no CRITICAL row and no available fix listed for these HIGH packages. The [1.0.1 mapping](image-baseline-1.0.1.json) retains every row; the historical 1.0.0 baseline is unchanged. The added finding is `CVE-2026-119373` in `libsqlite3-0` 3.46.1-7+deb13u2.
+The new full scan contains **45 HIGH package rows covering nine CVEs**, no CRITICAL row and no available fix listed for these HIGH packages. The [package mapping](image-baseline-1.0.0.json) retains every row, including `CVE-2026-119373` in `libsqlite3-0` 3.46.1-7+deb13u2.
 
 It requires an FTS5 `detail=none` table populated with negative rowids and a prefix `MATCH` query. MCJ creates fixed ordinary tables. Its shipped application and maintenance code has no FTS5 table or matching query, arbitrary SQL interface or manager-database upload. Request values are bound parameters; dynamic table and column names come from fixed lists. World and mod imports do not replace the manager database. The finding's preconditions are therefore not reachable through those inputs. The library remains affected; this is not a package fix. NAS-owner database modifications and arbitrary executable mod code are a separate authority boundary.
 

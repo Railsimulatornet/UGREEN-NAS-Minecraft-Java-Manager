@@ -3,7 +3,7 @@
 name: mcj_einrichtung
 services:
   einrichtung:
-    image: railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1
+    image: railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.0
     container_name: mcj_einrichtung
     labels:
       mcj.purpose: browser-first-installation

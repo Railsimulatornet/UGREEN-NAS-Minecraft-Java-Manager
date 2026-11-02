@@ -2,7 +2,7 @@
   "schema": "mcj-release-compatibility/v1",
   "base_commit": "f7f92af492f5fbde8c836dfa2e2232f84743a7cb",
   "publication_allowed": false,
-  "internal_version": "1.0.1",
+  "internal_version": "1.0.0",
   "approved_scope": {
     "minecraft": [
       "1.20.1",
