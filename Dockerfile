@@ -47,6 +47,7 @@ COPY --from=compose_security /src/LICENSE /opt/mcj/licenses/docker-compose-LICEN
 COPY --from=compose_security /out/docker-compose-packages.txt /opt/mcj/licenses/docker-compose-packages.txt
 COPY --from=compose_security /out/docker-compose-modules.txt /opt/mcj/licenses/docker-compose-modules.txt
 COPY --from=compose_security /out/docker-compose-licenses /opt/mcj/licenses/docker-compose-dependencies
+RUN chmod -R a+rX /opt/mcj
 USER 1009:10
 RUN python -c "import mcj, mcj.web; from mcj.application_update import template; assert 'application-update' in template()"
 RUN docker compose version
