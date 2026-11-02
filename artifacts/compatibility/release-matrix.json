@@ -87,8 +87,14 @@
           "evidence": []
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four shared planning/queue rejection paths; no server start or active-state change."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -163,12 +169,24 @@
           "evidence": []
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Original world marker, runtime and installed mod hashes restored through the normal manager queue."
+            }
+          ]
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Server-side transition chain and return to the original Forge 1.20.1 backup; no client acceptance."
+            }
+          ]
         },
         "unsafe_configuration_blocked": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -251,8 +269,14 @@
           "evidence": []
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Server-side transition chain and return to the original Forge 1.20.1 backup; no client acceptance."
+            }
+          ]
         },
         "unsafe_configuration_blocked": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -336,8 +360,14 @@
           "evidence": []
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Server-side transition chain and return to the original Forge 1.20.1 backup; no client acceptance."
+            }
+          ]
         },
         "unsafe_configuration_blocked": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -724,8 +754,14 @@
           "evidence": []
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Server-side transition chain and return to the original Forge 1.20.1 backup; no client acceptance."
+            }
+          ]
         },
         "unsafe_configuration_blocked": {
           "status": "NOCH NICHT GEPRÜFT",

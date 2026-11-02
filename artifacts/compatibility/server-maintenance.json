@@ -1,0 +1,103 @@
+{
+  "schema": "mcj-maintenance-evidence/v1",
+  "date": "2026-11-02",
+  "program_commit": "92e224f5b27c74125e6a017eedbc84e54718130a",
+  "original_configuration": {
+    "version": "1.20.1",
+    "loader": "FORGE",
+    "loader_version": "47.4.28",
+    "java": 17
+  },
+  "transitions": [
+    {
+      "target": {
+        "version": "1.20.1",
+        "loader": "NEOFORGE",
+        "loader_version": "47.1.106",
+        "java": 17
+      },
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "loader_library_sha256": "af67e430f39dc742713c94975166fac29c1a49f5ba7c31095a77289931399dc1",
+      "image_reference": "itzg/minecraft-server:java17@sha256:a08cd9ced3e1c3f46a318af1fa393de21698afbf8746681f115dc923ba847ba5",
+      "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+      "isolated_server_check": "BESTANDEN",
+      "normal_manager_apply": "BESTANDEN"
+    },
+    {
+      "target": {
+        "version": "1.21.1",
+        "loader": "FABRIC",
+        "loader_version": "0.20.1",
+        "java": 21
+      },
+      "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "loader_library_sha256": "d0c5a082e07410aaff9de7ab196aa6b4236002870f9ba3ad5c1260fcce5110ad",
+      "image_reference": "itzg/minecraft-server:java21@sha256:f6d0b91029e73afd765ae8b0689cdac754067f3e36cb2d60608366f82d650008",
+      "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+      "isolated_server_check": "BESTANDEN",
+      "normal_manager_apply": "BESTANDEN"
+    },
+    {
+      "target": {
+        "version": "26.3",
+        "loader": "FORGE",
+        "loader_version": "66.1.0",
+        "java": 25
+      },
+      "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "loader_library_sha256": "2abc4ad803685b46427dd6b78b52fad8c9b797a9c572f21aa631fcadc061130c",
+      "image_reference": "itzg/minecraft-server:java25@sha256:f7f2222512810f0f0e85133913622cf639be77a5dd1d4b11f24ab675da6ba742",
+      "image_id": "sha256:63c87d2e2b9a95f3bc56091a0caf7e1f1eba9fc47fd503219e36cfd768e64d61",
+      "isolated_server_check": "BESTANDEN",
+      "normal_manager_apply": "BESTANDEN"
+    }
+  ],
+  "restored_configuration": {
+    "version": "1.20.1",
+    "loader": "FORGE",
+    "loader_version": "47.4.28",
+    "java": 17
+  },
+  "backup_archive_sha256": "9a699102faa00189cac89eba6314a2d8ff7d5e274d7967c058204bf29fd51539",
+  "world_marker_restored": true,
+  "original_mod_hashes_restored": true,
+  "clean_final_stop": true,
+  "raw_private_receipt_sha256": "c130dfddcee0605850034886c40877c775675cfc0554cdbebf3eb65b497f5fc7",
+  "reuse_notes": [
+    "The Java 17 Forge-to-legacy-NeoForge step passed before the Fabric-only preparation correction; that branch is unchanged.",
+    "A JSON tuple/list comparison in the resumed test harness was corrected. The successful restore was verified without repeating it."
+  ],
+  "native_client_acceptance": false,
+  "visitor_acceptance": false,
+  "publication_allowed": false,
+  "rejected_configurations": [
+    {
+      "case": "offline_mode_refused",
+      "status": "BESTANDEN"
+    },
+    {
+      "case": "java17_for_minecraft263",
+      "status": "BESTANDEN"
+    },
+    {
+      "case": "nonexistent_loader",
+      "status": "BESTANDEN"
+    },
+    {
+      "case": "stable_release_without_guard",
+      "status": "BESTANDEN"
+    }
+  ],
+  "rejected_configuration_scope": {
+    "running_configuration": "fabric-1.20.1",
+    "runtime_and_mod_state_unchanged": true,
+    "no_backup_created": true,
+    "game_not_started": true
+  },
+  "limits": [
+    "These are server-maintenance checks, not full profile acceptance. Client connections, role behaviour and mod interaction are separate gates.",
+    "Backups of the intermediate Fabric and Forge 26.3 states were not individually restored by this chain. Only the original Forge 1.20.1 backup was restored.",
+    "No old-installation application-update acceptance or fresh CodeQL result is implied."
+  ],
+  "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+}
