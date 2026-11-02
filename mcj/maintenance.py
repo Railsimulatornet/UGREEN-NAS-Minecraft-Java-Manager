@@ -80,6 +80,11 @@ def require_candidate_admission(c,built):
 
 def prepare_dependencies(c,scratch,data,runtime,image):
     """The trusted image prepares core files with SETUP_ONLY; staged mods are absent."""
+    if runtime['loader']=='FABRIC':
+        values=[(runtime['version'],r'\d+(?:\.\d+){1,2}'),(runtime['loader_version'],r'\d+\.\d+\.\d+'),
+                (runtime.get('installer_version','1.1.2'),r'\d+\.\d+\.\d+')]
+        if any(not isinstance(value,str) or not re.fullmatch(pattern,value) for value,pattern in values):
+            raise ValueError('runtime_dependency_setup_failed')
     hidden=scratch/'mods-during-setup'
     if (data/'mods').exists():os.rename(data/'mods',hidden)
     (data/'mods').mkdir(mode=0o750)
@@ -92,12 +97,33 @@ def prepare_dependencies(c,scratch,data,runtime,image):
           'MEMORY':'3072M','SETUP_ONLY':'true','SKIP_SERVER_PROPERTIES':'true','OVERRIDE_SERVER_PROPERTIES':'false',
           'FABRIC_LOADER_VERSION':runtime.get('loader_version',''),'FABRIC_INSTALLER_VERSION':runtime.get('installer_version','1.1.2'),
           'FORGE_VERSION':runtime.get('loader_version',''),'NEOFORGE_VERSION':runtime.get('loader_version',''),'DEBUG':'false'}
+        if runtime['loader']=='FABRIC':
+            # SETUP_ONLY fetches the small unattended launcher, not its libraries.
+            # Reacquire that launcher and rebuild only this extracted install cache.
+            # No JAR from a restored cache is used as the preparation entry point.
+            environment['FABRIC_FORCE_REINSTALL']='true'
+            cache=data/'.fabric/server'
+            if cache.resolve()!=cache.absolute():raise ValueError('unsafe_fabric_install_cache')
+            if cache.exists():shutil.rmtree(cache)
         container=c.client.containers.run(image,detach=True,network=network.name,user=__import__('mcj.service_identity',fromlist=['user']).user(),
           environment=environment,volumes={data_host:{'bind':'/data','mode':'rw'}},mem_limit='3g',nano_cpus=2_000_000_000,
           pids_limit=256,cap_drop=['ALL'],security_opt=['no-new-privileges:true'],
           labels={'mcj.purpose':'runtime-setup','mcj.project':c.PROJECT})
         outcome=container.wait(timeout=300)
         if outcome.get('StatusCode')!=0:raise RuntimeError('runtime_dependency_setup_failed')
+        if runtime['loader']=='FABRIC':
+            container.remove(v=True);container=None
+            launcher='fabric-server-mc.'+runtime['version']+'-loader.'+runtime['loader_version']+'-launcher.'+runtime.get('installer_version','1.1.2')+'.jar'
+            # Fabric finishes its unattended install before Minecraft handles
+            # --help. This downloads core libraries without loading any user mod
+            # or opening a world; the following real test still has no network.
+            container=c.client.containers.run(image,detach=True,network=network.name,user=__import__('mcj.service_identity',fromlist=['user']).user(),
+              entrypoint=['java'],command=['-Xmx512M','-jar',launcher,'--help'],working_dir='/data',
+              volumes={data_host:{'bind':'/data','mode':'rw'}},mem_limit='3g',nano_cpus=2_000_000_000,
+              pids_limit=256,cap_drop=['ALL'],security_opt=['no-new-privileges:true'],
+              labels={'mcj.purpose':'runtime-setup','mcj.project':c.PROJECT})
+            outcome=container.wait(timeout=300)
+            if outcome.get('StatusCode')!=0:raise RuntimeError('runtime_dependency_setup_failed')
     finally:
         if container:
             container.reload()
