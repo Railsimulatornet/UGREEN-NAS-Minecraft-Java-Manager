@@ -46,6 +46,9 @@
         "f09d2fb8f2bf63a3758d34f1111c4d4e93aead1ab284d33259d17edfc218ae54",
         "31711ae2587a9152db0e1e4e9f9044f8cbc13fd59f65b5ab0e6cc57a644dc8b8"
       ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-fabric-1_20_1-1b20f59b5c42.jar": "1b20f59b5c4242017d0705e9b91034c8c97c3e14299382f8088274f731028cbe"
+      },
       "post_probe_normal_runtime": {
         "probe_removed": true,
         "regular_server_started": true,
@@ -57,6 +60,178 @@
         },
         "server_log_sha256": "a0613602ce792f14d13a9ebe84e21d68bfeee654f29e1a635644a4346979006d",
         "private_receipt_sha256": "ec69abbf063fdc53d6e56a1bf24095b5de3b97d086ebc75ca98b886f2ceafb86"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "forge-1.20.1",
+      "runtime": {
+        "version": "1.20.1",
+        "java": 17,
+        "loader": "FORGE",
+        "loader_version": "47.4.28"
+      },
+      "java_version": "openjdk version \"17.0.15\" 2025-04-15 LTS\nOpenJDK Runtime Environment Microsoft-11369865 (build 17.0.15+6-LTS)\nOpenJDK 64-Bit Server VM Microsoft-11369865 (build 17.0.15+6-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "18a182589f9a21179f18f4a80b93b115b1333410989495c54a7e4d889b0665ca",
+        "minecraft/MCJ-CLIENT-PACK.json": "eda87348561fd63ff6a6c07007dbdc11b86d07262ff12c49e5c3cafcc3314e65",
+        "minecraft/logs/latest.log": "17766f1aa733ac6ba85343317aba8c36214abc7318b7db41dc8a55740a00964e"
+      },
+      "client_mod_sha256": {
+        "carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+      },
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "server_log_sha256": "3fe27ea3c1b374b10d5219ff17c3806e6ec28539ed4af7b710d6665fa57c250d",
+      "probe_sha256": "3546df3ee525299cf01178862de099e4954b16b937d2855d9e818edfacd2a744",
+      "probe_cases": 17,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Carry On chest picked up with native sneak toggle and Use, then placed at a different position; diamond inventory preserved. Dedicated test key bindings restored after client exit.",
+      "window_receipt_sha256": "6278da7cfab291cfa868220a192bf1e93f9024ce8d41bd0e43151453fd6de88c",
+      "private_receipt_sha256": "9d04acb7d0cd9a7da1246de4797d7cc2b381f1dc10f8a188378813e583c7aaa6",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "0b78439072504f4b9238c6ff12d5084346b8049f3216647f24307a4a9b285107",
+        "ee90eac6891019e98b3d6856cc8c6d1b478a7526a0c2453b574699b78691f1f2",
+        "42bc682c9bb8c3f8756e8e3c35abc4f48076a5d984b3c61c46aec5ebf1d6ad80"
+      ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-forge-1_20_1-e9b7fbca52ae.jar": "e9b7fbca52ae107afd1845a6030d2cfeaa7902da5397417afec31eaabbfcdf7b"
+      },
+      "native_mod_interaction": {
+        "kind": "carryon_pickup_and_place",
+        "counts_sequence": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "inventory_preserved": true,
+        "private_receipt_sha256": [
+          "27095088955755e304512b9ffbf83f425395aa14f3ff1073d84fe7f3442b388a",
+          "6a80b8c9ded440bccdefc2b08ce4d72c419a5d5a61904a0a2731263958bb28e5",
+          "5e0f9bf3e3e1fa08a2931ea42f6f8fa3c536f950dfe300a3598c2274fa3ddc5f"
+        ]
+      },
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "mcj-guard-forge-1.20.1-1.0.7-af709d0a61a5.jar": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+        },
+        "server_log_sha256": "adbb5a5b4a411b3c009b853871cb21b7f49b51c4d62c46f217ad825b5032869a",
+        "private_receipt_sha256": "8701c0a23e343fd972c3a364799311934eece8b9dd9e099370552bb767d5e752"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "neoforge-1.20.1",
+      "runtime": {
+        "version": "1.20.1",
+        "java": 17,
+        "loader": "NEOFORGE",
+        "loader_version": "47.1.106"
+      },
+      "java_version": "openjdk version \"17.0.15\" 2025-04-15 LTS\nOpenJDK Runtime Environment Microsoft-11369865 (build 17.0.15+6-LTS)\nOpenJDK 64-Bit Server VM Microsoft-11369865 (build 17.0.15+6-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "928df6a78bf1a27c89178c9a39308ee4a4b3175d455a3956e5914ffc5ad15640",
+        "minecraft/MCJ-CLIENT-PACK.json": "b90104ee06c84fca91229d7ba649d30c70d3603c19a75bbc419f41b80efac200",
+        "minecraft/logs/latest.log": "5ccf9071db3a4d690eb898755adaa6dbb95dca7bd85a9694961519284493b27c"
+      },
+      "client_mod_sha256": {
+        "carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+      },
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "server_log_sha256": "eebb1945627cf9b88f1545e5e7a897ea3ff46a474208dcd9c8d8b129bb84ccf9",
+      "probe_sha256": "375b98444bbbb44cf622846dfa8a154890e097e9a84dd8412ba2ac8dd5657532",
+      "probe_cases": 17,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Carry On chest picked up with native sneak toggle and Use, then placed at a different position; diamond inventory preserved. Dedicated test key bindings restored after client exit.",
+      "window_receipt_sha256": "82bbbd918de7e5cf74a5f23467f14bff84f29b80c4101b4247d13e5c138c0a80",
+      "private_receipt_sha256": "fc1507e801f47edc6aec6350374bf9fb9bb901ed15a10ddd7f925374aad91f40",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "f113d733ebbbec2ce6cb6d9077dc87f54f6d703d089b077c25ab0a068df911a4",
+        "21b3dca4fc878b3c962eb97864704d379e2c1587533d3a65661aa1208bd9ae1b",
+        "29e99fcd854850b5f32b735ab773ee40995d1ffefeb482f89899044bf1efa182"
+      ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-neoforge-1_20_1-e9b7fbca52ae.jar": "e9b7fbca52ae107afd1845a6030d2cfeaa7902da5397417afec31eaabbfcdf7b"
+      },
+      "native_mod_interaction": {
+        "kind": "carryon_pickup_and_place",
+        "counts_sequence": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "inventory_preserved": true,
+        "private_receipt_sha256": [
+          "d40c2113dc45d4fce291ad1df55d58993881c6bd7aae4da763c3d0539a2934f4",
+          "6033f7d12e7cfa874a0a3ead3e063ead256f887310674737b10075833f524d92",
+          "6c5a1c350ec9c331a9c7e213f5ebe8d1a6c3c151064ba92f7fbe720bb54ceb2a"
+        ]
+      },
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "mcj-guard-forge-1.20.1-1.0.7-af709d0a61a5.jar": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+        },
+        "server_log_sha256": "8967b4b4e6f1221cbedbb020918cd08778e1b8ec344667d293a4b6318b7f374e",
+        "private_receipt_sha256": "08067d4184933b008573d11d7722099301a82997056ceb963554e5de68fcd369"
       },
       "status": "BESTANDEN",
       "gate_outcomes": {
@@ -108,6 +283,9 @@
         "224c567d3ee33e728ae3bd0dda22a75d22dc5ed804e360dc740dd854e6a27530",
         "a0ca2bb7d899214e5c343d2d17481a1c2651b568deec912e0af9d196c362661d"
       ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-fabric-1_21_1-605201e5a79c.jar": "605201e5a79cc55c1bddf905beb4861706c5eb117eb95a868b39ff342f35e1d5"
+      },
       "post_probe_normal_runtime": {
         "probe_removed": true,
         "regular_server_started": true,
@@ -119,6 +297,197 @@
         },
         "server_log_sha256": "46f8a8beeafc88a33bad05ed3f8f77378ab7d80c9e225f20378f67d9ebd579a5",
         "private_receipt_sha256": "bd9a211405a3b087b87305ebb2c5cfe25ec414d0f8e05d38fbf27cddc287bf67"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "forge-1.21.1",
+      "runtime": {
+        "version": "1.21.1",
+        "java": 21,
+        "loader": "FORGE",
+        "loader_version": "52.1.20"
+      },
+      "java_version": "openjdk version \"21.0.7\" 2025-04-15 LTS\nOpenJDK Runtime Environment Microsoft-11369940 (build 21.0.7+6-LTS)\nOpenJDK 64-Bit Server VM Microsoft-11369940 (build 21.0.7+6-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "6d05f97514e714a1fc5d18a810f15f7d0001c33e37cb2db452d1fe5dc885f42b",
+        "minecraft/MCJ-CLIENT-PACK.json": "faf7852514afb33fb95d3eae36349c00d6350242dcd7b8e3790b6d6b7004e35d",
+        "minecraft/logs/latest.log": "7601d9875305bfae97be549b7bd07667cd930822389f3949d74226f1b4c0b34d"
+      },
+      "client_mod_sha256": {
+        "carryon-forge-1.21.1-2.2.6.13.jar": "c113a91aa791f088022f85f1e5122e7c0f4eec8721d53520c599a39ee5a99984"
+      },
+      "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "server_log_sha256": "3b62398e58e7e8079157dfd8e53196616040dba3aeea271c93da5b8106baef88",
+      "probe_sha256": "020c3edc6538d19e63e5af6a665558f404cc652287264521ca2c9892ca4e99d8",
+      "probe_cases": 17,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Carry On chest picked up with native sneak toggle and Use, then placed at a different position; diamond inventory preserved. Dedicated test key bindings restored after client exit.",
+      "window_receipt_sha256": "cf85c36761f452b692632a8751ea4a258f0ddbf90367fffc1573d3b866489289",
+      "private_receipt_sha256": "a24dd05148e76f0ae5ca7748edb1fe4b8d246f1f283ed373e7acc4aa405b9a45",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "d2e6396a6caa3b125c94e493af2163ccf303f612215e8ae30505bdca156a5e20",
+        "a9bb7bed268349b66e5dee1a4355d90978f39731d400f73523d09a93addefea2",
+        "8571cb92798680e39bedbebfd84903e7106fa30fd957741e16bf99014a362f37"
+      ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-forge-1_21_1-ae261d686806.jar": "ae261d686806579c251ebd6f32b7130fc3072db42ff0a4c1b6f096ff34b09971"
+      },
+      "native_mod_interaction": {
+        "kind": "carryon_pickup_and_place",
+        "counts_sequence": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "inventory_preserved": true,
+        "private_receipt_sha256": [
+          "0ace10268d129dfba4a21feaf31030ecf7a9ce879cbc2407f655f703153b4852",
+          "8b91a372021863b5df1e2b111c085be481e95447ad5a14748476fd0750019974",
+          "167c3eb575d28e12811813ed8719d339f15145844acecfda6dcb4a9b9409e5a8"
+        ]
+      },
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "carryon-forge-1.21.1-2.2.6.13.jar": "c113a91aa791f088022f85f1e5122e7c0f4eec8721d53520c599a39ee5a99984",
+          "mcj-guard-forge-1.21.1-1.0.7-f95b817ee8b2.jar": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f"
+        },
+        "server_log_sha256": "58fd5bba5a23941fafc770c936dfc4869dc28f147574a032a8e13811145b4617",
+        "private_receipt_sha256": "e73f41139a33ebd13e59e1cdf85c02ef849dbeca6611f0117946611c14a13d06"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "neoforge-1.21.1",
+      "runtime": {
+        "version": "1.21.1",
+        "java": 21,
+        "loader": "NEOFORGE",
+        "loader_version": "21.1.265"
+      },
+      "java_version": "openjdk version \"21.0.7\" 2025-04-15 LTS\nOpenJDK Runtime Environment Microsoft-11369940 (build 21.0.7+6-LTS)\nOpenJDK 64-Bit Server VM Microsoft-11369940 (build 21.0.7+6-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "6277a50134572bd51a49bab179e1a808c0f14d504cea13471ace1e52c6860849",
+        "minecraft/MCJ-CLIENT-PACK.json": "d7c35a2e86ba77b418f755f0f46a1f927e537138f0e6e268c9b73bb7e0f4ba4e",
+        "minecraft/logs/latest.log": "841a40061218f75729e600d9a9916ccef3daa8d233383b0400003c27f9464bd0"
+      },
+      "client_mod_sha256": {
+        "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810"
+      },
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "server_log_sha256": "6e89602b01f186d250f8ab3fd2390e85cea2cf9901c250aa55e317ebf49abac9",
+      "probe_sha256": "af97d007c5a7379b9025f0072448b103abb2c81e2d2919b2dba92714d0222237",
+      "probe_cases": 15,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Jade identified Stone, displayed its harvest indicator after player approval, and cleared the target after mining; native visitor-player-visitor block sequence 1/0/1.",
+      "window_receipt_sha256": "bf23c309c3811a9b8bd6881f67dc84fe5ca90b521cbe0a3cb1a9007dd47de97d",
+      "private_receipt_sha256": "679a6ae4ac14e4e4840630a25fd8815b530d98e8ffb1d7287972810863beb448",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "b129af0eebb8f0aedfb13c2267b15de5edcf610e4bc3318d3ba5a589ad52ba96",
+        "7fa397d90ae11dcc4589765a94d84a90a4afbec82d702df236125c05b4352e3d",
+        "078cc4a0b1e66c8cf03a135f6b1f0eebd7ecf29c56344102ff57f0d86d6c471c"
+      ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-neoforge-1_21_1-effects-d7f2c83ce3a4.jar": "d7f2c83ce3a40c09f56576ce9e0739d26bc27bff7cd402f1f56a438db3b127f2"
+      },
+      "physical_effect_checks": [
+        {
+          "action": "mining",
+          "role": "visitor",
+          "measurement": "packet_block_effect",
+          "forced_mode": "creative",
+          "observed": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "action": "attack",
+          "role": "visitor",
+          "measurement": "packet_mob_health_effect",
+          "forced_mode": "survival",
+          "health_before": 10.0,
+          "health_after": 10.0,
+          "observed": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "action": "mining",
+          "role": "player",
+          "measurement": "packet_block_effect",
+          "forced_mode": "creative",
+          "observed": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "action": "attack",
+          "role": "player",
+          "measurement": "packet_mob_health_effect",
+          "forced_mode": "survival",
+          "health_before": 10.0,
+          "health_after": 9.0,
+          "observed": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+          "mcj-guard-neoforge-1.21.1-1.0.7.jar": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c"
+        },
+        "server_log_sha256": "c75734fc1d299f6ad75f44b050f7ee05c0212e754aa5c0fc25c70043d7be7149",
+        "private_receipt_sha256": "b482f21d5101e54797ee7932d5e46318be26871144a29d65339cbc7cf094a44b"
       },
       "status": "BESTANDEN",
       "gate_outcomes": {
@@ -170,6 +539,9 @@
         "47ecc83cd8b9c6292e7917246d18cf0ee98659f055053c366b474a0c9da08f93",
         "072d5c1add95b7ab263dc2de4b1afd5f152ee430ee5d7d17beb6f5c1b3d7eef8"
       ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-fabric-26_3-50dd44318d2d.jar": "50dd44318d2dcf68d91404cb62e661ae34a46af030ee289ef0415e35a43a787c"
+      },
       "post_probe_normal_runtime": {
         "probe_removed": true,
         "regular_server_started": true,
@@ -181,6 +553,201 @@
         },
         "server_log_sha256": "a4e5d9fef48f875c801e3017fb63f6c39d31e910d166ebc4728904d337bc4feb",
         "private_receipt_sha256": "435263fd6c3959ffd05e6ea3ac4ad41cf8ffc929ac14d65c8e4d5b243299cf4f"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "forge-26.3",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "FORGE",
+        "loader_version": "66.1.0"
+      },
+      "java_version": "openjdk version \"25.0.1\" 2025-10-21 LTS\nOpenJDK Runtime Environment Microsoft-12574223 (build 25.0.1+8-LTS)\nOpenJDK 64-Bit Server VM Microsoft-12574223 (build 25.0.1+8-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "a769a4f0d442b6dc418215a22ecbbf26c7d1880d511129ca19c1422a49033101",
+        "minecraft/MCJ-CLIENT-PACK.json": "4afe3a14eafb599594c1a6e32c2bb8e03712bd644e42dc0b7087d6fcbbf4c0ef",
+        "minecraft/logs/latest.log": "62045f0b602d58cd2773f1cae540bd657a4efbe92f720fa4b6244b1630709abf"
+      },
+      "client_mod_sha256": {
+        "carryon-forge-26.3-2.12.0.jar": "a3f8ec652390031dbfa1cec817a4763789b0532f17af47a33398b165192900fb"
+      },
+      "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "server_log_sha256": "517d93fcc4d637c213e23c9fa7c3f7a0fdac61e5b378f86415782f3955ef6744",
+      "probe_sha256": "38f3f13d0cae0606293efa19b4ab60dbbe5b7221ce42580503e358be20b45a50",
+      "probe_cases": 15,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Carry On chest picked up with native sneak toggle and Use, then placed at a different position; diamond inventory preserved. Dedicated test key bindings restored after client exit.",
+      "window_receipt_sha256": "78560866dfa351a29d64b8b5de387a31c61fae4db3de8e9c64f6ecdda12b8782",
+      "private_receipt_sha256": "5d50f88b84dd14bb9223b00c526e895271697bd3f1770977123185c2a46ae390",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "468224df79d3605936ff256272ca8c0d7fccb67e0077a89c6c78abc5e508583e",
+        "207b18968730b8dbad42f898b3c6b6ebad878baa65d8fa60be55779c97784c14",
+        "9241cd7ac39ed9dfd312571ef27ea8b785f9799e27565a600771003ba60cf895"
+      ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-forge-26_3-9adf5f095753.jar": "9adf5f095753bc1e73a6968b65ff8c54694027fe7a1e927ebea5f7fa53355637"
+      },
+      "native_mod_interaction": {
+        "kind": "carryon_pickup_and_place",
+        "counts_sequence": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "inventory_preserved": true,
+        "private_receipt_sha256": [
+          "5acc7256b0f8e7e41206d446d077da4be414a1aa3c06075d31ec190639924546",
+          "608b362f1adf7c2aa4dc1dfbc29dcdf200b6e34f7697c84cf2b529c1f346d3dc",
+          "88820a6ad0866699d7a3531656208d901f82228c86f80fd974831b51252bb292"
+        ]
+      },
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "carryon-forge-26.3-2.12.0.jar": "a3f8ec652390031dbfa1cec817a4763789b0532f17af47a33398b165192900fb",
+          "mcj-guard-forge-26.3-1.0.7-739283f1eec4.jar": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f"
+        },
+        "server_log_sha256": "4a5c9efdc09602c0ad7e38f747d3d57869a5e1d9940149e0b3f6eb1ec67009de",
+        "private_receipt_sha256": "ba1bf8623549c4703d64f1885649a7c153f36d0c6ae6d3550e759c7109cc3f9f"
+      },
+      "status": "BESTANDEN",
+      "gate_outcomes": {
+        "client_connection": "BESTANDEN",
+        "visitor_protection": "BESTANDEN",
+        "role_grant_revoke": "BESTANDEN",
+        "mods_dependencies": "BESTANDEN"
+      }
+    },
+    {
+      "profile": "neoforge-26.3",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "NEOFORGE",
+        "loader_version": "26.3.0.99"
+      },
+      "java_version": "openjdk version \"25.0.1\" 2025-10-21 LTS\nOpenJDK Runtime Environment Microsoft-12574223 (build 25.0.1+8-LTS)\nOpenJDK 64-Bit Server VM Microsoft-12574223 (build 25.0.1+8-LTS, mixed mode)",
+      "client_files": {
+        "mmc-pack.json": "c52c6aa2299c5bef445cd3f884b288607382a3c5fa8e46d64a21f5e8d4dea137",
+        "minecraft/MCJ-CLIENT-PACK.json": "3b2c5c745f8c8b9615c28b9b917518832fc63b5f1c7c54e82aff9ede726da2b9",
+        "minecraft/logs/latest.log": "1d89c9487d2729c6736f1842802ee7cc652c1a24f5070bb4e4741b47971fb18f"
+      },
+      "client_mod_sha256": {
+        "Jade-mc26.3-NeoForge-26.3.5.jar": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712"
+      },
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "server_log_sha256": "84847e9415d07f345e099a77cebaad2195bf5929e39b25cf7297aee891f24457",
+      "probe_sha256": "68b9fbecf494cd9c14ce81dac3b55f345e4efde65f84a10b9e8aaaf2bc0c27c9",
+      "probe_cases": 15,
+      "probe_all_passed": true,
+      "ui_block_presence_sequence": [
+        1,
+        0,
+        1
+      ],
+      "mod_ui_observation": "Jade identified Stone, showed the harvest indicator after player approval, and cleared its target after mining; visitor-player-visitor native block sequence 1/0/1.",
+      "window_receipt_sha256": "ed8185f1446fee9b89db1dbe0f8be9b81ad2ed5241daad375daa5b9b52146aa9",
+      "private_receipt_sha256": "028fb88bdfa292ab5ae3bf756d64bc3e0bd224b1405748f1a086ac14e49086a8",
+      "native_rendering_client": true,
+      "native_role_sequence": [
+        "visitor",
+        "player",
+        "visitor"
+      ],
+      "ui_check_receipt_sha256": [
+        "213b3a4b4ed2d1f3258dce059edd4c38c0b019197d17702f8c393556cb0ca55b",
+        "6fe45c1e82396880bfaad7175448d415f3f101006e07694996984f2750e90ef8",
+        "bc9f0aac00a0b52f188a0b1f129ae8938683bb3b01e1dfb5b989c69973698f37"
+      ],
+      "test_probe_jar_sha256": {
+        "mcj-probe-neoforge-26_3-effects-6737d6629dee.jar": "6737d6629dee132b675e9af8c6d112a2501662aff2821ef0ef48931a3c3a1403"
+      },
+      "physical_effect_checks": [
+        {
+          "action": "mining",
+          "role": "visitor",
+          "measurement": "packet_block_effect",
+          "forced_mode": "creative",
+          "client_loaded": true,
+          "observed": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "action": "attack",
+          "role": "visitor",
+          "measurement": "packet_mob_health_effect",
+          "forced_mode": "survival",
+          "client_loaded": true,
+          "health_before": 10.0,
+          "health_after": 10.0,
+          "observed": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "action": "mining",
+          "role": "player",
+          "measurement": "packet_block_effect",
+          "forced_mode": "creative",
+          "client_loaded": true,
+          "observed": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "action": "attack",
+          "role": "player",
+          "measurement": "packet_mob_health_effect",
+          "forced_mode": "survival",
+          "client_loaded": true,
+          "health_before": 10.0,
+          "health_after": 7.0956,
+          "observed": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "post_probe_normal_runtime": {
+        "probe_removed": true,
+        "regular_server_started": true,
+        "clean_exit_code": 0,
+        "server_mod_sha256": {
+          "Jade-mc26.3-NeoForge-26.3.5.jar": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712",
+          "mcj-guard-neoforge-1.0.7.jar": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868"
+        },
+        "server_log_sha256": "ec1a597affac31f412bb18f528130d555e26d8aa1ccc538827743bbc74f84514",
+        "private_receipt_sha256": "1e26eb51fb15246c66104c7a9dbcc29b73b04ceb21dedc516feb9da5bf144704"
       },
       "status": "BESTANDEN",
       "gate_outcomes": {

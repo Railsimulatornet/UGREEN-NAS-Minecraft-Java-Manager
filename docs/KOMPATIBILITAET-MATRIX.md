@@ -1,6 +1,6 @@
 # Kompatibilitätsabnahme / Compatibility acceptance
 
-Arbeitsstand auf Basis von f7f92af. Die Veröffentlichung bleibt gesperrt. Die Matrix unterscheidet vorhandene Katalogeinträge von tatsächlich abgenommenen Kombinationen.
+Stand der Abnahme: 2. November 2026, auf Basis der Sicherheitskorrektur f7f92af. Alle neun vereinbarten Kombinationen haben ihre zehn erforderlichen Prüfschritte bestanden (90 von 90). Die Veröffentlichung bleibt bis zur ausdrücklichen Freigabe gesperrt. Katalogeinträge außerhalb dieser Matrix gelten weiterhin nicht als abgenommen.
 
 ## Vereinbarter Umfang / Agreed scope
 
@@ -9,16 +9,16 @@ Zur Freigabe vorgesehen sind genau die folgenden neun Kombinationen. Für jede g
 | Minecraft | Loader | Loader-Version | Java | Schutzdatei | Status |
 |---|---|---|---|---|---|
 | 1.20.1 | FABRIC | 0.20.1 | 17 | mcj-guard-fabric-1.20.1-1.0.7.jar | BESTANDEN |
-| 1.20.1 | FORGE | 47.4.28 | 17 | mcj-guard-forge-1.20.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
-| 1.20.1 | NEOFORGE | 47.1.106 | 17 | mcj-guard-forge-1.20.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
+| 1.20.1 | FORGE | 47.4.28 | 17 | mcj-guard-forge-1.20.1-1.0.7.jar | BESTANDEN |
+| 1.20.1 | NEOFORGE | 47.1.106 | 17 | mcj-guard-forge-1.20.1-1.0.7.jar | BESTANDEN |
 | 1.21.1 | FABRIC | 0.20.1 | 21 | mcj-guard-fabric-1.21.1-1.0.7.jar | BESTANDEN |
-| 1.21.1 | FORGE | 52.1.20 | 21 | mcj-guard-forge-1.21.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
-| 1.21.1 | NEOFORGE | 21.1.265 | 21 | mcj-guard-neoforge-1.21.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
+| 1.21.1 | FORGE | 52.1.20 | 21 | mcj-guard-forge-1.21.1-1.0.7.jar | BESTANDEN |
+| 1.21.1 | NEOFORGE | 21.1.265 | 21 | mcj-guard-neoforge-1.21.1-1.0.7.jar | BESTANDEN |
 | 26.3 | FABRIC | 0.20.1 | 25 | mcj-guard-fabric-26.3-1.0.7.jar | BESTANDEN |
-| 26.3 | FORGE | 66.1.0 | 25 | mcj-guard-forge-26.3-1.0.7.jar | NOCH NICHT GEPRÜFT |
-| 26.3 | NEOFORGE | 26.3.0.99 | 25 | mcj-guard-neoforge-1.0.7.jar | NOCH NICHT GEPRÜFT |
+| 26.3 | FORGE | 66.1.0 | 25 | mcj-guard-forge-26.3-1.0.7.jar | BESTANDEN |
+| 26.3 | NEOFORGE | 26.3.0.99 | 25 | mcj-guard-neoforge-1.0.7.jar | BESTANDEN |
 
-Die vorhandenen NeoForge-Funktionsnachweise bleiben erhalten. Da die Schutzdateien geändert wurden, werden die betroffenen Schutz- und Rollenprüfungen gezielt für die neuen Prüfsummen wiederholt. Bereits geprüfte, unveränderte Minecraft-, Welt- und Backup-Funktionen werden nicht erneut vollständig abgenommen. Der Gesamtstatus wird erst nach Zuordnung aller erforderlichen Nachweise gesetzt.
+Die vorhandenen Funktionsnachweise bleiben erhalten. Für die geänderten Schutzdateien sind die betroffenen Schutz- und Rollenprüfungen mit den aktuellen Prüfsummen belegt. Bereits geprüfte, unveränderte Minecraft-, Welt- und Backup-Funktionen wurden dafür nicht erneut vollständig getestet.
 
 NeoForge 1.20.1 verwendet das historische offizielle Artefakt net.neoforged:forge:1.20.1-47.1.106. Es ist weder eine fehlende NeoForge-Version noch mit Forge 47.4.28 gleichzusetzen. Installation, tatsächlich gestarteter Loader und Clientexport müssen diese Identität erhalten.
 
@@ -93,7 +93,7 @@ Die noch fehlenden serverseitigen Versionswechsel nach Fabric 1.20.1, Forge 1.21
 
 Für NeoForge 1.21.1 und 26.3 sind außerdem eigene Sicherungen mit Guard 1.0.7, die isolierte Wiederherstellungsprüfung und die tatsächliche Rücksicherung belegt. Der Welt-Testwert wurde jeweils von 17 auf 29 geändert und anschließend aus der Sicherung wieder auf 17 gesetzt. Der bereits vorhandene Nachweis für Fabric 26.3 mit demselben aktuellen Guard wird übernommen.
 
-Die sechs früheren Sicherungsnachweise bleiben mit ihren damaligen Guard-Prüfsummen erhalten. Ihre Archiv-, Extraktions- und Wiederherstellungskomponenten sind im Quellvergleich unverändert. Die Installation und der Start des aktuellen Guards sowie die geänderte gemeinsame Vorbereitung und das Beenden des Servers sind getrennt belegt. Deshalb wird der bereits geprüfte Sicherungsablauf wiederverwendet; ein neuer vollständiger Rücksicherungslauf wird für diese sechs Fälle nicht behauptet. Die Prüfung der Besucherrechte bleibt davon unabhängig offen.
+Die sechs früheren Sicherungsnachweise bleiben mit ihren damaligen Guard-Prüfsummen erhalten. Ihre Archiv-, Extraktions- und Wiederherstellungskomponenten sind im Quellvergleich unverändert. Die Installation und der Start des aktuellen Guards sowie die geänderte gemeinsame Vorbereitung und das Beenden des Servers sind getrennt belegt. Deshalb wird der bereits geprüfte Sicherungsablauf wiederverwendet; ein neuer vollständiger Rücksicherungslauf wird für diese sechs Fälle nicht behauptet. Die Besucherrechte sind davon unabhängig durch die unten genannten Client- und Handler-Prüfungen belegt.
 
 Der ausgelieferte Startschutz wurde für alle neun Kombinationen mit gültiger, fehlender und veränderter Guard-Datei geprüft: 27 bestandene Fälle. Eine gültige Datei erreichte den vorbereiteten Prüfendpunkt; fehlende oder veränderte Dateien wurden vorher blockiert. Dieser Prüfendpunkt ersetzt den Minecraft-Start und bestätigt ausschließlich die Prüfsummensperre. Die vier zuvor geprüften gemeinsamen Planungssperren bleiben zusätzlich erhalten.
 
@@ -107,26 +107,46 @@ Die Zuordnung und die Prüfsummen stehen in [maintenance-evidence-20261102.json]
 
 ## Client- und Rollenprüfungen vom 2. November 2026 / Client and role checks
 
-Für Fabric 1.20.1 mit Java 17, Fabric 1.21.1 mit Java 21 und Fabric 26.3 mit Java 25 sind die echten Clientverbindungen aus den in Prism importierten Paketen belegt. In allen drei Fällen blieb ein Testblock als Besucher unverändert, ließ sich nach der Spielerfreigabe abbauen und war nach dem Rechteentzug wieder geschützt. Jade zeigte den anvisierten Block an und aktualisierte die Anzeige nach dem Abbau. Die installierten Clientdateien stimmen mit den exportierten Paketen überein.
+Für alle neun Kombinationen ist die Verbindung eines echten Minecraft-Clients aus dem jeweils in Prism importierten Paket belegt. Minecraft, Loader, Java und Moddateien stimmen mit den zugeordneten Versionen und Prüfsummen überein. In jedem Client blieb der Testblock als Besucher erhalten, ließ sich nach der Spielerfreigabe abbauen und war nach dem Rechteentzug wieder geschützt.
 
-Zusätzlich bestanden jeweils 17 gezielte Handler-Prüfungen für Fabric 1.20.1 und 1.21.1 sowie 15 für Fabric 26.3 am tatsächlich angemeldeten Spieler. Diese Hilfsprüfungen rufen Server-Handler auf; sie werden nicht als vom nativen Client gesendete Netzwerkpakete ausgegeben. Die native Bedienung im Spiel ist separat belegt. Fehlversuche der Maussteuerung wurden nicht als bestandene Prüfungen übernommen.
+Fabric sowie NeoForge 1.21.1 und 26.3 wurden mit Jade geprüft: Die Anzeige erkannte den anvisierten Block und aktualisierte sich nach dem Abbau. Bei Forge und NeoForge 1.20.1 wurde mit Carry On eine Truhe aufgenommen und an einer anderen Stelle abgesetzt. Ihr Diamantinhalt blieb unverändert. Die dafür vorübergehend angepassten Tastenbelegungen wurden nach dem Schließen der Testclients zurückgesetzt.
 
-Nach den Prüfungen wurde die Hilfsmod über den Manager entfernt. Alle drei Server starteten anschließend mit dem regulären Mod-Bestand, demselben Guard und denselben Jade-/Fabric-API-Dateien. Danach wurden sie sauber beendet; alle drei Prozesse lieferten den Rückgabewert 0.
+Zusätzlich bestanden 145 gezielte Handler-Prüfungen am jeweils tatsächlich angemeldeten Testspieler:
 
-Actual client connections from the Prism-imported packs are recorded for Fabric 1.20.1 with Java 17, Fabric 1.21.1 with Java 21 and Fabric 26.3 with Java 25. In all three cases, a visitor could not break the test block, a granted player could break it, and revocation restored the restriction. Jade identified the target and updated after mining. Installed client files match the exported packs. Separate server-handler checks passed 17 cases each for Fabric 1.20.1 and 1.21.1, and 15 for Fabric 26.3 on the connected player. These helper calls are not presented as native network packets; actual in-game interaction has its own evidence. Failed mouse-control attempts were excluded from the passed results.
+| Minecraft | Fabric | Forge | NeoForge |
+|---|---|---|---|
+| 1.20.1 / Java 17 | 17 / 17 | 17 / 17 | 17 / 17 |
+| 1.21.1 / Java 21 | 17 / 17 | 17 / 17 | 15 / 15 |
+| 26.3 / Java 25 | 15 / 15 | 15 / 15 | 15 / 15 |
 
-The manager then removed the helper mod. All three servers started with the regular mod set, the same guard and identical Jade/Fabric API files, and stopped cleanly with exit code 0.
+Diese Hilfsprüfungen rufen Server-Handler auf. Sie werden nicht als vom nativen Client gesendete Netzwerkpakete ausgegeben; die echte Bedienung im Spiel ist separat belegt. Bei den beiden modernen NeoForge-Versionen misst die Hilfsmod die tatsächliche Blockänderung und den Schaden an einem vorübergehend erzeugten Testtier. Besucher bewirkten beides nicht, freigegebene Spieler dagegen schon. Ein früherer Messansatz zählte den Methodeneintritt vor den abbrechbaren NeoForge-Ereignissen. Er war dafür ungeeignet und wurde ausschließlich im Testwerkzeug korrigiert. Die Guard-Dateien blieben unverändert. Fehlversuche mit unvollständig vorbereiteter Testumgebung und abgebrochene Verbindungen zählen nicht als bestandene Fälle.
 
-Die genauen Identitäten und Nachweisprüfsummen stehen in [native-client-evidence-20261102.json](../artifacts/compatibility/native-client-evidence-20261102.json). Weitere Profile erhalten erst nach ihren eigenen vollständigen Nachweisen einen bestandenen Gesamtstatus. / Exact identities and evidence hashes are recorded in the linked file. Other profiles pass only after their own required evidence is complete.
+Nach der Abnahme wurde jede Hilfsmod über den Manager entfernt. Alle neun Server starteten anschließend mit ihrem regulären Mod-Bestand und dem unveränderten Guard. Danach wurden sie sauber beendet; alle neun Prozesse lieferten den Rückgabewert 0.
+
+All nine combinations passed an actual Minecraft client connection from their respective Prism-imported packs. Minecraft, loader, Java and mod identities match the recorded versions and hashes. In every client, the test block remained intact for a visitor, could be broken after player approval, and was protected again after revocation.
+
+Jade identified the target block and updated after mining on Fabric and on NeoForge 1.21.1 and 26.3. On Forge and NeoForge 1.20.1, Carry On picked up a chest and placed it at a different location with its diamond inventory unchanged. Temporary test key bindings were restored after closing the clients.
+
+The table records 145 additional server-handler checks on the connected players. These helper calls are not presented as native client network packets; actual in-game interaction has separate evidence. For modern NeoForge, the helper measures real block changes and damage to a temporary test animal: visitors caused neither, while approved players did. An earlier method-entry counter ran before cancellable NeoForge events and could not establish these effects. Only the test tool was corrected; the guard files were unchanged. Incomplete fixture attempts and interrupted connections do not count as passed cases.
+
+The manager removed each helper mod. All nine servers then started with their regular mod set and unchanged guard, and stopped cleanly with exit code 0.
+
+Die genauen Identitäten und Nachweisprüfsummen stehen in [native-client-evidence-20261102.json](../artifacts/compatibility/native-client-evidence-20261102.json). / Exact identities and evidence hashes are recorded in the linked file. These results apply to the pinned combinations above; they do not extend acceptance to other catalogue versions or grant publication approval.
 
 ## Ergänzte NeoForge-Installationen und Pakete / Additional NeoForge installations and packs
 
 Die früheren Installationsnachweise für NeoForge 1.21.1 und 26.3 verwendeten ältere Container-Images. Für die aktuellen festgelegten Images wurden deshalb genau diese beiden fehlenden Installationsprüfungen ergänzt. Beide begannen ohne vorhandene Welt oder kopierte Loader-Bibliotheken. NeoForge 21.1.265 mit Java 21 und NeoForge 26.3.0.99 mit Java 25 starteten jeweils mit Guard 1.0.7 und der passenden Jade-Datei. Die heruntergeladene Loader-Datei stimmte mit der geprüften offiziellen Prüfsumme überein. Beide Prozesse wurden über RCON beendet und lieferten den Rückgabewert 0.
 
-In den getrennten Manager-Testumgebungen wurden Jade und die Hilfsmod regulär hochgeladen, isoliert geprüft und übernommen. Die Hilfsmod wurde ausdrücklich vom Clientpaket ausgeschlossen. Beide Pakete enthalten die passende NeoForge-Abhängigkeit und genau die vorgesehene Jade-Datei. Der angemeldete Download wurde mit der gespeicherten Exportdatei verglichen. Die Guard- und Prüfdateien sind nicht enthalten. Beide Pakete wurden tatsächlich in Prism importiert; Loader, Minecraft und Moddateien stimmen mit den Exporten überein. Die Clientverbindung sowie Besucher-, Rollen- und Mod-Bedienprüfungen bleiben für diese beiden Profile offen.
+In den getrennten Manager-Testumgebungen wurden Jade und die Hilfsmod regulär hochgeladen, isoliert geprüft und übernommen. Die Hilfsmod wurde ausdrücklich vom Clientpaket ausgeschlossen. Beide Pakete enthalten die passende NeoForge-Abhängigkeit und genau die vorgesehene Jade-Datei. Der angemeldete Download wurde mit der gespeicherten Exportdatei verglichen. Die Guard- und Prüfdateien sind nicht enthalten. Beide Pakete wurden tatsächlich in Prism importiert; Loader, Minecraft und Moddateien stimmen mit den Exporten überein. Die späteren Client-, Besucher-, Rollen- und Mod-Bedienprüfungen sind im vorigen Abschnitt mit ihren eigenen Nachweisen abgeschlossen.
 
 Earlier NeoForge 1.21.1 and 26.3 installation records used older container images, so these two missing checks were completed with the current pinned images. Both began without an existing world or copied loader libraries. NeoForge 21.1.265 with Java 21 and NeoForge 26.3.0.99 with Java 25 started with Guard 1.0.7 and the matching Jade file. Downloaded loader files matched their verified official hashes. Both processes stopped through RCON with exit code 0.
 
-In the separate manager fixtures, Jade and the helper mod passed normal upload, isolated checks and promotion. The helper was explicitly excluded from client exports. Both authenticated downloads match their saved exports and contain the correct NeoForge dependency and Jade file, without guard or probe files. Both native Prism imports passed with matching Minecraft, loader and mod identities. Client connection, visitor restrictions, role changes and functional mod interaction remain pending for these two profiles.
+In the separate manager fixtures, Jade and the helper mod passed normal upload, isolated checks and promotion. The helper was explicitly excluded from client exports. Both authenticated downloads match their saved exports and contain the correct NeoForge dependency and Jade file, without guard or probe files. Both native Prism imports passed with matching Minecraft, loader and mod identities. Their later client connections, visitor restrictions, role changes and functional mod interactions are complete and recorded separately in the preceding section.
 
 Identitäten, Prüfsummen und Grenzen sind in [native-preparation-20261102.json](../artifacts/compatibility/native-preparation-20261102.json) dokumentiert. Diese serverseitigen Ergebnisse erteilen keine Client-Abnahme und keine Veröffentlichungsfreigabe. / Identities, hashes and scope are recorded in the linked file. These server-side results do not grant client acceptance or publication approval.
+
+## Beobachtete Konsolengrenze / Observed console limitation
+
+Bei Forge 1.21.1 erreichte eine bedingte Konsolenabfrage ohne Textantwort das RCON-Zeitlimit. Der Manager meldete dafür einen Fehler; daraus wurde kein Erfolg abgeleitet. Die Testabfrage wurde so formuliert, dass sie bei positivem und negativem Ergebnis ausdrücklich antwortet. Die oben genannten Abnahmeergebnisse beruhen auf diesen bestätigten Antworten. Das Verhalten frei eingegebener Konsolenbefehle ohne Textantwort wurde dadurch nicht im Programm verändert.
+
+On Forge 1.21.1, a conditional console query with no text response reached the RCON timeout. The manager reported an error, which was not counted as success. The test query was changed to return an explicit response for both positive and negative results. The acceptance results above use these confirmed responses. The application's handling of arbitrary console commands with no text response was not changed.

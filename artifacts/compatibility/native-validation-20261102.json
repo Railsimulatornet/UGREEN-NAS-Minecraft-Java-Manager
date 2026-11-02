@@ -1,0 +1,109 @@
+{
+  "schema": "mcj-native-acceptance-validation/v1",
+  "date": "2026-11-02",
+  "program_commit": "679f89c53bb903b63e9f3aa301689edbaca39276",
+  "validation": {
+    "status": "BESTANDEN",
+    "matrix_profiles": 9,
+    "passed_gates": 90,
+    "native_profiles": [
+      "fabric-1.20.1",
+      "forge-1.20.1",
+      "neoforge-1.20.1",
+      "fabric-1.21.1",
+      "forge-1.21.1",
+      "neoforge-1.21.1",
+      "fabric-26.3",
+      "forge-26.3",
+      "neoforge-26.3"
+    ],
+    "evidence_links_checked": 99,
+    "native_receipts_and_logs_verified": true,
+    "private_data_screen_passed": true,
+    "readable_matrix_matches": true,
+    "runtime_source_changed": false,
+    "application_regression_repeated": false,
+    "publication_allowed": false
+  },
+  "probe_generator_invariance": {
+    "status": "BESTANDEN",
+    "generator_sha256": "fd68f63cfa6f7f9691ea27e9b9442f99cb29b01d32574ecf61d70ac096223040",
+    "prior_generator_sha256": "125847df21d07ff175d297529bb50344ad288194af119ff2da6895551762a2b8",
+    "modules": [
+      {
+        "module": "probe-guard-fabric-1201",
+        "changed_files": [],
+        "non_neoforge_output_unchanged": true
+      },
+      {
+        "module": "probe-guard-fabric-1211",
+        "changed_files": [],
+        "non_neoforge_output_unchanged": true
+      },
+      {
+        "module": "probe-guard-fabric-263",
+        "changed_files": [],
+        "non_neoforge_output_unchanged": true
+      },
+      {
+        "module": "probe-guard-forge-1201",
+        "changed_files": [],
+        "non_neoforge_output_unchanged": true
+      },
+      {
+        "module": "probe-guard-forge-1211",
+        "changed_files": [],
+        "non_neoforge_output_unchanged": true
+      },
+      {
+        "module": "probe-guard-forge-263",
+        "changed_files": [],
+        "non_neoforge_output_unchanged": true
+      },
+      {
+        "module": "probe-guard-neoforge",
+        "changed_files": [
+          "src/main/java/de/romanglos/mcjprobe/Probe.java",
+          "src/main/resources/mcj_probe.mixins.json"
+        ],
+        "non_neoforge_output_unchanged": null
+      },
+      {
+        "module": "probe-guard-neoforge-1211",
+        "changed_files": [
+          "src/main/java/de/romanglos/mcjprobe/Probe.java",
+          "src/main/resources/mcj_probe.mixins.json"
+        ],
+        "non_neoforge_output_unchanged": null
+      }
+    ],
+    "runtime_source_changed": false
+  },
+  "modified_probe_builds": [
+    {
+      "profile": "neoforge-1.21.1",
+      "compile_passed": true,
+      "probe_jar_sha256": "d7f2c83ce3a40c09f56576ce9e0739d26bc27bff7cd402f1f56a438db3b127f2"
+    },
+    {
+      "profile": "neoforge-26.3",
+      "compile_passed": true,
+      "probe_jar_sha256": "6737d6629dee132b675e9af8c6d112a2501662aff2821ef0ef48931a3c3a1403"
+    }
+  ],
+  "cleanup": {
+    "regular_server_starts": 9,
+    "clean_server_stops_exit_0": 9,
+    "probe_mods_removed": 9,
+    "pending_fixture_jobs": 0,
+    "test_client_key_bindings_restored": true
+  },
+  "known_limits": [
+    {
+      "profile": "forge-1.21.1",
+      "component": "console_rcon",
+      "observation": "A conditional console command with no text response reached the RCON timeout. The manager reported failure. Acceptance uses explicit positive/negative responses; arbitrary empty-response commands remain unchanged."
+    }
+  ],
+  "publication_allowed": false
+}

@@ -92,6 +92,65 @@ public final class Probe {
 }
 '''
 
+# NeoForge enforces these actions through cancellable events inside the method
+# body. A HEAD interceptor would run before those events and measure entry,
+# rather than whether the visitor actually changed a block or damaged a mob.
+NEOFORGE_EFFECT_CASES=r'''                case "mining": {
+                    var miningLevel=player.level();
+                    var miningPos=player.blockPosition().offset(0,1,2);
+                    var originalBlock=miningLevel.getBlockState(miningPos);
+                    if(!originalBlock.isAir())throw new IllegalStateException("Mining fixture position must be empty");
+                    boolean mined;
+                    try {
+                        miningLevel.setBlockAndUpdate(miningPos,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                        if(!miningLevel.getBlockState(miningPos).is(net.minecraft.world.level.block.Blocks.STONE))throw new IllegalStateException("Mining fixture could not place its block");
+                        player.setGameMode(GameType.CREATIVE);
+                        if(player.gameMode.getGameModeForPlayer()!=GameType.CREATIVE)throw new IllegalStateException("Mining fixture requires creative mode");
+                        if(visitor(player)!=restricted)throw new IllegalStateException("Role changed during mining fixture");
+                        result.addProperty("measurement","packet_block_effect");
+                        result.addProperty("forced_mode",player.gameMode.getGameModeForPlayer().getName());
+                        player.connection.handlePlayerAction(new ServerboundPlayerActionPacket(ServerboundPlayerActionPacket.Action.START_DESTROY_BLOCK,miningPos,Direction.UP,0));
+                        mined=miningLevel.getBlockState(miningPos).isAir();
+                    } finally {
+                        miningLevel.setBlockAndUpdate(miningPos,originalBlock);
+                        player.setGameMode(mode);
+                    }
+                    finish(mined,!restricted);break;
+                }
+                case "attack": {
+                    var attackLevel=player.level();
+                    var target=CREATE_PIG;
+                    if(target==null)throw new IllegalStateException("Attack fixture could not create its mob");
+                    var previousMain=player.getMainHandItem().copy();
+                    var previousOff=player.getOffhandItem().copy();
+                    boolean damaged;
+                    try {
+                        target.setPos(player.getX(),player.getY(),player.getZ()+1.5);
+                        target.setNoAi(true);
+                        if(!attackLevel.addFreshEntity(target))throw new IllegalStateException("Attack fixture could not spawn its mob");
+                        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,ItemStack.EMPTY);
+                        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND,ItemStack.EMPTY);
+                        player.setGameMode(GameType.SURVIVAL);
+                        if(player.gameMode.getGameModeForPlayer()!=GameType.SURVIVAL)throw new IllegalStateException("Attack fixture requires survival mode");
+                        if(visitor(player)!=restricted)throw new IllegalStateException("Role changed during attack fixture");
+                        float healthBefore=target.getHealth();
+                        ATTACK_PACKET;
+                        float healthAfter=target.getHealth();
+                        result.addProperty("measurement","packet_mob_health_effect");
+                        result.addProperty("forced_mode",player.gameMode.getGameModeForPlayer().getName());
+                        result.addProperty("health_before",healthBefore);
+                        result.addProperty("health_after",healthAfter);
+                        damaged=healthAfter<healthBefore;
+                    } finally {
+                        target.discard();
+                        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,previousMain);
+                        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND,previousOff);
+                        player.setGameMode(mode);
+                    }
+                    finish(damaged,!restricted);break;
+                }
+'''
+
 def mixin(target,method,body,callback_type='CallbackInfo',priority=2000,remap=''):
     return f'''package de.romanglos.mcjprobe.mixin;
 import de.romanglos.mcjprobe.Probe;
@@ -125,6 +184,21 @@ def generate(repository,output):
         latest=module.endswith('263') or module=='guard-neoforge'
         pre1201=module.endswith('1201')
         probe=PROBE
+        if module.startswith('guard-neoforge'):
+            effect=NEOFORGE_EFFECT_CASES.replace('CREATE_PIG',
+                'net.minecraft.world.entity.EntityTypes.PIG.create(attackLevel,net.minecraft.world.entity.EntitySpawnReason.COMMAND)' if latest else
+                'net.minecraft.world.entity.EntityType.PIG.create(attackLevel)')
+            effect=effect.replace('ATTACK_PACKET',
+                'player.connection.handleAttack(new net.minecraft.network.protocol.game.ServerboundAttackPacket(target.getId()))' if latest else
+                'player.connection.handleInteract(net.minecraft.network.protocol.game.ServerboundInteractPacket.createAttackPacket(target,false))')
+            start=probe.index('                case "mining":')
+            end=probe.index('                default:',start)
+            probe=probe[:start]+effect+probe[end:]
+            if latest:
+                probe=probe.replace('if(player==null)return;',
+                    'if(player==null||!player.connection.hasClientLoaded())return;')
+                probe=probe.replace('result.addProperty("connected_player",player.getUUID().toString());',
+                    'result.addProperty("connected_player",player.getUUID().toString());result.addProperty("client_loaded",player.connection.hasClientLoaded());')
         if not latest and not module.startswith('guard-neoforge'):
             probe=probe.replace('import net.minecraft.network.protocol.game.ServerboundEditBookPacket;',
                 'import net.minecraft.network.protocol.game.ServerboundEditBookPacket;\nimport net.minecraft.network.protocol.game.ServerboundInteractPacket;')
@@ -198,6 +272,8 @@ public final class Payloads {
         original_mixins=json.loads((original/'src/main/resources/mcj_guard.mixins.json').read_text())
         compatibility=original_mixins['compatibilityLevel']
         mixins=['ProbetickChildrenMixin','ProbehandleBlockBreakActionMixin','ProbeattackMixin','ProbehandleCustomPayloadMixin','ProbeBookAccess']
+        if module.startswith('guard-neoforge'):
+            mixins=[name for name in mixins if name not in ['ProbehandleBlockBreakActionMixin','ProbeattackMixin']]
         configuration={'required':True,'minVersion':'0.8','package':'de.romanglos.mcjprobe.mixin','compatibilityLevel':compatibility,'mixins':mixins,'injectors':{'defaultRequire':1}}
         if original_mixins.get('refmap'):configuration['refmap']=original_mixins['refmap'].replace('mcj_guard','mcj_probe')
         (resources/'mcj_probe.mixins.json').write_text(json.dumps(configuration,indent=2))

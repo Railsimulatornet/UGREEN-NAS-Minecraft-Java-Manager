@@ -81,7 +81,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "client_connection"
@@ -93,7 +93,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "visitor_protection"
@@ -105,7 +105,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "role_grant_revoke"
@@ -117,7 +117,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "mods_dependencies"
@@ -216,7 +216,7 @@
       "loader_version": "47.4.28",
       "java": 17,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
@@ -251,20 +251,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -355,7 +387,7 @@
       "loader_version": "47.1.106",
       "java": 17,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
@@ -390,20 +422,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.20.1",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -534,7 +598,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.21.1",
               "section": "gate_outcomes",
               "gate": "client_connection"
@@ -546,7 +610,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.21.1",
               "section": "gate_outcomes",
               "gate": "visitor_protection"
@@ -558,7 +622,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.21.1",
               "section": "gate_outcomes",
               "gate": "role_grant_revoke"
@@ -570,7 +634,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-1.21.1",
               "section": "gate_outcomes",
               "gate": "mods_dependencies"
@@ -666,7 +730,7 @@
       "loader_version": "52.1.20",
       "java": 21,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-forge-1.21.1-1.0.7.jar",
@@ -701,20 +765,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -808,7 +904,7 @@
       "loader_version": "21.1.265",
       "java": 21,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-neoforge-1.21.1-1.0.7.jar",
@@ -842,20 +938,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -1039,7 +1167,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "client_connection"
@@ -1051,7 +1179,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "visitor_protection"
@@ -1063,7 +1191,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "role_grant_revoke"
@@ -1075,7 +1203,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "mods_dependencies"
@@ -1174,7 +1302,7 @@
       "loader_version": "66.1.0",
       "java": 25,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-forge-26.3-1.0.7.jar",
@@ -1209,20 +1337,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-26.3",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-26.3",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-26.3",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "forge-26.3",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -1313,7 +1473,7 @@
       "loader_version": "26.3.0.99",
       "java": 25,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-neoforge-1.0.7.jar",
@@ -1347,20 +1507,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-26.3",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-26.3",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-26.3",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "5277b44f430b22459418f42e67e9a5f0955fe9d090379e43260da311c0b4def4",
+              "entry": "neoforge-26.3",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
