@@ -11,15 +11,15 @@ from test_security import environment, enroll, post
 
 
 def test_connection_snapshot_corrects_logout_stale_journal_and_failures():
-    original={'players':[{'name':'Traindriver316','online_since':100,'last_seen':200}]}
+    original={'players':[{'name':'ExamplePlayer','online_since':100,'last_seen':200}]}
     assert player_presence.names('There are 0 of a max of 20 players online: ')==[]
-    assert player_presence.names('There are 2 of a max of 20 players online: Traindriver316, Moritz')==['Traindriver316','Moritz']
+    assert player_presence.names('There are 2 of a max of 20 players online: ExamplePlayer, SecondPlayer')==['ExamplePlayer','SecondPlayer']
     assert player_presence.reconcile(original,[],300)['players'][0]['online'] is False
     assert player_presence.reconcile(original,[],300)['players'][0]['online_since'] is None
-    assert player_presence.reconcile(original,['Traindriver316'],300)['players'][0]['online'] is True
+    assert player_presence.reconcile(original,['ExamplePlayer'],300)['players'][0]['online'] is True
     assert player_presence.reconcile(original,None,300)['players'][0]['online'] is None
     assert player_presence.reconcile(original,None,300)['players'][0]['online_since'] is None
-    with pytest.raises(ValueError):player_presence.names('There are 2 of a max of 20 players online: Traindriver316')
+    with pytest.raises(ValueError):player_presence.names('There are 2 of a max of 20 players online: ExamplePlayer')
 
 
 def test_duplicate_submission_is_atomic_and_distinct_operations_survive(environment):
