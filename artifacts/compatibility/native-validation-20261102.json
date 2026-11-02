@@ -105,5 +105,11 @@
       "observation": "A conditional console command with no text response reached the RCON timeout. The manager reported failure. Acceptance uses explicit positive/negative responses; arbitrary empty-response commands remain unchanged."
     }
   ],
-  "publication_allowed": false
+  "publication_allowed": false,
+  "subsequent_qualification": {
+    "component": "console_rcon",
+    "evidence": "rcon-completion-20261102.json",
+    "historical_native_identity_preserved": true,
+    "status": "BESTANDEN"
+  }
 }

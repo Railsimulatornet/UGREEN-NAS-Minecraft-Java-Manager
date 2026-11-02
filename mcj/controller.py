@@ -176,9 +176,34 @@ def rcon(command):
         # A synchronous world flush can outlast a normal RCON status query.
         if command=='save-all flush':connection.settimeout(120)
         send(12,2,command)
-        identifier,kind,text=receive(connection)
-        if identifier!=12:raise RuntimeError('RCON command response invalid')
-        return text.replace(RCON,'[REDACTED]')
+        chunks=[]
+        late=False
+        try:
+            identifier,kind,text=receive(connection)
+        except TimeoutError:
+            # Minecraft sends no command packet for an empty response. A
+            # protocol request, processed after the command on this connection,
+            # distinguishes that case from a stalled or disconnected server.
+            late=True
+        else:
+            if identifier!=12 or kind!=0:raise RuntimeError('RCON command response invalid')
+            chunks.append(text)
+        # Wait until the command has been read before sending the delimiter:
+        # older Minecraft peers reject coalesced request frames. Type 0 is not
+        # a Minecraft command and causes no world or permission changes.
+        connection.settimeout(4)
+        send(13,0,'')
+        size=sum(len(value.encode('utf-8')) for value in chunks)
+        for _ in range(257):
+            identifier,kind,text=receive(connection)
+            if identifier==13 and kind==0 and text=='Unknown request 0':
+                return ''.join(chunks).replace(RCON,'[REDACTED]')
+            if identifier!=12 or kind!=0:raise RuntimeError('RCON command response invalid')
+            if late:raise TimeoutError('RCON command response exceeded its deadline')
+            size+=len(text.encode('utf-8'))
+            if size>1024*1024:raise RuntimeError('RCON response limit')
+            chunks.append(text)
+        raise RuntimeError('RCON response packet limit')
 
 def player_count():
     try:

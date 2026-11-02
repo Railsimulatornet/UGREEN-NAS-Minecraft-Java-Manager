@@ -4,7 +4,7 @@
 
 This guide takes you through a new installation using **UGOS Docker → Project**. You do not need SSH or a terminal. The screenshots show UGOS on a DXP4800 Pro with the German interface and the manager setup using neutral example accounts.
 
-**Updated 1 November 2026 · Manager 1.0.1.**
+**Updated 2 November 2026 · Manager 1.0.1.**
 
 ### Have these ready
 
@@ -151,7 +151,13 @@ In the setup assistant, **1 Welcome** summarises the installed versions. **2 Ser
 3. Choose **Check configuration**. Selecting a version does not apply it or restart the server.
 4. Collect the suitable change. Review it under **Collected changes** and choose when to apply it. The process includes a backup and server test.
 
-Installation starts with **Minecraft 26.3, NeoForge 26.3.0.99 and Java 25**. Minecraft 1.21.1 with NeoForge 21.1.265 and Java 21 has also been tested. The compatibility table identifies the exact protection files and tested mod inventory. Visitor protection is accepted for these two configurations; this does not approve other combinations or arbitrary additional mods. Use a separate world for a version switch to preserve the previous world. An older Minecraft version may be incompatible with an existing world.
+Installation starts with **Minecraft 26.3, NeoForge 26.3.0.99 and Java 25**. The following combinations have also been accepted with visitor protection:
+
+- **Minecraft 1.20.1 / Java 17:** Fabric 0.20.1, Forge 47.4.28 or NeoForge 47.1.106.
+- **Minecraft 1.21.1 / Java 21:** Fabric 0.20.1, Forge 52.1.20 or NeoForge 21.1.265.
+- **Minecraft 26.3 / Java 25:** Fabric 0.20.1, Forge 66.1.0 or NeoForge 26.3.0.99.
+
+The compatibility guide identifies the matching protection files and tested mod inventory. Additional mods need their own checks. Use a separate world for a version switch to preserve the previous world. A newer world may not open correctly in an older Minecraft version.
 
 Use **Server settings**, **Worlds** and **Game rules** for further options. **Return to setup** takes you back to the assistant. You can also continue it later.
 
@@ -228,7 +234,7 @@ Use your installation's input directory. Avoid copying the same files into sever
 
 ## 11. Client for your first game
 
-Your PC's Minecraft client must match the server. Note the Minecraft, NeoForge and Java versions under **Overview → Server settings**. The two intended configurations are **26.3 / NeoForge / Java 25** and **1.21.1 / NeoForge / Java 21**. Use the exact NeoForge version shown in your manager.
+Your PC's Minecraft client must match the server. Under **Overview → Server settings**, note the Minecraft version, mod loader, exact loader version and Java version. Minecraft 1.20.1 uses Java 17, Minecraft 1.21.1 uses Java 21, and Minecraft 26.3 uses Java 25. The manager's exported client pack supplies the matching loader and mod files.
 
 ### Fresh installation with no client pack yet?
 
@@ -236,8 +242,8 @@ Visitor protection belongs on the NAS only. If there are no other verified mods 
 
 1. Open Prism Launcher and sign in with a Microsoft account that owns Minecraft Java Edition.
 2. Choose **Add Instance**. Give it a name and select your server's exact Minecraft version.
-3. Select **NeoForge** and the same NeoForge version used on the NAS, then create the instance. If loader selection is missing during creation: right-click the instance → **Edit → Version → Install NeoForge**.
-4. Open **Edit → Settings → Java**. Use Java 21 for 1.21.1 or Java 25 for 26.3. Depending on your Prism package, automatic detection and Java downloads are available under **Settings → Java**.
+3. Select the same mod loader as the NAS (**Fabric**, **Forge** or **NeoForge**) and its exact version. If the choice is missing during creation, open **Edit → Version**. For NeoForge 1.20.1, select **NeoForge 47.1.106**, not Forge 47.4.28.
+4. Open **Edit → Settings → Java**. Use **Java 17 for 1.20.1**, **Java 21 for 1.21.1** or **Java 25 for 26.3**. Depending on your Prism package, automatic detection and Java downloads are available under **Settings → Java**.
 5. Launch the instance. Extra client mods are needed only when your server mods require them; use the client pack described on the next page for those.
 
 The official Prism guides explain [creating instances](https://prismlauncher.org/wiki/getting-started/create-instance/) and [selecting Java](https://prismlauncher.org/wiki/getting-started/installing-java/). Available options and labels can differ between launcher versions.

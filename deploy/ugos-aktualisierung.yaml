@@ -1,6 +1,6 @@
 # In UGOS das bisherige Projekt mcj_einrichtung bearbeiten und diese Vorlage importieren.
 # Den bisherigen Projekt-Speicherpfad beibehalten: niemals den Minecraft-Datenordner wählen.
-# Das offizielle Image :stable vorher in UGOS herunterladen; es wird erst nach erfolgreicher CI-Prüfung veröffentlicht.
+# Das freigegebene Image :stable vor der Aktualisierung in UGOS herunterladen.
 name: mcj_einrichtung
 services:
   einrichtung:

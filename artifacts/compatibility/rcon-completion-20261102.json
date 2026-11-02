@@ -1,0 +1,161 @@
+{
+  "schema": "mcj-rcon-completion-validation/v1",
+  "date": "2026-11-02",
+  "controller_sha256": "37e206e54ac06ed02742d8136813fa18ca7f6faf32164d49fa5f747a6e71047c",
+  "tests": {
+    "tests/test_rcon_completion.py": "1d028b8d7e1d0ac2369bcf958ce0f99ca4f8fe9610368654fcd9c5c089f6131b",
+    "tests/test_rcon_flush_deadline.py": "3a493ae57871c4353b205c2d865d96795fae64734feb8e9dec813a5a65d0e800"
+  },
+  "baseline_commit": "ce559682b52fd487c2329f63d3d5a3adbf317310",
+  "negative_control": {
+    "expected_failures": 2,
+    "cases": [
+      "missing empty response packet times out",
+      "multipart response is truncated"
+    ],
+    "log_sha256": "0237725e84156ca0943712afe23bfc7b1346f61dcbaa211a8199c41cee603ae8"
+  },
+  "targeted_regression": {
+    "passed": 21,
+    "failed": 0,
+    "log_sha256": "bfd54ecfb21627d20a3b2bdb47c847519751f73ab7b94708960150f114290f46"
+  },
+  "full_python_regression": {
+    "passed": 1128,
+    "failed": 0,
+    "warnings": 1,
+    "warning": "Existing Starlette/httpx deprecation warning",
+    "log_sha256": "65efb13ac14ace860251471ded3ba4b98b09df7140065a793240ec4d03cc68a4",
+    "source_sha256": "ecdc68b182e1272d6f75ee925a8ebe2abc1ae2382016f2e0ee15291dfe9ce7ae"
+  },
+  "live_protocol_checks": [
+    {
+      "profile": "forge-1_21_1",
+      "controller_source_sha256": "37e206e54ac06ed02742d8136813fa18ca7f6faf32164d49fa5f747a6e71047c",
+      "commands": [
+        {
+          "kind": "normal",
+          "bytes": 43,
+          "sha256": "8bf73bd3d0cc9a68d70d13e6a2dc206ece56bf3e1719fcd0457276d68e97db29",
+          "elapsed": 0.0022410080000554444,
+          "completed": true
+        },
+        {
+          "kind": "empty",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed": 4.002171182999518,
+          "completed": true
+        },
+        {
+          "kind": "long",
+          "bytes": 3526,
+          "sha256": "81da028f4afcf030dcbb332cfa262e2dfc31f952f78f1a9855038a60ce3e43e8",
+          "elapsed": 0.010819873999935226,
+          "completed": true
+        },
+        {
+          "kind": "command_error",
+          "bytes": 84,
+          "sha256": "a97a7d72cc722f87ffbf243bdce476500190396469c586b3ba225a899b8499e8",
+          "elapsed": 0.0038406319999921834,
+          "completed": true
+        },
+        {
+          "kind": "world_flush",
+          "bytes": 57,
+          "sha256": "69d3def00f9ccf5bb6be1a3dd7106b4b91cea2923a07ad22b4aaaf30e310f83f",
+          "elapsed": 0.07140223199894535,
+          "completed": true
+        }
+      ],
+      "baseline": {
+        "status": "EXPECTED_TIMEOUT",
+        "elapsed": 4.00462314500146
+      },
+      "status": "BESTANDEN"
+    },
+    {
+      "profile": "forge-1_20_1",
+      "controller_source_sha256": "37e206e54ac06ed02742d8136813fa18ca7f6faf32164d49fa5f747a6e71047c",
+      "commands": [
+        {
+          "kind": "normal",
+          "bytes": 43,
+          "sha256": "8bf73bd3d0cc9a68d70d13e6a2dc206ece56bf3e1719fcd0457276d68e97db29",
+          "elapsed": 0.0015554509991488885,
+          "completed": true
+        },
+        {
+          "kind": "empty",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed": 0.009491038999840384,
+          "completed": true
+        },
+        {
+          "kind": "long",
+          "bytes": 3239,
+          "sha256": "179f61150fac4661ed1d003f1b3f64ad466998b953e029a0b1b0b6528276f487",
+          "elapsed": 0.004990116000044509,
+          "completed": true
+        },
+        {
+          "kind": "command_error",
+          "bytes": 84,
+          "sha256": "a97a7d72cc722f87ffbf243bdce476500190396469c586b3ba225a899b8499e8",
+          "elapsed": 0.0033922579987120116,
+          "completed": true
+        }
+      ],
+      "status": "BESTANDEN"
+    },
+    {
+      "profile": "fabric-26_3",
+      "controller_source_sha256": "37e206e54ac06ed02742d8136813fa18ca7f6faf32164d49fa5f747a6e71047c",
+      "commands": [
+        {
+          "kind": "normal",
+          "bytes": 42,
+          "sha256": "12bc9e950440a21f9ed90eff362c677a1fc6e7e0adccf03c596a4be767427e58",
+          "elapsed": 0.0010575680007605115,
+          "completed": true
+        },
+        {
+          "kind": "empty",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed": 0.005382528001064202,
+          "completed": true
+        },
+        {
+          "kind": "long",
+          "bytes": 5769,
+          "sha256": "d825e21444199b18142f5047112c8a4786a5389b87f4c4098f95fdb71769dd28",
+          "elapsed": 0.00525716099946294,
+          "completed": true
+        },
+        {
+          "kind": "command_error",
+          "bytes": 82,
+          "sha256": "73497dfa48e711135eae4d8566db71765eb60e05f858cc677f78983d6f24c054",
+          "elapsed": 0.0022074650005379226,
+          "completed": true
+        }
+      ],
+      "status": "BESTANDEN"
+    }
+  ],
+  "scope": {
+    "loaded_corrected_rcon_function_in_temporary_process": true,
+    "application_image_replaced_for_these_checks": false,
+    "native_gameplay_repeated": false,
+    "visitor_guards_changed": false,
+    "production_changed": false
+  },
+  "limits": [
+    "An absent empty reply completes after the normal four-second response deadline and a verified protocol acknowledgement. A missing acknowledgement, late nonempty reply or disconnected peer remains an error.",
+    "Historical native acceptance retains its original application commit and image identity. These checks qualify the changed console protocol separately."
+  ],
+  "publication_allowed": false
+}

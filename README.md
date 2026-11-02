@@ -103,7 +103,21 @@ Start with local access. For the web interface from outside your home, configure
 
 Quellcode, Ordnerstruktur und Bereitstellung neuer Versionen: [Entwicklung und Veröffentlichung](docs/ENTWICKLUNG.md). / Source layout and publishing new versions: [Development and releases](docs/ENTWICKLUNG.md#english).
 
-Voreinstellung / Default: Minecraft **26.3**, NeoForge **26.3.0.99**, Java **25**. Zusätzlich vorbereitet / Also prepared: Minecraft **1.21.1**, NeoForge **21.1.265**, Java **21**. Die [Kompatibilitätstabelle](docs/KOMPATIBILITAET.md) nennt die unterstützten Kombinationen und passenden Schutzdateien. / The [compatibility table](docs/KOMPATIBILITAET.md#english) lists the supported combinations and matching protection files.
+Abgenommen / Accepted: **Minecraft 1.20.1 mit Java 17, 1.21.1 mit Java 21 und 26.3 mit Java 25**, jeweils mit Fabric, Forge und NeoForge in den folgenden Versionen. / Each Minecraft/Java pair is accepted with the exact Fabric, Forge and NeoForge versions below.
+
+| Minecraft | Modloader | Loader-Version / Loader version | Java | Visitor Guard |
+|---|---|---|---|---|
+| 1.20.1 | Fabric | 0.20.1 | 17 | 1.0.7 |
+| 1.20.1 | Forge | 47.4.28 | 17 | 1.0.7 |
+| 1.20.1 | NeoForge | 47.1.106 | 17 | 1.0.7 |
+| 1.21.1 | Fabric | 0.20.1 | 21 | 1.0.7 |
+| 1.21.1 | Forge | 52.1.20 | 21 | 1.0.7 |
+| 1.21.1 | NeoForge | 21.1.265 | 21 | 1.0.7 |
+| 26.3 | Fabric | 0.20.1 | 25 | 1.0.7 |
+| 26.3 | Forge | 66.1.0 | 25 | 1.0.7 |
+| 26.3 | NeoForge | 26.3.0.99 | 25 | 1.0.7 |
+
+Voreinstellung / Default: Minecraft **26.3**, NeoForge **26.3.0.99**, Java **25**. Die [Kompatibilitätsanleitung](docs/KOMPATIBILITAET.md) erklärt Schutzdateien, Clientpakete und Versionswechsel. / The [compatibility guide](docs/KOMPATIBILITAET.md#english) explains guard files, client packs and version changes.
 
 Eine MCJ-Instanz pro NAS. Einrichtungsprojekt und dauerhaftes Minecraft-Projekt gehören zu derselben Installation. / One MCJ instance per NAS. The setup project and permanent Minecraft project belong to the same installation.
 

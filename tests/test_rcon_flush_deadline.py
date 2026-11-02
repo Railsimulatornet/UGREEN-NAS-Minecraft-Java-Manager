@@ -10,14 +10,24 @@ from types import SimpleNamespace
 import pytest
 
 
-def controller_rcon(port):
+def controller_rcon(port, response_timeout=None):
     source=Path(__file__).parents[1]/'mcj/controller.py'
     tree=ast.parse(source.read_text(encoding='utf-8'))
     functions=[node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name in {'read_exact','receive','rcon'}]
     original=socket.create_connection
+    class BoundedSocket:
+        def __init__(self,connection):self.connection=connection
+        def __enter__(self):return self
+        def __exit__(self,*args):self.connection.close()
+        def recv(self,count):return self.connection.recv(count)
+        def sendall(self,data):return self.connection.sendall(data)
+        def settimeout(self,value):self.connection.settimeout(min(value,response_timeout))
     def connect(address,timeout):
         assert address==('minecraft',25575) and timeout==4
-        return original(('127.0.0.1',port),timeout=timeout)
+        connection=original(('127.0.0.1',port),timeout=timeout)
+        if response_timeout is None:return connection
+        wrapped=BoundedSocket(connection);wrapped.settimeout(timeout)
+        return wrapped
     scope={'socket':SimpleNamespace(create_connection=connect),'struct':struct,'RCON':'fixture-secret'}
     exec(compile(ast.Module(body=functions,type_ignores=[]),str(source),'exec'),scope)
     return scope['rcon']
@@ -51,7 +61,10 @@ def delayed_peer(delay):
                 identifier,kind,text=receive(connection);observed.append(text)
                 assert (identifier,kind)==(12,2)
                 time.sleep(delay)
-                try:send(connection,12,0,'Saved the game fixture-secret')
+                try:
+                    send(connection,12,0,'Saved the game fixture-secret')
+                    assert receive(connection)==(13,0,'')
+                    send(connection,13,0,'Unknown request 0')
                 except (BrokenPipeError,ConnectionResetError):pass
         except Exception as error:errors.append(error)
         finally:listener.close()

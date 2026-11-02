@@ -4,7 +4,7 @@
 
 Diese Anleitung führt dich durch eine neue Installation mit **UGOS Docker → Projekt**. Du brauchst dafür keine SSH-Verbindung und keine Konsole. Die Bilder zeigen UGOS auf einem DXP4800 Pro und die Einrichtung im Manager mit neutralen Beispielkonten.
 
-**Stand: 1. November 2026 · Manager 1.0.1.**
+**Stand: 2. November 2026 · Manager 1.0.1.**
 
 ### Was du bereithältst
 
@@ -151,7 +151,13 @@ Im Ersteinrichtungsassistenten zeigt **1 Willkommen** den installierten Stand. I
 3. Wähle **Konfiguration prüfen**. Eine Auswahl ist noch keine Übernahme und noch kein Neustart.
 4. Merke die passende Änderung vor. Unter **Gesammelte Änderungen** prüfst du die Zusammenstellung und wählst den Zeitpunkt der Übernahme. Dabei werden Sicherung und Servertest ausgeführt.
 
-Die Installation startet mit **Minecraft 26.3, NeoForge 26.3.0.99 und Java 25**. Ebenfalls geprüft ist Minecraft 1.21.1 mit NeoForge 21.1.265 und Java 21. Die Kompatibilitätstabelle nennt die genauen Schutzdateien und den geprüften Modbestand. Für diese beiden Konfigurationen ist der Besucherschutz abgenommen; andere Kombinationen und beliebige zusätzliche Mods sind damit nicht freigegeben. Wähle für einen Versionswechsel eine eigene Welt, damit die bisherige Welt erhalten bleibt. Ein Wechsel auf eine ältere Minecraft-Version kann mit einer bestehenden Welt unvereinbar sein.
+Die Installation startet mit **Minecraft 26.3, NeoForge 26.3.0.99 und Java 25**. Abgenommen sind außerdem diese Kombinationen mit Besucherschutz:
+
+- **Minecraft 1.20.1 / Java 17:** Fabric 0.20.1, Forge 47.4.28 oder NeoForge 47.1.106.
+- **Minecraft 1.21.1 / Java 21:** Fabric 0.20.1, Forge 52.1.20 oder NeoForge 21.1.265.
+- **Minecraft 26.3 / Java 25:** Fabric 0.20.1, Forge 66.1.0 oder NeoForge 26.3.0.99.
+
+Die Kompatibilitätsanleitung nennt die passenden Schutzdateien und den geprüften Modbestand. Zusätzliche Mods benötigen ihre eigene Prüfung. Verwende bei einem Versionswechsel eine eigene Welt, damit die bisherige erhalten bleibt. Eine neuere Welt lässt sich nicht unbedingt mit einer älteren Minecraft-Version öffnen.
 
 Über **Server-Einstellungen**, **Welten** und **Spielregeln** erreichst du weitere Optionen. Mit **Zurück zur Einrichtung** kehrst du in den Assistenten zurück. Du kannst ihn auch später fortsetzen.
 
@@ -228,7 +234,7 @@ Verwende für den Eingang den Ordner deiner Installation. Kopiere Dateien nicht 
 
 ## 11. Client für das erste Spiel
 
-Der Minecraft-Client auf deinem PC muss zur Serverkonfiguration passen. Notiere unter **Übersicht → Server-Einstellungen** die Minecraft-, NeoForge- und Java-Version. Für die beiden vorgesehenen Konfigurationen sind das **26.3 / NeoForge / Java 25** beziehungsweise **1.21.1 / NeoForge / Java 21**. Übernimm die genaue NeoForge-Version aus deinem Manager.
+Der Minecraft-Client auf deinem PC muss zur Serverkonfiguration passen. Notiere unter **Übersicht → Server-Einstellungen** die Minecraft-Version, den Modloader, seine genaue Version und die Java-Version. Minecraft 1.20.1 verwendet Java 17, Minecraft 1.21.1 Java 21 und Minecraft 26.3 Java 25. Das vom Manager erstellte Clientpaket übernimmt die passenden Loader- und Moddateien.
 
 ### Frisch installiert und noch kein Clientpaket?
 
@@ -236,8 +242,8 @@ Der Besucherschutz gehört nur auf das NAS. Wenn noch keine weiteren, für Spiel
 
 1. Öffne Prism Launcher und melde dein Microsoft-Konto mit Minecraft-Java-Lizenz an.
 2. Wähle **Instanz erstellen**. Vergib einen Namen und wähle die genaue Minecraft-Version deines Servers.
-3. Wähle **NeoForge** als Modloader und dieselbe NeoForge-Version wie auf dem NAS. Erstelle die Instanz. Falls die Auswahl beim Anlegen fehlt: Rechtsklick auf die Instanz → **Bearbeiten → Version → NeoForge installieren**.
-4. Öffne **Bearbeiten → Einstellungen → Java**. Verwende Java 21 für 1.21.1 beziehungsweise Java 25 für 26.3. Die automatische Erkennung und der Java-Download stehen je nach Prism-Paket unter **Einstellungen → Java** zur Verfügung.
+3. Wähle denselben Modloader wie auf dem NAS (**Fabric**, **Forge** oder **NeoForge**) und übernimm seine genaue Version. Fehlt die Auswahl beim Anlegen, findest du sie unter **Bearbeiten → Version**. Bei NeoForge 1.20.1 wähle ausdrücklich **NeoForge 47.1.106**, nicht Forge 47.4.28.
+4. Öffne **Bearbeiten → Einstellungen → Java**. Verwende **Java 17 für 1.20.1**, **Java 21 für 1.21.1** oder **Java 25 für 26.3**. Die automatische Erkennung und der Java-Download stehen je nach Prism-Paket unter **Einstellungen → Java** zur Verfügung.
 5. Starte die neue Instanz. Weitere Client-Mods brauchst du nur, wenn deine Server-Mods sie verlangen; dafür verwendest du das Clientpaket auf der nächsten Seite.
 
 Die offiziellen Prism-Anleitungen erklären [Instanzen anlegen](https://prismlauncher.org/wiki/getting-started/create-instance/) und [Java auswählen](https://prismlauncher.org/wiki/getting-started/installing-java/). Auswahl und Bezeichnungen können sich je nach Launcher-Version unterscheiden.
