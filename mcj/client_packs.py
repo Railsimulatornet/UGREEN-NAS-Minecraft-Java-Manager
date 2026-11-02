@@ -75,6 +75,7 @@ def snapshot(root,st):
 
 def fingerprint(active,records,graphics=None,client_sides=None):
     value={'runtime':runtime(active),'mods':sorted((x['filename'],x['hashes']['sha256']) for x in records),'export_policy':EXPORT_POLICY,'exporter_version':__version__}
+    if active['loader']=='FABRIC':value['fabric_pack_format']='fabric-loader-v1'
     if graphics:value['client_graphics']=graphics
     if client_sides:value['client_sides']=client_sides
     return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
@@ -282,7 +283,8 @@ def build(st,rpc,actor):
     old={m['filename']:m['sha256'] for m in before if m['client'] in ['required','optional']};new={r['filename']:r['hashes']['sha256'] for r in selected}
     changes={'added':sorted(new.keys()-old.keys()),'removed':sorted(old.keys()-new.keys()),'changed':sorted(k for k in new.keys()&old.keys() if new[k]!=old[k]),'runtime_changed':not previous or json.loads(previous['manifest'])['runtime']!=active}
     manifest={**analysis,'version':version,'changes':changes,'java_required':active['java']}
-    index={'formatVersion':1,'game':'minecraft','versionId':version,'name':'MCJ Manager – Client','summary':'Exact approved server mods; Java '+str(active['java'])+' required.','dependencies':{'minecraft':active['version'],active['loader'].lower():active['loader_version']},'files':files}
+    loader_id='fabric-loader' if active['loader']=='FABRIC' else active['loader'].lower()
+    index={'formatVersion':1,'game':'minecraft','versionId':version,'name':'MCJ Manager – Client','summary':'Exact approved server mods; Java '+str(active['java'])+' required.','dependencies':{'minecraft':active['version'],loader_id:active['loader_version']},'files':files}
     output=io.BytesIO()
     with zipfile.ZipFile(output,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
         archive.writestr('modrinth.index.json',json.dumps(index,ensure_ascii=False,indent=2))

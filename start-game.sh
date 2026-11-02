@@ -23,4 +23,7 @@ export RCON_PASSWORD="$(cat /run/secrets/rcon)"
 export SKIP_SERVER_PROPERTIES=true
 export OVERRIDE_SERVER_PROPERTIES=false
 export DUMP_SERVER_PROPERTIES=false
+# A normal shutdown saves the worlds. The image runner must not kill Java
+# while slow storage is still flushing; the controller reports a pending stop.
+export STOP_DURATION=0
 exec /start

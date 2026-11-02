@@ -1,21 +1,21 @@
 {
-  "filename": "mcj-guard-neoforge-1.21.1-1.0.5.jar",
-  "sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f",
-  "version": "1.0.5",
+  "filename": "mcj-guard-neoforge-1.21.1-1.0.7.jar",
+  "sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+  "version": "1.0.7",
   "minecraft": "1.21.1",
   "loader": "NEOFORGE",
   "java": 21,
-  "path": "releases/guards/neoforge-1.21.1/mcj-guard-neoforge-1.21.1-1.0.5.jar",
-  "runtime_test": "passed",
-  "visitor_verified": true,
-  "visitor_client_test": "passed",
+  "path": "releases/guards/neoforge-1.21.1/mcj-guard-neoforge-1.21.1-1.0.7.jar",
+  "runtime_test": "not_tested",
+  "visitor_verified": false,
+  "visitor_client_test": "not_verified_for_this_artifact",
   "metadata": {
     "loader": "NEOFORGE",
     "mods": [
       {
         "id": "mcj_guard",
         "name": "Minecraft Java Manager Visitor Guard",
-        "version": "1.0.5"
+        "version": "1.0.7"
       }
     ],
     "dependencies": [
@@ -39,8 +39,8 @@
     "embedded_libraries": [],
     "client_only_hint": false,
     "compatibility": "unverified",
-    "sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f",
-    "sha512": "bee1b3db451ca91721f51427df88bd38fff1e74342a32a86d7e834cd75825b988e26e237c9df8c975dd8f06adf22214484b3bdd1ba8480d39b47f1614f5aede8"
+    "sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+    "sha512": "e74daa29fd35596de7dba3b60ecf237884af54add911de5593490b89f26d9d2a7aced7211ae09f69833e4ecbdccdb3fd2f863b0eda2811259dc7cfe15b4b0bb8"
   },
   "dependencies": [],
   "capabilities": [
@@ -48,13 +48,20 @@
     "mcj_network_v1"
   ],
   "protocol_version": 1,
-  "tested_loaders": [
-    "21.1.265"
-  ],
+  "tested_loaders": [],
   "minecraft_data_version": 3955,
   "license": "MIT",
   "license_notice": "LICENSE-MCJ-GUARDS.txt; own MCJ code only; embedded legacy copyright label does not revoke the accompanying MIT grant",
-  "acceptance": {
+  "candidate_loaders": [
+    "21.1.265"
+  ],
+  "build": {
+    "source_sha256": "b33d968385d6b1de2df0d4829b8c35bffe8ec777826544e920f952f23cb79a03",
+    "java_class_major": [
+      65
+    ]
+  },
+  "previous_acceptance": {
     "id": "guard-1.0.5-neoforge-fixed-scope-20261031",
     "scope": "artifacts/guard-acceptance-20261031.json",
     "sha256": "b28922f27785fe72775bf985ac912a97799a8d5dfaa4ef624f1ea5ea322951a8"

@@ -88,6 +88,42 @@ def test_source_change_blocks_commit(pack_env):
     with pytest.raises(ValueError,match='source_changed'):cp.build(app.state.store,rpc,1)
     assert cp.listing(app.state.store)['packs']==[]
 
+
+@pytest.mark.parametrize('minecraft,java',[('1.20.1',17),('1.21.1',21),('26.3',25)])
+@pytest.mark.parametrize('loader,dependency',[('FABRIC','fabric-loader'),('FORGE','forge'),('NEOFORGE','neoforge')])
+def test_export_uses_the_launchers_modrinth_loader_identifier(pack_env,minecraft,java,loader,dependency):
+    app,_,observed,_=pack_env;st=app.state.store
+    versions={'FABRIC':{'1.20.1':'0.20.1','1.21.1':'0.20.1','26.3':'0.20.1'},
+              'FORGE':{'1.20.1':'47.4.28','1.21.1':'52.1.20','26.3':'66.1.0'},
+              'NEOFORGE':{'1.20.1':'47.1.106','1.21.1':'21.1.265','26.3':'26.3.0.99'}}
+    active={'version':minecraft,'java':java,'loader':loader,'loader_version':versions[loader][minecraft]}
+    st.set('server',{**st.get('server'),**active})
+    observed['runtime']=active
+    observed['mods'][0]['metadata']['loader']='FORGE' if loader=='NEOFORGE' and minecraft=='1.20.1' else loader
+    observed['fingerprint']=cp.fingerprint(active,observed['mods'])
+    built=cp.build(st,app.state.rpc,1);path,_=cp.archive(st,built['id'])
+    with zipfile.ZipFile(path) as archive:
+        index=json.loads(archive.read('modrinth.index.json'))
+    assert index['dependencies']=={'minecraft':minecraft,dependency:active['loader_version']}
+    assert index['files'][0]['hashes']==observed['mods'][0]['hashes']
+
+
+def test_corrected_fabric_format_rebuilds_without_replacing_a_previous_pack(pack_env):
+    app,_,observed,_=pack_env;st=app.state.store
+    active={'version':'26.3','java':25,'loader':'FABRIC','loader_version':'0.20.1'}
+    st.set('server',{**st.get('server'),**active});observed['runtime']=active
+    observed['mods'][0]['metadata']['loader']='FABRIC'
+    legacy={'runtime':active,'mods':sorted((x['filename'],x['hashes']['sha256']) for x in observed['mods']),
+            'export_policy':cp.EXPORT_POLICY,'exporter_version':cp.__version__}
+    legacy_fingerprint=hashlib.sha256(json.dumps(legacy,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    observed['fingerprint']=legacy_fingerprint
+    first=cp.build(st,app.state.rpc,1);old_path,_=cp.archive(st,first['id']);old_bytes=old_path.read_bytes()
+    observed['fingerprint']=cp.fingerprint(active,observed['mods'])
+    assert observed['fingerprint']!=legacy_fingerprint
+    second=cp.build(st,app.state.rpc,1)
+    assert second['id']!=first['id'] and old_path.read_bytes()==old_bytes
+    assert cp.build(st,app.state.rpc,1)['id']==second['id']
+
 def test_client_side_dependency_is_checked_but_server_dependency_is_not():
     base,_=record('base','base',[{'id':'server_helper','side':'SERVER','mandatory':True,'range':'[1,)'},{'id':'client_helper','side':'CLIENT','mandatory':True,'range':'[2,3)'}])
     assert cp.dependency_check([base],ACTIVE)==[{'mod':'base','dependency':'client_helper','reason':'client_dependency_unverified'}]

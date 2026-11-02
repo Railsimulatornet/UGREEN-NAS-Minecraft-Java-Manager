@@ -60,21 +60,68 @@ def test_existing_destination_is_never_silently_overwritten(tmp_path,monkeypatch
     assert destination.read_bytes()==b'different' and json.loads(registry.read_text())=={'artifacts':[]}
 
 
-def test_shipped_acceptance_is_bound_to_the_exact_unchanged_artifacts():
+def test_shared_forge_binary_preserves_each_loaders_backup_identity(tmp_path,monkeypatch):
+    from mcj.guard_artifacts import restore_current_guard
+    monkeypatch.setenv('MCJ_LAYOUT','legacy')
+    directory=tmp_path/'bundle';directory.mkdir()
+    old_raw=b'old-shared-guard';new_raw=b'new-shared-guard'
+    filename='guard-new.jar';(directory/filename).write_bytes(new_raw)
+    entries=[];previous=[];names=[]
+    for loader in ['FORGE','NEOFORGE']:
+        entry={'minecraft':'1.20.1','loader':loader,'java':17,'filename':filename,'sha256':hashlib.sha256(new_raw).hexdigest(),'dependencies':[]}
+        name=loader.lower()+'.json';(directory/name).write_text(json.dumps(entry));names.append(name);entries.append(entry)
+        previous.append({**entry,'filename':'guard-old.jar','sha256':hashlib.sha256(old_raw).hexdigest(),'path':'releases/guards/'+loader.lower()+'/guard-old.jar'})
+    (directory/'catalog.json').write_text(json.dumps({'manifests':names}))
+    root=tmp_path/'project';registry=root/'releases/guards/registry.json';registry.parent.mkdir(parents=True)
+    registry.write_text(json.dumps({'artifacts':previous}))
+    guard_bundle.install_registry(root,directory)
+    saved=json.loads(registry.read_text());assert saved['retained_artifacts']==previous
+    for loader in ['FORGE','NEOFORGE']:
+        data=tmp_path/loader;mods=data/'mods';mods.mkdir(parents=True);(mods/'guard-old.jar').write_bytes(old_raw)
+        active=next(x for x in saved['artifacts'] if x['loader']==loader)
+        archived=next(x for x in previous if x['loader']==loader)
+        restore_current_guard(root,data,archived,active,saved['retained_artifacts'])
+        assert not (mods/'guard-old.jar').exists() and (mods/filename).read_bytes()==new_raw
+
+
+def test_same_bytes_with_an_earlier_filename_remain_restorable(tmp_path,monkeypatch):
+    from mcj.guard_artifacts import restore_current_guard
+    monkeypatch.setenv('MCJ_LAYOUT','legacy');directory,records=fixture(tmp_path)
+    current=records[0];raw=(directory/current['filename']).read_bytes()
+    old={**current,'filename':'earlier-name.jar','path':'releases/guards/earlier-name.jar'}
+    root=tmp_path/'project';registry=root/'releases/guards/registry.json';registry.parent.mkdir(parents=True)
+    registry.write_text(json.dumps({'artifacts':[old]}));guard_bundle.install_registry(root,directory)
+    saved=json.loads(registry.read_text());assert saved['retained_artifacts']==[old]
+    data=tmp_path/'backup';mods=data/'mods';mods.mkdir(parents=True);(mods/old['filename']).write_bytes(raw)
+    active=next(x for x in saved['artifacts'] if x['minecraft']==current['minecraft'])
+    restore_current_guard(root,data,old,active,saved['retained_artifacts'])
+    assert not (mods/old['filename']).exists() and (mods/current['filename']).read_bytes()==raw
+
+
+def test_acceptance_is_bound_to_the_exact_artifact_and_loader():
     directory=Path(__file__).resolve().parents[1]/'artifacts'
     record_path=directory/'guard-acceptance-20261031.json';raw=record_path.read_bytes();record=json.loads(raw)
     assert record['decision']=='accepted_for_exact_configurations_and_mod_inventory' and not record['guard_jars_changed']
     catalogue=guard_bundle.read(directory)
-    accepted=[entry for entry in catalogue['artifacts'] if entry.get('visitor_verified')]
-    assert len(accepted)==len(record['configurations'])==2
+    assert len(record['configurations'])==2
     for entry in catalogue['artifacts']:
-        if entry not in accepted:
+        if not entry.get('visitor_verified'):
             assert entry['runtime_test']=='not_tested' and not entry['tested_loaders']
             assert entry['visitor_client_test']=='not_verified_for_this_artifact'
+            assert not entry.get('acceptance')
+            if entry.get('previous_acceptance'):
+                previous=entry['previous_acceptance']
+                assert previous['scope']=='artifacts/guard-acceptance-20261031.json'
+                assert previous['sha256']==hashlib.sha256(raw).hexdigest()
+                scope=next(x for x in record['configurations'] if x['minecraft']==entry['minecraft'])
+                assert scope['guard_sha256']!=entry['sha256']
             continue
-        scope=next(x for x in record['configurations'] if x['minecraft']==entry['minecraft'])
+        acceptance=entry['acceptance'];relative=Path(acceptance['scope'])
+        assert relative.parts[0]=='artifacts' and not relative.is_absolute() and '..' not in relative.parts
+        accepted_raw=(directory.parent/relative).read_bytes();accepted_record=json.loads(accepted_raw)
+        scope=next(x for x in accepted_record['configurations'] if x['minecraft']==entry['minecraft'] and x.get('loader','NEOFORGE')==entry['loader'])
         assert entry['visitor_verified'] is True and entry['visitor_client_test']=='passed'
-        assert entry['acceptance']['sha256']==hashlib.sha256(raw).hexdigest()
+        assert acceptance['sha256']==hashlib.sha256(accepted_raw).hexdigest()
         assert scope['guard_sha256']==entry['sha256']==hashlib.sha256((directory/entry['filename']).read_bytes()).hexdigest()
         assert scope['loader_version'] in entry['tested_loaders'] and scope['java']==entry['java']
         assert scope['decision']=='passed_for_fixed_scope' and scope['operator'] is False

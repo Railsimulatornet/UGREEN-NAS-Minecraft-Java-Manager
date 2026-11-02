@@ -1,5 +1,5 @@
 plugins { id 'net.fabricmc.fabric-loom-remap' version '1.19.3' }
-version='1.0.6'
+version='1.0.7'
 group='de.romanglos.mcj'
 base { archivesName='mcj-guard-fabric-1.21.1' }
 dependencies {

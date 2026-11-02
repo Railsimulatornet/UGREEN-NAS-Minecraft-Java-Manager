@@ -19,8 +19,11 @@ def test_packaged_adapters_keep_their_own_java_channel():
     from mcj.guard_bundle import read
     view=matrix(SimpleNamespace(get=lambda key:read()))
     assert len(view['variants'])==9
-    assert {(x['minecraft'],x['loader'],x['java']) for x in view['variants'] if x['selectable']}=={('26.3','NEOFORGE',25),('1.21.1','NEOFORGE',21)}
-    # Only the two shipped adapters have the revision-bound client acceptance.
-    # Unverified fixture catalogues above must retain their original state.
+    assert {(x['minecraft'],x['loader'],x['java']) for x in view['variants']}=={
+        (minecraft,loader,java) for minecraft,java in [('1.20.1',17),('1.21.1',21),('26.3',25)]
+        for loader in ['FABRIC','FORGE','NEOFORGE']}
+    accepted={(x['minecraft'],x['loader']) for x in read()['artifacts']
+              if x.get('visitor_verified') and x.get('visitor_client_test')=='passed'}
+    assert {(x['minecraft'],x['loader']) for x in view['variants'] if x['selectable']}==accepted
     assert all(x['runtime_test']=='passed' and x['visitor_client_test']=='passed' for x in view['variants'] if x['selectable'])
     assert all(not x['loader_versions'] for x in view['variants'] if not x['selectable'])

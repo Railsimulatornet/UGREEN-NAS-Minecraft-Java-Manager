@@ -97,7 +97,7 @@ services:
     mem_limit: ${MCJ_GAME_MEMORY_MB:-8192}m
     cpus: 4
     restart: unless-stopped
-    stop_grace_period: 2m
+    stop_grace_period: 10m
     environment:
       EULA: "TRUE"
       UID: "1009"

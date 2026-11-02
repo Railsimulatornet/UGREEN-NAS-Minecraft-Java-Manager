@@ -31,4 +31,14 @@ public abstract class GuardPacketMixin {
     private void mcj$visitorMode(ServerboundChangeGameModePacket packet,CallbackInfo callback){
         if(Guard.visitor(player))callback.cancel();
     }
+
+    @Inject(method={"handleEditBook","updateBookContents","signBook"},at=@At("HEAD"),cancellable=true)
+    private void mcj$visitorBook(CallbackInfo callback){
+        if(Guard.visitor(player))callback.cancel();
+    }
+
+    @Inject(method="handleSetCreativeModeSlot",at=@At("HEAD"),cancellable=true)
+    private void mcj$visitorCreativeSlot(CallbackInfo callback){
+        if(Guard.visitor(player))callback.cancel();
+    }
 }

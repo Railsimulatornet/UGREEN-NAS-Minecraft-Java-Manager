@@ -45,182 +45,18 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-fabric-1.20.1-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b"
+        "filename": "mcj-guard-fabric-1.20.1-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7"
       },
       "gates": {
         "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "fabric-1.20.1",
-              "guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "fabric-1.20.1",
-              "guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b"
-            }
-          ],
-          "reused": false
-        },
-        "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
           "evidence": []
-        },
-        "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        }
-      },
-      "prior_evidence": null
-    },
-    {
-      "id": "forge-1.20.1",
-      "minecraft": "1.20.1",
-      "loader": "FORGE",
-      "loader_version": "47.4.28",
-      "java": 17,
-      "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
-      "protection_required": true,
-      "guard": {
-        "filename": "mcj-guard-forge-1.20.1-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
-      },
-      "gates": {
-        "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "forge-1.20.1",
-              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
-            }
-          ],
-          "reused": false
-        },
-        "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "forge-1.20.1",
-              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
-            }
-          ],
-          "reused": false
-        },
-        "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        }
-      },
-      "prior_evidence": null
-    },
-    {
-      "id": "neoforge-1.20.1",
-      "minecraft": "1.20.1",
-      "loader": "NEOFORGE",
-      "loader_version": "47.1.106",
-      "java": 17,
-      "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
-      "protection_required": true,
-      "guard": {
-        "filename": "mcj-guard-forge-1.20.1-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
-      },
-      "gates": {
-        "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "neoforge-1.20.1",
-              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
-            }
-          ],
-          "reused": false
-        },
-        "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "neoforge-1.20.1",
-              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
-            }
-          ],
-          "reused": false
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -256,7 +92,201 @@
         }
       },
       "prior_evidence": null,
-      "artifact_coordinates": "net.neoforged:forge:1.20.1-47.1.106"
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "fabric-1.20.1",
+              "guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "fabric-1.20.1",
+              "guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b"
+            }
+          ],
+          "reused": false
+        }
+      }
+    },
+    {
+      "id": "forge-1.20.1",
+      "minecraft": "1.20.1",
+      "loader": "FORGE",
+      "loader_version": "47.4.28",
+      "java": 17,
+      "release_scope": true,
+      "status": "NOCH NICHT GEPRÜFT",
+      "protection_required": true,
+      "guard": {
+        "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+      },
+      "gates": {
+        "installation": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "server_java_loader": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_connection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "visitor_protection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "role_grant_revoke": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "mods_dependencies": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_pack_export_import": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "backup_restore": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "version_change_rollback": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "unsafe_configuration_blocked": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        }
+      },
+      "prior_evidence": null,
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "forge-1.20.1",
+              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "forge-1.20.1",
+              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
+            }
+          ],
+          "reused": false
+        }
+      }
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "minecraft": "1.20.1",
+      "loader": "NEOFORGE",
+      "loader_version": "47.1.106",
+      "java": 17,
+      "release_scope": true,
+      "status": "NOCH NICHT GEPRÜFT",
+      "protection_required": true,
+      "guard": {
+        "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+      },
+      "gates": {
+        "installation": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "server_java_loader": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_connection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "visitor_protection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "role_grant_revoke": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "mods_dependencies": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_pack_export_import": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "backup_restore": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "version_change_rollback": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "unsafe_configuration_blocked": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        }
+      },
+      "prior_evidence": null,
+      "artifact_coordinates": "net.neoforged:forge:1.20.1-47.1.106",
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "neoforge-1.20.1",
+              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "neoforge-1.20.1",
+              "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac"
+            }
+          ],
+          "reused": false
+        }
+      }
     },
     {
       "id": "fabric-1.21.1",
@@ -268,34 +298,18 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-fabric-1.21.1-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61"
+        "filename": "mcj-guard-fabric-1.21.1-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327"
       },
       "gates": {
         "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "fabric-1.21.1",
-              "guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "fabric-1.21.1",
-              "guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -330,7 +344,33 @@
           "evidence": []
         }
       },
-      "prior_evidence": null
+      "prior_evidence": null,
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "fabric-1.21.1",
+              "guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "fabric-1.21.1",
+              "guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61"
+            }
+          ],
+          "reused": false
+        }
+      }
     },
     {
       "id": "forge-1.21.1",
@@ -342,34 +382,18 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-forge-1.21.1-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9"
+        "filename": "mcj-guard-forge-1.21.1-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f"
       },
       "gates": {
         "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "forge-1.21.1",
-              "guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "forge-1.21.1",
-              "guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -404,7 +428,33 @@
           "evidence": []
         }
       },
-      "prior_evidence": null
+      "prior_evidence": null,
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "forge-1.21.1",
+              "guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "forge-1.21.1",
+              "guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9"
+            }
+          ],
+          "reused": false
+        }
+      }
     },
     {
       "id": "neoforge-1.21.1",
@@ -416,15 +466,58 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-neoforge-1.21.1-1.0.5.jar",
-        "version": "1.0.5",
-        "sha256": "f75fca9813e1080e261b17a2b5d5c60d13fd15e4e223b2718350b1f992c86d8f"
+        "filename": "mcj-guard-neoforge-1.21.1-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c"
       },
       "gates": {
         "installation": {
           "status": "NOCH NICHT GEPRÜFT",
           "evidence": []
         },
+        "server_java_loader": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_connection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "visitor_protection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "role_grant_revoke": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "mods_dependencies": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_pack_export_import": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "backup_restore": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "version_change_rollback": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "unsafe_configuration_blocked": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        }
+      },
+      "prior_evidence": {
+        "record": "guard-acceptance-20261031.json",
+        "record_sha256": "b28922f27785fe72775bf985ac912a97799a8d5dfaa4ef624f1ea5ea322951a8",
+        "scope": "Exact guard, runtime and recorded mod/client cases are accepted. Remaining functional evidence is assessed separately."
+      },
+      "prior_guard_evidence": {
         "server_java_loader": {
           "status": "BESTANDEN",
           "evidence": [
@@ -485,18 +578,6 @@
           ],
           "reused": true
         },
-        "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
         "unsafe_configuration_blocked": {
           "status": "BESTANDEN",
           "evidence": [
@@ -509,11 +590,6 @@
           ],
           "reused": true
         }
-      },
-      "prior_evidence": {
-        "record": "guard-acceptance-20261031.json",
-        "record_sha256": "b28922f27785fe72775bf985ac912a97799a8d5dfaa4ef624f1ea5ea322951a8",
-        "scope": "Exact guard, runtime and recorded mod/client cases are accepted. Remaining functional evidence is assessed separately."
       }
     },
     {
@@ -526,34 +602,18 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-fabric-26.3-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4"
+        "filename": "mcj-guard-fabric-26.3-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559"
       },
       "gates": {
         "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "fabric-26.3",
-              "guard_sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "fabric-26.3",
-              "guard_sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -588,7 +648,33 @@
           "evidence": []
         }
       },
-      "prior_evidence": null
+      "prior_evidence": null,
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "fabric-26.3",
+              "guard_sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "fabric-26.3",
+              "guard_sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4"
+            }
+          ],
+          "reused": false
+        }
+      }
     },
     {
       "id": "forge-26.3",
@@ -600,34 +686,18 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-forge-26.3-1.0.6.jar",
-        "version": "1.0.6",
-        "sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e"
+        "filename": "mcj-guard-forge-26.3-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f"
       },
       "gates": {
         "installation": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "forge-26.3",
-              "guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "server_java_loader": {
-          "status": "BESTANDEN",
-          "evidence": [
-            {
-              "record": "artifacts/compatibility/server-startup.json",
-              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
-              "entry": "forge-26.3",
-              "guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e"
-            }
-          ],
-          "reused": false
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
         },
         "client_connection": {
           "status": "NOCH NICHT GEPRÜFT",
@@ -662,7 +732,33 @@
           "evidence": []
         }
       },
-      "prior_evidence": null
+      "prior_evidence": null,
+      "prior_guard_evidence": {
+        "installation": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "forge-26.3",
+              "guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e"
+            }
+          ],
+          "reused": false
+        },
+        "server_java_loader": {
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/server-startup.json",
+              "sha256": "0401cf7d74f20da603f4d79d6cbbb5ccc7a3a61160243de31b78b52c01b7e444",
+              "entry": "forge-26.3",
+              "guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e"
+            }
+          ],
+          "reused": false
+        }
+      }
     },
     {
       "id": "neoforge-26.3",
@@ -674,15 +770,58 @@
       "status": "NOCH NICHT GEPRÜFT",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-neoforge-1.0.5.jar",
-        "version": "1.0.5",
-        "sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c"
+        "filename": "mcj-guard-neoforge-1.0.7.jar",
+        "version": "1.0.7",
+        "sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868"
       },
       "gates": {
         "installation": {
           "status": "NOCH NICHT GEPRÜFT",
           "evidence": []
         },
+        "server_java_loader": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_connection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "visitor_protection": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "role_grant_revoke": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "mods_dependencies": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "client_pack_export_import": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "backup_restore": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "version_change_rollback": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        },
+        "unsafe_configuration_blocked": {
+          "status": "NOCH NICHT GEPRÜFT",
+          "evidence": []
+        }
+      },
+      "prior_evidence": {
+        "record": "guard-acceptance-20261031.json",
+        "record_sha256": "b28922f27785fe72775bf985ac912a97799a8d5dfaa4ef624f1ea5ea322951a8",
+        "scope": "Exact guard, runtime and recorded mod/client cases are accepted. Remaining functional evidence is assessed separately."
+      },
+      "prior_guard_evidence": {
         "server_java_loader": {
           "status": "BESTANDEN",
           "evidence": [
@@ -743,18 +882,6 @@
           ],
           "reused": true
         },
-        "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
-        "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
-        },
         "unsafe_configuration_blocked": {
           "status": "BESTANDEN",
           "evidence": [
@@ -767,11 +894,6 @@
           ],
           "reused": true
         }
-      },
-      "prior_evidence": {
-        "record": "guard-acceptance-20261031.json",
-        "record_sha256": "b28922f27785fe72775bf985ac912a97799a8d5dfaa4ef624f1ea5ea322951a8",
-        "scope": "Exact guard, runtime and recorded mod/client cases are accepted. Remaining functional evidence is assessed separately."
       }
     }
   ]

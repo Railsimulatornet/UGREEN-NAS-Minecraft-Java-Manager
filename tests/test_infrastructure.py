@@ -90,10 +90,12 @@ def test_intentional_stop_disables_restart_without_force_kill(monkeypatch):
     from mcj.infrastructure import stop_container
     seen=[]
     container=SimpleNamespace(id='a'*64,status='exited',attrs={'State':{'ExitCode':0}},reload=lambda:None)
-    def run(args,**kwargs):seen.append(args);return SimpleNamespace(returncode=0)
+    def run(args,**kwargs):
+        assert kwargs['timeout']==600
+        seen.append(args);return SimpleNamespace(returncode=0)
     monkeypatch.setattr(subprocess,'run',run)
     stop_container(container)
     assert seen==[['docker','container','stop','--timeout','-1','a'*64]]
-    def timeout(args,**kwargs):raise subprocess.TimeoutExpired(args,150)
+    def timeout(args,**kwargs):raise subprocess.TimeoutExpired(args,600)
     monkeypatch.setattr(subprocess,'run',timeout)
     with pytest.raises(RuntimeError,match='shutdown_pending_no_forced_kill'):stop_container(container)

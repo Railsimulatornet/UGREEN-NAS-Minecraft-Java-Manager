@@ -11,7 +11,8 @@
     "GuardPayloadMixin",
     "GuardInventoryMixin",
     "GuardServerTickMixin",
-    "GuardCommandsMixin"
+    "GuardCommandsMixin",
+    "GuardServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

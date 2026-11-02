@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.minecraftforge.gradle' version '7.0.29' }
-version='1.0.6'
+version='1.0.7'
 group='de.romanglos.mcj'
 base { archivesName='mcj-guard-forge-26.3' }
 java { toolchain.languageVersion=JavaLanguageVersion.of(25); withSourcesJar() }

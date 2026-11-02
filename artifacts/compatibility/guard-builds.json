@@ -2,12 +2,64 @@
   "schema": "mcj-guard-candidate-builds/v1",
   "candidates": [
     {
+      "module": "guard-neoforge",
+      "minecraft": "26.3",
+      "loader": "NEOFORGE",
+      "candidate_loader": "26.3.0.99",
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "source_sha256": "4628348dfe314d41cac277ac4079da4aa2d2f66fe3a2cf9c01fe320b7f06d922",
+      "java_class_major": [
+        69
+      ],
+      "class_sha256": {
+        "de/romanglos/mcj/Guard.class": "d91a945bd4081c7b4d375a600d4b6354e9d0a1f2b71e00759b2fff684054569e",
+        "de/romanglos/mcj/NetworkAccess.class": "5ddcabd4fc3c4a3333acb34e0b64487a55fd10acf7427493ac0df5b47efd20f9",
+        "de/romanglos/mcj/RoleCommands.class": "8fc72e63e6851762b7f95ec168ef0ca4c9d78d54ead545a540dc9c02b012fb89",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "22f09ba6bc6826849907d42c6bba35d08145a032704d1f24e0d6c10313a6c46d",
+        "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "18b1ed457cb6f7ffe8264ea08f67a2912704c65d37818c986d6477e45d6effbb",
+        "de/romanglos/mcj/mixin/GuardLoginMixin.class": "d1e206769525a84b9483fb1d2d540e7ff9cf44609be8452d5f38abb45ccdf169",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "a7dc3f57b021dee4139afdd9524ccd819a4c4b505bd69f5a469554e2f780de63",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "88f7e6e226f274c0742c9d379a0eab20481d6d2da937daa0954111943e83e420",
+        "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "ca8ab3b72c0e6dd18d8ca7d4955adfb8838771c12d80806e5c8656469823f098"
+      },
+      "build_image": [
+        "gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24"
+      ],
+      "runtime_or_client_acceptance": false
+    },
+    {
+      "module": "guard-neoforge-1211",
+      "minecraft": "1.21.1",
+      "loader": "NEOFORGE",
+      "candidate_loader": "21.1.265",
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "source_sha256": "b33d968385d6b1de2df0d4829b8c35bffe8ec777826544e920f952f23cb79a03",
+      "java_class_major": [
+        65
+      ],
+      "class_sha256": {
+        "de/romanglos/mcj/Guard.class": "994af52e713246b35fc438685b0e03cbea50d3ccd828896777e01198b6624b2d",
+        "de/romanglos/mcj/NetworkAccess.class": "c0bc903b41738f0a1862662abd51455f670f68c8ff6ad8e85350a1b56294b7fc",
+        "de/romanglos/mcj/RoleCommands.class": "2cf3aa37746454a87f486b7ef1a2369525fba38c380f6d5a65459a93a2554954",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "bdabb538efa1530f6618ebf3742949f8ece065ca746607e5e39b752ec9f31fe6",
+        "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "34b8dcab181096973baece9f74ee8e34187ff0c575f5355886c64ba816c64901",
+        "de/romanglos/mcj/mixin/GuardLoginMixin.class": "3ebac8b488bb3ef18ea1bb109be7586473d841344fd057879ee9392a0b5cccaf",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "2ea955e0043e8c98b0e7bfc8ecaf7bb548970e19e64684527a93c6d81d7c535a",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "442af97061b2527e2532a19c9f042458ff9e09362ce2f02bed8d34334e5d6165",
+        "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "00bd37f83dd12e25e30be13aa092c941b7f0bf8588b29de13c935e2f7b2be52e"
+      },
+      "build_image": [
+        "gradle@sha256:d5dd38d022b3d7bca5ddd7789d5937396c27320123e5121bf06a6c06934222c0"
+      ],
+      "runtime_or_client_acceptance": false
+    },
+    {
       "module": "guard-fabric-1201",
       "minecraft": "1.20.1",
       "loader": "FABRIC",
       "candidate_loader": "0.20.1",
-      "guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b",
-      "source_sha256": "45b3fc01fc8f866aa7997ef09bea8a0ddb7b961f7fd7477687f9a7f7ac559406",
+      "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "source_sha256": "363e4939dbc6bd981f7915963e95a3cb47709ff283617f5c3faf3e8af398cdd0",
       "java_class_major": [
         61
       ],
@@ -16,12 +68,14 @@
         "de/romanglos/mcj/NetworkAccess.class": "1b336c254e9aa4b796890faf28735f6d254dcc4600fd0d533723eb35ed67394f",
         "de/romanglos/mcj/RoleCommands.class": "9055981de711481b7ca313503b2a623bf7d89efecc941b272026b2161286fcf2",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "2a68ce5b7f1dd499768aa44a33b87e69671e800b664bc33479ec7f95d0f98814",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "1e0e5e8e1ef06d76056783b85e4070e30b5b7ad63d313f7d1f7b5c563be1700d",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "dad3113b21940b1719e58e19604fcaa8ca3854dcebb2552e72874fc8b16bebdd",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "11d3fdedef1920276ba43eddf0d530ac8e99fa15ac45dcf12fd51cf24fa84993",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "d79a46ab4cbb26c723a1c4ee473d7d1a1c6e79a6a22422ce341dd078a0963dd9",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "94c0462ed44c6e5f1cbe2677d2cc6798be3eb427ca1ab9b47c104ee831adb3ae",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "7951fd1e10caceec7f50cbc9d3f104c3f7941406a8a8ef0c948c8e8d5965fc6f",
+        "de/romanglos/mcj/mixin/GuardPacketMixin$1.class": "0f12160427a7ac1353b3418c96ff836acff7d4fd17f45302f7b91a915b19bfa0",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "20ef91a28d6e5462266d3b5c9b3d49077200d69fa2b542b53bd4b4b91152ba95",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "c1c59b0ba2fd7777c032d293d7c909ea588628800cd5ba247bfbb66995a1e018",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "649c81912a1261be6f898092f7d60d9d5b8229ce5569d6e48e0b19c3a376e5c8",
+        "de/romanglos/mcj/mixin/GuardServerPlayerMixin.class": "4cbc02ec1b70d754f7e91a9d8e152ef22d2135b7e3e290b724bea726d0fe77a5",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "74d29e327a0658a8009cbc689b5fa06817624eedc9b543b01be4b3faa90fcf2a"
       },
       "build_image": [
@@ -34,8 +88,8 @@
       "minecraft": "1.20.1",
       "loader": "FORGE",
       "candidate_loader": "47.4.28",
-      "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
-      "source_sha256": "d228373d586f8fb867873fd0ec27318a69cbec134ddc09a4879ae8ec3454f1b2",
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "source_sha256": "cc5736b4fedbf01a07294571ccddd56b298ea447a88758d44b6b799685f0eb92",
       "java_class_major": [
         61
       ],
@@ -44,12 +98,14 @@
         "de/romanglos/mcj/NetworkAccess.class": "2e24154f0d202404d7a1fb141bf6576f21d2f8352f76a936efb79311a6b162f0",
         "de/romanglos/mcj/RoleCommands.class": "72c1036b9a8a164b8c8039668da0ae6023eab08ca1892b537aeadaad45b9c669",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "53d94956099dee437347d49bc78a5825e347238373e97d865a1b5a352dc93cd3",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "0d31a80caf9dd6cfeaaa76ed90badcd289bd37749414bd4a80846319da204195",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "5a6b4c4d958a7a80246ffe902f0705ffda1d514f9f8b93b6dc8fda08bdf5926a",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "7c68b7046220766d95370a82571be53f96cd6160c754f19563c49b59f78488a6",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "cd82ff97ec0dfa94abf00e5d12b64911904b9e477af14f54821bbab9c151f7f7",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "b3ff7dcf63e9c6c0797f2969db8f4e9c689b02b655a2e2ea6e05a618fa4ca68d",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "fbb1f74c8b59913fb80eb49c1d830252d53f157a99b0acafa36caf0cf0e6e02c",
+        "de/romanglos/mcj/mixin/GuardPacketMixin$1.class": "e451a65bbce307fc8fd271843e62a780dc4c5394687960cdd03a623d72869062",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "8059003978e2d158b4344b8fe96bfd8b9c90510d55537514d17d77eb1132429f",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "86d6f2c0c061423969e2c68578eda0c665bd632676519876adbe64cf2b5358ff",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "247b30bdf88c926fbe674001b6e3f71fe5dbb50c7deacb2dd616afa0883c6d02",
+        "de/romanglos/mcj/mixin/GuardServerPlayerMixin.class": "4675514b64f1a2d4b439ac15d63888c6b3aa0581f56b1e9c8a133ff36f06e456",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "86e3bc4ea2b85879699ef70d4c1ca51553db1030257faeb2d021fea9d9716c48"
       },
       "build_image": [
@@ -62,8 +118,8 @@
       "minecraft": "1.20.1",
       "loader": "NEOFORGE",
       "candidate_loader": "47.1.106",
-      "guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
-      "source_sha256": "d228373d586f8fb867873fd0ec27318a69cbec134ddc09a4879ae8ec3454f1b2",
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "source_sha256": "cc5736b4fedbf01a07294571ccddd56b298ea447a88758d44b6b799685f0eb92",
       "java_class_major": [
         61
       ],
@@ -72,12 +128,14 @@
         "de/romanglos/mcj/NetworkAccess.class": "2e24154f0d202404d7a1fb141bf6576f21d2f8352f76a936efb79311a6b162f0",
         "de/romanglos/mcj/RoleCommands.class": "72c1036b9a8a164b8c8039668da0ae6023eab08ca1892b537aeadaad45b9c669",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "53d94956099dee437347d49bc78a5825e347238373e97d865a1b5a352dc93cd3",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "0d31a80caf9dd6cfeaaa76ed90badcd289bd37749414bd4a80846319da204195",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "5a6b4c4d958a7a80246ffe902f0705ffda1d514f9f8b93b6dc8fda08bdf5926a",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "7c68b7046220766d95370a82571be53f96cd6160c754f19563c49b59f78488a6",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "cd82ff97ec0dfa94abf00e5d12b64911904b9e477af14f54821bbab9c151f7f7",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "b3ff7dcf63e9c6c0797f2969db8f4e9c689b02b655a2e2ea6e05a618fa4ca68d",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "fbb1f74c8b59913fb80eb49c1d830252d53f157a99b0acafa36caf0cf0e6e02c",
+        "de/romanglos/mcj/mixin/GuardPacketMixin$1.class": "e451a65bbce307fc8fd271843e62a780dc4c5394687960cdd03a623d72869062",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "8059003978e2d158b4344b8fe96bfd8b9c90510d55537514d17d77eb1132429f",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "86d6f2c0c061423969e2c68578eda0c665bd632676519876adbe64cf2b5358ff",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "247b30bdf88c926fbe674001b6e3f71fe5dbb50c7deacb2dd616afa0883c6d02",
+        "de/romanglos/mcj/mixin/GuardServerPlayerMixin.class": "4675514b64f1a2d4b439ac15d63888c6b3aa0581f56b1e9c8a133ff36f06e456",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "86e3bc4ea2b85879699ef70d4c1ca51553db1030257faeb2d021fea9d9716c48"
       },
       "build_image": [
@@ -90,8 +148,8 @@
       "minecraft": "1.21.1",
       "loader": "FABRIC",
       "candidate_loader": "0.20.1",
-      "guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61",
-      "source_sha256": "e1d3dd2a1f5e0bd0a4fcd364aa210248110ba621f70dad7f2796249709438032",
+      "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "source_sha256": "758e4a0a6ef1061013f810aec29d925ec23eac41b545d67ac7517891d06dc76e",
       "java_class_major": [
         65
       ],
@@ -100,12 +158,14 @@
         "de/romanglos/mcj/NetworkAccess.class": "751be6e8012ff17cbe7be24ae09d8ebceb476edd098e3e7ccae902308af7cc31",
         "de/romanglos/mcj/RoleCommands.class": "4ceb0cce8419562f55b30ece762e1546ef5076c14da91782450535abb6c8b6f8",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "08228615b84bd203d550c2d9cc86b4fe70f8728d8a53cec239e26245d1e70b8b",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "a4dfebcd2cb1fa3b00a2f06997acb5bb97741e576d36f1d9c0516d568406f1b6",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "efae118d402a22fe86f3560da485386b2ebcbeb64fa876594529fc197822de73",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "267a6a31638ffd12331f9428f55ddced78a315b66be7d364f2854dbb0ea862aa",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "3cc9c03c0d90fe376f3e8773d864ecd6a8902cde8ab6f0150889e2c504a86a5a",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "a1830b0fd9e48321cc8c176188721f9f88c13435c0825ee56cc6092546dc8c9b",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "b159a6ba03caae54d03110f459de1881eb605e44afeb5efd848db3a064dab32d",
+        "de/romanglos/mcj/mixin/GuardPacketMixin$1.class": "34b7affbcf8d749a08fa8ee4c0d393e22316497cca285bb515e0a3f365ba37ae",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "118a4247aef52cd50ec431509a6eb99056ac6dbb1693c4be02e654b9c53ce5ab",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "0c18dce88e533bb835325b41ed4820f3c35d849a3dc1bf2c74235dfe141cc3b1",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "0f47cebfe5d5fe9582ad9afea99cb3b677b1647be51b62aa8944c09692e47b11",
+        "de/romanglos/mcj/mixin/GuardServerPlayerMixin.class": "85adcae778663d35abee13b6b7a0f58a13aa1c0853cc289b3c2e9bb637eeaffd",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "d5f9a5a72055eeedba2225d9eb64007deeb807fe54d26ce36627eec42238e1b9"
       },
       "build_image": [
@@ -118,8 +178,8 @@
       "minecraft": "1.21.1",
       "loader": "FORGE",
       "candidate_loader": "52.1.20",
-      "guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9",
-      "source_sha256": "4e96235ab59e41f4c3176eebad941ff5cf9b835105af3019c27653212316a7a2",
+      "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "source_sha256": "47482a97765cd55ceaa89582f62210939a9e296cc46c94ccce847020f140e498",
       "java_class_major": [
         65
       ],
@@ -128,12 +188,14 @@
         "de/romanglos/mcj/NetworkAccess.class": "c0bc903b41738f0a1862662abd51455f670f68c8ff6ad8e85350a1b56294b7fc",
         "de/romanglos/mcj/RoleCommands.class": "477f6a314359a27a4a3286a663b6fa80157e6be560e006d113537b15db90cb8e",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "9ad807fa228b109d30d2a76d18dd68fae9da44d1576ed62b44227485b5af2b3f",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "4502e51d2e7b05fc4c53ccb6c1ae985bee9338cfb00d8af14cdbe350cafac98e",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "d468b4cd09d9847ee35bbd19766a5ae0e64e4e9b62ecfa6f483edccf70554234",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "c2b409f7bcfcc97e1d9d8595ce795882e339dad73763f0ca2b7d2b19764412e5",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "6f930282c601b61dd3f1f538304b26e9c48a644c4b19f47fa78257c15b53f54b",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "e2eade281943ecd686c36702ac5585f1cd0abbe5f603fe0ce280d1a4d742b17d",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "7e19357465b53e87770ac7e5238115bb4faa5405c0cae1a51f3f2e94b1edabec",
+        "de/romanglos/mcj/mixin/GuardPacketMixin$1.class": "5dda118a72742ad6adf0d754e59705fbbdea7bafd62067200dfa9128c60fa99d",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "3ca8af959d26fae005d605c4b76af3ca1a63ec1d74236361cc2325645988dc7d",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "c94c86b1e8c365f452eff2d871b43f5dc6ac8bc38fdc1eb1818a361f9fa459ed",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "52e7844f90a1f1a780a24c7fc312552e4f41fc0393c9097724fa66bf641ee4fb",
+        "de/romanglos/mcj/mixin/GuardServerPlayerMixin.class": "13e23cbf1f97421ca6d67cc590ccf487cce04b4792f31158b1c0d340428ca33e",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "4a65776f4078566b477173e25563fe4e6a9d869b7084d33c9cdedd5ce22385d0"
       },
       "build_image": [
@@ -146,8 +208,8 @@
       "minecraft": "26.3",
       "loader": "FABRIC",
       "candidate_loader": "0.20.1",
-      "guard_sha256": "2140ac07d06955356cd6e9e6b34a7a2f8ae096510188195b3451e8640bb48ed4",
-      "source_sha256": "2df056809dd1515095726e015e5173a1bc779a1473843f4e38d82fe19ca09b52",
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "source_sha256": "b4dd67ba5af3b55700759607136ecdb8d856295f5b8c4ab45d009cc85f9cf9fa",
       "java_class_major": [
         69
       ],
@@ -155,12 +217,13 @@
         "de/romanglos/mcj/Guard.class": "b6c1cd27516dcc84d43337dd30ba6f435952837c08d77ca76dacdd6a4256c4e3",
         "de/romanglos/mcj/NetworkAccess.class": "5ddcabd4fc3c4a3333acb34e0b64487a55fd10acf7427493ac0df5b47efd20f9",
         "de/romanglos/mcj/RoleCommands.class": "404a18ddf2292b25c78b9157963ab29b50203e43708971c61f2a67cd31f636a5",
+        "de/romanglos/mcj/mixin/GuardCombatMixin.class": "1ede4bcb719f18e0363d2ed3dbc81dde186144a6014f3c121ce79a3d5d817d5b",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "eca052b2f0de64ccbfdd7c8289a633a9b942afb0a3a4e1a7664101fe0ffc3d2b",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "e2d0271d6a230ee1984d2ef0ec8b50c364f9720e293b5c0c4cfd7dcc96e8ecf6",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "93b5a1283504bf017cecb13044d9ff91cb63ff6ff39819e2d89a0a672173914b",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "bc329c98d1cff7696a1b5c5e50f7c8fc56c4299364c478de423f72320ce710d9",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "d1e206769525a84b9483fb1d2d540e7ff9cf44609be8452d5f38abb45ccdf169",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "af08758ea70a510a8d66313c67c9f498dc32686c28ee1ad6e4f5f8fccaa09442",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "6a97803229499e7f33175db181de40ed46968f35c1a52802007085d29b51cfdc",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "338f0a68eacb76e4f6d7a16c11d9ec0f4a57bab04dd7e171281e5f5c84920f69",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "d4de5284768cdeb0c55cc175ebbfbe18d51ee6f6de035490c8fb395b250a322f",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "dc96158987a5ac521695d669b0b7e65f59f9f196e54d6dc656d78229f03f634a",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "e00712db8569a5549ca87a8bd870cce28623385019ec3d2a1905f946a8adc9c5"
       },
@@ -174,8 +237,8 @@
       "minecraft": "26.3",
       "loader": "FORGE",
       "candidate_loader": "66.1.0",
-      "guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e",
-      "source_sha256": "54fc60784419aabfb89c2cda18585fbf3e7a6a4640481b9831d04481adfdaebc",
+      "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "source_sha256": "14813ff53fc3fdd7ad3167f0c5d21f3549902a3a7bcdfb12739678c8ce9bcd96",
       "java_class_major": [
         65
       ],
@@ -183,12 +246,13 @@
         "de/romanglos/mcj/Guard.class": "d95b3607c77597ee316c075e55c06026a38a25f12fb1ca09fed9cda91dc5d22e",
         "de/romanglos/mcj/NetworkAccess.class": "c0bc903b41738f0a1862662abd51455f670f68c8ff6ad8e85350a1b56294b7fc",
         "de/romanglos/mcj/RoleCommands.class": "c9cad429a95da95befd339374e56c7d31572ac7486bcf49c6bca383bd5fb88aa",
+        "de/romanglos/mcj/mixin/GuardCombatMixin.class": "62115f8bdf3aaca6cb1e929051999c34e8c8718a9e4d58e0f33d46b031739952",
         "de/romanglos/mcj/mixin/GuardCommandsMixin.class": "9ad807fa228b109d30d2a76d18dd68fae9da44d1576ed62b44227485b5af2b3f",
-        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "f71345acfed1fb53f807e5120e80f8df5c77590285d90864a52f05d85c905dd7",
+        "de/romanglos/mcj/mixin/GuardInteractionMixin.class": "7e6b82ab70d022d6431d60800e2cad81eeb82d0a55b28bfe99f1776f2ecd93b1",
         "de/romanglos/mcj/mixin/GuardInventoryMixin.class": "c2b409f7bcfcc97e1d9d8595ce795882e339dad73763f0ca2b7d2b19764412e5",
         "de/romanglos/mcj/mixin/GuardLoginMixin.class": "6f930282c601b61dd3f1f538304b26e9c48a644c4b19f47fa78257c15b53f54b",
-        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "9f0b297b217f888ff6d3c589b0be63eda772ed4b17635002647f6588c1ce88e0",
-        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "199b41cdd91b55293124819d1ce1dab045ff12131dff189327b5738de029f90b",
+        "de/romanglos/mcj/mixin/GuardPacketMixin.class": "6229c7100f855b2f84fe3051c424cbd5108cab44bf10eb80877bf4fa96ebcf34",
+        "de/romanglos/mcj/mixin/GuardPayloadMixin.class": "8e8c51255ed6f970678cd66931443c5dc9a8753bd012d177c91b1411087fa16e",
         "de/romanglos/mcj/mixin/GuardPlayerListMixin.class": "667c5227510a2b9f0577611eb99f43cef986014f8b59ceed585a08b1a6d318ea",
         "de/romanglos/mcj/mixin/GuardServerTickMixin.class": "4a65776f4078566b477173e25563fe4e6a9d869b7084d33c9cdedd5ce22385d0"
       },

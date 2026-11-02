@@ -1,11 +1,11 @@
 {
-  "filename": "mcj-guard-forge-26.3-1.0.6.jar",
-  "sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e",
-  "version": "1.0.6",
+  "filename": "mcj-guard-forge-26.3-1.0.7.jar",
+  "sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+  "version": "1.0.7",
   "minecraft": "26.3",
   "loader": "FORGE",
   "java": 25,
-  "path": "releases/guards/forge-26.3/mcj-guard-forge-26.3-1.0.6.jar",
+  "path": "releases/guards/forge-26.3/mcj-guard-forge-26.3-1.0.7.jar",
   "runtime_test": "not_tested",
   "visitor_verified": false,
   "visitor_client_test": "not_verified_for_this_artifact",
@@ -15,7 +15,7 @@
       {
         "id": "mcj_guard",
         "name": "MCJ Manager Visitor Guard",
-        "version": "1.0.6"
+        "version": "1.0.7"
       }
     ],
     "dependencies": [
@@ -39,8 +39,8 @@
     "embedded_libraries": [],
     "client_only_hint": false,
     "compatibility": "unverified",
-    "sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e",
-    "sha512": "eca455d973020d7bd6f5e00d6078737ae9e0db2766da734e6e15b646b6d8ffdc2b9676caba3beb94b4de931eb3f36cf07142deeb12f3234670e11ca0da9a44bd"
+    "sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+    "sha512": "f063db6e5a8ab23cc8ba07418ffed015654dc625eff13e31454e20ac2e5a28758ea79f4044f2215dccf95ed70c1b904a16cbbec7296bf625e60b6853b3d4a552"
   },
   "dependencies": [],
   "capabilities": [
@@ -56,7 +56,7 @@
   "license": "MIT",
   "license_notice": "LICENSE-MCJ-GUARDS.txt; Copyright (c) 2026 Roman Glos",
   "build": {
-    "source_sha256": "54fc60784419aabfb89c2cda18585fbf3e7a6a4640481b9831d04481adfdaebc",
+    "source_sha256": "14813ff53fc3fdd7ad3167f0c5d21f3549902a3a7bcdfb12739678c8ce9bcd96",
     "java_class_major": [
       65
     ]

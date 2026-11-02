@@ -57,11 +57,13 @@ def install_registry(root,directory=None):
         if destination.exists():
             if hashlib.sha256(destination.read_bytes()).hexdigest()!=entry['sha256']:raise RuntimeError('guard_artifact_integrity_failed')
         else:Store.atomic(destination,raw,0o440)
-    current={x['sha256'] for x in bundled['artifacts']}
+    def identity(entry):
+        return entry.get('minecraft'),entry.get('loader'),*artifact_identity(entry)
+    current={identity(x) for x in bundled['artifacts']}
     retained={}
     for entry in [*previous.get('retained_artifacts',[]),*previous.get('artifacts',[])]:
-        artifact_identity(entry)
-        if entry['sha256'] not in current:retained[entry['sha256']]=entry
+        key=identity(entry)
+        if key not in current:retained[key]=entry
     value={**bundled,'retained_artifacts':list(retained.values())}
     if value!=previous:Store.atomic(registry,json.dumps(value).encode(),0o640)
     return True

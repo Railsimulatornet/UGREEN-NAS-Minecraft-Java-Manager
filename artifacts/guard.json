@@ -1,20 +1,20 @@
 {
-  "filename": "mcj-guard-neoforge-1.0.5.jar",
-  "sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
-  "version": "1.0.5",
+  "filename": "mcj-guard-neoforge-1.0.7.jar",
+  "sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+  "version": "1.0.7",
   "minecraft": "26.3",
   "loader": "NEOFORGE",
-  "path": "releases/guards/neoforge-26.3/mcj-guard-neoforge-1.0.5.jar",
-  "runtime_test": "passed",
-  "visitor_verified": true,
-  "visitor_client_test": "passed",
+  "path": "releases/guards/neoforge-26.3/mcj-guard-neoforge-1.0.7.jar",
+  "runtime_test": "not_tested",
+  "visitor_verified": false,
+  "visitor_client_test": "not_verified_for_this_artifact",
   "metadata": {
     "loader": "NEOFORGE",
     "mods": [
       {
         "id": "mcj_guard",
         "name": "Minecraft Java Manager Visitor Guard",
-        "version": "1.0.5"
+        "version": "1.0.7"
       }
     ],
     "dependencies": [
@@ -38,8 +38,8 @@
     "embedded_libraries": [],
     "client_only_hint": false,
     "compatibility": "unverified",
-    "sha256": "74686de28ea7f81ede7ef21af232396f4eb90b6285208769abd8680300e32f0c",
-    "sha512": "4757eef20de4130cdd6139dd551d53c74dc4cffbd1020075ae57f6e4a59ce046340d742c829654148c13052bb8c884e5bfa635b97e2fa1ca38247ba7f3a7912e"
+    "sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+    "sha512": "fc95c8263e7f592fc22d3adb0b688cfb720382b3dd441772686e8d856b941957de79c8a7d37286cdcfa484cc9512c2253dc5349bf6f4ed403621bf7f2948753b"
   },
   "dependencies": [],
   "capabilities": [
@@ -47,14 +47,21 @@
     "mcj_network_v1"
   ],
   "protocol_version": 1,
-  "tested_loaders": [
-    "26.3.0.99"
-  ],
+  "tested_loaders": [],
   "java": 25,
   "minecraft_data_version": 5023,
   "license": "MIT",
   "license_notice": "LICENSE-MCJ-GUARDS.txt; own MCJ code only; embedded legacy copyright label does not revoke the accompanying MIT grant",
-  "acceptance": {
+  "candidate_loaders": [
+    "26.3.0.99"
+  ],
+  "build": {
+    "source_sha256": "4628348dfe314d41cac277ac4079da4aa2d2f66fe3a2cf9c01fe320b7f06d922",
+    "java_class_major": [
+      69
+    ]
+  },
+  "previous_acceptance": {
     "id": "guard-1.0.5-neoforge-fixed-scope-20261031",
     "scope": "artifacts/guard-acceptance-20261031.json",
     "sha256": "b28922f27785fe72775bf985ac912a97799a8d5dfaa4ef624f1ea5ea322951a8"

@@ -229,7 +229,9 @@ def graceful_stop(container):
         if count:
             rcon('say [MCJ Manager] Wartung startet in 10 Sekunden. Maintenance starts in 10 seconds.')
             time.sleep(10)
-    rcon('save-all flush')
+    # Minecraft saves all worlds during its normal shutdown. A separate flush
+    # still runs inside a server tick and can trip the watchdog on slow disks.
+    # stop_container waits for shutdown and accepts only a clean exit.
     stop_container(container)
 
 @contextmanager
@@ -436,7 +438,9 @@ def isolated_data_test(scratch,data,runtime_value,guard,image,name,metadata=None
     for folder in [runtime,roles,reports]:folder.mkdir(mode=0o750)
     runtime_value['memory_mb']=3072
     Store.atomic(runtime/'runtime.json',json.dumps(runtime_value).encode(),0o640)
-    shutil.copyfile(project_path(ROOT,'control/runtime/start.sh'),runtime/'start.sh')
+    from .isolated_runtime import start_script
+    script=start_script(data,runtime_value,project_path(ROOT,'control/runtime/start.sh').read_bytes())
+    Store.atomic(runtime/'start.sh',script,0o640)
     Store.atomic(runtime/'guard.sha256',(guard['sha256']+'  '+guard['filename']+'\n').encode(),0o640)
     Store.atomic(roles/'roles.json',b'{}',0o640);Store.atomic(roles/'maintenance.json',b'{"closed":true}',0o640)
     host_root=os.environ.get('HOST_PROJECT_ROOT','/volume1/docker/minecraftjava')
@@ -476,7 +480,7 @@ def isolated_data_test(scratch,data,runtime_value,guard,image,name,metadata=None
     finally:
         if container:
             container.reload()
-            if container.status=='running':container.stop(timeout=60)
+            if container.status=='running':stop_container(container)
             container.remove(v=True)
         resolved=scratch.resolve();boundary=(project_path(ROOT,'.restore-tests')).resolve()
         if not keep_data and resolved.parent==boundary:shutil.rmtree(resolved)

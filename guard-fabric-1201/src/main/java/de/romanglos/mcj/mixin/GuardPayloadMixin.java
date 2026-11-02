@@ -14,7 +14,6 @@ public abstract class GuardPayloadMixin {
     @Inject(method="handleCustomPayload",at=@At("HEAD"),cancellable=true)
     private void mcj$payload(ServerboundCustomPayloadPacket packet,CallbackInfo callback){
         if(Guard.visitor(player) && !packet.getIdentifier().toString().equals("minecraft:brand")){
-            if(packet.getData().refCnt()>0)packet.getData().release();
             callback.cancel();
         }
     }

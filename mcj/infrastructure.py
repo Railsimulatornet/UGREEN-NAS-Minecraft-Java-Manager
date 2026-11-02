@@ -24,7 +24,7 @@ def stop_container(container):
     """Tell Docker this is an intentional stop; never send SIGKILL after a deadline."""
     if not re.fullmatch('[0-9a-f]{64}',container.id):raise ValueError('container_identity_invalid')
     try:
-        outcome=subprocess.run(['docker','container','stop','--timeout','-1',container.id],capture_output=True,timeout=150)
+        outcome=subprocess.run(['docker','container','stop','--timeout','-1',container.id],capture_output=True,timeout=600)
     except subprocess.TimeoutExpired:raise RuntimeError('shutdown_pending_no_forced_kill') from None
     if outcome.returncode:raise RuntimeError('container_stop_failed')
     container.reload()
