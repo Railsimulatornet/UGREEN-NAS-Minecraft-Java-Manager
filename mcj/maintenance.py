@@ -364,6 +364,9 @@ def _apply_change(c,kind,actor,identifier=None,archive=None,configuration=None,s
     else:raise ValueError('invalid_change_kind')
     if configuration and configuration.get('container_memory_mb',8192)!=st.get('server').get('container_memory_mb',8192):c.require_memory_budget(configuration)
     storage_preflight.require(c.ROOT,c.BACKUPS,{'mods':'apply_mods','combined':'apply_mods','settings':'server_settings','world':'world_change','version':'version_apply','restore':'restore'}[kind],checked if kind=='restore' else None)
+    # Discover unreadable or invalid project inputs before stopping the server,
+    # creating a backup, or replacing any active runtime files.
+    c.compose_context()
     container,running=idle_gate(c);built=None
     try:
         backup=full_backup(c,'pre_'+kind,actor,resume=False)
