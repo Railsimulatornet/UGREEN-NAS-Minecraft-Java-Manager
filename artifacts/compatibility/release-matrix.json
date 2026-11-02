@@ -106,20 +106,45 @@
           "reused": true
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-1.20.1",
+              "section": "historical_backup_component_reuse",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-1.20.1",
+              "section": "version_transitions",
+              "scope": "Normal isolated version test, actual promotion and later exact runtime/mod/world baseline restoration."
+            }
+          ],
+          "reused": false
         },
         "unsafe_configuration_blocked": {
           "status": "BESTANDEN",
           "evidence": [
             {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-1.20.1",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
               "record": "artifacts/compatibility/server-maintenance.json",
               "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
-              "scope": "Four shared planning/queue rejection paths; no server start or active-state change."
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
             }
           ]
         }
@@ -226,11 +251,14 @@
           "status": "BESTANDEN",
           "evidence": [
             {
-              "record": "artifacts/compatibility/server-maintenance.json",
-              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
-              "scope": "Original world marker, runtime and installed mod hashes restored through the normal manager queue."
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-1.20.1",
+              "section": "historical_backup_component_reuse",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
             }
-          ]
+          ],
+          "reused": true
         },
         "version_change_rollback": {
           "status": "BESTANDEN",
@@ -243,8 +271,21 @@
           ]
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-1.20.1",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -346,8 +387,17 @@
           "reused": true
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-1.20.1",
+              "section": "historical_backup_component_reuse",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "version_change_rollback": {
           "status": "BESTANDEN",
@@ -360,8 +410,21 @@
           ]
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-1.20.1",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -464,8 +527,17 @@
           "reused": true
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-1.21.1",
+              "section": "historical_backup_component_reuse",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "version_change_rollback": {
           "status": "BESTANDEN",
@@ -478,8 +550,21 @@
           ]
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-1.21.1",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -581,16 +666,47 @@
           "reused": true
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-1.21.1",
+              "section": "historical_backup_component_reuse",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-1.21.1",
+              "section": "version_transitions",
+              "scope": "Normal isolated version test, actual promotion and later exact runtime/mod/world baseline restoration."
+            }
+          ],
+          "reused": false
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-1.21.1",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -674,16 +790,47 @@
           "evidence": []
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-1.21.1",
+              "section": "current_guard_backup_restore",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": false
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-1.21.1",
+              "section": "version_transitions",
+              "scope": "Normal isolated version test, actual promotion and later exact runtime/mod/world baseline restoration."
+            }
+          ],
+          "reused": false
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-1.21.1",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": {
@@ -837,16 +984,47 @@
           "reused": true
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-26.3",
+              "section": "current_guard_backup_restore",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": false
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-26.3",
+              "section": "version_transitions",
+              "scope": "Normal isolated version test, actual promotion and later exact runtime/mod/world baseline restoration."
+            }
+          ],
+          "reused": false
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "fabric-26.3",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -948,8 +1126,17 @@
           "reused": true
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-26.3",
+              "section": "historical_backup_component_reuse",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": true
         },
         "version_change_rollback": {
           "status": "BESTANDEN",
@@ -962,8 +1149,21 @@
           ]
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "forge-26.3",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": null,
@@ -1047,16 +1247,47 @@
           "evidence": []
         },
         "backup_restore": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-26.3",
+              "section": "current_guard_backup_restore",
+              "scope": "World marker 17 -> 29 -> restored 17; exact current guard receipt or explicitly bounded reuse of unchanged backup components, not visitor acceptance."
+            }
+          ],
+          "reused": false
         },
         "version_change_rollback": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-26.3",
+              "section": "version_transitions",
+              "scope": "Normal isolated version test, actual promotion and later exact runtime/mod/world baseline restoration."
+            }
+          ],
+          "reused": false
         },
         "unsafe_configuration_blocked": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/maintenance-evidence-20261102.json",
+              "sha256": "147460186e711f128c2632dfda39f99f733b03d9eee37735b97a318988b43107",
+              "entry": "neoforge-26.3",
+              "section": "guard_checksum_gate",
+              "scope": "Exact current guard checksum gate: valid, missing and changed files; sentinel only, no Minecraft start."
+            },
+            {
+              "record": "artifacts/compatibility/server-maintenance.json",
+              "sha256": "ff5ece0d9d7db4bdee08d398a9d6f5ad970e500fe79dc9d6211a73167a97b716",
+              "scope": "Four unchanged common planning/queue rejection paths: online authentication off, incompatible Java, nonexistent loader, missing protection adapter."
+            }
+          ]
         }
       },
       "prior_evidence": {

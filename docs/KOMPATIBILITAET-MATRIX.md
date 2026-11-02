@@ -67,15 +67,15 @@ Die folgende Übersicht nennt bereits belegte Teilschritte. „Offen“ bedeutet
 
 | Minecraft / Loader | Installation | Serverstart / Startup | Paketimport / Pack import | Rücksicherung / Restore | Versionswechsel / Version change |
 |---|---|---|---|---|---|
-| 1.20.1 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Offen / Pending |
+| 1.20.1 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
 | 1.20.1 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
-| 1.20.1 / NEOFORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Bestanden / Passed |
-| 1.21.1 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Bestanden / Passed |
-| 1.21.1 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Offen / Pending |
-| 1.21.1 / NEOFORGE | Offen / Pending | Bestanden / Passed | Offen / Pending | Offen / Pending | Offen / Pending |
-| 26.3 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Offen / Pending |
-| 26.3 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Offen / Pending | Bestanden / Passed |
-| 26.3 / NEOFORGE | Offen / Pending | Bestanden / Passed | Offen / Pending | Offen / Pending | Offen / Pending |
+| 1.20.1 / NEOFORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
+| 1.21.1 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
+| 1.21.1 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
+| 1.21.1 / NEOFORGE | Offen / Pending | Bestanden / Passed | Offen / Pending | Bestanden / Passed | Bestanden / Passed |
+| 26.3 / FABRIC | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
+| 26.3 / FORGE | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed | Bestanden / Passed |
+| 26.3 / NEOFORGE | Offen / Pending | Bestanden / Passed | Offen / Pending | Bestanden / Passed | Bestanden / Passed |
 
 Bei sieben Profilen passen Minecraft, Java, Loader-Datei und Image weiterhin zur früheren sauberen Installation. Dazu sind die Installation und der erfolgreiche Start des aktuellen Guards über den normalen Managerablauf belegt. Diese Nachweise werden gemeinsam übernommen; eine weitere Neuinstallation wurde dafür nicht durchgeführt. Für die beiden übrigen NeoForge-Profile ist der Start mit dem aktuellen Guard belegt. Die Zuordnung der übrigen Installationsnachweise bleibt dort offen.
 
@@ -86,3 +86,21 @@ Frühere Sicherungs- und Wiederherstellungsläufe mit älteren Guard-Dateien ble
 The table records component evidence, not full profile acceptance. Seven unchanged clean Java/loader installations are combined with verified installation and startup of the current guard through the normal manager. The other two NeoForge profiles have current-guard startup evidence; their remaining installation records still need to be matched. Seven actual Prism imports are verified by their Minecraft, loader and mod identities. Server connections, mod actions, visitor restrictions and role revocation remain separate checks. Historical backups retain their earlier guard identities. The two separate NeoForge startup probes ended with signal exit 143 and do not prove a normal manager shutdown.
 
 Die genauen Identitäten, Prüfsummen und Grenzen stehen in [component-evidence.json](../artifacts/compatibility/component-evidence.json). / Exact identities, hashes and scope limits are recorded in [component-evidence.json](../artifacts/compatibility/component-evidence.json).
+
+## Ergänzende Wartungsnachweise / Additional maintenance evidence
+
+Die noch fehlenden serverseitigen Versionswechsel nach Fabric 1.20.1, Forge 1.21.1, NeoForge 1.21.1, NeoForge 26.3 und Fabric 26.3 sind geprüft. Jeder Wechsel wurde mit seinem konkreten Plan zuerst isoliert geprüft und danach regulär übernommen. Am Ende der beiden Prüfketten wurde jeweils der ursprüngliche Forge-1.20.1-Stand wiederhergestellt. Laufzeit, Mod-Prüfsummen und Welt-Testwert stimmten nach der Rückkehr wieder überein; der Testserver wurde sauber beendet. Die schon vorher belegten Übergänge nach NeoForge 1.20.1, Fabric 1.21.1 und Forge 26.3 wurden dafür nicht erneut ausgeführt.
+
+Für NeoForge 1.21.1 und 26.3 sind außerdem eigene Sicherungen mit Guard 1.0.7, die isolierte Wiederherstellungsprüfung und die tatsächliche Rücksicherung belegt. Der Welt-Testwert wurde jeweils von 17 auf 29 geändert und anschließend aus der Sicherung wieder auf 17 gesetzt. Der bereits vorhandene Nachweis für Fabric 26.3 mit demselben aktuellen Guard wird übernommen.
+
+Die sechs früheren Sicherungsnachweise bleiben mit ihren damaligen Guard-Prüfsummen erhalten. Ihre Archiv-, Extraktions- und Wiederherstellungskomponenten sind im Quellvergleich unverändert. Die Installation und der Start des aktuellen Guards sowie die geänderte gemeinsame Vorbereitung und das Beenden des Servers sind getrennt belegt. Deshalb wird der bereits geprüfte Sicherungsablauf wiederverwendet; ein neuer vollständiger Rücksicherungslauf wird für diese sechs Fälle nicht behauptet. Die Prüfung der Besucherrechte bleibt davon unabhängig offen.
+
+Der ausgelieferte Startschutz wurde für alle neun Kombinationen mit gültiger, fehlender und veränderter Guard-Datei geprüft: 27 bestandene Fälle. Eine gültige Datei erreichte den vorbereiteten Prüfendpunkt; fehlende oder veränderte Dateien wurden vorher blockiert. Dieser Prüfendpunkt ersetzt den Minecraft-Start und bestätigt ausschließlich die Prüfsummensperre. Die vier zuvor geprüften gemeinsamen Planungssperren bleiben zusätzlich erhalten.
+
+The five previously missing server-side version transitions passed their mandatory isolated plan checks and normal promotion. Both test sequences ended by restoring the original Forge 1.20.1 runtime, mod hashes and world marker, followed by a clean stop. The previously recorded transitions to NeoForge 1.20.1, Fabric 1.21.1 and Forge 26.3 were reused.
+
+NeoForge 1.21.1 and 26.3 also passed their own backup and restore sequences with Guard 1.0.7: the world marker changed from 17 to 29 and returned to 17 after restoration. The existing Fabric 26.3 proof uses the same current guard. Six earlier backup proofs are reused for unchanged archive and restoration components, with separate evidence for current-guard installation/startup and the changed shared preparation/shutdown paths. Their earlier guard identities remain visible; no new full roundtrip is claimed for those six cases.
+
+All 27 checksum-gate cases passed across the nine combinations. Missing and modified guards were blocked before a harmless sentinel; a valid guard reached it. This checks the shipped startup gate without launching Minecraft. The four existing common planning-rejection checks remain valid. Visitor enforcement, role changes, actual client connections and functional mod acceptance are still separate requirements.
+
+Die Zuordnung und die Prüfsummen stehen in [maintenance-evidence-20261102.json](../artifacts/compatibility/maintenance-evidence-20261102.json). Alle neun Gesamtprofile bleiben **NOCH NICHT GEPRÜFT**; die Veröffentlichung bleibt gesperrt. / Exact identities and hashes are recorded in the linked evidence file. All nine complete profiles remain unapproved, and publication remains blocked.

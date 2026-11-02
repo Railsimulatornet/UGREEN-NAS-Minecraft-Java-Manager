@@ -1,0 +1,1045 @@
+{
+  "schema": "mcj-maintenance-component-evidence/v1",
+  "date": "2026-11-02",
+  "runtime_commit": "679f89c53bb903b63e9f3aa301689edbaca39276",
+  "source_sha256": "07d51b457d44fcdc14391a5b1ee402847e086e7b8d14a4da0c8dea279ddce968",
+  "publication_allowed": false,
+  "overall_profile_acceptance": false,
+  "native_client_started": false,
+  "guard_checksum_gate": [
+    {
+      "id": "fabric-1.20.1",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "cases": [
+        {
+          "id": "fabric-1.20.1",
+          "case": "valid",
+          "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "380727d0afad29fa19362c313552dc5648339396b0dbca374ab12ce290f61434",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "fabric-1.20.1",
+          "case": "missing",
+          "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "b228f263b3ab63f8ab5e653c65eeb161a28364a2c3149b5005ab77fe122d6cfe",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "fabric-1.20.1",
+          "case": "corrupt",
+          "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "f6469b9501dc8efca4f773c1c777a60d2aa4968a1fa857b6aaaafab38427458b",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "forge-1.20.1",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "cases": [
+        {
+          "id": "forge-1.20.1",
+          "case": "valid",
+          "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "4ab941c9f47e745443928f6099fcb379de13c9f8277ff0ebf0602f8bdeaf5305",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "forge-1.20.1",
+          "case": "missing",
+          "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "97d3a47cbcbc168698b7363e10b7093bbc6f8e7986354778028c736ab669e347",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "forge-1.20.1",
+          "case": "corrupt",
+          "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "e23fda2238ff404404b33f1785c37763df43cb75aa5968aee25a078b6cd8bf46",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "cases": [
+        {
+          "id": "neoforge-1.20.1",
+          "case": "valid",
+          "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "4ab941c9f47e745443928f6099fcb379de13c9f8277ff0ebf0602f8bdeaf5305",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "neoforge-1.20.1",
+          "case": "missing",
+          "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "97d3a47cbcbc168698b7363e10b7093bbc6f8e7986354778028c736ab669e347",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "neoforge-1.20.1",
+          "case": "corrupt",
+          "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "e23fda2238ff404404b33f1785c37763df43cb75aa5968aee25a078b6cd8bf46",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "fabric-1.21.1",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "cases": [
+        {
+          "id": "fabric-1.21.1",
+          "case": "valid",
+          "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "0b702b3abd749b30d648d4098b7b35d6876ac33b9a2f90bc36bbc4bc207ce26f",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "fabric-1.21.1",
+          "case": "missing",
+          "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "f56f34d4f1355dd4dbcdb2e284a7994bbf354a0c8e00b730e4a07de798e14c96",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "fabric-1.21.1",
+          "case": "corrupt",
+          "guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "56ae17b7d10e02bcd7c796f5bf48d8185d158ace05ad25d6963251823d0479a9",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "forge-1.21.1",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "cases": [
+        {
+          "id": "forge-1.21.1",
+          "case": "valid",
+          "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "cbb4066829ef922e10b776aa5ae14613870546cd669948689eb3291a6b350c00",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "forge-1.21.1",
+          "case": "missing",
+          "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "a85d7448ab05e1ca4f2dfd895eb8cdf0d606278123915a37e8cbe326cba803a1",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "forge-1.21.1",
+          "case": "corrupt",
+          "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "4cc36af153dd5ef25952479a13ae8c132d2f45842990be0bbba08e718b331dd2",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "neoforge-1.21.1",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "cases": [
+        {
+          "id": "neoforge-1.21.1",
+          "case": "valid",
+          "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "b26cd0a1ce0b3b968597a240578a8082bc835f263dfe16de924625cc01937db9",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "neoforge-1.21.1",
+          "case": "missing",
+          "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "0ed9451ebddc911a8535d527eefdad96a64ec4981d6d22706e6865c50c054f09",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "neoforge-1.21.1",
+          "case": "corrupt",
+          "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+          "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "d969b693896fd85d2f40aa57cf9465d0669de16edfff51426aa2efe4736b66d0",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "fabric-26.3",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "cases": [
+        {
+          "id": "fabric-26.3",
+          "case": "valid",
+          "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "26604bd144ebaabe9f976acc99174f8d811fed251be20234944cf094c337d932",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "fabric-26.3",
+          "case": "missing",
+          "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "e5c7fbffbdab0913b8ff6fe0b82e1a499219ed5a1cde464776b74824b4476a84",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "fabric-26.3",
+          "case": "corrupt",
+          "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "716b06fdb21b402d963b248e4c082acbf8011f01c053a319a01a3da6cb7c81c1",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "forge-26.3",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "cases": [
+        {
+          "id": "forge-26.3",
+          "case": "valid",
+          "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "d4afb5d2577c43f64747ce12ed9026b264a73c1c31f2f47ad33a4a81752568ed",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "forge-26.3",
+          "case": "missing",
+          "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "6d8416959c14617ea6af43bb3d68737663c6c9f758659a0bcced607a10c1b7aa",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "forge-26.3",
+          "case": "corrupt",
+          "guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "023aff14da07d9befef9f0e56c5971e4cfc423f7576917db981294f8be30cc3c",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    },
+    {
+      "id": "neoforge-26.3",
+      "script_sha256": "322c475c9ce2cef5cf108c3ee30fae3911b9e62f97e2d2445a728e7c49cf7757",
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "cases": [
+        {
+          "id": "neoforge-26.3",
+          "case": "valid",
+          "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 42,
+          "sentinel_reached": true,
+          "output_sha256": "2301e76c62f014800d5bb7eaa74879d9d83ce29cdbc066bb4c659f916e2545db",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "neoforge-26.3",
+          "case": "missing",
+          "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "057cc5a20ba6a2d020a224539308a57ca79ba18cfe7fbec33d233eea20e5db22",
+          "status": "BESTANDEN"
+        },
+        {
+          "id": "neoforge-26.3",
+          "case": "corrupt",
+          "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+          "image_id": "sha256:f1d1b3390795414d9caea34387e550d4bfd0688a046b3708261640a41b99a82f",
+          "exit_code": 1,
+          "sentinel_reached": false,
+          "output_sha256": "4924e1701a1d5c929893fae9bc9a16adb5de52786bd35bb843417ba07da6fb9b",
+          "status": "BESTANDEN"
+        }
+      ],
+      "raw_receipt_sha256": "0aec4b547d49fd1d2331441a483150d2be77d03571b529568685bb2748e52e61"
+    }
+  ],
+  "version_transitions": [
+    {
+      "id": "fabric-1.20.1",
+      "target_runtime": {
+        "version": "1.20.1",
+        "loader": "FABRIC",
+        "loader_version": "0.20.1",
+        "java": 17
+      },
+      "guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "state": "applied",
+      "isolated_test": {
+        "archive": "candidate",
+        "state": "isolated_server_verified",
+        "network": "none",
+        "published_ports": [],
+        "online_mode": true,
+        "guard_version": "1.0.7",
+        "world_file_count": 218
+      },
+      "candidate_result_sha256": "2795033584e8e103e023de0436bd0bb6a0a1a051cee73c5163a65ebe0b66db95",
+      "exact_baseline_restored_after_sequence": true,
+      "raw_receipt_sha256": "931e2eb91eaa32bcf00f7f6c8bb31705b95680c9f48ecb394a7bc21462a51efb"
+    },
+    {
+      "id": "forge-1.21.1",
+      "target_runtime": {
+        "version": "1.21.1",
+        "loader": "FORGE",
+        "loader_version": "52.1.20",
+        "java": 21
+      },
+      "guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "state": "applied",
+      "isolated_test": {
+        "archive": "candidate",
+        "state": "isolated_server_verified",
+        "network": "none",
+        "published_ports": [],
+        "online_mode": true,
+        "guard_version": "1.0.7",
+        "world_file_count": 318
+      },
+      "candidate_result_sha256": "221a0ae82f033467e6aa4762d4c8570f7dc300ece0629ddae122193f9f8ebd45",
+      "exact_baseline_restored_after_sequence": true,
+      "raw_receipt_sha256": "931e2eb91eaa32bcf00f7f6c8bb31705b95680c9f48ecb394a7bc21462a51efb"
+    },
+    {
+      "id": "neoforge-1.21.1",
+      "target_runtime": {
+        "version": "1.21.1",
+        "loader": "NEOFORGE",
+        "loader_version": "21.1.265",
+        "java": 21
+      },
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "state": "applied",
+      "isolated_test": {
+        "archive": "candidate",
+        "state": "isolated_server_verified",
+        "network": "none",
+        "published_ports": [],
+        "online_mode": true,
+        "guard_version": "1.0.7",
+        "world_file_count": 259
+      },
+      "candidate_result_sha256": "bf432d17b941716e3ffe326a15c44e26e19e0a8482109f3e1afeb5897fca9111",
+      "exact_baseline_restored_after_sequence": true,
+      "raw_receipt_sha256": "345bce57f462eeb12f4e7bd52a086028fcb9d7de7087525b181c202cee773fc3"
+    },
+    {
+      "id": "neoforge-26.3",
+      "target_runtime": {
+        "version": "26.3",
+        "loader": "NEOFORGE",
+        "loader_version": "26.3.0.99",
+        "java": 25
+      },
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "state": "applied",
+      "isolated_test": {
+        "archive": "candidate",
+        "state": "isolated_server_verified",
+        "network": "none",
+        "published_ports": [],
+        "online_mode": true,
+        "guard_version": "1.0.7",
+        "world_file_count": 367
+      },
+      "candidate_result_sha256": "3e5c84aeee35a4f85fa6741d5c5037da6b375e54ac050c60bfaeaa46332e4c5d",
+      "exact_baseline_restored_after_sequence": true,
+      "raw_receipt_sha256": "345bce57f462eeb12f4e7bd52a086028fcb9d7de7087525b181c202cee773fc3"
+    },
+    {
+      "id": "fabric-26.3",
+      "target_runtime": {
+        "version": "26.3",
+        "loader": "FABRIC",
+        "loader_version": "0.20.1",
+        "java": 25
+      },
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "state": "applied",
+      "isolated_test": {
+        "archive": "candidate",
+        "state": "isolated_server_verified",
+        "network": "none",
+        "published_ports": [],
+        "online_mode": true,
+        "guard_version": "1.0.7",
+        "world_file_count": 443
+      },
+      "candidate_result_sha256": "0ce9cc70f911cbb56aaf161f005dbe66c495bb896d2b767b880dc5e55b80eff1",
+      "exact_baseline_restored_after_sequence": true,
+      "raw_receipt_sha256": "345bce57f462eeb12f4e7bd52a086028fcb9d7de7087525b181c202cee773fc3"
+    }
+  ],
+  "current_guard_backup_restore": [
+    {
+      "id": "neoforge-1.21.1",
+      "runtime": {
+        "version": "1.21.1",
+        "loader": "NEOFORGE",
+        "loader_version": "21.1.265",
+        "java": 21
+      },
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "backup_archive_sha256": "d7314b3c064d2e623829c179350380eb8d6fce73fe3a956f2b28d8dd78f7c530",
+      "before_marker": 17,
+      "changed_marker": 29,
+      "restored_marker": 17,
+      "isolated_restore_state": "isolated_server_verified",
+      "restored_state": "applied",
+      "restore_result_sha256": "d9627624dea9618e6a4d9c818f06f7ed55d0fc898afe3e8819a3ba02847133c7",
+      "raw_receipt_sha256": "345bce57f462eeb12f4e7bd52a086028fcb9d7de7087525b181c202cee773fc3"
+    },
+    {
+      "id": "neoforge-26.3",
+      "runtime": {
+        "version": "26.3",
+        "loader": "NEOFORGE",
+        "loader_version": "26.3.0.99",
+        "java": 25
+      },
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "backup_archive_sha256": "58084044699af17d03c699d6c3af130d09af11a8e01aae45abd716f503f198ee",
+      "before_marker": 17,
+      "changed_marker": 29,
+      "restored_marker": 17,
+      "isolated_restore_state": "isolated_server_verified",
+      "restored_state": "applied",
+      "restore_result_sha256": "3467b1d65302ea0e31f51795afb736472ab28637d893aff1066e827b44f7f7e8",
+      "raw_receipt_sha256": "345bce57f462eeb12f4e7bd52a086028fcb9d7de7087525b181c202cee773fc3"
+    },
+    {
+      "id": "fabric-26.3",
+      "runtime": {
+        "version": "26.3",
+        "loader": "FABRIC",
+        "loader_version": "0.20.1",
+        "java": 25
+      },
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "backup_archive_sha256": "984e631aad7d115381be6d8508d4a8dbd9501b422f75f19a18121bc4e2ba70b2",
+      "before_marker": 17,
+      "changed_marker": 29,
+      "restored_marker": 17,
+      "isolated_restore_state": "isolated_server_verified",
+      "restored_state": "applied",
+      "raw_receipt_sha256": "edb3712a67b1daa853b307f99e486a97f55924dbe67260180210a65b1289dc85",
+      "original_source_sha256": "6c46df3cbba996534773904f3155cb8218852227302e17d666182d95a0846838",
+      "later_preparation_and_shutdown_components_checked_separately": true
+    }
+  ],
+  "historical_backup_component_reuse": [
+    {
+      "id": "fabric-1.20.1",
+      "runtime": {
+        "version": "1.20.1",
+        "loader": "FABRIC",
+        "loader_version": "0.20.1",
+        "java": 17
+      },
+      "previous_guard_sha256": "74e8ec331e4c7802e4a8e0e24f6a30202e4de1989a26aa69bfd97611b660589b",
+      "current_guard_sha256": "ced1a72e78d5915f91a662bd97d642abf3b890b0b202874400df4be9b19f3cd7",
+      "backup_archive_sha256": "98fc412e990bde5240cdd6d05d77e877bc8771776a9c794a44f98a0a292c4f1d",
+      "restored_marker": 17,
+      "raw_receipt_sha256": "48d03041d8b347980c14273f4b27e3e597a79151c0b6cc5cce9a8b4c900174f0",
+      "archive_extraction_promotion_and_guard_restore_algorithms_unchanged": true,
+      "current_guard_startup_and_installation_evidence": "artifacts/compatibility/component-evidence.json#fabric-1.20.1",
+      "changed_shared_paths_verified_by_current_guard_version_transitions_and_restore_tests": true,
+      "new_full_roundtrip_claimed": false,
+      "current_guard_visitor_acceptance_claimed": false
+    },
+    {
+      "id": "fabric-1.21.1",
+      "runtime": {
+        "version": "1.21.1",
+        "loader": "FABRIC",
+        "loader_version": "0.20.1",
+        "java": 21
+      },
+      "previous_guard_sha256": "664d6c8f50e55ec1eb6c99d3348fa04857b5d43f870d7b4ddd97a618a70c9d61",
+      "current_guard_sha256": "043e45eac2cce215f6f17b6186b5012fb4c2d5eec7ad9f22492dd0278a00e327",
+      "backup_archive_sha256": "02a7cc33c3e8d2d16a2ace0fc169ff9f5c6c769080c13ea62c48ed8afb1a6565",
+      "restored_marker": 17,
+      "raw_receipt_sha256": "48d03041d8b347980c14273f4b27e3e597a79151c0b6cc5cce9a8b4c900174f0",
+      "archive_extraction_promotion_and_guard_restore_algorithms_unchanged": true,
+      "current_guard_startup_and_installation_evidence": "artifacts/compatibility/component-evidence.json#fabric-1.21.1",
+      "changed_shared_paths_verified_by_current_guard_version_transitions_and_restore_tests": true,
+      "new_full_roundtrip_claimed": false,
+      "current_guard_visitor_acceptance_claimed": false
+    },
+    {
+      "id": "forge-1.20.1",
+      "runtime": {
+        "version": "1.20.1",
+        "loader": "FORGE",
+        "loader_version": "47.4.28",
+        "java": 17
+      },
+      "previous_guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
+      "current_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "backup_archive_sha256": "0e856bdb9f5c4499ad4cf39022247304ef84a56239268cb50c7e474d566f2d12",
+      "restored_marker": 17,
+      "raw_receipt_sha256": "48d03041d8b347980c14273f4b27e3e597a79151c0b6cc5cce9a8b4c900174f0",
+      "archive_extraction_promotion_and_guard_restore_algorithms_unchanged": true,
+      "current_guard_startup_and_installation_evidence": "artifacts/compatibility/component-evidence.json#forge-1.20.1",
+      "changed_shared_paths_verified_by_current_guard_version_transitions_and_restore_tests": true,
+      "new_full_roundtrip_claimed": false,
+      "current_guard_visitor_acceptance_claimed": false
+    },
+    {
+      "id": "forge-1.21.1",
+      "runtime": {
+        "version": "1.21.1",
+        "loader": "FORGE",
+        "loader_version": "52.1.20",
+        "java": 21
+      },
+      "previous_guard_sha256": "dccad0b6f6d34b7c6274ae43e08c04d0b04e027e07617d18d2b2e363fd1850d9",
+      "current_guard_sha256": "f95b817ee8b2dd8ea365070c52ee71cb2995ffb0d0a9461df77ce9c19c63cf9f",
+      "backup_archive_sha256": "95da815d27defa54d7104bbef81b3b301e853f2eaa4dbe2a52e5a373e57dd8dc",
+      "restored_marker": 17,
+      "raw_receipt_sha256": "48d03041d8b347980c14273f4b27e3e597a79151c0b6cc5cce9a8b4c900174f0",
+      "archive_extraction_promotion_and_guard_restore_algorithms_unchanged": true,
+      "current_guard_startup_and_installation_evidence": "artifacts/compatibility/component-evidence.json#forge-1.21.1",
+      "changed_shared_paths_verified_by_current_guard_version_transitions_and_restore_tests": true,
+      "new_full_roundtrip_claimed": false,
+      "current_guard_visitor_acceptance_claimed": false
+    },
+    {
+      "id": "forge-26.3",
+      "runtime": {
+        "version": "26.3",
+        "loader": "FORGE",
+        "loader_version": "66.1.0",
+        "java": 25
+      },
+      "previous_guard_sha256": "0216cff17eea52a2a8e1db8fcb8df643919d1217ae824d573adb72a33507d18e",
+      "current_guard_sha256": "739283f1eec44a689b91f947d6c324e47238ea0c34e76fa8ddcd702b5c91607f",
+      "backup_archive_sha256": "2007d8866eea0a44f09eb9f36c9f52b798dcbcd169e7103b574831cc0c348b02",
+      "restored_marker": 17,
+      "raw_receipt_sha256": "48d03041d8b347980c14273f4b27e3e597a79151c0b6cc5cce9a8b4c900174f0",
+      "archive_extraction_promotion_and_guard_restore_algorithms_unchanged": true,
+      "current_guard_startup_and_installation_evidence": "artifacts/compatibility/component-evidence.json#forge-26.3",
+      "changed_shared_paths_verified_by_current_guard_version_transitions_and_restore_tests": true,
+      "new_full_roundtrip_claimed": false,
+      "current_guard_visitor_acceptance_claimed": false
+    },
+    {
+      "id": "neoforge-1.20.1",
+      "runtime": {
+        "version": "1.20.1",
+        "loader": "NEOFORGE",
+        "loader_version": "47.1.106",
+        "java": 17
+      },
+      "previous_guard_sha256": "465f29a89cb24a112905d94d1d8e065eb3f725d824065852f58989753560cbac",
+      "current_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "backup_archive_sha256": "52ae441c7d2249eaf793d65f661849ce09e1013b97b69ebcb4b57ee6c1995dcb",
+      "restored_marker": 17,
+      "raw_receipt_sha256": "8c10611848b2302d98df01d33bc23edf285eecbdfc1d23c7a52b4d40b8c71ce8",
+      "archive_extraction_promotion_and_guard_restore_algorithms_unchanged": true,
+      "current_guard_startup_and_installation_evidence": "artifacts/compatibility/component-evidence.json#neoforge-1.20.1",
+      "changed_shared_paths_verified_by_current_guard_version_transitions_and_restore_tests": true,
+      "new_full_roundtrip_claimed": false,
+      "current_guard_visitor_acceptance_claimed": false
+    }
+  ],
+  "baseline_restoration": {
+    "runtime": {
+      "version": "1.20.1",
+      "loader": "FORGE",
+      "loader_version": "47.4.28",
+      "java": 17
+    },
+    "marker": 73,
+    "runtime_restored": true,
+    "mod_hashes_restored": true,
+    "clean_stop_exit_code": 0,
+    "raw_receipt_sha256": "345bce57f462eeb12f4e7bd52a086028fcb9d7de7087525b181c202cee773fc3"
+  },
+  "limits": [
+    "These records approve individual server-maintenance components only; all nine complete profiles remain unapproved.",
+    "No native Minecraft client, visitor interaction, role change or functional client-mod acceptance is inferred.",
+    "Checksum-gate tests replace /start with a harmless sentinel; they do not start Minecraft.",
+    "The six older backup tests retain their actual earlier guard hashes. They are reused for unchanged archive/world restoration components, with separately verified current-guard startup and changed shared preparation/shutdown paths.",
+    "Mandatory per-plan isolated version tests were retained. Completed unrelated targets were not repeated."
+  ],
+  "component_source_comparisons": [
+    {
+      "old_source_sha256": "54e6a22d71f190be029ed8a0648f72a8d15a8c5820893ecc2e7e3b7304b0bd54",
+      "current_source_sha256": "07d51b457d44fcdc14391a5b1ee402847e086e7b8d14a4da0c8dea279ddce968",
+      "files": {
+        "mcj/controller.py": {
+          "old_sha256": "0040065f73002268798414c8349f3becd0a744a4cdbedd06f2b0836583fbd95c",
+          "current_sha256": "69e96f92c1e1fcadb1e98061c20a0c62f9277ba0dc4c4473e0a18630f2787ca7",
+          "identical": false,
+          "functions": {
+            "archive_backup": {
+              "identical_ast": true,
+              "old_ast_sha256": "3dc6a10831513b06b86749fbb3282e92f9064e212c5dbfeb528853cc2cd0aa91",
+              "current_ast_sha256": "3dc6a10831513b06b86749fbb3282e92f9064e212c5dbfeb528853cc2cd0aa91"
+            },
+            "checked_archive": {
+              "identical_ast": true,
+              "old_ast_sha256": "465739f09b73c67fb773568aa5c8e915bb0e37ccf07dd3ef5d77852a92c090a8",
+              "current_ast_sha256": "465739f09b73c67fb773568aa5c8e915bb0e37ccf07dd3ef5d77852a92c090a8"
+            },
+            "extract_archive": {
+              "identical_ast": true,
+              "old_ast_sha256": "b2d17a9ab4a714f1ef81dc025e56ef92143043ea100673f850127cd725466dae",
+              "current_ast_sha256": "b2d17a9ab4a714f1ef81dc025e56ef92143043ea100673f850127cd725466dae"
+            },
+            "extract_archive_data": {
+              "identical_ast": true,
+              "old_ast_sha256": "aee849e983e92fd9228639f2e979701165cae306bf48e9220b657d3a9be0ecc2",
+              "current_ast_sha256": "aee849e983e92fd9228639f2e979701165cae306bf48e9220b657d3a9be0ecc2"
+            },
+            "isolated_restore_test": {
+              "identical_ast": true,
+              "old_ast_sha256": "dd5a559e594669e2ba875b7992e6205613237ed785687bd2e120fbf8cb92a908",
+              "current_ast_sha256": "dd5a559e594669e2ba875b7992e6205613237ed785687bd2e120fbf8cb92a908"
+            },
+            "isolated_data_test": {
+              "identical_ast": false,
+              "old_ast_sha256": "eb6ab20d5e3a1902bcb7e2d24ac864c055d7b1cb2b96b1629d376050222e3dc5",
+              "current_ast_sha256": "836b5d5be6ff4b598b6422170c52d0994d20c0128cf8423582eb2ab7b32a7406"
+            },
+            "trusted_guard": {
+              "identical_ast": true,
+              "old_ast_sha256": "e34b337faaac2fb475e61f3c64af435a286a6f459a9dcb532d75d9683bf35e24",
+              "current_ast_sha256": "e34b337faaac2fb475e61f3c64af435a286a6f459a9dcb532d75d9683bf35e24"
+            },
+            "restore_apply": {
+              "identical_ast": true,
+              "old_ast_sha256": "2d8b72d45531f888614f74f4d57d014e4a7268fe85c818d80a86e3af83044078",
+              "current_ast_sha256": "2d8b72d45531f888614f74f4d57d014e4a7268fe85c818d80a86e3af83044078"
+            },
+            "backup": {
+              "identical_ast": true,
+              "old_ast_sha256": "6950b54be34bec0ec7fe84426d1bddac5820e0b0cacc35410db99561e8ae8ce0",
+              "current_ast_sha256": "6950b54be34bec0ec7fe84426d1bddac5820e0b0cacc35410db99561e8ae8ce0"
+            },
+            "graceful_stop": {
+              "identical_ast": false,
+              "old_ast_sha256": "b55c668624b03156c95b21001b35067de634e48aef3e17223f928a24316d250c",
+              "current_ast_sha256": "ae6d2ac8934182187029ffc8a0987e0dc7bc403959a291616948df3982412a2e"
+            }
+          }
+        },
+        "mcj/maintenance.py": {
+          "old_sha256": "c2802ad524f5773282db972bce525db094d13b95d0c6933ee15780d69af3785b",
+          "current_sha256": "739b47cc9c2e00f3ef6cd48fdac756ab928c80c5ae753e0666b9eae87c5bcf5b",
+          "identical": false,
+          "functions": {
+            "full_backup": {
+              "identical_ast": true,
+              "old_ast_sha256": "1e342fbdd4840c7f8a0f1c46b81714ba790a059ca188cb885f2669d266c2a37e",
+              "current_ast_sha256": "1e342fbdd4840c7f8a0f1c46b81714ba790a059ca188cb885f2669d266c2a37e"
+            },
+            "candidate": {
+              "identical_ast": true,
+              "old_ast_sha256": "99faa4f4a150d063dc1f08253c73b68c5c6fad06cb637b59d94b5e9492a265fc",
+              "current_ast_sha256": "99faa4f4a150d063dc1f08253c73b68c5c6fad06cb637b59d94b5e9492a265fc"
+            },
+            "promote": {
+              "identical_ast": true,
+              "old_ast_sha256": "b98de65ae2f582f8968612d44ef0a2111dce5766942624350e771eb32e3eaa16",
+              "current_ast_sha256": "b98de65ae2f582f8968612d44ef0a2111dce5766942624350e771eb32e3eaa16"
+            },
+            "apply_change": {
+              "identical_ast": true,
+              "old_ast_sha256": "086fd3123f942259adc4967f49f6cb2d5cd2d36da5fa1fd1f7383e5f0263ea7e",
+              "current_ast_sha256": "086fd3123f942259adc4967f49f6cb2d5cd2d36da5fa1fd1f7383e5f0263ea7e"
+            },
+            "_apply_change": {
+              "identical_ast": false,
+              "old_ast_sha256": "83eab77c62c38328dcb32be9bbede708cefaaf973e2a6538f48185be79361076",
+              "current_ast_sha256": "5a013c59ab4d6739a16ef2e562fc144363b67247eab43b27a060c73c78858a40"
+            },
+            "prepare_dependencies": {
+              "identical_ast": false,
+              "old_ast_sha256": "687f526e496c41b7cbbe83069e6500c1a58d6ad70056b0ff44af7eebb5e22076",
+              "current_ast_sha256": "336be6d6061ad20edae78915f7767a65a712bf004dfcc8693d37ce881cea489e"
+            }
+          }
+        },
+        "mcj/guard_artifacts.py": {
+          "old_sha256": "c163136869ffde5caa2df9993c933df15919d41af4a8e216348a4f7cc82fd218",
+          "current_sha256": "c163136869ffde5caa2df9993c933df15919d41af4a8e216348a4f7cc82fd218",
+          "identical": true,
+          "functions": {
+            "restore_current_guard": {
+              "identical_ast": true,
+              "old_ast_sha256": "6bc19497b4bff21d185b1a5acd92b6e7b619ff9cd4989832c40903c828b25658",
+              "current_ast_sha256": "6bc19497b4bff21d185b1a5acd92b6e7b619ff9cd4989832c40903c828b25658"
+            }
+          }
+        },
+        "mcj/backup_inventory.py": {
+          "old_sha256": "89a12107dcf1caa392c7b98bc0eeba5f4644647d8ae569927080467fb1fdfd60",
+          "current_sha256": "89a12107dcf1caa392c7b98bc0eeba5f4644647d8ae569927080467fb1fdfd60",
+          "identical": true,
+          "functions": {}
+        }
+      }
+    },
+    {
+      "previous_source_sha256": "6c46df3cbba996534773904f3155cb8218852227302e17d666182d95a0846838",
+      "current_source_sha256": "07d51b457d44fcdc14391a5b1ee402847e086e7b8d14a4da0c8dea279ddce968",
+      "files": {
+        "mcj/controller.py": {
+          "previous_sha256": "286c9e49e544990208c859210b381896fcc6a1bdc800380385fb57c2376ae9d4",
+          "current_sha256": "69e96f92c1e1fcadb1e98061c20a0c62f9277ba0dc4c4473e0a18630f2787ca7",
+          "identical": false,
+          "functions": {
+            "archive_backup": {
+              "identical_ast": true,
+              "previous_ast_sha256": "3dc6a10831513b06b86749fbb3282e92f9064e212c5dbfeb528853cc2cd0aa91",
+              "current_ast_sha256": "3dc6a10831513b06b86749fbb3282e92f9064e212c5dbfeb528853cc2cd0aa91"
+            },
+            "checked_archive": {
+              "identical_ast": true,
+              "previous_ast_sha256": "465739f09b73c67fb773568aa5c8e915bb0e37ccf07dd3ef5d77852a92c090a8",
+              "current_ast_sha256": "465739f09b73c67fb773568aa5c8e915bb0e37ccf07dd3ef5d77852a92c090a8"
+            },
+            "extract_archive": {
+              "identical_ast": true,
+              "previous_ast_sha256": "b2d17a9ab4a714f1ef81dc025e56ef92143043ea100673f850127cd725466dae",
+              "current_ast_sha256": "b2d17a9ab4a714f1ef81dc025e56ef92143043ea100673f850127cd725466dae"
+            },
+            "extract_archive_data": {
+              "identical_ast": true,
+              "previous_ast_sha256": "aee849e983e92fd9228639f2e979701165cae306bf48e9220b657d3a9be0ecc2",
+              "current_ast_sha256": "aee849e983e92fd9228639f2e979701165cae306bf48e9220b657d3a9be0ecc2"
+            },
+            "isolated_restore_test": {
+              "identical_ast": true,
+              "previous_ast_sha256": "dd5a559e594669e2ba875b7992e6205613237ed785687bd2e120fbf8cb92a908",
+              "current_ast_sha256": "dd5a559e594669e2ba875b7992e6205613237ed785687bd2e120fbf8cb92a908"
+            },
+            "isolated_data_test": {
+              "identical_ast": true,
+              "previous_ast_sha256": "836b5d5be6ff4b598b6422170c52d0994d20c0128cf8423582eb2ab7b32a7406",
+              "current_ast_sha256": "836b5d5be6ff4b598b6422170c52d0994d20c0128cf8423582eb2ab7b32a7406"
+            },
+            "trusted_guard": {
+              "identical_ast": true,
+              "previous_ast_sha256": "e34b337faaac2fb475e61f3c64af435a286a6f459a9dcb532d75d9683bf35e24",
+              "current_ast_sha256": "e34b337faaac2fb475e61f3c64af435a286a6f459a9dcb532d75d9683bf35e24"
+            },
+            "restore_apply": {
+              "identical_ast": true,
+              "previous_ast_sha256": "2d8b72d45531f888614f74f4d57d014e4a7268fe85c818d80a86e3af83044078",
+              "current_ast_sha256": "2d8b72d45531f888614f74f4d57d014e4a7268fe85c818d80a86e3af83044078"
+            },
+            "backup": {
+              "identical_ast": true,
+              "previous_ast_sha256": "6950b54be34bec0ec7fe84426d1bddac5820e0b0cacc35410db99561e8ae8ce0",
+              "current_ast_sha256": "6950b54be34bec0ec7fe84426d1bddac5820e0b0cacc35410db99561e8ae8ce0"
+            },
+            "graceful_stop": {
+              "identical_ast": false,
+              "previous_ast_sha256": "e4ca3826547223e8ee21c260ac15e81d3db85d387e8f77a9bcd88f66e363ad75",
+              "current_ast_sha256": "ae6d2ac8934182187029ffc8a0987e0dc7bc403959a291616948df3982412a2e"
+            }
+          }
+        },
+        "mcj/maintenance.py": {
+          "previous_sha256": "c2802ad524f5773282db972bce525db094d13b95d0c6933ee15780d69af3785b",
+          "current_sha256": "739b47cc9c2e00f3ef6cd48fdac756ab928c80c5ae753e0666b9eae87c5bcf5b",
+          "identical": false,
+          "functions": {
+            "full_backup": {
+              "identical_ast": true,
+              "previous_ast_sha256": "1e342fbdd4840c7f8a0f1c46b81714ba790a059ca188cb885f2669d266c2a37e",
+              "current_ast_sha256": "1e342fbdd4840c7f8a0f1c46b81714ba790a059ca188cb885f2669d266c2a37e"
+            },
+            "candidate": {
+              "identical_ast": true,
+              "previous_ast_sha256": "99faa4f4a150d063dc1f08253c73b68c5c6fad06cb637b59d94b5e9492a265fc",
+              "current_ast_sha256": "99faa4f4a150d063dc1f08253c73b68c5c6fad06cb637b59d94b5e9492a265fc"
+            },
+            "promote": {
+              "identical_ast": true,
+              "previous_ast_sha256": "b98de65ae2f582f8968612d44ef0a2111dce5766942624350e771eb32e3eaa16",
+              "current_ast_sha256": "b98de65ae2f582f8968612d44ef0a2111dce5766942624350e771eb32e3eaa16"
+            },
+            "apply_change": {
+              "identical_ast": true,
+              "previous_ast_sha256": "086fd3123f942259adc4967f49f6cb2d5cd2d36da5fa1fd1f7383e5f0263ea7e",
+              "current_ast_sha256": "086fd3123f942259adc4967f49f6cb2d5cd2d36da5fa1fd1f7383e5f0263ea7e"
+            },
+            "_apply_change": {
+              "identical_ast": false,
+              "previous_ast_sha256": "83eab77c62c38328dcb32be9bbede708cefaaf973e2a6538f48185be79361076",
+              "current_ast_sha256": "5a013c59ab4d6739a16ef2e562fc144363b67247eab43b27a060c73c78858a40"
+            },
+            "prepare_dependencies": {
+              "identical_ast": false,
+              "previous_ast_sha256": "687f526e496c41b7cbbe83069e6500c1a58d6ad70056b0ff44af7eebb5e22076",
+              "current_ast_sha256": "336be6d6061ad20edae78915f7767a65a712bf004dfcc8693d37ce881cea489e"
+            }
+          }
+        },
+        "mcj/guard_artifacts.py": {
+          "previous_sha256": "c163136869ffde5caa2df9993c933df15919d41af4a8e216348a4f7cc82fd218",
+          "current_sha256": "c163136869ffde5caa2df9993c933df15919d41af4a8e216348a4f7cc82fd218",
+          "identical": true,
+          "functions": {
+            "restore_current_guard": {
+              "identical_ast": true,
+              "previous_ast_sha256": "6bc19497b4bff21d185b1a5acd92b6e7b619ff9cd4989832c40903c828b25658",
+              "current_ast_sha256": "6bc19497b4bff21d185b1a5acd92b6e7b619ff9cd4989832c40903c828b25658"
+            }
+          }
+        },
+        "mcj/backup_inventory.py": {
+          "previous_sha256": "89a12107dcf1caa392c7b98bc0eeba5f4644647d8ae569927080467fb1fdfd60",
+          "current_sha256": "89a12107dcf1caa392c7b98bc0eeba5f4644647d8ae569927080467fb1fdfd60",
+          "identical": true,
+          "functions": {}
+        },
+        "mcj/isolated_runtime.py": {
+          "previous_sha256": "3e731aeac1b439be7508bc9a171101de9cf35ea22c3e477c9fe38cefd9964fed",
+          "current_sha256": "60832d78b2267b2dd0ce6e26b859a9ff02527453d546fbccd2d38c2817212be0",
+          "identical": false,
+          "functions": {}
+        }
+      }
+    }
+  ],
+  "observed_startup_logs": [
+    {
+      "running": true,
+      "exit_code": 0,
+      "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+      "started_at": "2026-11-02T11:46:11.046721034Z",
+      "finished_at": "2026-11-02T11:45:59.141245483Z",
+      "runtime": {
+        "version": "1.21.1",
+        "java": 21,
+        "loader": "NEOFORGE",
+        "loader_version": "21.1.265"
+      },
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "minecraft_ready": true,
+      "log_sha256": "9211203d2bd798d819ab7272c674cf15046316afb65fcbb692392edd5669208a",
+      "stream": "stdout"
+    },
+    {
+      "running": false,
+      "exit_code": 0,
+      "image_id": "sha256:24255cde38c1db4ec8c43405c61700dab7d23a154fd23a9102e69dcff78c8c66",
+      "started_at": "2026-11-02T11:46:11.046721034Z",
+      "finished_at": "2026-11-02T11:47:32.921584655Z",
+      "runtime": {
+        "version": "1.21.1",
+        "java": 21,
+        "loader": "NEOFORGE",
+        "loader_version": "21.1.265"
+      },
+      "guard_sha256": "413bfa63c0bf42a297933c880fbe99d5c72483f2ee6a7652d0775765c549b03c",
+      "minecraft_ready": true,
+      "log_sha256": "2b9f3da497d0f9592b9b633efdc0962ba71957f164b00851850fde6f33c67eb2",
+      "stream": "stdout"
+    },
+    {
+      "running": true,
+      "exit_code": 0,
+      "image_id": "sha256:63c87d2e2b9a95f3bc56091a0caf7e1f1eba9fc47fd503219e36cfd768e64d61",
+      "started_at": "2026-11-02T11:48:30.704664359Z",
+      "finished_at": "0001-01-01T00:00:00Z",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "NEOFORGE",
+        "loader_version": "26.3.0.99"
+      },
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "minecraft_ready": true,
+      "log_sha256": "5befe1065c9064250d01fa99f8972d844ee4f14aa6fbe42ce7239ce4367f1de7",
+      "stream": "stdout"
+    },
+    {
+      "running": false,
+      "exit_code": 0,
+      "image_id": "sha256:63c87d2e2b9a95f3bc56091a0caf7e1f1eba9fc47fd503219e36cfd768e64d61",
+      "started_at": "2026-11-02T11:48:30.704664359Z",
+      "finished_at": "2026-11-02T11:48:59.892814225Z",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "NEOFORGE",
+        "loader_version": "26.3.0.99"
+      },
+      "guard_sha256": "0a6b251a6d23f72cb6c82665d462ab36da4d8178201f58f19181ed83e079e868",
+      "minecraft_ready": true,
+      "log_sha256": "0c2d11a144c5379de4c694dcfa9f24a9bdeba55b27b270860109d74e47b8faaf",
+      "stream": "stdout"
+    },
+    {
+      "running": true,
+      "exit_code": 0,
+      "image_id": "sha256:63c87d2e2b9a95f3bc56091a0caf7e1f1eba9fc47fd503219e36cfd768e64d61",
+      "started_at": "2026-11-02T11:54:18.030808254Z",
+      "finished_at": "2026-11-02T11:53:16.149723295Z",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "FABRIC",
+        "loader_version": "0.20.1"
+      },
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "minecraft_ready": true,
+      "log_sha256": "a8ee0ad5d7eb291e89b3e41c554daec182604cc68751a6a59c2c312120bf5acb",
+      "stream": "stdout"
+    },
+    {
+      "running": false,
+      "exit_code": 0,
+      "image_id": "sha256:63c87d2e2b9a95f3bc56091a0caf7e1f1eba9fc47fd503219e36cfd768e64d61",
+      "started_at": "2026-11-02T11:54:18.030808254Z",
+      "finished_at": "2026-11-02T11:54:50.272952242Z",
+      "runtime": {
+        "version": "26.3",
+        "java": 25,
+        "loader": "FABRIC",
+        "loader_version": "0.20.1"
+      },
+      "guard_sha256": "59b6b1d741930aced391886ce1b70dc87d28f30bab8c13038ede855f36511559",
+      "minecraft_ready": true,
+      "log_sha256": "ff53c919b6341c4fd91fd4a5d0a38731bd9d25df3e68cd90541c76e17686faed",
+      "stream": "stdout"
+    },
+    {
+      "running": true,
+      "exit_code": 0,
+      "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+      "started_at": "2026-11-02T11:56:23.00891143Z",
+      "finished_at": "0001-01-01T00:00:00Z",
+      "runtime": {
+        "version": "1.20.1",
+        "java": 17,
+        "loader": "FORGE",
+        "loader_version": "47.4.28"
+      },
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "minecraft_ready": true,
+      "log_sha256": "bf5e89ac3a7281200dae5bff1e81689d0ae7e22a82501e3cb96cc83aed39663f",
+      "stream": "stdout"
+    },
+    {
+      "running": false,
+      "exit_code": 0,
+      "image_id": "sha256:ab1045123edbb4fe19c0695a36683308f3626e610d71a1be30bf4b22a60670fb",
+      "started_at": "2026-11-02T11:56:23.00891143Z",
+      "finished_at": "2026-11-02T11:57:30.959486353Z",
+      "runtime": {
+        "version": "1.20.1",
+        "java": 17,
+        "loader": "FORGE",
+        "loader_version": "47.4.28"
+      },
+      "guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "minecraft_ready": true,
+      "log_sha256": "c91d4f2f5df2a13f69f88461591b5a72080b98458dca90cb481e866fc191265f",
+      "stream": "stdout"
+    }
+  ]
+}
