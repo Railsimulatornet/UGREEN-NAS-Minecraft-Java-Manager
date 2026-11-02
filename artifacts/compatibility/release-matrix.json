@@ -821,7 +821,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-preparation-20261102.json",
-              "sha256": "b37179556bcd568ab491cfd9608e133ddf3a206b5f7be56ffbbeefe49add2270",
+              "sha256": "5f1850993953499e3214d51e4e01907d6dfe0c5897e7b94cf77e1e644d1ea4b8",
               "entry": "neoforge-1.21.1",
               "section": "installation",
               "scope": "Clean server directory, current pinned Java image, exact loader/guard/mod hashes; separate normal manager mod installation verified. No native client acceptance."
@@ -858,8 +858,16 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-preparation-20261102.json",
+              "sha256": "5f1850993953499e3214d51e4e01907d6dfe0c5897e7b94cf77e1e644d1ea4b8",
+              "entry": "neoforge-1.21.1",
+              "section": "client_pack_export",
+              "scope": "Authenticated export/download and actual Prism import with exact Minecraft, NeoForge and client mod identities; native server connection is separate."
+            }
+          ]
         },
         "backup_restore": {
           "status": "BESTANDEN",
@@ -1318,7 +1326,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-preparation-20261102.json",
-              "sha256": "b37179556bcd568ab491cfd9608e133ddf3a206b5f7be56ffbbeefe49add2270",
+              "sha256": "5f1850993953499e3214d51e4e01907d6dfe0c5897e7b94cf77e1e644d1ea4b8",
               "entry": "neoforge-26.3",
               "section": "installation",
               "scope": "Clean server directory, current pinned Java image, exact loader/guard/mod hashes; separate normal manager mod installation verified. No native client acceptance."
@@ -1355,8 +1363,16 @@
           "evidence": []
         },
         "client_pack_export_import": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-preparation-20261102.json",
+              "sha256": "5f1850993953499e3214d51e4e01907d6dfe0c5897e7b94cf77e1e644d1ea4b8",
+              "entry": "neoforge-26.3",
+              "section": "client_pack_export",
+              "scope": "Authenticated export/download and actual Prism import with exact Minecraft, NeoForge and client mod identities; native server connection is separate."
+            }
+          ]
         },
         "backup_restore": {
           "status": "BESTANDEN",

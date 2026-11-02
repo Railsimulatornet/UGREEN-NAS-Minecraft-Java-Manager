@@ -50,8 +50,10 @@
           "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810"
         },
         "server_guard_and_probe_excluded": true,
-        "native_import": "NOCH NICHT GEPRÜFT",
-        "native_connection": "NOCH NICHT GEPRÜFT"
+        "native_import": "BESTANDEN",
+        "native_connection": "NOCH NICHT GEPRÜFT",
+        "native_import_receipt_sha256": "0d21b2da739d951b16ce0b9e5c364a467eec3a28243441749484151510bb9c74",
+        "native_import_window_receipt_sha256": "52fa215485b50f43a9888b52e0e4cc7dc451cf1b7e38ba4f8692adb7f81f173d"
       }
     },
     {
@@ -100,14 +102,16 @@
           "Jade-mc26.3-NeoForge-26.3.5.jar": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712"
         },
         "server_guard_and_probe_excluded": true,
-        "native_import": "NOCH NICHT GEPRÜFT",
-        "native_connection": "NOCH NICHT GEPRÜFT"
+        "native_import": "BESTANDEN",
+        "native_connection": "NOCH NICHT GEPRÜFT",
+        "native_import_receipt_sha256": "6a889d0200035564528c26dbce40af4d616939c6932f40cddb77c5efb7524bbb",
+        "native_import_window_receipt_sha256": "063d589555d9544cbcaa3e822828571c844f4a3e9624cb5e0bd91bc8951c4eb7"
       }
     }
   ],
   "limits": [
-    "The two records prove clean server installation, normal manager mod installation, client-pack export and authenticated download only.",
-    "They do not prove a native launcher import, native client connection, in-game mod interaction or visitor/role acceptance.",
+    "The two records prove clean server installation, normal manager mod installation, client-pack export and authenticated download. Completed native imports are recorded separately in each client_pack_export section.",
+    "These preparation and import records do not prove native client connection, in-game mod interaction or visitor/role acceptance.",
     "Earlier Minecraft, backup and role tests were not repeated by these clean-install checks."
   ]
 }
