@@ -81,7 +81,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "client_connection"
@@ -93,7 +93,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "visitor_protection"
@@ -105,7 +105,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "role_grant_revoke"
@@ -117,7 +117,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-1.20.1",
               "section": "gate_outcomes",
               "gate": "mods_dependencies"
@@ -495,7 +495,7 @@
       "loader_version": "0.20.1",
       "java": 21,
       "release_scope": true,
-      "status": "NOCH NICHT GEPRÜFT",
+      "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
         "filename": "mcj-guard-fabric-1.21.1-1.0.7.jar",
@@ -530,20 +530,52 @@
           "reused": true
         },
         "client_connection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "entry": "fabric-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "client_connection"
+            }
+          ]
         },
         "visitor_protection": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "entry": "fabric-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "visitor_protection"
+            }
+          ]
         },
         "role_grant_revoke": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "entry": "fabric-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "role_grant_revoke"
+            }
+          ]
         },
         "mods_dependencies": {
-          "status": "NOCH NICHT GEPRÜFT",
-          "evidence": []
+          "status": "BESTANDEN",
+          "evidence": [
+            {
+              "record": "artifacts/compatibility/native-client-evidence-20261102.json",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
+              "entry": "fabric-1.21.1",
+              "section": "gate_outcomes",
+              "gate": "mods_dependencies"
+            }
+          ]
         },
         "client_pack_export_import": {
           "status": "BESTANDEN",
@@ -999,7 +1031,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "client_connection"
@@ -1011,7 +1043,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "visitor_protection"
@@ -1023,7 +1055,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "role_grant_revoke"
@@ -1035,7 +1067,7 @@
           "evidence": [
             {
               "record": "artifacts/compatibility/native-client-evidence-20261102.json",
-              "sha256": "ec78183c015363e56580fabfc394cf34bac993e6b4e8b38a4c2f41518390cd6c",
+              "sha256": "98d2dc505037d44d3d6849ffac3cb1cbfe8fd75dad3663d9a57480d1a142a684",
               "entry": "fabric-26.3",
               "section": "gate_outcomes",
               "gate": "mods_dependencies"

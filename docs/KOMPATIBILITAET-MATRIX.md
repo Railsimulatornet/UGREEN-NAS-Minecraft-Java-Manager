@@ -11,7 +11,7 @@ Zur Freigabe vorgesehen sind genau die folgenden neun Kombinationen. Für jede g
 | 1.20.1 | FABRIC | 0.20.1 | 17 | mcj-guard-fabric-1.20.1-1.0.7.jar | BESTANDEN |
 | 1.20.1 | FORGE | 47.4.28 | 17 | mcj-guard-forge-1.20.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
 | 1.20.1 | NEOFORGE | 47.1.106 | 17 | mcj-guard-forge-1.20.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
-| 1.21.1 | FABRIC | 0.20.1 | 21 | mcj-guard-fabric-1.21.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
+| 1.21.1 | FABRIC | 0.20.1 | 21 | mcj-guard-fabric-1.21.1-1.0.7.jar | BESTANDEN |
 | 1.21.1 | FORGE | 52.1.20 | 21 | mcj-guard-forge-1.21.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
 | 1.21.1 | NEOFORGE | 21.1.265 | 21 | mcj-guard-neoforge-1.21.1-1.0.7.jar | NOCH NICHT GEPRÜFT |
 | 26.3 | FABRIC | 0.20.1 | 25 | mcj-guard-fabric-26.3-1.0.7.jar | BESTANDEN |
@@ -107,15 +107,15 @@ Die Zuordnung und die Prüfsummen stehen in [maintenance-evidence-20261102.json]
 
 ## Client- und Rollenprüfungen vom 2. November 2026 / Client and role checks
 
-Für Fabric 1.20.1 mit Java 17 und Fabric 26.3 mit Java 25 sind die echten Clientverbindungen aus den in Prism importierten Paketen belegt. In beiden Fällen blieb ein Testblock als Besucher unverändert, ließ sich nach der Spielerfreigabe abbauen und war nach dem Rechteentzug wieder geschützt. Jade zeigte den anvisierten Block an und aktualisierte die Anzeige nach dem Abbau. Die installierten Clientdateien stimmen mit den exportierten Paketen überein.
+Für Fabric 1.20.1 mit Java 17, Fabric 1.21.1 mit Java 21 und Fabric 26.3 mit Java 25 sind die echten Clientverbindungen aus den in Prism importierten Paketen belegt. In allen drei Fällen blieb ein Testblock als Besucher unverändert, ließ sich nach der Spielerfreigabe abbauen und war nach dem Rechteentzug wieder geschützt. Jade zeigte den anvisierten Block an und aktualisierte die Anzeige nach dem Abbau. Die installierten Clientdateien stimmen mit den exportierten Paketen überein.
 
-Zusätzlich bestanden 17 gezielte Handler-Prüfungen für Fabric 1.20.1 und 15 für Fabric 26.3 am tatsächlich angemeldeten Spieler. Diese Hilfsprüfungen rufen Server-Handler auf; sie werden nicht als vom nativen Client gesendete Netzwerkpakete ausgegeben. Die native Bedienung im Spiel ist separat belegt. Fehlversuche der Maussteuerung wurden nicht als bestandene Prüfungen übernommen.
+Zusätzlich bestanden jeweils 17 gezielte Handler-Prüfungen für Fabric 1.20.1 und 1.21.1 sowie 15 für Fabric 26.3 am tatsächlich angemeldeten Spieler. Diese Hilfsprüfungen rufen Server-Handler auf; sie werden nicht als vom nativen Client gesendete Netzwerkpakete ausgegeben. Die native Bedienung im Spiel ist separat belegt. Fehlversuche der Maussteuerung wurden nicht als bestandene Prüfungen übernommen.
 
-Nach den Prüfungen wurde die Hilfsmod über den Manager entfernt. Beide Server starteten anschließend mit dem regulären Mod-Bestand, demselben Guard und denselben Jade-/Fabric-API-Dateien. Danach wurden sie sauber beendet; beide Prozesse lieferten den Rückgabewert 0.
+Nach den Prüfungen wurde die Hilfsmod über den Manager entfernt. Alle drei Server starteten anschließend mit dem regulären Mod-Bestand, demselben Guard und denselben Jade-/Fabric-API-Dateien. Danach wurden sie sauber beendet; alle drei Prozesse lieferten den Rückgabewert 0.
 
-Actual client connections from the Prism-imported packs are recorded for Fabric 1.20.1 with Java 17 and Fabric 26.3 with Java 25. In both cases, a visitor could not break the test block, a granted player could break it, and revocation restored the restriction. Jade identified the target and updated after mining. Installed client files match the exported packs. Separate server-handler checks passed 17 cases for Fabric 1.20.1 and 15 for Fabric 26.3 on the connected player. These helper calls are not presented as native network packets; actual in-game interaction has its own evidence. Failed mouse-control attempts were excluded from the passed results.
+Actual client connections from the Prism-imported packs are recorded for Fabric 1.20.1 with Java 17, Fabric 1.21.1 with Java 21 and Fabric 26.3 with Java 25. In all three cases, a visitor could not break the test block, a granted player could break it, and revocation restored the restriction. Jade identified the target and updated after mining. Installed client files match the exported packs. Separate server-handler checks passed 17 cases each for Fabric 1.20.1 and 1.21.1, and 15 for Fabric 26.3 on the connected player. These helper calls are not presented as native network packets; actual in-game interaction has its own evidence. Failed mouse-control attempts were excluded from the passed results.
 
-The manager then removed the helper mod. Both servers started with the regular mod set, the same guard and identical Jade/Fabric API files, and stopped cleanly with exit code 0.
+The manager then removed the helper mod. All three servers started with the regular mod set, the same guard and identical Jade/Fabric API files, and stopped cleanly with exit code 0.
 
 Die genauen Identitäten und Nachweisprüfsummen stehen in [native-client-evidence-20261102.json](../artifacts/compatibility/native-client-evidence-20261102.json). Weitere Profile erhalten erst nach ihren eigenen vollständigen Nachweisen einen bestandenen Gesamtstatus. / Exact identities and evidence hashes are recorded in the linked file. Other profiles pass only after their own required evidence is complete.
 
