@@ -76,6 +76,8 @@ Beginne im Heimnetz. Webzugang und Minecraft-Zugang von außerhalb richtest du g
 
 ## English
 
+![Server overview with sample data](docs/images/uebersicht-en.png)
+
 MCJ Manager lets you manage a Minecraft Java server on your UGREEN NAS in a browser. Approve players, install mods, switch worlds, and create or restore backups. The interface is available in German and English on desktop and mobile.
 
 **Get started:** [Download the installation pack](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.0/MCJ-Manager-1.0.0.zip) · [Manual](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.0/Installation-EN.pdf) · [Read the guide online](docs/INSTALLATION-EN.md)
