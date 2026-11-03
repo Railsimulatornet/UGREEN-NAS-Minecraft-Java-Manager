@@ -1,0 +1,177 @@
+{
+  "schema": "mcj-guard-reproducibility/v1",
+  "date": "2026-11-03",
+  "module": "guard-forge-1201",
+  "version": "1.0.7",
+  "source_sha256": "b30220ea2b6a6ebea57747ea5fd5ba8aa190dd27b7c56221cf411aa205a0805f",
+  "previous": {
+    "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
+    "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+  },
+  "current": {
+    "filename": "mcj-guard-forge-1.20.1-1.0.7-repro1.jar",
+    "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f"
+  },
+  "build_environment": {
+    "image": "gradle@sha256:ce50078d456e497bc86b76d386503e84aa45416d85069ad66bc072bf07566b25",
+    "java": 17,
+    "gradle": "8.14.3",
+    "clean_builds": 2,
+    "independent_workspaces_and_caches": true
+  },
+  "build_run": "https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/actions/runs/41550981668",
+  "build_source_commit": "99b84ce8ef95532d64af1a856b185d0e6ce017a2",
+  "builds": [
+    {
+      "attempt": "a",
+      "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+      "log_sha256": "1e8da7f05ef371577324fda99bab1f30c335c3beda97c3ac71556fc177cf9a79",
+      "network_policy_checks": 27,
+      "result": "passed"
+    },
+    {
+      "attempt": "b",
+      "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+      "log_sha256": "2ff8988cec102a92f87610643a66d6717f89d16b5b609d958fb234f5bd5011a2",
+      "network_policy_checks": 27,
+      "result": "passed"
+    }
+  ],
+  "cause": {
+    "de": "Der Mixin-Annotation-Processor garantiert keine feste Reihenfolge der erzeugten Zuordnungen. Refmap-Objektschlüssel und SRG-Zeilen waren unterschiedlich angeordnet; ihre Werte waren identisch. ZIP-Zeitstempel und Archiveinträge hatten dieselbe Reihenfolge.",
+    "en": "The Mixin annotation processor does not guarantee a fixed order for generated mappings. Refmap object keys and SRG lines appeared in different orders with identical values. ZIP timestamps and entry order were unchanged."
+  },
+  "correction": "Recursively sort refmap object keys, preserve arrays and values, and sort all SRG lines before packaging and reobfuscation. Keep the strict whole-JAR hash comparison.",
+  "equivalence": {
+    "entry_names_unchanged": true,
+    "all_class_bytes_unchanged": true,
+    "manifest_bytes_unchanged": true,
+    "refmap_json_equal": true,
+    "srg_lines_equal_with_multiplicity": true,
+    "other_resource_bytes_unchanged": true,
+    "entries": [
+      {
+        "name": "META-INF/MANIFEST.MF",
+        "category": "manifest",
+        "previous_sha256": "41395cfb43d6659049355608fddff140979b8bc5314d4c9bf7d10a2f34fe3baf",
+        "current_sha256": "41395cfb43d6659049355608fddff140979b8bc5314d4c9bf7d10a2f34fe3baf"
+      },
+      {
+        "name": "LICENSE-MCJ-GUARDS.txt",
+        "category": "resource",
+        "previous_sha256": "f0053c31548548de704a4f22f3d8c6e05510f1834677e78b4d3e8cf9a145fcfd",
+        "current_sha256": "f0053c31548548de704a4f22f3d8c6e05510f1834677e78b4d3e8cf9a145fcfd"
+      },
+      {
+        "name": "META-INF/mods.toml",
+        "category": "resource",
+        "previous_sha256": "9ff82b7d03e4ab6ad76e4d6358a0c3298ec9115dc30fee07f0e45ce0cca3fde5",
+        "current_sha256": "9ff82b7d03e4ab6ad76e4d6358a0c3298ec9115dc30fee07f0e45ce0cca3fde5"
+      },
+      {
+        "name": "de/romanglos/mcj/Guard.class",
+        "category": "class",
+        "previous_sha256": "54349d0d68762b77e1233f713a5cf211817a44eb8a65a9f5990b34c7cd800689",
+        "current_sha256": "54349d0d68762b77e1233f713a5cf211817a44eb8a65a9f5990b34c7cd800689"
+      },
+      {
+        "name": "de/romanglos/mcj/NetworkAccess.class",
+        "category": "class",
+        "previous_sha256": "2e24154f0d202404d7a1fb141bf6576f21d2f8352f76a936efb79311a6b162f0",
+        "current_sha256": "2e24154f0d202404d7a1fb141bf6576f21d2f8352f76a936efb79311a6b162f0"
+      },
+      {
+        "name": "de/romanglos/mcj/RoleCommands.class",
+        "category": "class",
+        "previous_sha256": "72c1036b9a8a164b8c8039668da0ae6023eab08ca1892b537aeadaad45b9c669",
+        "current_sha256": "72c1036b9a8a164b8c8039668da0ae6023eab08ca1892b537aeadaad45b9c669"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardCommandsMixin.class",
+        "category": "class",
+        "previous_sha256": "53d94956099dee437347d49bc78a5825e347238373e97d865a1b5a352dc93cd3",
+        "current_sha256": "53d94956099dee437347d49bc78a5825e347238373e97d865a1b5a352dc93cd3"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardInteractionMixin.class",
+        "category": "class",
+        "previous_sha256": "5a6b4c4d958a7a80246ffe902f0705ffda1d514f9f8b93b6dc8fda08bdf5926a",
+        "current_sha256": "5a6b4c4d958a7a80246ffe902f0705ffda1d514f9f8b93b6dc8fda08bdf5926a"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardInventoryMixin.class",
+        "category": "class",
+        "previous_sha256": "7c68b7046220766d95370a82571be53f96cd6160c754f19563c49b59f78488a6",
+        "current_sha256": "7c68b7046220766d95370a82571be53f96cd6160c754f19563c49b59f78488a6"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardLoginMixin.class",
+        "category": "class",
+        "previous_sha256": "cd82ff97ec0dfa94abf00e5d12b64911904b9e477af14f54821bbab9c151f7f7",
+        "current_sha256": "cd82ff97ec0dfa94abf00e5d12b64911904b9e477af14f54821bbab9c151f7f7"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardPacketMixin$1.class",
+        "category": "class",
+        "previous_sha256": "e451a65bbce307fc8fd271843e62a780dc4c5394687960cdd03a623d72869062",
+        "current_sha256": "e451a65bbce307fc8fd271843e62a780dc4c5394687960cdd03a623d72869062"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardPacketMixin.class",
+        "category": "class",
+        "previous_sha256": "8059003978e2d158b4344b8fe96bfd8b9c90510d55537514d17d77eb1132429f",
+        "current_sha256": "8059003978e2d158b4344b8fe96bfd8b9c90510d55537514d17d77eb1132429f"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardPayloadMixin.class",
+        "category": "class",
+        "previous_sha256": "86d6f2c0c061423969e2c68578eda0c665bd632676519876adbe64cf2b5358ff",
+        "current_sha256": "86d6f2c0c061423969e2c68578eda0c665bd632676519876adbe64cf2b5358ff"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardPlayerListMixin.class",
+        "category": "class",
+        "previous_sha256": "247b30bdf88c926fbe674001b6e3f71fe5dbb50c7deacb2dd616afa0883c6d02",
+        "current_sha256": "247b30bdf88c926fbe674001b6e3f71fe5dbb50c7deacb2dd616afa0883c6d02"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardServerPlayerMixin.class",
+        "category": "class",
+        "previous_sha256": "4675514b64f1a2d4b439ac15d63888c6b3aa0581f56b1e9c8a133ff36f06e456",
+        "current_sha256": "4675514b64f1a2d4b439ac15d63888c6b3aa0581f56b1e9c8a133ff36f06e456"
+      },
+      {
+        "name": "de/romanglos/mcj/mixin/GuardServerTickMixin.class",
+        "category": "class",
+        "previous_sha256": "86e3bc4ea2b85879699ef70d4c1ca51553db1030257faeb2d021fea9d9716c48",
+        "current_sha256": "86e3bc4ea2b85879699ef70d4c1ca51553db1030257faeb2d021fea9d9716c48"
+      },
+      {
+        "name": "mcj-guard-version.properties",
+        "category": "resource",
+        "previous_sha256": "f97a6f50433b9385a4c01d0cd77cff93b6bcaa952d6c31fc9752f4db1c2a83b9",
+        "current_sha256": "f97a6f50433b9385a4c01d0cd77cff93b6bcaa952d6c31fc9752f4db1c2a83b9"
+      },
+      {
+        "name": "mcj_guard-shadow.srg",
+        "category": "resource",
+        "previous_sha256": "7f721943009399cbe33f606bf0296f89abb7488bcf46c7b287e6f9cf993d5448",
+        "current_sha256": "7f721943009399cbe33f606bf0296f89abb7488bcf46c7b287e6f9cf993d5448"
+      },
+      {
+        "name": "mcj_guard.mixins.json",
+        "category": "resource",
+        "previous_sha256": "6d1c518431ee6d97f0229dca9130f34222473e19eab4e6ccb1ea21cba7f9d393",
+        "current_sha256": "6d1c518431ee6d97f0229dca9130f34222473e19eab4e6ccb1ea21cba7f9d393"
+      },
+      {
+        "name": "mcj_guard.refmap.json",
+        "category": "resource",
+        "previous_sha256": "35dcb71dabd9eae2259d2c38f4af39b5a91677ce390fba56f139daaab9d93845",
+        "current_sha256": "3852deca5eb56aa9ea20aed1d69a037e919f9d6aac140f8b0cbc40ea3b727f6b"
+      }
+    ]
+  },
+  "acceptance_reuse": "Only Forge 1.20.1 and NeoForge 1.20.1 reuse the original native acceptance through the verified class, manifest and mapping equivalence. No new native client execution is claimed.",
+  "installation_identity": "The repro1 filename preserves existing guard files and backup identities; no in-place replacement of an installed filename."
+}
