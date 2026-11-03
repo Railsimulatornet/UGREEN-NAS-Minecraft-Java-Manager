@@ -1,3 +1,6 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
     id 'java'
     id 'net.minecraftforge.gradle' version '6.0.54'
@@ -46,17 +49,46 @@ tasks.named('compileJava').configure {
     ]
     doFirst { file("${layout.buildDirectory.get().asFile}/generated/mixin").mkdirs() }
 }
-tasks.named('processResources').configure {
+// The annotation processor does not guarantee map iteration order.
+// Keep every mapping, but serialize its output in a fixed order before packaging.
+tasks.register('normalizeMixinOutputs') {
     dependsOn 'compileJava'
-    from("${layout.buildDirectory.get().asFile}/generated/mixin")
+    inputs.dir(layout.buildDirectory.dir('generated/mixin'))
+    outputs.dir(layout.buildDirectory.dir('normalized/mixin'))
+    doLast {
+        def input = layout.buildDirectory.dir('generated/mixin').get().asFile
+        def output = layout.buildDirectory.dir('normalized/mixin').get().asFile
+        output.mkdirs()
+        def ordered
+        ordered = { value ->
+            if (value instanceof Map) {
+                def sorted = new TreeMap()
+                value.each { key, item -> sorted[key] = ordered(item) }
+                return sorted
+            }
+            if (value instanceof List) return value.collect { ordered(it) }
+            return value
+        }
+        def referenceMap = new JsonSlurper().parse(new File(input, 'mcj_guard.refmap.json'), 'UTF-8')
+        new File(output, 'mcj_guard.refmap.json').setText(JsonOutput.prettyPrint(JsonOutput.toJson(ordered(referenceMap))) + '\n', 'UTF-8')
+        def mappings = new File(input, 'mcj_guard-shadow.srg').readLines('UTF-8')
+        new File(output, 'mcj_guard-shadow.srg').setText(mappings.sort().join('\n') + '\n', 'UTF-8')
+    }
+}
+
+tasks.named('processResources').configure {
+    dependsOn 'normalizeMixinOutputs'
+    from(layout.buildDirectory.dir('normalized/mixin'))
 }
 tasks.named('jar').configure {
+    archiveClassifier = 'repro1'
     manifest { attributes('MixinConfigs': 'mcj_guard.mixins.json', 'Implementation-Version': project.version) }
     finalizedBy 'reobfJar'
 }
 // Shadow members belong to the mixin class and need the AP's extra mappings.
 tasks.matching { it.name=='reobfJar' }.configureEach {
-    extraMappings.from("${layout.buildDirectory.get().asFile}/generated/mixin/mcj_guard-shadow.srg")
+    dependsOn 'normalizeMixinOutputs'
+    extraMappings.from(layout.buildDirectory.file('normalized/mixin/mcj_guard-shadow.srg'))
 }
 
 processResources {
