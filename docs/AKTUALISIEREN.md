@@ -1,8 +1,8 @@
 # Manager über UGOS aktualisieren
 
-Diese Anleitung beschreibt, wie du nach der Erstinstallation eine spätere Manager-Version übernimmst. Minecraft-Versionen und Mods verwaltest du getrennt im Manager.
+Hier erfährst du, wie du eine vorhandene MCJ-Installation aktualisierst. Dabei werden nur Manager und Steuerungsdienst ersetzt. Minecraft-Versionen und Mods aktualisierst du getrennt im Manager.
 
-Die Aktualisierung läuft über das bestehende UGOS-Einrichtungsprojekt. Der Minecraft-Datenordner wird dafür **nicht** als neues Projekt importiert. UGOS kann beim Übernehmen eines Projekt-Speicherpfads die Dateirechte dieses Ordners ändern.
+Verwende für das Update dein bestehendes UGOS-Einrichtungsprojekt und behalte dessen Speicherordner bei. Importiere den Minecraft-Datenordner dafür **nicht** als neues Projekt. UGOS kann beim Übernehmen eines Projekt-Speicherpfads die Dateirechte dieses Ordners ändern.
 
 **Voraussetzung:** Manager, Steuerungsdienst und Minecraft müssen vor dem Update laufen und als **gesund** angezeigt werden. Auch ein absichtlich gestoppter Minecraft-Server verhindert derzeit die Aktualisierung. Starte ihn deshalb zuerst. Falls ein Dienst nicht startet oder nicht gesund wird, prüfe seine Containerprotokolle in UGOS. Eine Neuinstallation über den bestehenden Daten behebt diesen Fehler nicht und darf dafür nicht gestartet werden.
 
@@ -12,13 +12,13 @@ Die Aktualisierung läuft über das bestehende UGOS-Einrichtungsprojekt. Der Min
 4. Importiere einmalig [deploy/ugos-aktualisierung.yaml](../deploy/ugos-aktualisierung.yaml) als neue Compose-Konfiguration und wähle **Neu bereitstellen**. Zeigt UGOS danach **Nicht in Betrieb**, klicke auf **Starten**: Das erneute Bereitstellen allein kann das zuvor beendete Einrichtungsprojekt ausgeschaltet lassen. Die Vorlage steht auch unter **Einstellungen → Manager aktualisieren** zum Download bereit.
 5. Verfolge das Ergebnis im UGOS-Projektprotokoll. Während der Übernahme ist der Manager kurz nicht erreichbar. Der Minecraft-Spielserver läuft weiter. Lade die Manager-Webseite nach Abschluss neu.
 
-Bei späteren Aktualisierungen genügt es, das neue `stable`-Image herunterzuladen und dieses Aktualisierungsprojekt erneut bereitzustellen. Ein bereits aktueller Stand wird geprüft und ohne Dienstneustart bestätigt.
+Bei späteren Aktualisierungen genügt es, das neue `stable`-Image herunterzuladen und dieses Aktualisierungsprojekt erneut bereitzustellen. Ist das installierte Image bereits aktuell, meldet der Updater das, ohne die Dienste neu zu starten.
 
-Der Helfer hat keinen Webzugang und bindet über UGOS keine Minecraft-Datenordner ein. Er ermittelt das Zielprojekt aus den vorhandenen Container-Labels. Vor einer Änderung müssen die Compose-Prüfsummen zum tatsächlich laufenden Stand passen. Nur Manager und Steuerungsdienst werden neu erstellt; Welt, Moddateien und Minecraft-Laufzeit werden nicht ersetzt.
+Der Updater öffnet keine eigene Weboberfläche und bindet über UGOS keine Minecraft-Datenordner ein. Er erkennt deine Installation anhand der Kennzeichnungen der vorhandenen Container (Labels). Vor einer Änderung müssen die Compose-Prüfsummen zum tatsächlich laufenden Stand passen. Nur Manager und Steuerungsdienst werden neu erstellt; Welt, Moddateien und Minecraft-Laufzeit werden nicht ersetzt.
 
 Vor der Übernahme erstellt der Helfer eine konsistente, geprüfte Sicherung der Manager-Datenbank sowie der Compose-Konfiguration und Laufzeit-Auswahl. Schlüsseldateien werden ausschließlich auf unveränderten Inhalt, Eigentümer und private Dateirechte geprüft. Der private Rückfallstand liegt unter `mcj_controller/.rollback/ugos-app-…` und enthält vertrauliche Daten; er gehört nicht in öffentliche Supportmeldungen.
 
-Startet die neue Version nicht gesund oder weichen gespeicherte Konten beziehungsweise verschlüsselte Einstellungen ab, stellt der Helfer den bisherigen Manager und seine Datenbank wieder her. Der Rückfall wird ausdrücklich als solcher angezeigt. Eine fehlgeschlagene Aktualisierung gilt nicht als erfolgreiche Übernahme.
+Startet die neue Version nicht korrekt oder stimmen die gespeicherten Konten beziehungsweise verschlüsselten Einstellungen nicht mehr mit dem gesicherten Stand überein, stellt der Updater den bisherigen Manager und seine Datenbank wieder her. Der Rückfall wird ausdrücklich als solcher angezeigt. Eine fehlgeschlagene Aktualisierung gilt nicht als erfolgreiche Übernahme.
 
 **Wichtig:** Den Minecraft-Datenordner niemals als Speicherpfad eines neuen UGOS-Projekts wählen. Die Erstinstallation darf nicht über eine bestehende Installation gestartet werden. Verwende auch keine allgemeine rekursive Rechteänderung als Update-Schritt.
 
@@ -26,7 +26,7 @@ Neue Erstinstallation: [README.md](../README.md#deutsch). Erweiterte Wiederherst
 
 ## English
 
-Use this procedure to install a later manager version after first-time setup. Manage Minecraft versions and mods separately in the manager.
+Use this guide to update an existing MCJ installation. The update replaces only the manager and controller. Update Minecraft versions and mods separately in the manager.
 
 Use the existing UGOS setup project to update. Keep its storage directory. Importing the Minecraft data directory as a new UGOS project can change private file permissions.
 
@@ -38,7 +38,7 @@ Use the existing UGOS setup project to update. Keep its storage directory. Impor
 4. Import [ugos-aktualisierung.yaml](../deploy/ugos-aktualisierung.yaml) once as the replacement Compose configuration and choose **Redeploy**. If UGOS then shows **Not running**, click **Start**: redeploying alone may leave a previously stopped setup project switched off. The template is also available under **Settings → Update manager**.
 5. Read the result in the UGOS project log. The manager is briefly unavailable; Minecraft keeps running. Reload the manager after completion.
 
-For later updates, download the latest `stable` image and redeploy the same update project. An already current image is checked without restarting the services.
+For later updates, download the latest `stable` image and redeploy the same update project. If the installed image is already current, the updater tells you without restarting the services.
 
 The updater creates and verifies a consistent manager database backup before replacing manager and controller. If the new app fails its health or preserved-data checks, it restores the previous app and database. Check the explicit success or rollback result. Private rollback data under `mcj_controller/.rollback` contains confidential settings and must not be posted in support issues.
 
