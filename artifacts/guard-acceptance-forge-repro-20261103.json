@@ -1,0 +1,123 @@
+{
+  "schema": "mcj-guard-acceptance/v1",
+  "version": "1.0.7",
+  "date": "2026-11-03",
+  "decision": "accepted_by_verified_binary_and_mapping_equivalence",
+  "native_tests_repeated": false,
+  "previous_acceptance": {
+    "scope": "artifacts/guard-acceptance-20261102.json",
+    "sha256": "89f0b5e4b01b6d8f6524a052bb2b94178e80a78fc6b10776f3b31d181a504d4d"
+  },
+  "equivalence": {
+    "scope": "artifacts/compatibility/forge-1201-reproducibility.json",
+    "sha256": "4f5744728cc39824c8060b9cf0476a8681e5e1ce6db600e68bc31e27acefa391"
+  },
+  "configurations": [
+    {
+      "minecraft": "1.20.1",
+      "loader": "FORGE",
+      "loader_version": "47.4.28",
+      "java": 17,
+      "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+      "decision": "passed_for_fixed_scope",
+      "operator": false,
+      "client_cases": [
+        {
+          "case": "native_client_connection",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "visitor_restriction",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "player_grant",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "permission_revocation",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "mod_interaction",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        }
+      ],
+      "client_mod_sha256": {
+        "carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+      },
+      "server_log_sha256": "3fe27ea3c1b374b10d5219ff17c3806e6ec28539ed4af7b710d6665fa57c250d",
+      "regular_server_log_sha256": "adbb5a5b4a411b3c009b853871cb21b7f49b51c4d62c46f217ad825b5032869a",
+      "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "evidence_execution": "reused_original_native_tests_with_verified_class_and_mapping_equivalence"
+    },
+    {
+      "minecraft": "1.20.1",
+      "loader": "NEOFORGE",
+      "loader_version": "47.1.106",
+      "java": 17,
+      "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+      "decision": "passed_for_fixed_scope",
+      "operator": false,
+      "client_cases": [
+        {
+          "case": "native_client_connection",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "visitor_restriction",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "player_grant",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "permission_revocation",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        },
+        {
+          "case": "mod_interaction",
+          "result": "passed",
+          "guard_sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+          "execution": "reused"
+        }
+      ],
+      "client_mod_sha256": {
+        "carryon-forge-1.20.1-2.1.2.7.jar": "d7470921fc5ff988788d43409083f62478aecc91f4b81d7e6b63c80c933d4613"
+      },
+      "server_log_sha256": "eebb1945627cf9b88f1545e5e7a897ea3ff46a474208dcd9c8d8b129bb84ccf9",
+      "regular_server_log_sha256": "8967b4b4e6f1221cbedbb020918cd08778e1b8ec344667d293a4b6318b7f374e",
+      "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+      "evidence_execution": "reused_original_native_tests_with_verified_class_and_mapping_equivalence"
+    }
+  ]
+}
