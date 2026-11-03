@@ -30,9 +30,9 @@
   ],
   "statuses": [
     "BESTANDEN",
-    "NICHT VERFÜGBAR",
+    "NICHT VERFÃœGBAR",
     "FEHLGESCHLAGEN",
-    "NOCH NICHT GEPRÜFT"
+    "NOCH NICHT GEPRÃœFT"
   ],
   "entries": [
     {
@@ -219,9 +219,14 @@
       "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
+        "filename": "mcj-guard-forge-1.20.1-1.0.7-repro1.jar",
         "version": "1.0.7",
-        "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+        "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+        "equivalence": {
+          "record": "artifacts/compatibility/forge-1201-reproducibility.json",
+          "sha256": "4f5744728cc39824c8060b9cf0476a8681e5e1ce6db600e68bc31e27acefa391",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+        }
       },
       "gates": {
         "installation": {
@@ -390,9 +395,14 @@
       "status": "BESTANDEN",
       "protection_required": true,
       "guard": {
-        "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
+        "filename": "mcj-guard-forge-1.20.1-1.0.7-repro1.jar",
         "version": "1.0.7",
-        "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+        "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+        "equivalence": {
+          "record": "artifacts/compatibility/forge-1201-reproducibility.json",
+          "sha256": "4f5744728cc39824c8060b9cf0476a8681e5e1ce6db600e68bc31e27acefa391",
+          "original_guard_sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90"
+        }
       },
       "gates": {
         "installation": {

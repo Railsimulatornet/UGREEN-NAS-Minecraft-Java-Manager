@@ -1,11 +1,11 @@
 {
-  "filename": "mcj-guard-forge-1.20.1-1.0.7.jar",
-  "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
+  "filename": "mcj-guard-forge-1.20.1-1.0.7-repro1.jar",
+  "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
   "version": "1.0.7",
   "minecraft": "1.20.1",
   "loader": "NEOFORGE",
   "java": 17,
-  "path": "releases/guards/neoforge-1.20.1/mcj-guard-forge-1.20.1-1.0.7.jar",
+  "path": "releases/guards/neoforge-1.20.1/mcj-guard-forge-1.20.1-1.0.7-repro1.jar",
   "runtime_test": "passed",
   "visitor_verified": true,
   "visitor_client_test": "passed",
@@ -39,8 +39,8 @@
     "embedded_libraries": [],
     "client_only_hint": false,
     "compatibility": "unverified",
-    "sha256": "af709d0a61a508833dbf80745bfca4f87342f36b7d5f9b1b0a9d4aad0f698f90",
-    "sha512": "ba2390f63da841c5b8e6d40a672317fab37b40c46ba9cf5927ddd99fb53e3086b0dd78036c9c2dba86ebbd7a22f0d3f045caf2caf3a1adbf21648d9c9c7308ce"
+    "sha256": "6854489b9a71fb5129a98f471bd4bf3539563f24994d277c471f0f279c7ad61f",
+    "sha512": "2362d0d0b674421e3383245c614e354278f399fb92bdfe217e375197078e4ea15414a1f57ae0504bfa8b9468cec4bd40f1bd7f1bdf06005765ad3420de741564"
   },
   "dependencies": [],
   "capabilities": [
@@ -58,13 +58,17 @@
   "license": "MIT",
   "license_notice": "LICENSE-MCJ-GUARDS.txt; Copyright (c) 2026 Roman Glos",
   "build": {
-    "source_sha256": "cc5736b4fedbf01a07294571ccddd56b298ea447a88758d44b6b799685f0eb92",
+    "source_sha256": "b30220ea2b6a6ebea57747ea5fd5ba8aa190dd27b7c56221cf411aa205a0805f",
     "java_class_major": [
       61
-    ]
+    ],
+    "reproducibility": {
+      "scope": "artifacts/compatibility/forge-1201-reproducibility.json",
+      "sha256": "4f5744728cc39824c8060b9cf0476a8681e5e1ce6db600e68bc31e27acefa391"
+    }
   },
   "acceptance": {
-    "scope": "artifacts/guard-acceptance-20261102.json",
-    "sha256": "89f0b5e4b01b6d8f6524a052bb2b94178e80a78fc6b10776f3b31d181a504d4d"
+    "scope": "artifacts/guard-acceptance-forge-repro-20261103.json",
+    "sha256": "38b770ca2e0f8b42aefd4924bb9d0095b7006061d20795781250a13e4c3fac26"
   }
 }
