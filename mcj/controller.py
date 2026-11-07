@@ -369,10 +369,7 @@ def prune_backups():
     from .storage_admin import backup_protection
     st=maintenance.store(sys.modules[__name__])
     with st.db() as db:
-        protected=backup_protection(db,BACKUPS)
-        for path in project_path(ROOT,'.rollback').glob('*/journal.json'):
-            if path.is_symlink() or path.stat().st_size>65536:raise ValueError('rollback_protection_unverified')
-            protected.add(json.loads(path.read_text()).get('backup_id'))
+        protected=backup_protection(db,BACKUPS,rollback_root=project_path(ROOT,'.rollback'))
         paths={row['path'] for row in db.execute('SELECT id,path FROM backups') if row['id'] in protected}
     return prune(BACKUPS,days,protected=paths)
 
@@ -555,6 +552,14 @@ class DeleteBackups(BaseModel):
     ids:list[str]=Field(min_length=1,max_length=100)
     confirmation:str|None=Field(default=None,max_length=64)
     actor:int
+@app.get('/backup/protection')
+def backup_protection_status():
+    from .storage_admin import backup_protection
+    st=maintenance.store(sys.modules[__name__])
+    with st.db() as db:
+        protected=backup_protection(db,BACKUPS,rollback_root=project_path(ROOT,'.rollback'))
+    return {'protected_ids':sorted(value for value in protected if isinstance(value,str))}
+
 @app.post('/backup/delete')
 def delete_backups(data:DeleteBackups):
     from . import storage_admin

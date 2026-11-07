@@ -16,7 +16,7 @@ def identifiers(values):
     return sorted(values)
 
 
-def backup_protection(db, root):
+def backup_protection(db, root, *, rollback_root=None):
     protected = {x[0] for x in db.execute('SELECT backup_id FROM version_plans WHERE backup_id IS NOT NULL')}
     protected.update(x[0] for x in db.execute('SELECT id FROM backups WHERE restored IS NOT NULL'))
     rows = [dict(x) for x in db.execute("SELECT * FROM backups WHERE state='verified' ORDER BY created DESC")]
@@ -25,6 +25,11 @@ def backup_protection(db, root):
         protected.add(available[0]['id'])
     for row in db.execute("SELECT payload FROM jobs WHERE state IN ('planned','queued','running') AND kind IN ('restore','restore_test')"):
         protected.add(json.loads(row[0]).get('id'))
+    if rollback_root:
+        for path in Path(rollback_root).glob('*/journal.json'):
+            if path.is_symlink() or path.stat().st_size > 65536:
+                raise ValueError('rollback_protection_unverified')
+            protected.add(json.loads(path.read_text()).get('backup_id'))
     return protected
 
 
@@ -35,12 +40,7 @@ def delete(st, root, kind, selected, actor, *, confirmation=None, current_finger
         if db.execute("SELECT 1 FROM jobs WHERE state='running' AND kind IN ('backup','restore','restore_test','version_test','version_apply','apply_mods','server_settings','client_pack_build')").fetchone():
             raise ValueError('storage_operation_busy')
         if kind == 'backup':
-            protected = backup_protection(db, root)
-            if rollback_root:
-                for path in Path(rollback_root).glob('*/journal.json'):
-                    if path.is_symlink() or path.stat().st_size > 65536:
-                        raise ValueError('rollback_protection_unverified')
-                    protected.add(json.loads(path.read_text()) .get('backup_id'))
+            protected = backup_protection(db, root, rollback_root=rollback_root)
             table = 'backups'
         elif kind == 'client_pack':
             if current_fingerprint is None:

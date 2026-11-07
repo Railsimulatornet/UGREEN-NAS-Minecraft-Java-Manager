@@ -1123,8 +1123,14 @@ def create_app(state=None,keyfile=None,root=None,origin=None,start_worker=True):
         try:
             backup_root=Path(os.environ.get('BACKUP_ROOT','/backups'))
             result=backup_inventory.page(st,backup_root,limit=limit,cursor=cursor,state=state,kind=kind,after=after,before=before)
-            from .storage_admin import backup_protection
-            with st.db() as db:protected=backup_protection(db,backup_root)
+            try:
+                protection=app.state.rpc('/backup/protection')
+                identifiers=protection['protected_ids']
+                if not isinstance(identifiers,list) or any(not isinstance(value,str) or not re.fullmatch('[0-9a-f]{32}',value) for value in identifiers):
+                    raise ValueError('invalid_backup_protection')
+                protected=set(identifiers)
+            except (RuntimeError,ValueError,KeyError,TypeError,httpx.HTTPError):
+                auth.error('backup_protection_unavailable',503)
             for record in result['records']:record['protected']=record['id'] in protected
             return result
         except ValueError as exc:auth.error(str(exc),400)
