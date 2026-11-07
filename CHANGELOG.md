@@ -1,5 +1,19 @@
 # Versionshinweise / Release notes
 
+## 1.0.1 - Backup-Verwaltung / Backup management
+
+### Deutsch
+
+- „Löschbare Einträge auswählen“ berücksichtigt dieselben geschützten Rückfallstände wie die Löschprüfung. Ungültig gewordene Auswahlen werden beim Aktualisieren entfernt.
+- Alte Verweise auf abgeschlossene Tests, Änderungen und Wiederherstellungen halten Backup-Archive nicht mehr unbegrenzt fest. Die eingestellte Aufbewahrung greift wieder; die zwei neuesten Archive und Sicherungen für ausstehende Aufträge bleiben erhalten.
+- Die Anleitungen und Handbücher erklären Aufbewahrung, Löschbestätigung und die verbleibenden Verlaufseinträge.
+
+### English
+
+- “Select deletable items” uses the same recovery protection as deletion. Selections that are no longer valid are removed when the list refreshes.
+- References to past tests, changes and restores no longer keep backup archives indefinitely. The configured retention period applies; the two newest archives and backups needed by pending jobs are retained.
+- The guides and manuals explain retention, deletion confirmation and the history records that remain.
+
 ## 1.0.0 - Erste Veröffentlichung / Initial release
 
 ### Deutsch

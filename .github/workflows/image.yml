@@ -94,6 +94,8 @@ jobs:
         run: node --test tests/setup_handover.test.cjs tests/visible_messages.test.cjs tests/factor_change.test.cjs
       - name: E-Mail-Erststart und DE/EN-Textabgleich
         run: node --test tests/email_first_setup.test.cjs tests/user_text_audit.test.cjs tests/client_pack_text.test.cjs
+      - name: Auswahl löschbarer Sicherungen
+        run: node --test tests/backup_selection.test.cjs
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:

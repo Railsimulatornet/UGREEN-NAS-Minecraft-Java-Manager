@@ -1,6 +1,7 @@
 """Delete only explicitly inventoried files, keeping recovery and active work safe."""
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 import secrets
@@ -16,20 +17,36 @@ def identifiers(values):
     return sorted(values)
 
 
-def backup_protection(db, root, *, rollback_root=None):
-    protected = {x[0] for x in db.execute('SELECT backup_id FROM version_plans WHERE backup_id IS NOT NULL')}
-    protected.update(x[0] for x in db.execute('SELECT id FROM backups WHERE restored IS NOT NULL'))
+def backup_protection(db, root, *, rollback_root=None, now=None):
+    now=time.time() if now is None else now
+    setting=db.execute("SELECT value FROM settings WHERE name='maintenance' AND secret=0").fetchone()
+    days=max(1,min(90,int(json.loads(setting[0])['retention_days']))) if setting else 14
+    cutoff=now-days*86400
+    historical = {x[0] for x in db.execute('SELECT backup_id FROM version_plans WHERE backup_id IS NOT NULL')}
+    historical.update(x[0] for x in db.execute('SELECT id FROM backups WHERE restored IS NOT NULL'))
+    protected=set()
     rows = [dict(x) for x in db.execute("SELECT * FROM backups WHERE state='verified' ORDER BY created DESC")]
     available = [x for x in rows if backup_inventory.archive_info(root, x)['archive_available']]
     if available:
         protected.add(available[0]['id'])
     for row in db.execute("SELECT payload FROM jobs WHERE state IN ('planned','queued','running') AND kind IN ('restore','restore_test')"):
         protected.add(json.loads(row[0]).get('id'))
+    for row in db.execute("SELECT payload FROM jobs WHERE state IN ('planned','queued','running') AND kind IN ('version_test','version_apply')"):
+        plan=db.execute('SELECT backup_id FROM version_plans WHERE id=?',(json.loads(row[0]).get('id'),)).fetchone()
+        if plan:protected.add(plan[0])
     if rollback_root:
         for path in Path(rollback_root).glob('*/journal.json'):
             if path.is_symlink() or path.stat().st_size > 65536:
                 raise ValueError('rollback_protection_unverified')
-            protected.add(json.loads(path.read_text()).get('backup_id'))
+            historical.add(json.loads(path.read_text()).get('backup_id'))
+    # Past tests, completed changes and previous restores are history, not an
+    # unlimited extension of archive retention. Active work stays protected above;
+    # rollback directories themselves are never removed by archive cleanup.
+    for row in db.execute('SELECT id,created FROM backups'):
+        if row['id']not in historical:continue
+        created=row['created']
+        if type(created)not in (int,float)or not math.isfinite(created)or created>=cutoff:
+            protected.add(row['id'])
     return protected
 
 

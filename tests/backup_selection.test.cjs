@@ -24,4 +24,7 @@ test('bulk selection excludes protected backups and drops selections that become
  assert.equal(submitted.length,1);assert.equal(messages.at(-1),'selectAtLeastOne');
  buttons.get('selectAllDeletable')();await buttons.get('deleteSelected')();
  assert.deepEqual(submitted[1],{endpoint:'/backups/delete',ids:['e']});
+ records=Array.from({length:125},(_,n)=>({id:'backup-'+n,created:n,size:10,archive_available:true,protected:false}));
+ await context.pageLiveRefresh();buttons.get('selectAllDeletable')();await buttons.get('deleteSelected')();
+ assert.equal(submitted[2].ids.length,100);assert.equal(messages.at(-1),'backupSelectionLimit');
 });
