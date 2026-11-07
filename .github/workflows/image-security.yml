@@ -40,7 +40,7 @@ jobs:
         run: >-
           python3 .github/scripts/image_vulnerability_review.py
           --report image-vulnerabilities.json
-          --baseline docs/security/image-baseline-1.0.0.json
+          --baseline docs/security/image-baseline-1.0.1.json
           --output image-review.json --notify
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()

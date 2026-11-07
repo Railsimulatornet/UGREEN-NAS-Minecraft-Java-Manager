@@ -2,6 +2,24 @@
 
 ## Deutsch
 
+### Version 1.0.1 – Paketprüfung vom 7. November 2026
+
+APT und `libapt-pkg7.0` werden auf **3.0.4** aktualisiert. Damit ist `CVE-2026-109518` im Image behoben. Der Build bezieht die Pakete über HTTPS und deaktiviert beim einmaligen Aktualisieren des noch alten APT die Download-Wiederholungen. Manager und Steuerungsdienst führen selbst keine APT-Aufrufe aus. [Debians Korrektur](https://security-tracker.debian.org/tracker/CVE-2026-109518).
+
+Die [Bewertung für 1.0.1](image-baseline-1.0.1.json) enthält weiterhin **49 HIGH-Paketzeilen zu 13 CVEs**. Die vollständigen Scannerberichte bleiben erhalten. Vier neu erfasste Paketmeldungen sind für die ausgelieferten Aufrufe wie folgt abgegrenzt:
+
+| Befund | Verwendeter Programmweg und Grenze der Bewertung |
+| --- | --- |
+| [CVE-2026-119374](https://security-tracker.debian.org/tracker/CVE-2026-119374) | Erfordert einen beschädigten FTS5-Index und FTS5-Secure-Delete. MCJ öffnet seine festgelegte Datenbank mit normalen Tabellen. Es gibt keinen Import einer Manager-Datenbank und keine FTS5-Aufrufe. Weltimporte und Wiederherstellungen ersetzen diese Datenbank nicht. |
+| [CVE-2026-119379](https://security-tracker.debian.org/tracker/CVE-2026-119379) | Erfordert das Anwenden manipulierter SQLite-Session-Changesets. MCJ verwendet diese Schnittstelle nicht; der Python-3.12-SQLite-Adapter stellt sie nicht bereit. |
+| [CVE-2026-76844](https://security-tracker.debian.org/tracker/CVE-2026-76844), [CVE-2026-85091](https://security-tracker.debian.org/tracker/CVE-2026-85091) | Betreffen die C-Dateifunktionen `gzwrite`/`gzprintf` nach Schreibfehlern. MCJ schreibt Archive über Python `tarfile` und `gzip`, die `zlib.compressobj`/`deflate` verwenden. Lesewege verwenden `inflate`. Diese Wege rufen die betroffenen `gz*`-Dateifunktionen nicht auf. Der Compose-Helfer wird ohne CGO gebaut. |
+
+Dies ist eine statische Bewertung der aktuellen Aufrufwege, kein Paketfix für SQLite oder zlib und kein praktischer Exploit-Test. Für diese Pakete meldet Debian im verwendeten Trixie-Stand weiterhin keine korrigierte Version. Eigener nativer Code des NAS-Eigentümers, neue Datenbankimporte, Session-/FTS-Funktionen oder andere Archivierungsprogramme sind davon nicht abgedeckt. Neue Aufrufe und verfügbare Paketkorrekturen müssen erneut geprüft werden. Die Überwachung verwendet ab 1.0.1 die neue Bewertung; die ursprüngliche Bewertung für 1.0.0 bleibt erhalten.
+
+Quellgrundlage der Aufrufprüfung: `mcj/store.py`, `mcj/controller.py`, `mcj/worlds.py`, `tools/app_update.py` sowie [Pythons gzip-Modul](https://github.com/python/cpython/blob/3.12/Lib/gzip.py), [zlib-Adapter](https://github.com/python/cpython/blob/3.12/Modules/zlibmodule.c) und [SQLite-Adapter](https://github.com/python/cpython/blob/3.12/Modules/_sqlite/connection.c).
+
+### Bisheriger Stand 1.0.0
+
 Das Manager-Image ist nicht schwachstellenfrei. Der bewertete Paketstand vom 2. November 2026 enthält **45 HIGH-Paketzeilen zu neun CVEs**; der damalige Scannerbericht nennt dafür keine verfügbare Paketkorrektur. Mehrere Zeilen können dieselbe Ursache betreffen. Die [Paketzuordnung](image-baseline-1.0.0.json) bleibt vollständig erhalten und unterdrückt keine Scannerergebnisse.
 
 | Befund | Bewertung der ausgelieferten Aufrufe |
@@ -30,6 +48,18 @@ Dieser SQLite-Befund betrifft eine FTS5-Tabelle mit `detail=none`, negativen Zei
 Diese zusätzliche statische Bewertung gilt für die ausgelieferten Aufrufe. Sie unterdrückt den Scannerbefund nicht. Neue FTS-Funktionen, Datenbankimporte, andere Paketstände oder ein verfügbarer Paketfix müssen erneut bewertet werden. [Debians Befund und Paketstatus](https://security-tracker.debian.org/tracker/CVE-2026-119373) und die dort verlinkte SQLite-Korrektur sind die Primärquellen.
 
 ## English
+
+### Version 1.0.1 – package review, 7 November 2026
+
+APT and `libapt-pkg7.0` are updated to **3.0.4**, fixing `CVE-2026-109518` in the image. The build uses HTTPS package sources and disables download retries while updating the old APT once. Neither the manager nor the controller invokes APT. The Debian link above records the fix.
+
+The [1.0.1 assessment](image-baseline-1.0.1.json) retains **49 HIGH package rows covering 13 CVEs**. Full scanner reports are retained. The two additional SQLite findings require a corrupted FTS5 index with secure-delete (`CVE-2026-119374`) or applying crafted session changesets (`CVE-2026-119379`). MCJ uses a fixed database with ordinary tables, provides no manager-database import and invokes neither API. World imports and restores do not replace that database. Python 3.12's SQLite wrapper exposes no changeset-apply API.
+
+The zlib findings `CVE-2026-76844` and `CVE-2026-85091` concern the C `gzwrite`/`gzprintf` file APIs after write failures. MCJ archives use Python `tarfile` and `gzip`, which call `zlib.compressobj`/`deflate`; reads use `inflate`. These paths do not invoke the affected `gz*` file APIs. The Compose helper is built with CGO disabled.
+
+This is a static assessment of current calls, not a SQLite/zlib package fix or an exploit test. Debian still lists no corrected Trixie package for these findings. Owner-added native code, new database-import/session/FTS features or other archive tools are outside this assessment. New calls and available fixes require review. Monitoring uses the 1.0.1 assessment; the original 1.0.0 baseline is preserved. The primary references and source links are listed above.
+
+### Previous 1.0.0 baseline
 
 The manager image is not vulnerability-free. The package baseline reviewed on 2 November 2026 contains **45 HIGH package findings covering nine CVEs**, with no available package fix listed in that scan. Multiple rows can describe one cause. The complete [package mapping](image-baseline-1.0.0.json) is retained; it suppresses no scan results.
 

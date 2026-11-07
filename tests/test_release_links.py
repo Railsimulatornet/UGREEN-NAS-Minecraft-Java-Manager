@@ -26,6 +26,6 @@ def test_markdown_links_point_to_existing_release_files():
 def test_release_tree_contains_user_documentation_without_internal_reports():
     assert not (ROOT / 'docs/abnahme').exists()
     assert sorted(p.name for p in (ROOT / 'docs/security').iterdir()) == [
-        'IMAGE-SECURITY.md', 'image-baseline-1.0.0.json']
+        'IMAGE-SECURITY.md', 'image-baseline-1.0.0.json', 'image-baseline-1.0.1.json']
     assert not list((ROOT / 'docs').rglob('Pruefung.json'))
     assert (ROOT / 'LICENSE').is_file() and (ROOT / 'NOTICE.txt').is_file()

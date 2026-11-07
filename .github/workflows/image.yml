@@ -194,6 +194,7 @@ jobs:
       - name: Verify packaged entry points
         run: |
           docker load --input /tmp/mcj-image.tar
+          docker run --rm --network none --read-only --cap-drop ALL --entrypoint python mcj-candidate:ci -c "import subprocess;[subprocess.run(['dpkg','--compare-versions',subprocess.check_output(['dpkg-query','-W',p],text=True).split()[1],'ge','3.0.4'],check=True)for p in ['apt','libapt-pkg7.0']]"
           docker run --rm --network none --read-only --cap-drop ALL --entrypoint python mcj-candidate:ci -c "import sys,runpy,os;sys.path=['/opt/mcj/tools']+[p for p in sys.path if p not in ['', '/opt/mcj']];os.chdir('/');runpy.run_path('/opt/mcj/tools/browser_setup.py',run_name='probe');runpy.run_path('/opt/mcj/tools/bootstrap_worker.py',run_name='probe')"
       - name: Vollständigen Image-Schwachstellenbericht erstellen
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
@@ -216,7 +217,7 @@ jobs:
         run: >-
           python3 .github/scripts/image_vulnerability_review.py
           --report /tmp/trivy-vollstaendig.json
-          --baseline docs/security/image-baseline-1.0.0.json
+          --baseline docs/security/image-baseline-1.0.1.json
           --output /tmp/image-review.json
       - name: Behebbare hohe und kritische Image-Funde sperren
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # 0.36.0
