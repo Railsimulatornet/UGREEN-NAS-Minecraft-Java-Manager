@@ -117,6 +117,7 @@ def test_role_permission_changes_require_mfa_csrf_and_safe_visitor_permissions(e
 def test_backup_history_and_restore_actions_follow_real_archive_state(environment,tmp_path,monkeypatch):
     import hashlib
     app,client,creds,mail=environment;csrf=enroll(environment)['csrf']
+    app.state.rpc=lambda path,payload=None:{'protected_ids':[]} if path=='/backup/protection' else None
     monkeypatch.setenv('BACKUP_ROOT',str(tmp_path))
     identifier='a'*32;name='20261024T220000Z-12345678.tar.gz';raw=b'test archive'
     row={'path':name,'state':'verified','size':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}

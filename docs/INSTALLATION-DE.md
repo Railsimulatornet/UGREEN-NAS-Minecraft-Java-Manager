@@ -4,9 +4,9 @@
 
 Diese Anleitung führt dich durch eine neue Installation mit **UGOS Docker → Projekt**. Du brauchst dafür keine SSH-Verbindung und keine Konsole. Die Bilder zeigen UGOS auf einem DXP4800 Pro und die Einrichtung im Manager mit neutralen Beispielkonten.
 
-**Stand: 3. November 2026 · Manager 1.0.0.**
+**Stand: 7. November 2026 · Manager 1.0.1.**
 
-Das Release-ZIP enthält die Installationsunterlagen und UGOS-Vorlagen, kein Docker-Image. UGOS lädt das Manager-Image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.0** separat von [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
+Das Release-ZIP enthält die Installationsunterlagen und UGOS-Vorlagen, kein Docker-Image. UGOS lädt das Manager-Image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1** separat von [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
 
 ### Was du bereithältst
 
@@ -29,7 +29,7 @@ Das Release-ZIP enthält die Installationsunterlagen und UGOS-Vorlagen, kein Doc
 
 ## 2. UGOS-Docker-Projekt anlegen
 
-1. Lade die [Einrichtungsvorlage ugos-einrichtung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.0/ugos-einrichtung.yaml) herunter. Sie ist auch im Installationspaket enthalten. Öffne **UGOS → Docker → Projekt → Erstellen**.
+1. Lade die [Einrichtungsvorlage ugos-einrichtung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.1/ugos-einrichtung.yaml) herunter. Sie ist auch im Installationspaket enthalten. Öffne **UGOS → Docker → Projekt → Erstellen**.
 2. Vergib den Namen **mcj_einrichtung**. Wähle einen eigenen, leeren Speicherordner für dieses UGOS-Projekt. Im Beispiel ist das **/volume1/docker/mcj_einrichtung** mit Unterstrich.
 3. Importiere diese YAML-Datei oder füge ihren Inhalt in die Compose-Konfiguration ein. Verwende weder eine gespeicherte GitHub-HTML-Seite noch die Datei compose.yaml aus dem Projektstamm.
 4. Trage NAS_IP und NAS_ORDNER in den Variablenfeldern ein, falls deine UGOS-Version diese anbietet. Ohne Variablenfelder ersetzt du die Ausdrücke direkt in der Konfiguration, wie unten gezeigt.
@@ -193,6 +193,14 @@ Das Intervall bestimmt, wann eine automatische Sicherung fällig wird. Der autom
 
 Prüfe deshalb auch das Datum des letzten erfolgreich erstellten Backups. Ein fälliger oder wartender Auftrag ist noch keine neue Sicherung.
 
+### Aufbewahrung und Löschen
+
+Nach einer erfolgreichen Sicherung entfernt der Manager Archive, die älter als die eingestellte Aufbewahrung sind. Das gilt auch für Sicherungen vor früheren Mod- und Versionsänderungen sowie für bereits wiederhergestellte Sicherungen. Verweise im Verlauf verlängern die Aufbewahrung nicht unbegrenzt.
+
+Die zwei neuesten tatsächlich vorhandenen Archive bleiben bei der automatischen Bereinigung erhalten. Auch Sicherungen, die ein vorgemerkter oder laufender Wiederherstellungs- oder Versionsauftrag benötigt, bleiben geschützt. Die kleinen Verlaufseinträge und JSON-Dateien bleiben als Nachweis erhalten; sie enthalten nicht das vollständige Backup. Private Rückfallverzeichnisse und Images werden durch diese Archivbereinigung nicht gelöscht.
+
+Mit **Löschbare Einträge auswählen** wählst du nur verfügbare, ungeschützte Archive aus. **Auswahl löschen** zeigt zuerst die Anzahl und den Speicherplatz an. Erst deine Bestätigung löscht die ausgewählten Dateien.
+
 ### Eine Sicherung prüfen
 
 1. Öffne **Backups** und erstelle ein Backup.
@@ -263,7 +271,7 @@ Im Spiel: **Mehrspieler → Server hinzufügen**. Trage die NAS-IP und den Spiel
 3. Wähle **Client-Paket erstellen / aktualisieren** und warte auf den Abschluss.
 4. Lade das aktuelle **.mrpack** herunter oder erstelle einen Download-Link für deine Mitspieler.
 
-Ein Dateiname wie **1.0.0-client.2** bedeutet: erstellt mit Manager 1.0.0, Paketnummer 2. Minecraft-, Java- und Loader-Version stehen separat darunter. Ältere Pakete behalten ihren ursprünglichen Namen. Nach Serveränderungen kann ein neues Paket nötig sein.
+Ein Dateiname wie **1.0.1-client.2** bedeutet: erstellt mit Manager 1.0.1, Paketnummer 2. Minecraft-, Java- und Loader-Version stehen separat darunter. Ältere Pakete behalten ihren ursprünglichen Namen. Nach Serveränderungen kann ein neues Paket nötig sein.
 
 Ein Spieler-Link gibt Zugriff auf das zugehörige Paket. Prüfe Gültigkeit und Widerruf in der Paketansicht. Ein abgelaufener oder widerrufener Link muss neu erstellt werden.
 
@@ -346,7 +354,7 @@ Nach der Erstinstallation verwendest du diesen Weg für eine spätere Manager-Ve
 1. Warte, bis laufende Wartungsaufträge abgeschlossen sind.
 2. Lade das freigegebene offizielle **stable**-Image in **UGOS → Docker → Image**. Wenn dir eine Image-Datei bereitgestellt wurde, importiere stattdessen diese in UGOS.
 3. Öffne das bestehende Einrichtungsprojekt, gewöhnlich **mcj_einrichtung**. Behalte dessen bisherigen Speicherordner bei.
-4. Lade die [Aktualisierungsvorlage ugos-aktualisierung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.0/ugos-aktualisierung.yaml) herunter. Importiere sie als Compose-Konfiguration und wähle **Neu bereitstellen**. Die Vorlage ist auch unter **Einstellungen → Manager aktualisieren** verfügbar. Starte das Aktualisierungsprojekt gegebenenfalls anschließend.
+4. Lade die [Aktualisierungsvorlage ugos-aktualisierung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.1/ugos-aktualisierung.yaml) herunter. Importiere sie als Compose-Konfiguration und wähle **Neu bereitstellen**. Die Vorlage ist auch unter **Einstellungen → Manager aktualisieren** verfügbar. Starte das Aktualisierungsprojekt gegebenenfalls anschließend.
 5. Lies das Ergebnis im Projektprotokoll. Der Helfer prüft den Stand, sichert die Manager-Datenbank und ersetzt Manager und Steuerungsdienst. Der Minecraft-Spielserver läuft dabei weiter. Lade danach die Manager-Webseite neu.
 
 Ein bereits aktueller Stand wird ohne Dienstneustart bestätigt. Bei fehlgeschlagenen Gesundheits- oder Erhaltungsprüfungen meldet der Helfer den Rückfall auf den vorherigen Stand. Ein Rückfall ist kein erfolgreiches Update. Details stehen in **docs/AKTUALISIEREN.md**.
