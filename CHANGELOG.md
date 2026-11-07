@@ -4,11 +4,15 @@
 
 ### Deutsch
 
+- Das Image enthält die APT-Sicherheitskorrektur 3.0.4. Neue SQLite- und zlib-Paketmeldungen sind anhand der verwendeten Aufrufe bewertet und dokumentiert.
+
 - „Löschbare Einträge auswählen“ berücksichtigt dieselben geschützten Rückfallstände wie die Löschprüfung. Ungültig gewordene Auswahlen werden beim Aktualisieren entfernt.
 - Alte Verweise auf abgeschlossene Tests, Änderungen und Wiederherstellungen halten Backup-Archive nicht mehr unbegrenzt fest. Die eingestellte Aufbewahrung greift wieder; die zwei neuesten Archive und Sicherungen für ausstehende Aufträge bleiben erhalten.
 - Die Anleitungen und Handbücher erklären Aufbewahrung, Löschbestätigung und die verbleibenden Verlaufseinträge.
 
 ### English
+
+- The image includes the APT 3.0.4 security fix. Additional SQLite and zlib package findings are documented against the shipped call paths.
 
 - “Select deletable items” uses the same recovery protection as deletion. Selections that are no longer valid are removed when the list refreshes.
 - References to past tests, changes and restores no longer keep backup archives indefinitely. The configured retention period applies; the two newest archives and backups needed by pending jobs are retained.
