@@ -1,0 +1,39 @@
+name: Geprüfte Python-Patchupdates übernehmen
+on:
+  workflow_run:
+    workflows: [Tests und Docker-Image, CodeQL]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: python-patchupdates
+  cancel-in-progress: false
+jobs:
+  patchupdates:
+    if: >-
+      github.repository == 'Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager' &&
+      (github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: read
+      statuses: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Ausschließlich geprüfte Patchupdates übernehmen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            python3 .github/scripts/dependabot_patch_merge.py
+          else
+            python3 .github/scripts/dependabot_patch_merge.py --merge
+          fi
