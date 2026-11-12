@@ -1,7 +1,7 @@
 name: ugreen_minecraft_java
 services:
   manager:
-    image: ${MCJ_MANAGER_IMAGE:-mcj-manager:1.0.1}
+    image: ${MCJ_MANAGER_IMAGE:-mcj-manager:1.0.2}
     pull_policy: never
     build:
       context: /volume1/docker/minecraftjava/manager/source
@@ -46,7 +46,7 @@ services:
       start_period: 20s
     logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
   controller:
-    image: ${MCJ_MANAGER_IMAGE:-mcj-manager:1.0.1}
+    image: ${MCJ_MANAGER_IMAGE:-mcj-manager:1.0.2}
     pull_policy: never
     container_name: mcj_controller
     user: "1009:10"

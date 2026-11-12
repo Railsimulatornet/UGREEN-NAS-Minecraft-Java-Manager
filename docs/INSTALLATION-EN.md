@@ -4,9 +4,9 @@
 
 This guide takes you through a new installation using **UGOS Docker → Project**. You do not need SSH or a terminal. The screenshots show UGOS on a DXP4800 Pro with the German interface and the manager setup using neutral example accounts.
 
-**Updated 7 November 2026 · Manager 1.0.1.**
+**Updated 12 November 2026 · Manager 1.0.2.**
 
-The release ZIP contains the installation documents and UGOS templates, not a Docker image. UGOS downloads the manager image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.1** separately from [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
+The release ZIP contains the installation documents and UGOS templates, not a Docker image. UGOS downloads the manager image **railsimulatornet/ugreen-nas-minecraft-java-manager:1.0.2** separately from [Docker Hub](https://hub.docker.com/r/railsimulatornet/ugreen-nas-minecraft-java-manager).
 
 ### Have these ready
 
@@ -29,7 +29,7 @@ The release ZIP contains the installation documents and UGOS templates, not a Do
 
 ## 2. Create the UGOS Docker project
 
-1. Download the [setup template ugos-einrichtung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.1/ugos-einrichtung.yaml). It is also included in the installation pack. Open **UGOS → Docker → Project → Create** (German: Projekt → Erstellen).
+1. Download the [setup template ugos-einrichtung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.2/ugos-einrichtung.yaml). It is also included in the installation pack. Open **UGOS → Docker → Project → Create** (German: Projekt → Erstellen).
 2. Name it **mcj_einrichtung**. Choose a separate, empty storage directory for this UGOS project. The example uses **/volume1/docker/mcj_einrichtung**, with an underscore.
 3. Import this YAML file or paste its contents into the Compose configuration. Do not use a saved GitHub HTML page or compose.yaml from the project root.
 4. Enter NAS_IP and NAS_ORDNER in the variables fields if your UGOS version offers them. Otherwise replace the expressions directly in the configuration as explained below.
@@ -271,7 +271,7 @@ In Minecraft, choose **Multiplayer → Add Server**. Enter the NAS IP and game p
 3. Choose **Create / update client pack** and wait for completion.
 4. Download the current **.mrpack**, or create a download link for your players.
 
-A file name such as **1.0.1-client.2** means that manager 1.0.1 created pack number 2. Minecraft, Java and loader versions appear separately. Older packs keep their original names. A changed server may require a new pack.
+A file name such as **1.0.2-client.2** means that manager 1.0.2 created pack number 2. Minecraft, Java and loader versions appear separately. Older packs keep their original names. A changed server may require a new pack.
 
 A player link provides access to its pack. Review expiry and revocation in the pack view. Create a new link if the old one has expired or been revoked.
 
@@ -354,7 +354,7 @@ After first-time setup, use this procedure for a later manager version. Manage M
 1. Wait until running maintenance jobs finish.
 2. Download the approved official **stable** image in **UGOS → Docker → Image**. If you were supplied an image file, import that file into UGOS instead.
 3. Open the existing setup project, normally **mcj_einrichtung**, keeping its original storage directory.
-4. Download the [update template ugos-aktualisierung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.1/ugos-aktualisierung.yaml). Import it as the Compose configuration and choose **Redeploy**. The template is also under **Settings → Update manager**. Start the update project afterwards if necessary.
+4. Download the [update template ugos-aktualisierung.yaml](https://github.com/Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager/releases/download/v1.0.2/ugos-aktualisierung.yaml). Import it as the Compose configuration and choose **Redeploy**. The template is also under **Settings → Update manager**. Start the update project afterwards if necessary.
 5. Read the project log. The helper checks the installation, backs up the manager database and replaces manager and controller. The Minecraft game server keeps running. Reload the manager webpage afterwards.
 
 An already current installation is confirmed without restarting services. Failed health or preservation checks cause an explicit rollback to the previous version. A rollback is not a successful update. See **docs/AKTUALISIEREN.md** for details.

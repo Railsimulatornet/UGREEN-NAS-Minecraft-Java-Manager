@@ -2,7 +2,7 @@
 
 ## Deutsch
 
-### zlib-Korrektur vom 12. November 2026
+### Version 1.0.2 – zlib-Korrektur vom 12. November 2026
 
 Neue Image-Builds aktualisieren `zlib1g` auf **1:1.3.dfsg+really1.3.1-1+deb13u1**. Debian behebt damit `CVE-2026-76844` und `CVE-2026-85091`. Die Image-Prüfung kontrolliert die installierte Debian-Paketversion; die unveränderte zlib-Versionsnummer allein weist diese rückportierte Korrektur nicht nach. [Debians Sicherheitsupdate](https://lists.debian.org/debian-security-announce/2026/msg00532.html).
 
@@ -55,7 +55,7 @@ Diese zusätzliche statische Bewertung gilt für die ausgelieferten Aufrufe. Sie
 
 ## English
 
-### zlib fix, 12 November 2026
+### Version 1.0.2 – zlib fix, 12 November 2026
 
 New image builds update `zlib1g` to **1:1.3.dfsg+really1.3.1-1+deb13u1**. Debian fixes `CVE-2026-76844` and `CVE-2026-85091` in this package. The image check verifies the installed Debian package version; the unchanged upstream zlib version alone does not establish that this backported fix is present. See the Debian security update linked above.
 
