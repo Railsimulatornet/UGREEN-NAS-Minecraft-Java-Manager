@@ -1,5 +1,17 @@
 # Versionshinweise / Release notes
 
+## 1.0.2 - Sicherheitsupdate / Security update
+
+### Deutsch
+
+- Sicherheitsupdate für zlib: Behebt CVE-2026-76844 und CVE-2026-85091 in der Kompressionsbibliothek des Manager-Images.
+- Die Image-Prüfung kontrolliert zusätzlich den korrigierten Debian-Paketstand.
+
+### English
+
+- Security update for zlib: fixes CVE-2026-76844 and CVE-2026-85091 in the manager image's compression library.
+- The image check also verifies the corrected Debian package version.
+
 ## 1.0.1 - Backup-Verwaltung / Backup management
 
 ### Deutsch

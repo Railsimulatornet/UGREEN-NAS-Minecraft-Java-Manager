@@ -1,13 +1,13 @@
 {
   "languages": {
     "DE": {
-      "source_sha256": "4ac3dd369a9e49949bee67a195d841e0a80dc68c6cc459e22bb45e199f0a325e",
-      "pdf_sha256": "8eb53784ba0c5344bd74e4cc09401bd3969efd6fc8adb5d1ff8cb93feeb1dd67",
+      "source_sha256": "ca506da7bf74690d3a1f372f59eb361339c3f2c2bc2616cf7e1f0c91a4a45975",
+      "pdf_sha256": "1d725f491d27d9655ec62efdce6d617ae7405c210dd367d7f381e778f8a90297",
       "pages": 18
     },
     "EN": {
-      "source_sha256": "f2141e1917510db760f7ffa118d612ca3726419a2bdaf0e6aeb57a7a43720eb0",
-      "pdf_sha256": "0a6e24ffae15df43b746dc66193d7aca9752edd9d961754404fdfbd0cc6eb19b",
+      "source_sha256": "46f44d7586213e6e8dd196f938a631ba5ea9b6db1f4231f3703bdbd28a5b0105",
+      "pdf_sha256": "f7640154ce6791ef4137f2740910fdf8387a28325eca15edf412d5e2e40284fb",
       "pages": 18
     }
   }
