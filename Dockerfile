@@ -29,7 +29,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HOME=/tmp
 WORKDIR /opt/mcj
 RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|g; s|http://security.debian.org|https://security.debian.org|g' /etc/apt/sources.list.d/debian.sources \
     && apt-get -o Acquire::Retries=0 update \
-    && apt-get -o Acquire::Retries=0 install --only-upgrade --no-install-recommends -y apt=3.0.4 libapt-pkg7.0=3.0.4 \
+    && apt-get -o Acquire::Retries=0 install --only-upgrade --no-install-recommends -y apt=3.0.4 libapt-pkg7.0=3.0.4 zlib1g=1:1.3.dfsg+really1.3.1-1+deb13u1 \
     && rm -rf /var/lib/apt/lists/*
 COPY requirements.txt /opt/mcj/requirements.txt
 RUN pip install --no-cache-dir --disable-pip-version-check --upgrade pip==26.2.0 \

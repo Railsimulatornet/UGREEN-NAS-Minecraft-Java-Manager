@@ -2,6 +2,12 @@
 
 ## Deutsch
 
+### zlib-Korrektur vom 12. November 2026
+
+Neue Image-Builds aktualisieren `zlib1g` auf **1:1.3.dfsg+really1.3.1-1+deb13u1**. Debian behebt damit `CVE-2026-76844` und `CVE-2026-85091`. Die Image-Prüfung kontrolliert die installierte Debian-Paketversion; die unveränderte zlib-Versionsnummer allein weist diese rückportierte Korrektur nicht nach. [Debians Sicherheitsupdate](https://lists.debian.org/debian-security-announce/2026/msg00532.html).
+
+Die frühere Bewertung der Manager-Aufrufe und die damaligen Scannerberichte bleiben erhalten. Sie ersetzen den jetzt verfügbaren Paketfix nicht. Bereits veröffentlichte Images und laufende NAS-Installationen ändern sich durch die Anpassung der Builddateien nicht automatisch.
+
 ### Version 1.0.1 – Paketprüfung vom 7. November 2026
 
 APT und `libapt-pkg7.0` werden auf **3.0.4** aktualisiert. Damit ist `CVE-2026-109518` im Image behoben. Der Build bezieht die Pakete über HTTPS und deaktiviert beim einmaligen Aktualisieren des noch alten APT die Download-Wiederholungen. Manager und Steuerungsdienst führen selbst keine APT-Aufrufe aus. [Debians Korrektur](https://security-tracker.debian.org/tracker/CVE-2026-109518).
@@ -14,7 +20,7 @@ Die [Bewertung für 1.0.1](image-baseline-1.0.1.json) enthält weiterhin **49 HI
 | [CVE-2026-119379](https://security-tracker.debian.org/tracker/CVE-2026-119379) | Erfordert das Anwenden manipulierter SQLite-Session-Changesets. MCJ verwendet diese Schnittstelle nicht; der Python-3.12-SQLite-Adapter stellt sie nicht bereit. |
 | [CVE-2026-76844](https://security-tracker.debian.org/tracker/CVE-2026-76844), [CVE-2026-85091](https://security-tracker.debian.org/tracker/CVE-2026-85091) | Betreffen die C-Dateifunktionen `gzwrite`/`gzprintf` nach Schreibfehlern. MCJ schreibt Archive über Python `tarfile` und `gzip`, die `zlib.compressobj`/`deflate` verwenden. Lesewege verwenden `inflate`. Diese Wege rufen die betroffenen `gz*`-Dateifunktionen nicht auf. Der Compose-Helfer wird ohne CGO gebaut. |
 
-Dies ist eine statische Bewertung der aktuellen Aufrufwege, kein Paketfix für SQLite oder zlib und kein praktischer Exploit-Test. Für diese Pakete meldet Debian im verwendeten Trixie-Stand weiterhin keine korrigierte Version. Eigener nativer Code des NAS-Eigentümers, neue Datenbankimporte, Session-/FTS-Funktionen oder andere Archivierungsprogramme sind davon nicht abgedeckt. Neue Aufrufe und verfügbare Paketkorrekturen müssen erneut geprüft werden. Die Überwachung verwendet ab 1.0.1 die neue Bewertung; die ursprüngliche Bewertung für 1.0.0 bleibt erhalten.
+Dies war eine statische Bewertung der damaligen Aufrufwege, kein Paketfix für SQLite oder zlib und kein praktischer Exploit-Test. Zum Zeitpunkt dieser Bewertung nannte der Scanner noch keine korrigierte Trixie-Version. Für zlib ist inzwischen die oben beschriebene Paketkorrektur verfügbar. Eigener nativer Code des NAS-Eigentümers, neue Datenbankimporte, Session-/FTS-Funktionen oder andere Archivierungsprogramme sind davon nicht abgedeckt. Neue Aufrufe und verfügbare Paketkorrekturen müssen erneut geprüft werden. Die Überwachung verwendet ab 1.0.1 die neue Bewertung; die ursprüngliche Bewertung für 1.0.0 bleibt erhalten.
 
 Quellgrundlage der Aufrufprüfung: `mcj/store.py`, `mcj/controller.py`, `mcj/worlds.py`, `tools/app_update.py` sowie [Pythons gzip-Modul](https://github.com/python/cpython/blob/3.12/Lib/gzip.py), [zlib-Adapter](https://github.com/python/cpython/blob/3.12/Modules/zlibmodule.c) und [SQLite-Adapter](https://github.com/python/cpython/blob/3.12/Modules/_sqlite/connection.c).
 
@@ -49,6 +55,12 @@ Diese zusätzliche statische Bewertung gilt für die ausgelieferten Aufrufe. Sie
 
 ## English
 
+### zlib fix, 12 November 2026
+
+New image builds update `zlib1g` to **1:1.3.dfsg+really1.3.1-1+deb13u1**. Debian fixes `CVE-2026-76844` and `CVE-2026-85091` in this package. The image check verifies the installed Debian package version; the unchanged upstream zlib version alone does not establish that this backported fix is present. See the Debian security update linked above.
+
+The earlier assessment of the manager's calls and the original scanner reports are retained. They do not replace the package fix now available. Changing the build files does not automatically update published images or running NAS installations.
+
 ### Version 1.0.1 – package review, 7 November 2026
 
 APT and `libapt-pkg7.0` are updated to **3.0.4**, fixing `CVE-2026-109518` in the image. The build uses HTTPS package sources and disables download retries while updating the old APT once. Neither the manager nor the controller invokes APT. The Debian link above records the fix.
@@ -57,7 +69,7 @@ The [1.0.1 assessment](image-baseline-1.0.1.json) retains **49 HIGH package rows
 
 The zlib findings `CVE-2026-76844` and `CVE-2026-85091` concern the C `gzwrite`/`gzprintf` file APIs after write failures. MCJ archives use Python `tarfile` and `gzip`, which call `zlib.compressobj`/`deflate`; reads use `inflate`. These paths do not invoke the affected `gz*` file APIs. The Compose helper is built with CGO disabled.
 
-This is a static assessment of current calls, not a SQLite/zlib package fix or an exploit test. Debian still lists no corrected Trixie package for these findings. Owner-added native code, new database-import/session/FTS features or other archive tools are outside this assessment. New calls and available fixes require review. Monitoring uses the 1.0.1 assessment; the original 1.0.0 baseline is preserved. The primary references and source links are listed above.
+This was a static assessment of the calls at that time, not a SQLite/zlib package fix or an exploit test. The scanner listed no corrected Trixie package when that assessment was made. The zlib package fix described above is now available. Owner-added native code, new database-import/session/FTS features or other archive tools are outside this assessment. New calls and available fixes require review. Monitoring uses the 1.0.1 assessment; the original 1.0.0 baseline is preserved. The primary references and source links are listed above.
 
 ### Previous 1.0.0 baseline
 
