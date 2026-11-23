@@ -168,18 +168,29 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ env.SOURCE_REVISION }}
+      - name: Verifiziertes Java 8 für Forge-Bauwerkzeuge bereitstellen
+        if: matrix.adapter == 'forge-263'
+        shell: bash
+        run: bash .github/scripts/prepare_guard_jdk8.sh "$RUNNER_TEMP/mcj-guard-jdk8"
       - name: Schutzkomponente aus dem Quellcode bauen und prüfen
         shell: bash
         env:
           GUARD_FOLDER: ${{ matrix.folder }}
           GUARD_MANIFEST: ${{ matrix.manifest }}
           GRADLE_IMAGE: ${{ matrix.image }}
+          GUARD_JDK8_DIR: ${{ runner.temp }}/mcj-guard-jdk8
           # Gradle, Mavenizer and the decompiler share this container budget.
           GUARD_MEMORY: ${{ matrix.memory || '8g' }}
         run: |
           set -euo pipefail
           mkdir -p .guard-gradle-cache
-          docker run --rm --user "$(id -u):$(id -g)" --cpus 2 --memory "$GUARD_MEMORY" --pids-limit 512 --cap-drop ALL --security-opt no-new-privileges:true --read-only --tmpfs /tmp:rw,nosuid,exec,size=1g -v "$PWD:/workspace" -w "/workspace/$GUARD_FOLDER" -e GRADLE_USER_HOME=/workspace/.guard-gradle-cache -e HOME=/tmp "$GRADLE_IMAGE" gradle --no-daemon --max-workers=2 clean build --console=plain 2>&1 | tee guard-build.log
+          jdk_options=()
+          if [[ "$GUARD_FOLDER" == guard-forge-263 ]]; then
+            test -x "$GUARD_JDK8_DIR/bin/javac"
+            jdk_options+=(--mount "type=bind,src=$GUARD_JDK8_DIR,dst=/opt/mcj-jdk8,readonly"
+              --env JAVA_HOME_8=/opt/mcj-jdk8)
+          fi
+          docker run --rm --user "$(id -u):$(id -g)" --cpus 2 --memory "$GUARD_MEMORY" --pids-limit 512 --cap-drop ALL --security-opt no-new-privileges:true --read-only --tmpfs /tmp:rw,nosuid,exec,size=1g -v "$PWD:/workspace" -w "/workspace/$GUARD_FOLDER" -e GRADLE_USER_HOME=/workspace/.guard-gradle-cache -e HOME=/tmp "${jdk_options[@]}" "$GRADLE_IMAGE" gradle --no-daemon --max-workers=2 clean build --console=plain 2>&1 | tee guard-build.log
           python3 -c "import hashlib,json,pathlib,os; p=pathlib.Path('artifacts'); m=json.loads((p/os.environ['GUARD_MANIFEST']).read_text()); built=pathlib.Path(os.environ['GUARD_FOLDER'])/'build/libs'/m['filename']; assert hashlib.sha256(built.read_bytes()).hexdigest()==m['sha256'], 'Gebündeltes JAR stimmt nicht mit reproduziertem Build überein'"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
