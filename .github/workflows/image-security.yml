@@ -1,5 +1,11 @@
 name: Veröffentlichtes Image prüfen
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/image-security.yml'
+      - '.github/scripts/image_vulnerability_review.py'
+      - 'tests/test_image_vulnerability_review.py'
   schedule:
     - cron: '17 7 * * 2'
   workflow_dispatch:
@@ -10,11 +16,12 @@ concurrency:
   cancel-in-progress: false
 jobs:
   scan:
-    if: github.repository == 'Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager'
+    if: github.repository == 'Railsimulatornet/UGREEN-NAS-Minecraft-Java-Manager' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
       contents: read
+      actions: read
       issues: write
     env:
       IMAGE_DIGEST: ${{ vars.MCJ_RELEASE_IMAGE_DIGEST }}
