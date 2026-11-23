@@ -156,10 +156,12 @@ jobs:
             manifest: guard-forge-1211.json
             image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
             memory: 8g
+            jdk8: true
           - adapter: forge-263
             folder: guard-forge-263
             manifest: guard-forge-263.json
             image: gradle@sha256:ca424744a6a45a575f333edea680696d980999c461be38b1574a4c70d5455f24
+            jdk8: true
           - adapter: neoforge-1211
             folder: guard-neoforge-1211
             manifest: guard-neoforge-1211.json
@@ -169,7 +171,7 @@ jobs:
         with:
           ref: ${{ env.SOURCE_REVISION }}
       - name: Verifiziertes Java 8 für Forge-Bauwerkzeuge bereitstellen
-        if: matrix.adapter == 'forge-263'
+        if: matrix.jdk8 == true
         shell: bash
         run: bash .github/scripts/prepare_guard_jdk8.sh "$RUNNER_TEMP/mcj-guard-jdk8"
       - name: Schutzkomponente aus dem Quellcode bauen und prüfen
@@ -179,13 +181,14 @@ jobs:
           GUARD_MANIFEST: ${{ matrix.manifest }}
           GRADLE_IMAGE: ${{ matrix.image }}
           GUARD_JDK8_DIR: ${{ runner.temp }}/mcj-guard-jdk8
+          GUARD_NEEDS_JDK8: ${{ matrix.jdk8 == true }}
           # Gradle, Mavenizer and the decompiler share this container budget.
           GUARD_MEMORY: ${{ matrix.memory || '8g' }}
         run: |
           set -euo pipefail
           mkdir -p .guard-gradle-cache
           jdk_options=()
-          if [[ "$GUARD_FOLDER" == guard-forge-263 ]]; then
+          if [[ "$GUARD_NEEDS_JDK8" == true ]]; then
             test -x "$GUARD_JDK8_DIR/bin/javac"
             jdk_options+=(--mount "type=bind,src=$GUARD_JDK8_DIR,dst=/opt/mcj-jdk8,readonly"
               --env JAVA_HOME_8=/opt/mcj-jdk8)
