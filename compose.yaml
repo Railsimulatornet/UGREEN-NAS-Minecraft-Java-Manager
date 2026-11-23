@@ -5,8 +5,6 @@ services:
     pull_policy: never
     build:
       context: /volume1/docker/minecraftjava/manager/source
-      args:
-        BASE_IMAGE: python:3.12-slim-trixie@sha256:6b25cbe6577518889d553cdd5a5da97d259348d8f6e45b527dd731caaba27a07
     container_name: mcj_manager
     user: "1009:10"
     init: true
