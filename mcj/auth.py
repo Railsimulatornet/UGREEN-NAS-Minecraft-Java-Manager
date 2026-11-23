@@ -339,7 +339,7 @@ def setup_totp(request:Request):
     st=store(request);user=can_enroll(request)
     secret=pyotp.random_base32()
     token=challenge(st,user['id'],'enroll_totp',data=st.seal(secret))
-    uri=pyotp.TOTP(secret).provisioning_uri(user['email'],issuer_name='MCJ Manager')
+    uri=pyotp.TOTP(secret).provisioning_uri(name=user['email'],issuer_name='MCJ Manager')
     # Generated locally: no enrollment secret is sent to a QR service.
     image=qrcode.make(uri,image_factory=SvgPathFillImage,border=4)
     qr='data:image/svg+xml;base64,'+base64.b64encode(image.to_string()).decode('ascii')

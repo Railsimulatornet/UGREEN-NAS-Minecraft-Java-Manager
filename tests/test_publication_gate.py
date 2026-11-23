@@ -16,3 +16,11 @@ def test_push_and_tags_cannot_publish_images():
     build_gate=workflow['jobs']['build']['if']
     assert "github.event_name == 'workflow_dispatch'" in build_gate
     assert 'inputs.build_image == true' in build_gate
+    assert "github.event_name == 'pull_request'" in build_gate
+    assert "github.event_name == 'push' && github.ref == 'refs/heads/main'" in build_gate
+    assert "needs.scope.result == 'success'" in build_gate
+    assert "needs.tests.result == 'success'" in build_gate
+    assert "needs.scope.outputs.targeted == 'true' && needs.guard.result == 'skipped'" in build_gate
+    assert 'github.event.pull_request.head.sha || github.sha' in workflow['env']['SOURCE_REVISION']
+    for name in ('scope','tests','guard','build'):
+        assert workflow['jobs'][name]['steps'][0]['with']['ref']=='${{ env.SOURCE_REVISION }}'
