@@ -4,8 +4,15 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      expected_revision:
+        description: 'Erwarteter vollständiger Merge-Commit für die Nachprüfung'
+        type: string
+        required: false
 permissions:
   contents: read
+env:
+  SOURCE_REVISION: ${{ github.event.pull_request.head.sha || github.sha }}
 jobs:
   scope:
     runs-on: ubuntu-latest
@@ -14,7 +21,19 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
+          ref: ${{ env.SOURCE_REVISION }}
           fetch-depth: 0
+      - name: Angeforderten Quellstand vor der Nachprüfung bestätigen
+        if: github.event_name == 'workflow_dispatch' && inputs.expected_revision != ''
+        env:
+          EXPECTED_REVISION: ${{ inputs.expected_revision }}
+        run: |
+          python3 - <<'PY'
+          import os, re
+          expected = os.environ['EXPECTED_REVISION']
+          if not re.fullmatch(r'[0-9a-f]{40}', expected) or expected != os.environ['GITHUB_SHA']:
+              raise SystemExit('Der angeforderte Merge-Commit ist nicht mehr der Workflow-Stand; keine Freigabe.')
+          PY
       - id: scope
         env:
           MCJ_FULL_VALIDATION: ${{ github.event_name == 'workflow_dispatch' }}
@@ -35,6 +54,8 @@ jobs:
         language: [python, javascript-typescript]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ env.SOURCE_REVISION }}
       - uses: github/codeql-action/init@33d7b85da1a04171e211befe2c739303b9a4c066 # v4
         with:
           languages: ${{ matrix.language }}
@@ -51,6 +72,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ env.SOURCE_REVISION }}
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
