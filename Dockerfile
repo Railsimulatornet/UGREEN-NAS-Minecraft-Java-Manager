@@ -8,9 +8,13 @@ ADD --checksum=sha256:2293b570f258dfc6e38e0bfdd3fa0e710324a7cf0449994304b524af8f
 ENV CGO_ENABLED=0 GOTOOLCHAIN=local
 RUN tar -xzf /compose-source.tar.gz --strip-components=1 -C /src \
     && go mod edit -require=golang.org/x/net@v0.62.0 \
-    && go build -mod=mod -trimpath -ldflags '-w -X github.com/docker/compose/v5/internal.Version=v5.6.1-mcj.2' -o /out/docker-compose ./cmd \
+    && go mod edit -require=github.com/containerd/containerd/v2@v2.4.2 \
+    && go build -mod=mod -trimpath -ldflags '-w -X github.com/docker/compose/v5/internal.Version=v5.6.1-mcj.3' -o /out/docker-compose ./cmd \
+    && test "$(go list -mod=mod -m -f '{{.Version}}' github.com/containerd/containerd/v2)" = v2.4.2 \
+    && test "$(go list -mod=mod -m -f '{{.Version}}' golang.org/x/net)" = v0.62.0 \
     && go list -mod=mod -deps ./cmd > /out/docker-compose-packages.txt \
     && go list -mod=mod -m all > /out/docker-compose-modules.txt \
+    && go version -m /out/docker-compose > /out/docker-compose-build.txt \
     && mkdir -p /out/docker-compose-licenses \
     && find /go/pkg/mod -type f \( -iname 'license*' -o -iname 'copying*' -o -iname 'notice*' -o -iname 'copyright*' \) -exec cp --parents '{}' /out/docker-compose-licenses/ \;
 FROM ${BASE_IMAGE}
@@ -50,6 +54,7 @@ COPY --from=compose_security /out/docker-compose /usr/local/libexec/docker/cli-p
 COPY --from=compose_security /src/LICENSE /opt/mcj/licenses/docker-compose-LICENSE
 COPY --from=compose_security /out/docker-compose-packages.txt /opt/mcj/licenses/docker-compose-packages.txt
 COPY --from=compose_security /out/docker-compose-modules.txt /opt/mcj/licenses/docker-compose-modules.txt
+COPY --from=compose_security /out/docker-compose-build.txt /opt/mcj/licenses/docker-compose-build.txt
 COPY --from=compose_security /out/docker-compose-licenses /opt/mcj/licenses/docker-compose-dependencies
 RUN chmod -R a+rX /opt/mcj
 USER 1009:10
