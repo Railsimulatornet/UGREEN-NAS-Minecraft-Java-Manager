@@ -174,7 +174,8 @@ jobs:
           GUARD_FOLDER: ${{ matrix.folder }}
           GUARD_MANIFEST: ${{ matrix.manifest }}
           GRADLE_IMAGE: ${{ matrix.image }}
-          GUARD_MEMORY: ${{ matrix.memory || '4g' }}
+          # Gradle, Mavenizer and the decompiler share this container budget.
+          GUARD_MEMORY: ${{ matrix.memory || '8g' }}
         run: |
           set -euo pipefail
           mkdir -p .guard-gradle-cache
