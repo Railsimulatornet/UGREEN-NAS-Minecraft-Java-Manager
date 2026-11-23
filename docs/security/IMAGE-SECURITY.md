@@ -2,6 +2,14 @@
 
 ## Deutsch
 
+### Wartungskandidat vom 23. November 2026
+
+Der Compose-Build verlangt jetzt `github.com/containerd/containerd/v2` **v2.4.2** und behält `golang.org/x/net` **v0.62.0** bei. Laut [containerd-Advisory](https://github.com/containerd/containerd/security/advisories/GHSA-vwhp-8p66-mq4f) korrigiert dieser Patch `CVE-2026-95839`. Der unveränderte Compose-Quellstand wird als `v5.6.1-mcj.3` gebaut. Der Build prüft beide tatsächlich aufgelösten Modulversionen und legt zusätzlich die Metadaten des erzeugten Binaries unter `/opt/mcj/licenses/docker-compose-build.txt` ab. Die Abnahme erfordert weiterhin einen erfolgreichen Build, die Compose-Funktionsprüfung und den vollständigen Image-Scan. Dies aktualisiert keinen externen Docker-/containerd-Dienst und keine bestehende NAS-Installation.
+
+Der Scan von PR #21 am Head `29909165b9de835d7464785e1033422daa8e7b61` enthielt außerdem zwei neue OpenSSL-Befunde: [CVE-2026-107494](https://security-tracker.debian.org/tracker/CVE-2026-107494) und [CVE-2026-124709](https://security-tracker.debian.org/tracker/CVE-2026-124709). Betroffen sind `libssl3t64`, `openssl` und `openssl-provider-legacy` **3.5.7-1~deb13u3** aus dem Basisimage. Debian führt am 23. November auch **3.5.9-1~deb13u1** weiterhin als betroffen. Ein verfügbares Trixie-Upgrade behebt diese beiden Befunde derzeit nicht.
+
+Beide Fehler benötigen die OpenSSL-QUIC-Verarbeitung. In den geprüften ausgelieferten Aufrufen von Manager, Controller und Einrichtung sind nur Uvicorn/TCP sowie normales Python-TLS für HTTPS/SMTP erkennbar; kein QUIC-Aufrufer. Dies ist eine statische Abgrenzung, kein Paketfix oder dynamischer Exploit-Test. Zusätzlicher nativer Code und manuell gestartete QUIC-Programme sind davon nicht abgedeckt. Die bestehende Baseline bleibt unverändert; beide neuen Befunde blockieren die Image-Freigabe. Sobald Debian eine Korrektur für beide CVEs bestätigt, sind Paketupdate, Neubau und vollständiger Scan erforderlich.
+
 ### Version 1.0.2 – zlib-Korrektur vom 12. November 2026
 
 Neue Image-Builds aktualisieren `zlib1g` auf **1:1.3.dfsg+really1.3.1-1+deb13u1**. Debian behebt damit `CVE-2026-76844` und `CVE-2026-85091`. Die Image-Prüfung kontrolliert die installierte Debian-Paketversion; die unveränderte zlib-Versionsnummer allein weist diese rückportierte Korrektur nicht nach. [Debians Sicherheitsupdate](https://lists.debian.org/debian-security-announce/2026/msg00532.html).
@@ -54,6 +62,14 @@ Dieser SQLite-Befund betrifft eine FTS5-Tabelle mit `detail=none`, negativen Zei
 Diese zusätzliche statische Bewertung gilt für die ausgelieferten Aufrufe. Sie unterdrückt den Scannerbefund nicht. Neue FTS-Funktionen, Datenbankimporte, andere Paketstände oder ein verfügbarer Paketfix müssen erneut bewertet werden. [Debians Befund und Paketstatus](https://security-tracker.debian.org/tracker/CVE-2026-119373) und die dort verlinkte SQLite-Korrektur sind die Primärquellen.
 
 ## English
+
+### Maintenance candidate, 23 November 2026
+
+The Compose build now requires `github.com/containerd/containerd/v2` **v2.4.2**, retaining `golang.org/x/net` **v0.62.0**. The containerd advisory linked above identifies this patch as the fix for `CVE-2026-95839`. The pinned Compose source is built as `v5.6.1-mcj.3`; the build checks both resolved module versions and records binary metadata in `/opt/mcj/licenses/docker-compose-build.txt`. Acceptance still requires a successful build, Compose functional checks and a full image scan. This does not update an external Docker/containerd daemon or existing NAS installation.
+
+The PR #21 scan at head `29909165b9de835d7464785e1033422daa8e7b61` also found two new OpenSSL CVEs, `CVE-2026-107494` and `CVE-2026-124709`, in `libssl3t64`, `openssl` and `openssl-provider-legacy` **3.5.7-1~deb13u3** from the base image. On 23 November, Debian also lists **3.5.9-1~deb13u1** as affected by both. No available Trixie upgrade currently fixes them.
+
+Both issues require OpenSSL QUIC processing. The reviewed shipped manager, controller and setup paths use Uvicorn/TCP and ordinary Python TLS for HTTPS/SMTP, with no QUIC caller identified. This is a static scope assessment, not a package fix or dynamic exploit test; additional native code and manually started QUIC programs are outside it. The existing baseline is unchanged and both findings block image approval. A Debian-confirmed fix for both CVEs must be followed by a package update, rebuild and full scan.
 
 ### Version 1.0.2 – zlib fix, 12 November 2026
 

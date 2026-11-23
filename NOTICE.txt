@@ -27,11 +27,13 @@ mcj/client_pack_resources/ (in generated client packs: MCJ-LICENSES).
 Pixelify Sans: Copyright 2021 The Pixelify Sans Project Authors.
 SIL Open Font License 1.1: mcj/static/assets/licenses/PixelifySans-OFL.txt.
 Source: https://github.com/google/fonts/tree/main/ofl/pixelifysans
-Docker Compose v5.6.1-mcj.2: Apache-2.0, Docker Compose authors.
+Docker Compose v5.6.1-mcj.3: Apache-2.0, Docker Compose authors.
 Source: https://github.com/docker/compose/tree/6cbc19a3fd59e305fb814dca4d854a4fb67d2941
 The local build updates golang.org/x/net to v0.62.0 with its resolved dependencies.
+It also updates github.com/containerd/containerd/v2 to v2.4.2 for CVE-2026-95839.
 The compiled package list is included at /opt/mcj/licenses/docker-compose-packages.txt.
 Resolved modules are listed at /opt/mcj/licenses/docker-compose-modules.txt.
+Binary build metadata is included at /opt/mcj/licenses/docker-compose-build.txt.
 License, copying, notice and copyright files from the downloaded module sources
 are included at /opt/mcj/licenses/docker-compose-dependencies/.
 Its complete license is included in the image at /opt/mcj/licenses/docker-compose-LICENSE.
