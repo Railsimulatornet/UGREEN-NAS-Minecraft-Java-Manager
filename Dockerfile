@@ -40,7 +40,7 @@ RUN set -eu; \
         dpkg --compare-versions "$installed" lt "$version"; \
         set -- "$@" "$minimum"; \
     done; \
-    if [ -n "$OPENSSL_MINIMUM" ]; then \
+    if [ -n "${OPENSSL_MINIMUM:-}" ]; then \
         dpkg --validate-version "$OPENSSL_MINIMUM"; \
         for package in libssl3t64 openssl openssl-provider-legacy; do \
             installed="$(dpkg-query -W -f='${Version}' "$package")"; \
