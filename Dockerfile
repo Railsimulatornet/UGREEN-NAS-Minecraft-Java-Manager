@@ -1,5 +1,5 @@
-FROM docker:29.9.2-cli@sha256:5e6baf67325a79f64ed3bed6863954d5e05d0f3d4e57cbdb14809346814bbfdb AS docker_cli
-FROM golang:1.26.10-bookworm@sha256:632dff7351799a5a9954a48dc06670ade72ee44e8c351cdc0e5a57af2fea21af AS compose_security
+FROM docker:29.10.0-cli@sha256:34507eb5069d8be82c95dd3b6987d4250fd5fee49b82e2509b7d7a7030740d6d AS docker_cli
+FROM golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea AS compose_security
 WORKDIR /src
 ADD --checksum=sha256:2293b570f258dfc6e38e0bfdd3fa0e710324a7cf0449994304b524af8fb4f06c https://codeload.github.com/docker/compose/tar.gz/6cbc19a3fd59e305fb814dca4d854a4fb67d2941 /compose-source.tar.gz
 ENV CGO_ENABLED=0 GOTOOLCHAIN=local
@@ -14,7 +14,7 @@ RUN tar -xzf /compose-source.tar.gz --strip-components=1 -C /src \
     && go version -m /out/docker-compose > /out/docker-compose-build.txt \
     && mkdir -p /out/docker-compose-licenses \
     && find /go/pkg/mod -type f \( -iname 'license*' -o -iname 'copying*' -o -iname 'notice*' -o -iname 'copyright*' \) -exec cp --parents '{}' /out/docker-compose-licenses/ \;
-FROM python:3.12-slim-trixie@sha256:6b25cbe6577518889d553cdd5a5da97d259348d8f6e45b527dd731caaba27a07
+FROM python:3.15-slim-trixie@sha256:65a65fc7b30b06cb6df4930fd4650697cb23f4c2698ab81fc87e4b031bc36928
 ARG APP_VERSION=1.0.2
 ARG BUILD_REVISION=unknown
 ARG BUILD_CREATED=unknown
