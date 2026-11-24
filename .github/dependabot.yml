@@ -12,6 +12,14 @@ updates:
       prefix: Python-Pakete aktualisieren
     groups:
       python-patches:
+        patterns:
+          - anyio
+          - pydantic
+          - pydantic-core
+          - python-multipart
+          - typing-inspection
+        update-types: [patch]
+      python-patches-pruefen:
         patterns: ['*']
         update-types: [patch]
       python-versionen:
