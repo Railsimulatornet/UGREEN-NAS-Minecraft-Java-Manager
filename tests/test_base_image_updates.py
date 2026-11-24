@@ -26,7 +26,7 @@ NEWER = {
 }
 
 
-def run_package_step(tmp_path, versions, fail_command=''):
+def run_package_step(tmp_path, versions, fail_command='', openssl_minimum=None):
     dockerfile = (ROOT / 'Dockerfile').read_text()
     block = re.search(r'(?ms)^RUN set -eu;.*?(?=^[A-Z]+\s)', dockerfile)
     assert block is not None
@@ -61,6 +61,9 @@ if os.environ.get('MCJ_TEST_APT_FAIL') in sys.argv[1:]:
         'MCJ_TEST_APT_LOG': str(log),
         'MCJ_TEST_APT_FAIL': fail_command,
     }
+    env.pop('OPENSSL_MINIMUM', None)
+    if openssl_minimum is not None:
+        env['OPENSSL_MINIMUM'] = openssl_minimum
     result = subprocess.run(['/bin/sh', '-c', script], env=env, capture_output=True, text=True)
     calls = [json.loads(line) for line in log.read_text().splitlines()] if log.exists() else []
     return result, calls
@@ -100,6 +103,23 @@ def test_package_manager_failure_is_not_ignored(tmp_path, command):
     result, calls = run_package_step(tmp_path, OLDER, fail_command=command)
     assert result.returncode == 73
     assert calls[-1][2] == command
+
+
+def test_openssl_check_only_upgrades_packages_below_requested_version(tmp_path):
+    version = '3.5.9-1~deb13u2'
+    installed = {
+        **MINIMUM,
+        'libssl3t64': '3.5.9-1~deb13u1',
+        'openssl': '3.5.9-1~deb13u3',
+        'openssl-provider-legacy': '3.5.9-1~deb13u1',
+    }
+    result, calls = run_package_step(tmp_path, installed, openssl_minimum=version)
+    assert result.returncode == 0, result.stderr
+    assert calls == [
+        ['-o', 'Acquire::Retries=0', 'update'],
+        ['-o', 'Acquire::Retries=0', 'install', '--only-upgrade', '--no-install-recommends', '-y',
+         'libssl3t64='+version, 'openssl-provider-legacy='+version],
+    ]
 
 
 def test_base_images_are_directly_visible_to_dependency_updates():
