@@ -1,4 +1,5 @@
 name: Tests und Docker-Image
+run-name: ${{ inputs.openssl_minimum != '' && format('OpenSSL {0} @ {1}', inputs.openssl_minimum, github.sha) || github.event.pull_request.title || github.event.head_commit.message || github.workflow }}
 on:
   push:
     branches: [main]
@@ -35,6 +36,10 @@ on:
         description: 'Erwarteter Quell-Commit für Nachprüfung oder anonymen Download'
         type: string
         required: false
+      openssl_minimum:
+        description: 'Veröffentlichte Debian-Version für einen gezielten OpenSSL-Testbuild'
+        type: string
+        required: false
       expected_digest:
         description: 'Für die anonyme Prüfung: erwarteter Registry-Digest sha256:…'
         type: string
@@ -67,6 +72,13 @@ jobs:
           if not re.fullmatch(r'[0-9a-f]{40}', expected) or expected != os.environ['GITHUB_SHA']:
               raise SystemExit('Der angeforderte Merge-Commit ist nicht mehr der Workflow-Stand; keine Freigabe.')
           PY
+      - name: Debian-Paketversion für den Testbuild prüfen
+        if: github.event_name == 'workflow_dispatch' && inputs.openssl_minimum != ''
+        env:
+          OPENSSL_MINIMUM: ${{ inputs.openssl_minimum }}
+        run: |
+          python3 -c 'import os,re; assert re.fullmatch(r"[0-9][0-9A-Za-z.+:~-]{0,79}", os.environ["OPENSSL_MINIMUM"])'
+          dpkg --validate-version "$OPENSSL_MINIMUM"
       - id: scope
         env:
           MCJ_FULL_VALIDATION: ${{ inputs.full_validation }}
@@ -240,6 +252,7 @@ jobs:
             APP_VERSION=${{ steps.release.outputs.version }}
             BUILD_REVISION=${{ env.SOURCE_REVISION }}
             BUILD_CREATED=${{ steps.release.outputs.created }}
+            OPENSSL_MINIMUM=${{ inputs.openssl_minimum }}
           outputs: type=docker,dest=/tmp/mcj-image.tar
           provenance: false
       - name: Verify packaged entry points
@@ -248,6 +261,18 @@ jobs:
           docker load --input /tmp/mcj-image.tar
           docker run --rm --network none --read-only --cap-drop ALL --entrypoint python mcj-candidate:ci -c "import subprocess;[subprocess.run(['dpkg','--compare-versions',subprocess.check_output(['dpkg-query','-W',p],text=True).split()[1],'ge',v],check=True)for p,v in {'apt':'3.0.4','libapt-pkg7.0':'3.0.4','zlib1g':'1:1.3.dfsg+really1.3.1-1+deb13u1'}.items()]"
           docker run --rm --network none --read-only --cap-drop ALL --entrypoint python mcj-candidate:ci -c "import sys,runpy,os;sys.path=['/opt/mcj/tools']+[p for p in sys.path if p not in ['', '/opt/mcj']];os.chdir('/');runpy.run_path('/opt/mcj/tools/browser_setup.py',run_name='probe');runpy.run_path('/opt/mcj/tools/bootstrap_worker.py',run_name='probe')"
+      - name: Installierte OpenSSL-Paketversionen bestätigen
+        if: github.event_name == 'workflow_dispatch' && inputs.openssl_minimum != ''
+        env:
+          OPENSSL_MINIMUM: ${{ inputs.openssl_minimum }}
+        run: |
+          docker run --rm --network none --read-only --cap-drop ALL --entrypoint sh mcj-candidate:ci -ec '
+            for package in libssl3t64 openssl openssl-provider-legacy; do
+              installed="$(dpkg-query -W -f="\${Version}" "$package")"
+              dpkg --compare-versions "$installed" ge "$1"
+              printf "%s %s\n" "$package" "$installed"
+            done
+          ' sh "$OPENSSL_MINIMUM"
       - name: Vollständigen Image-Schwachstellenbericht erstellen
         id: full_scan
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25

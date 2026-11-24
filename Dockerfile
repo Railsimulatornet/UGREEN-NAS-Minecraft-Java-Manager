@@ -18,6 +18,7 @@ FROM python:3.12-slim-trixie@sha256:6b25cbe6577518889d553cdd5a5da97d259348d8f6e4
 ARG APP_VERSION=1.0.2
 ARG BUILD_REVISION=unknown
 ARG BUILD_CREATED=unknown
+ARG OPENSSL_MINIMUM=
 LABEL org.opencontainers.image.title="MCJ Manager" \
       org.opencontainers.image.version="${APP_VERSION}" \
       org.opencontainers.image.revision="${BUILD_REVISION}" \
@@ -39,6 +40,15 @@ RUN set -eu; \
         dpkg --compare-versions "$installed" lt "$version"; \
         set -- "$@" "$minimum"; \
     done; \
+    if [ -n "$OPENSSL_MINIMUM" ]; then \
+        dpkg --validate-version "$OPENSSL_MINIMUM"; \
+        for package in libssl3t64 openssl openssl-provider-legacy; do \
+            installed="$(dpkg-query -W -f='${Version}' "$package")"; \
+            dpkg --validate-version "$installed"; \
+            if dpkg --compare-versions "$installed" ge "$OPENSSL_MINIMUM"; then continue; fi; \
+            set -- "$@" "$package=$OPENSSL_MINIMUM"; \
+        done; \
+    fi; \
     if [ "$#" -gt 0 ]; then \
         apt-get -o Acquire::Retries=0 update; \
         apt-get -o Acquire::Retries=0 install --only-upgrade --no-install-recommends -y "$@"; \
