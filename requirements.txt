@@ -17,10 +17,10 @@ idna==3.20
 opentelemetry-api==1.45.2
 packaging==26.3
 pycparser==3.12
-pydantic==2.14.3
-pydantic_core==2.50.4
+pydantic==2.14.4
+pydantic_core==2.50.5
 PyOTP==2.10.0
-python-multipart==0.0.33
+python-multipart==0.0.34
 requests==2.34.2
 starlette==1.10.0
 typing-inspection==0.4.5
